@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
     public float moveDrag = 0.1f;
     public float accelerationFactor = 1;
     public float jumpForce = 5;
+    public float jumpMovementReduction = 1;
     public bool isGrounded = false;
     public float groundDetectDistance = 0.5f;
-    public float gravityMagnitude;
     Vector3 velocity;
     Vector3 acceleration;
+
 
     void Start()
     {
@@ -26,26 +27,50 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //movement
-        if(Input.GetAxisRaw("Horizontal") > 0)
+        if (isGrounded)
         {
-            velocity.x += 1 * moveSpeed;
+            //movement
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                velocity.x += 1 * moveSpeed;
+            }
+            if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                velocity.x -= 1 * moveSpeed;
+            }
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                velocity.z += 1 * moveSpeed;
+            }
+            if (Input.GetAxisRaw("Vertical") < 0)
+            {
+                velocity.z -= 1 * moveSpeed;
+            }
+
+            velocity /= moveDrag; //reduce velocity vector to look like drag
         }
-        if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            velocity.x -= 1 * moveSpeed;
-        }
-        if (Input.GetAxisRaw("Vertical") > 0)
-        {
-            velocity.z += 1 * moveSpeed;
-        }
-        if (Input.GetAxisRaw("Vertical") < 0)
-        {
-            velocity.z -= 1 * moveSpeed;
+        else {
+            //reduced movement
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                velocity.x += (1 * moveSpeed) / jumpMovementReduction;
+            }
+            if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                velocity.x -= (1 * moveSpeed) / jumpMovementReduction;
+            }
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                velocity.z += (1 * moveSpeed) / jumpMovementReduction;
+            }
+            if (Input.GetAxisRaw("Vertical") < 0)
+            {
+                velocity.z -= (1 * moveSpeed) / jumpMovementReduction;
+            }
         }
 
+
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed); //clamping instead of normalizing
-        velocity /= moveDrag; //reduce velocity vector to look like drag
         transform.position += velocity; //apply velocity to transform
 
 
@@ -58,7 +83,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
         }
-        
 
     }
 }
