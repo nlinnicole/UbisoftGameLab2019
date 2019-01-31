@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     public float jumpMovementReduction = 1;
     public bool isGrounded = false;
     public float groundDetectDistance = 0.5f;
+    public float rotationLerpAmount;
     Vector3 velocity;
     Vector3 acceleration;
-
+    Vector3 faceDirection;
+    Vector3 lastFacingDirection;
 
     void Start()
     {
@@ -83,6 +85,11 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
         }
+
+
+        faceDirection = Vector3.Lerp(transform.position + transform.forward, transform.position + velocity, rotationLerpAmount);
+        transform.LookAt(faceDirection);
+        lastFacingDirection = velocity;
 
     }
 }
