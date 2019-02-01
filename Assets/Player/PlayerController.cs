@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 1f;
+    public float sprintMultiplier;
     public float rotationSpeed = 1f;
     public float moveDrag = 0.1f;
     public float accelerationFactor = 1;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float rotationLerpAmount;
     Vector3 velocity;
     Vector3 faceDirection;
+    float sprintMod = 1;
 
     void Start()
     {
@@ -23,6 +25,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(Input.GetAxisRaw("Run") > 0)
+        {
+            sprintMod = sprintMultiplier;
+        } else {
+            sprintMod = 1;
+        }
+
         faceDirection = Vector3.zero;
         if (isGrounded)
         {
@@ -80,8 +89,9 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationLerpAmount);
         }
 
-        velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed); //clamping instead of normalizing
-        transform.position += velocity; //apply velocity to transform
+        velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod; //clamping instead of normalizing
+        transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
+        //transform.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
 
         //check if on the ground
         if(Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
@@ -91,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetAxisRaw("Jump") > 0 && isGrounded)
         {
             isGrounded = false;
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 }
