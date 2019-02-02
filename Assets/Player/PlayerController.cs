@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(Input.GetAxisRaw("Run") > 0)
+        if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
         {
             sprintMod = sprintMultiplier;
         } else {
