@@ -18,14 +18,10 @@ public class PlayerController : MonoBehaviour
     Vector3 faceDirection;
     float sprintMod = 1;
 
-    void Start()
-    {
-        
-    }
-
+    //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
-        if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0))
+        if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && isGrounded)
         {
             sprintMod = sprintMultiplier;
         } else {
@@ -92,6 +88,8 @@ public class PlayerController : MonoBehaviour
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod; //clamping instead of normalizing
         transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
         //transform.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
+
+
 
         //check if on the ground
         if(Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
