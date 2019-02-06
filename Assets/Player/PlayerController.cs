@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,13 +21,87 @@ public class PlayerController : MonoBehaviour
     float rollMod = 1;
     public float groundDetectDistance = 0.5f;
     public float rotationLerpAmount;
+    public GameObject heldItem;
+    public float itemPickupDistance;
+    public GameObject inventory;
+    public GameObject swapText;
+    public float swapCooldown = 1;
+    public float playerSwapDelay = 1;
+    float playerSwapCountdown;
+
     Vector3 velocity;
     Vector3 faceDirection;
     float sprintMod = 1;
+    LayerMask itemLayerMask;
+    Collider[] nearbyItems;
+
+    void Start()
+    {
+        itemLayerMask = LayerMask.GetMask("Items");
+    }
+
 
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+
+        //item pickup
+        nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
+        nearbyItems = Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask);
+        if (nearbyItems.Length > 0)
+        {
+
+            if (nearbyItems.Length > 0 && heldItem != null)
+            {
+                if (nearbyItems[0].GetComponent<Item>().swapCountDown <= 0 && playerSwapCountdown <= 0)
+                {
+                    swapText.gameObject.SetActive(true);
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        playerSwapCountdown = playerSwapDelay;
+                       
+                        //old item
+                        heldItem.layer = 10;
+                        heldItem.transform.parent = null;
+                        heldItem.GetComponent<Item>().swapCountDown = swapCooldown;
+                        heldItem.GetComponent<Rigidbody>().isKinematic = false;
+
+                        //new item
+                        heldItem = nearbyItems[0].gameObject;
+                        heldItem.transform.position = inventory.transform.position;
+                        heldItem.transform.parent = inventory.transform;
+                        heldItem.layer = 0;
+                        heldItem.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                } else {
+                    swapText.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                swapText.gameObject.SetActive(false);
+            }
+
+
+
+            if (heldItem == null)
+            {
+                heldItem = nearbyItems[0].gameObject;
+                heldItem.transform.position = inventory.transform.position;
+                heldItem.transform.parent = inventory.transform;
+                heldItem.layer = 0;
+                heldItem.GetComponent<Rigidbody>().isKinematic = true;
+            }
+
+
+
+        } else {
+            swapText.gameObject.SetActive(false);
+        }
+
+        playerSwapCountdown -= Time.deltaTime;
+
+
         //sprint
         //if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && isGrounded)
         //{
@@ -36,7 +111,7 @@ public class PlayerController : MonoBehaviour
         //}
 
         //roll
-        if (Input.GetAxisRaw("Run") > 0 && isGrounded && !isRolling)
+        if (Input.GetButtonDown("Run") && isGrounded && !isRolling)
         {
             isGrounded = false;
             isRolling = true;
