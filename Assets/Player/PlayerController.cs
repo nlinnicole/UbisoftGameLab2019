@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
                         heldItem.transform.parent = null;
                         heldItem.GetComponent<Item>().swapCountDown = swapCooldown;
                         heldItem.GetComponent<Rigidbody>().isKinematic = false;
+                        heldItem.GetComponent<Rigidbody>().useGravity = true;
+
 
                         //new item
                         heldItem = nearbyItems[0].gameObject;
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
                         heldItem.transform.parent = inventory.transform;
                         heldItem.layer = 0;
                         heldItem.GetComponent<Rigidbody>().isKinematic = true;
+                        heldItem.GetComponent<Rigidbody>().useGravity = false;
                     }
                 } else {
                     swapText.gameObject.SetActive(false);
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
                 heldItem.transform.parent = inventory.transform;
                 heldItem.layer = 0;
                 heldItem.GetComponent<Rigidbody>().isKinematic = true;
+                heldItem.GetComponent<Rigidbody>().useGravity = false;
             }
 
 
@@ -202,7 +206,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
-        if(Input.GetAxisRaw("Jump") > 0 && isGrounded)
+        if(Input.GetButtonDown("Jump") && isGrounded)
         {
             isGrounded = false;
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
