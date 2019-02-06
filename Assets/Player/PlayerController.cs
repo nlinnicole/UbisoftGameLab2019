@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5;
     public float jumpMovementReduction = 1;
     public bool isGrounded = false;
+    public bool isRolling = false;
+    public float rollMultiplier = 1;
+    public float rollDuration = 1;
+    public float rollCooldown = 0.5f;
+    float rollTime = 0;
+    float rollMod = 1;
     public float groundDetectDistance = 0.5f;
     public float rotationLerpAmount;
     Vector3 velocity;
@@ -21,12 +27,37 @@ public class PlayerController : MonoBehaviour
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
-        if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && isGrounded)
+        //sprint
+        //if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && isGrounded)
+        //{
+        //    sprintMod = sprintMultiplier;
+        //} else {
+        //    sprintMod = 1;
+        //}
+
+        //roll
+        if (Input.GetAxisRaw("Run") > 0 && isGrounded && !isRolling)
         {
-            sprintMod = sprintMultiplier;
+            isGrounded = false;
+            isRolling = true;
+
+            rollTime = 0;
+        } 
+
+        if(isRolling && rollTime < rollDuration)
+        {
+            rollMod = rollMultiplier;
+            rollTime += Time.deltaTime;
+            isGrounded = false;
+        } else if(isRolling && rollTime < rollDuration + rollCooldown) {
+            rollTime += Time.deltaTime;
+            isGrounded = true;
+            rollMod = 1;
         } else {
-            sprintMod = 1;
+            isRolling = false;
+            rollMod = 1;
         }
+
 
         faceDirection = Vector3.zero;
         if (isGrounded)
@@ -85,7 +116,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationLerpAmount);
         }
 
-        velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod; //clamping instead of normalizing
+        velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
         transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
         //transform.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
 
