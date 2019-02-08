@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    public int playerNumber = 1;
     public float moveSpeed = 1f;
     public float sprintMultiplier;
     public float rotationSpeed = 1f;
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 if (nearbyItems[0].GetComponent<Item>().swapCountDown <= 0 && playerSwapCountdown <= 0)
                 {
                     swapText.gameObject.SetActive(true);
-                    if (Input.GetButtonDown("Fire1"))
+                    if (Input.GetButtonDown("Fire" + playerNumber))
                     {
                         playerSwapCountdown = playerSwapDelay;
                        
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
         //}
 
         //roll
-        if (Input.GetButtonDown("Run") && isGrounded && !isRolling)
+        if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
         {
             isGrounded = false;
             isRolling = true;
@@ -142,22 +143,22 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             //movement
-            if (Input.GetAxisRaw("Horizontal") > 0)
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
                 velocity.x += 1 * moveSpeed;
                 faceDirection.x = 1;
             }
-            if (Input.GetAxisRaw("Horizontal") < 0)
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
                 velocity.x -= 1 * moveSpeed;
                 faceDirection.x = -1;
             }
-            if (Input.GetAxisRaw("Vertical") > 0)
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
                 velocity.z += 1 * moveSpeed;
                 faceDirection.z = 1;
             }
-            if (Input.GetAxisRaw("Vertical") < 0)
+            if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
                 velocity.z -= 1 * moveSpeed;
                 faceDirection.z = -1;
@@ -167,22 +168,22 @@ public class PlayerController : MonoBehaviour
         }
         else {
             //reduced movement when jumping
-            if (Input.GetAxisRaw("Horizontal") > 0)
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
                 velocity.x += (1 * moveSpeed) / jumpMovementReduction;
                 faceDirection.x = 1;
             }
-            if (Input.GetAxisRaw("Horizontal") < 0)
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
                 velocity.x -= (1 * moveSpeed) / jumpMovementReduction;
                 faceDirection.x = -1;
             }
-            if (Input.GetAxisRaw("Vertical") > 0)
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
                 velocity.z += (1 * moveSpeed) / jumpMovementReduction;
                 faceDirection.z = 1;
             }
-            if (Input.GetAxisRaw("Vertical") < 0)
+            if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
                 velocity.z -= (1 * moveSpeed) / jumpMovementReduction;
                 faceDirection.z = -1;
@@ -206,7 +207,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButtonDown("Jump"+ playerNumber) && isGrounded)
         {
             isGrounded = false;
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
