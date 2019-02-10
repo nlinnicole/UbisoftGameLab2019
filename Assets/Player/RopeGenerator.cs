@@ -28,6 +28,12 @@ public class RopeGenerator : MonoBehaviour
             GameObject newJoint = Instantiate(RopeJointPrefab, transform);
             newJoint.transform.localScale = new Vector3(ropeRadius, (ropeLength / ropeResolution)/2, ropeRadius);
             newJoint.transform.localPosition = new Vector3(0, -(ropeLength / ropeResolution) * i, 0);
+            newJoint.GetComponent<ConfigurableJoint>().projectionMode = JointProjectionMode.PositionAndRotation;
+
+            SoftJointLimit softJointLimit = new SoftJointLimit();
+            softJointLimit.limit = ropeLength / ropeResolution;
+            newJoint.GetComponent<ConfigurableJoint>().linearLimit = softJointLimit;
+
             if (i > 0)
             {
                 newJoint.GetComponent<ConfigurableJoint>().connectedBody = ropeJoints[i - 1].GetComponent<Rigidbody>();
