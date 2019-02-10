@@ -14,13 +14,13 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5;
     public float jumpMovementReduction = 1;
     public bool isGrounded = false;
+    public float groundDetectDistance = 0.6f;
     public bool isRolling = false;
     public float rollMultiplier = 1;
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
     float rollTime = 0;
     float rollMod = 1;
-    public float groundDetectDistance = 0.5f;
     public float rotationLerpAmount;
     public GameObject heldItem;
     public float itemPickupDistance;
@@ -45,6 +45,18 @@ public class PlayerController : MonoBehaviour
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+
+        //check if on the ground
+        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
+        {
+            isGrounded = true;
+        }
+        if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded)
+        {
+            isGrounded = false;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
 
         //item pickup
         nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
@@ -202,15 +214,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-        //check if on the ground
-        if(Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
-        {
-            isGrounded = true;
-        }
-        if(Input.GetButtonDown("Jump"+ playerNumber) && isGrounded)
-        {
-            isGrounded = false;
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+
+
+
     }
 }
