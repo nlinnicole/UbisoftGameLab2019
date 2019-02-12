@@ -213,9 +213,12 @@ public class PlayerController : MonoBehaviour
         //transform.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
 
 
-
-
-
-
     }
+
+    public void changePlayerSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
 }
+ 

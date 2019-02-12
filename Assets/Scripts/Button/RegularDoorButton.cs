@@ -12,7 +12,9 @@ public class RegularDoorButton : MonoBehaviour
     private float doorDuration = 3f;
 
     private float doorTimer;
-    private bool doorMoving = false;
+    private bool doorOpening = false;
+    private bool doorClosing = false;
+
 
     void Start()
     {
@@ -21,7 +23,8 @@ public class RegularDoorButton : MonoBehaviour
 
     void Update()
     {
-        if (doorMoving)
+
+        if (doorOpening)
         {
             if(door.transform.position.y < 4f)
             {
@@ -29,14 +32,19 @@ public class RegularDoorButton : MonoBehaviour
             }
             else
             {
-                doorMoving = false;
+                doorOpening = false;
+                doorClosing = true;
             }
         }
-        else if (Time.time > doorTimer + doorDuration)
+        else if (doorClosing && Time.time > doorTimer + doorDuration)
         {
             if(door.transform.position.y > 1.3f)
             {
                 door.transform.Translate(Vector3.down * Time.deltaTime * doorSpeed, Space.World);
+            }
+            else
+            {
+                doorClosing = false;
             }
         }
 
@@ -45,6 +53,6 @@ public class RegularDoorButton : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         doorTimer = Time.time;
-        doorMoving = true;
+        doorOpening = true;
     }
 }
