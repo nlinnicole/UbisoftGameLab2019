@@ -7,36 +7,50 @@ public class PlayerController : MonoBehaviour
 {
 
     public int playerNumber = 1;
+    [Header("Movement")]
     public float moveSpeed = 1f;
     public float sprintMultiplier;
     public float rotationSpeed = 1f;
-    public float moveDrag = 0.1f;
+    [Range(1, 2)]
+    public float deceleration = 1f; //lower means slower deceleration
     public float accelerationFactor = 1;
+    public float rotationLerpAmount;
+
+    [Header("Jump")]
     public float jumpForce = 5;
     public float jumpMovementReduction = 1;
     public bool isGrounded = false;
+    public float jumpCooldown = 0.2f;
+    float jumpCooldownCount = 0f;
+    public bool jumpCooldownFinished = true;
     public float groundDetectDistance = 0.6f;
+    public Vector3 velocity;
+
+
+    [Header("Roll")]
     public bool isRolling = false;
     public float rollMultiplier = 1;
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
     float rollTime = 0;
     float rollMod = 1;
-    public float rotationLerpAmount;
+
+    [Header("Item")]
     public GameObject heldItem;
     public float itemPickupDistance;
     public GameObject inventory;
     public GameObject swapText;
     public float swapCooldown = 1;
     public float playerSwapDelay = 1;
-    float playerSwapCountdown;
-    public enum Ability { anchor, ball }
+    float playerSwapCountdown = 0;
+
+    [Header("Ability")]
     public Ability ability;
-    public bool abilityOn = false;
+    public enum Ability { anchor, ball }
     public GameObject body;
+    public bool abilityOn = false;
     public float ballRadius = 0.01f;
 
-    Vector3 velocity;
     Vector3 faceDirection;
     float sprintMod = 1;
     LayerMask itemLayerMask;
@@ -47,32 +61,41 @@ public class PlayerController : MonoBehaviour
         itemLayerMask = LayerMask.GetMask("Items");
 
         //make ball mesh
-        if(ability == Ability.ball)
-        {
-            Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
-            for (int i = 0; i < verts.Length; i++)
-            {
-                verts[i] = verts[i].normalized * ballRadius;
-            }
-            body.GetComponent<MeshFilter>().mesh.vertices = verts;
-            gameObject.GetComponent<SphereCollider>().enabled = true;
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-            body.transform.localPosition = Vector3.zero;
-        }
+        //if(ability == Ability.ball)
+        //{
+        //    Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
+        //    for (int i = 0; i < verts.Length; i++)
+        //    {
+        //        verts[i] = verts[i].normalized * ballRadius;
+        //    }
+        //    body.GetComponent<MeshFilter>().mesh.vertices = verts;
+        //    gameObject.GetComponent<SphereCollider>().enabled = true;
+        //    gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        //    body.transform.localPosition = Vector3.zero;
+        //}
     }
 
 
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
-
+        if (jumpCooldownCount > 0)
+        {
+            jumpCooldownCount -= Time.deltaTime;
+        }
+        else
+        {
+            jumpCooldownFinished = true;
+        }
         //check if on the ground
         if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
         {
             isGrounded = true;
         }
-        if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded)
+        if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
         {
+            jumpCooldownCount = jumpCooldown;
+            jumpCooldownFinished = false;
             isGrounded = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -196,7 +219,7 @@ public class PlayerController : MonoBehaviour
                 faceDirection.z = -1;
             }
 
-            velocity /= moveDrag; //reduce velocity vector to look like drag
+            velocity /= deceleration; //reduce velocity vector to look like drag
         }
         else {
             //reduced movement when jumping
@@ -229,8 +252,8 @@ public class PlayerController : MonoBehaviour
         }
 
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-        transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
-        //transform.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
+        //transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
+        transform.position += velocity/100;   
 
         if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
         {

@@ -20971,20 +20971,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
-  moveSpeed: 10
+  moveSpeed: 1
   sprintMultiplier: 2
   rotationSpeed: 1
-  moveDrag: 1.3
+  deceleration: 1.057
   accelerationFactor: 1
+  rotationLerpAmount: 0.3
   jumpForce: 7
   jumpMovementReduction: 30
   isGrounded: 0
-  groundDetectDistance: 0.6
+  jumpCooldown: 0.2
+  jumpCooldownFinished: 1
+  groundDetectDistance: 1.55
+  velocity: {x: 0, y: 0, z: 0}
   isRolling: 0
   rollMultiplier: 3
   rollDuration: 0.25
   rollCooldown: 1
-  rotationLerpAmount: 0.3
   heldItem: {fileID: 0}
   itemPickupDistance: 3
   inventory: {fileID: 8261077641262747840}
@@ -20992,8 +20995,8 @@ MonoBehaviour:
   swapCooldown: 1
   playerSwapDelay: 0.1
   ability: 0
-  abilityOn: 0
   body: {fileID: 4437260353269837412}
+  abilityOn: 0
   ballRadius: 1
 --- !u!54 &8261077639584623623
 Rigidbody:
@@ -21056,13 +21059,13 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8261077639584623617}
-  m_Material: {fileID: 13400000, guid: 21db2934fc8192d428578b573b6badb9, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.63661623
-  m_Height: 4.2025127
+  m_Height: 4.0172305
   m_Direction: 1
-  m_Center: {x: 0.013165951, y: 0.42135, z: 0}
+  m_Center: {x: 0.013165951, y: 0.5139911, z: 0}
 --- !u!1 &8261077639612275630
 GameObject:
   m_ObjectHideFlags: 0
@@ -21275,29 +21278,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
-  moveSpeed: 10
+  moveSpeed: 1
   sprintMultiplier: 2
   rotationSpeed: 1
-  moveDrag: 1.3
+  deceleration: 1.057
   accelerationFactor: 1
+  rotationLerpAmount: 0.3
   jumpForce: 7
   jumpMovementReduction: 30
   isGrounded: 0
-  groundDetectDistance: 0.6
+  jumpCooldown: 0.2
+  jumpCooldownFinished: 1
+  groundDetectDistance: 1.55
+  velocity: {x: 0, y: 0, z: 0}
   isRolling: 0
   rollMultiplier: 3
   rollDuration: 0.25
   rollCooldown: 1
-  rotationLerpAmount: 0.3
   heldItem: {fileID: 0}
   itemPickupDistance: 3
   inventory: {fileID: 8261077640676526799}
   swapText: {fileID: 8261077639214779852}
   swapCooldown: 1
   playerSwapDelay: 0.1
-  ability: 1
-  abilityOn: 0
+  ability: 0
   body: {fileID: 4437260353465353794}
+  abilityOn: 0
   ballRadius: 0.02
 --- !u!54 &8261077639851619700
 Rigidbody:
