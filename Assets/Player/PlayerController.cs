@@ -10,11 +10,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 1f;
     public float sprintMultiplier;
-    public float rotationSpeed = 1f;
     [Range(1, 2)]
     public float deceleration = 1f; //lower means slower deceleration
-    public float accelerationFactor = 1;
-    public float rotationLerpAmount;
+    [Range(0.001f, 0.3f)]
+    public float rotationSpeed; //how fast the model turns. higher is faster
 
     [Header("Jump")]
     public float jumpForce = 5;
@@ -248,7 +247,7 @@ public class PlayerController : MonoBehaviour
         faceDirection.Normalize();
         if(faceDirection != Vector3.zero)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationLerpAmount);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
         }
 
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
