@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 8261077639584623620}
   - component: {fileID: 8261077639584623623}
   - component: {fileID: 8261077639584623624}
-  - component: {fileID: 8261077639584623621}
+  - component: {fileID: 6323776782615744407}
   m_Layer: 11
   m_Name: Player1
   m_TagString: Untagged
@@ -492,8 +492,8 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!65 &8261077639584623621
-BoxCollider:
+--- !u!136 &6323776782615744407
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -502,9 +502,10 @@ BoxCollider:
   m_Material: {fileID: 13400000, guid: 21db2934fc8192d428578b573b6badb9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.63661623
+  m_Height: 3.978043
+  m_Direction: 1
+  m_Center: {x: 0.013165951, y: 1.165848, z: 0}
 --- !u!1 &8261077639612275630
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +681,7 @@ GameObject:
   - component: {fileID: 8261077639851619701}
   - component: {fileID: 8261077639851619700}
   - component: {fileID: 8261077639851619699}
-  - component: {fileID: 8261077639851619698}
+  - component: {fileID: 1059120192867164431}
   - component: {fileID: 5051989582272479533}
   m_Layer: 11
   m_Name: Player2
@@ -837,8 +838,8 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!65 &8261077639851619698
-BoxCollider:
+--- !u!136 &1059120192867164431
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -847,9 +848,10 @@ BoxCollider:
   m_Material: {fileID: 13400000, guid: 21db2934fc8192d428578b573b6badb9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.63661623
+  m_Height: 3.978043
+  m_Direction: 1
+  m_Center: {x: 0.013165951, y: 1.165848, z: 0}
 --- !u!153 &5051989582272479533
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -858,10 +860,10 @@ ConfigurableJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8261077639851619697}
   m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.99999994, z: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 3.1506734, y: 7.945806, z: 0.33071327}
+  m_ConnectedAnchor: {x: 3.1506734, y: 6.945806, z: 0.33071327}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -871,10 +873,10 @@ ConfigurableJoint:
   m_AngularYMotion: 2
   m_AngularZMotion: 2
   m_LinearLimitSpring:
-    spring: 1
+    spring: 0
     damper: 0
   m_LinearLimit:
-    limit: 0.07770673
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
@@ -903,17 +905,17 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 1
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_YDrive:
     serializedVersion: 3
-    positionSpring: 1
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 1
+    positionSpring: 0
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -922,12 +924,12 @@ ConfigurableJoint:
   m_AngularXDrive:
     serializedVersion: 3
     positionSpring: 0
-    positionDamper: 1
+    positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
     positionSpring: 0
-    positionDamper: 1
+    positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
     serializedVersion: 3
@@ -935,14 +937,14 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
+  m_ProjectionDistance: 0.1
   m_ProjectionAngle: 0
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 1
-  m_EnablePreprocessing: 0
+  m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
 --- !u!1 &8261077639981422929
