@@ -8,7 +8,6 @@ public class HoldDoorButton : MonoBehaviour
     private GameObject door;
 
     private float doorSpeed = 5f;
-    private float doorDuration = 3f;
 
     private bool doorOpening = false;
     private bool doorClosing = false;

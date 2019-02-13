@@ -5,9 +5,9 @@ using UnityEngine;
 public class RockButton : MonoBehaviour
 {
     [SerializeField]
-    public GameObject rock;
+    private GameObject rock;
     [SerializeField]
-    public float rockTimer = 2f;
+    private float rockTimer = 2f;
 
     private float timer;
 

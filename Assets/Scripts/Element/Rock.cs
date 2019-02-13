@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     [SerializeField]
-    public float fallSpeed = 3f;
+    private float fallSpeed = 3f;
 
     void Start()
     {
