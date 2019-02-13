@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+
     public int playerNumber = 1;
     public float moveSpeed = 1f;
     public float sprintMultiplier;
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
     public float swapCooldown = 1;
     public float playerSwapDelay = 1;
     float playerSwapCountdown;
+    public enum Ability { anchor, ball }
+    public Ability ability;
+    public bool abilityOn = false;
+    public GameObject body;
+    public float ballRadius = 0.01f;
 
     Vector3 velocity;
     Vector3 faceDirection;
@@ -39,6 +45,20 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         itemLayerMask = LayerMask.GetMask("Items");
+
+        //make ball mesh
+        if(ability == Ability.ball)
+        {
+            Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
+            for (int i = 0; i < verts.Length; i++)
+            {
+                verts[i] = verts[i].normalized * ballRadius;
+            }
+            body.GetComponent<MeshFilter>().mesh.vertices = verts;
+            gameObject.GetComponent<SphereCollider>().enabled = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            body.transform.localPosition = Vector3.zero;
+        }
     }
 
 
@@ -212,10 +232,40 @@ public class PlayerController : MonoBehaviour
         transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
         //transform.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
 
+        if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
+        {
+            abilityOn = true;
+            if(ability == Ability.anchor)
+            {
+
+            }
+            else if(ability == Ability.ball)
+            {
+                turnToBall();
+            }
+        }
+        else if(Input.GetKeyDown(KeyCode.E) && abilityOn)
+        {
+            abilityOn = false;
+        }
 
 
+        void turnToBall()
+        {
+            Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
+            for(int i = 0; i < verts.Length; i++)
+            {
+                verts[i] = verts[i].normalized * ballRadius;
+            }
+            body.GetComponent<MeshFilter>().mesh.vertices = verts;
+            gameObject.GetComponent<SphereCollider>().enabled = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            body.transform.localPosition = Vector3.zero;
+        }
+        void turnOutOfBall()
+        {
 
-
+        }
 
     }
 }
