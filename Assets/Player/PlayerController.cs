@@ -43,12 +43,12 @@ public class PlayerController : MonoBehaviour
     public float playerSwapDelay = 1;
     float playerSwapCountdown = 0;
 
-    [Header("Ability")]
-    public Ability ability;
-    public enum Ability { anchor, ball }
-    public GameObject body;
-    public bool abilityOn = false;
-    public float ballRadius = 0.01f;
+    //[Header("Ability")]
+    //public Ability ability;
+    //public enum Ability { anchor, ball }
+    //public GameObject body;
+    //public bool abilityOn = false;
+    //public float ballRadius = 0.01f;
 
     Vector3 faceDirection;
     float sprintMod = 1;
@@ -254,40 +254,40 @@ public class PlayerController : MonoBehaviour
         //transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
         transform.position += velocity/100;   
 
-        if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
-        {
-            abilityOn = true;
-            if(ability == Ability.anchor)
-            {
+        //if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
+        //{
+        //    abilityOn = true;
+        //    if(ability == Ability.anchor)
+        //    {
 
-            }
-            else if(ability == Ability.ball)
-            {
-                turnToBall();
-            }
-        }
-        else if(Input.GetKeyDown(KeyCode.E) && abilityOn)
-        {
-            abilityOn = false;
-        }
+        //    }
+        //    else if(ability == Ability.ball)
+        //    {
+        //        turnToBall();
+        //    }
+        //}
+        //else if(Input.GetKeyDown(KeyCode.E) && abilityOn)
+        //{
+        //    abilityOn = false;
+        //}
 
 
-        void turnToBall()
-        {
-            Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
-            for(int i = 0; i < verts.Length; i++)
-            {
-                verts[i] = verts[i].normalized * ballRadius;
-            }
-            body.GetComponent<MeshFilter>().mesh.vertices = verts;
-            gameObject.GetComponent<SphereCollider>().enabled = true;
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-            body.transform.localPosition = Vector3.zero;
-        }
-        void turnOutOfBall()
-        {
+        //void turnToBall()
+        //{
+        //    Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
+        //    for(int i = 0; i < verts.Length; i++)
+        //    {
+        //        verts[i] = verts[i].normalized * ballRadius;
+        //    }
+        //    body.GetComponent<MeshFilter>().mesh.vertices = verts;
+        //    gameObject.GetComponent<SphereCollider>().enabled = true;
+        //    gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        //    body.transform.localPosition = Vector3.zero;
+        //}
+        //void turnOutOfBall()
+        //{
 
-        }
+        //}
 
     }
 }
