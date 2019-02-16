@@ -6,6 +6,6 @@ public class Room : MonoBehaviour
 {
     public bool isConnected;
     public int xDimension;
-    public int yDimension;
+    public int zDimension;
 
 }
