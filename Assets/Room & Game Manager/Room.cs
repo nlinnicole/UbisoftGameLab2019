@@ -8,7 +8,8 @@ public class Room : MonoBehaviour
     public int xDimension;
     public int zDimension;
 
-    public GameObject doorOption1;
-    public GameObject doorOption2;
+    public GameObject door1;
+    public GameObject door2;
+    public GameObject SpawnPos;
 
 }

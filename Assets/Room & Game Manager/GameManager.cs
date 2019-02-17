@@ -6,22 +6,35 @@ public class GameManager : MonoBehaviour
 {
     public GameObject team1;
     public GameObject Team1Space;
+    public GameObject Team1Room;
     public GameObject team2;
+    public GameObject Team2Room;
     public GameObject Team2Space;
-
-    GameObject Team1Room;
-    GameObject Team2Room;
 
     GameObject[] roomArray;
 
-    void Start()
+    void FixedUpdate()
     {
-        
-    }
+        //check if a door has been chosen via trigger for each team
+        if(Team1Room.GetComponent<Room>().door1.GetComponent<Door>().doorChosen)
+        {
+            GenerateRooms();
+        }
+        else if (Team1Room.GetComponent<Room>().door2.GetComponent<Door>().doorChosen)
+        {
+            GenerateRooms();
+        }
 
-    void Update()
-    {
-        
+        if (Team2Room.GetComponent<Room>().door1.GetComponent<Door>().doorChosen)
+        {
+            GenerateRooms();
+        }
+        else if (Team2Room.GetComponent<Room>().door2.GetComponent<Door>().doorChosen)
+        {
+            GenerateRooms();
+        }
+
+
     }
 
     public void GenerateRooms()
@@ -44,6 +57,5 @@ public class GameManager : MonoBehaviour
 
         team1.transform.position = new Vector3(50, 0, 50);
         team2.transform.position = new Vector3(-50, 0, 50);
-
     }
 }
