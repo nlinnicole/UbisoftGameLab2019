@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+
+    public int roomNumber;
     public bool isConnected;
     public int xDimension;
     public int zDimension;
