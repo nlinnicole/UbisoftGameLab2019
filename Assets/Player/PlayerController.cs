@@ -87,10 +87,9 @@ public class PlayerController : MonoBehaviour
         {
             jumpCooldownFinished = true;
         }
-        RaycastHit hit;
 
         //check if on the ground
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundDetectDistance, jumpIgnore))
+        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance, jumpIgnore))
         {
             isGrounded = true;
         }
