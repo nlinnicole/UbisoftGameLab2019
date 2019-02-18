@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public bool doorChosen = false;
+    public int correspondingRoomNum;
 
     private void OnTriggerStay(Collider other)
     {

@@ -12,7 +12,8 @@ public class GameManagerEditor : Editor
         GameManager myScript = (GameManager)target;
         if (GUILayout.Button("Generate Rooms"))
         {
-            myScript.GenerateRooms();
+            myScript.GenerateRoomTeam1(0);
+            myScript.GenerateRoomTeam2(0);
         }
     }
 }

@@ -1559,6 +1559,7 @@ Transform:
   - {fileID: 1902262075096466724}
   - {fileID: 3500017134529477471}
   - {fileID: 6242194943399976182}
+  - {fileID: 1354484361981452006}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1574,13 +1575,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fb32e4351a3fe4aaa42257c81433b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomNumber: 3
+  roomNumber: 2
   isConnected: 1
   xDimension: 10
   zDimension: 10
   door1: {fileID: 7339318266944043566}
   door2: {fileID: 7653109193331973653}
-  SpawnPos: {fileID: 0}
+  SpawnPos: {fileID: 6408689214180416990}
+--- !u!1 &6408689214180416990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354484361981452006}
+  m_Layer: 0
+  m_Name: SpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1354484361981452006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408689214180416990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3558316715014129699}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7339318266944043566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorChosen: 0
+  correspondingRoomNum: 0
 --- !u!1 &7653109193331973653
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,6 +3485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorChosen: 0
+  correspondingRoomNum: 0
 --- !u!1 &7995051930667854934
 GameObject:
   m_ObjectHideFlags: 0
