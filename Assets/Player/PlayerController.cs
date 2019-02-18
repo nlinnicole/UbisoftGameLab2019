@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     float sprintMod = 1;
     LayerMask itemLayerMask;
     Collider[] nearbyItems;
+    public LayerMask jumpIgnore;
 
     void Start()
     {
@@ -86,11 +87,17 @@ public class PlayerController : MonoBehaviour
         {
             jumpCooldownFinished = true;
         }
+
         //check if on the ground
-        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
+        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance, jumpIgnore))
         {
             isGrounded = true;
         }
+        else
+        {
+            isGrounded = false;
+        }
+
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
         {
             jumpCooldownCount = jumpCooldown;
@@ -185,7 +192,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         } else if(isRolling && rollTime < rollDuration + rollCooldown) {
             rollTime += Time.deltaTime;
-            isGrounded = true;
+            //isGrounded = true;
             rollMod = 1;
         } else {
             isRolling = false;
@@ -224,22 +231,22 @@ public class PlayerController : MonoBehaviour
             //reduced movement when jumping
             if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity.x += (1 * moveSpeed) / jumpMovementReduction;
+                velocity.x += (1 * moveSpeed) / (jumpMovementReduction * 100);
                 faceDirection.x = 1;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity.x -= (1 * moveSpeed) / jumpMovementReduction;
+                velocity.x -= (1 * moveSpeed) / (jumpMovementReduction * 100);
                 faceDirection.x = -1;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity.z += (1 * moveSpeed) / jumpMovementReduction;
+                velocity.z += (1 * moveSpeed) / (jumpMovementReduction * 100);
                 faceDirection.z = 1;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity.z -= (1 * moveSpeed) / jumpMovementReduction;
+                velocity.z -= (1 * moveSpeed) / (jumpMovementReduction * 100);
                 faceDirection.z = -1;
             }
         }
