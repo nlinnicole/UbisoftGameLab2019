@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         Object.DestroyImmediate(Team1Room);
 
+        print(chosenRoom);
 
         GameObject roomToBuild = roomArray[chosenRoom];
         int xdim = roomToBuild.GetComponent<Room>().xDimension;
