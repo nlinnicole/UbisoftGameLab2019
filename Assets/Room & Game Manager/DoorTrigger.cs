@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class DoorTrigger : MonoBehaviour
 {
     public bool doorChosen = false;
-    public int correspondingRoomNum;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         doorChosen = true;
     }

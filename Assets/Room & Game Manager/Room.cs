@@ -7,11 +7,9 @@ public class Room : MonoBehaviour
 
     public int roomNumber;
     public bool isConnected;
-    public int xDimension;
-    public int zDimension;
 
-    public GameObject door1;
-    public GameObject door2;
-    public GameObject SpawnPos;
+
+    public GameObject door1Trigger;
+    public GameObject door2Trigger;
 
 }
