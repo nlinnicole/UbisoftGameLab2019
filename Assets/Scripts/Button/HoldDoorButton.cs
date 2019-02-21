@@ -7,7 +7,17 @@ public class HoldDoorButton : MonoBehaviour
     [SerializeField]
     private GameObject door;
 
+    //door open speed
+    [SerializeField]
     private float doorSpeed = 5f;
+
+    //door height
+    [SerializeField]
+    private float doorOpenHeight;
+
+    //door original position 
+    [SerializeField]
+    private float doorOriginalHeight;
 
     private bool doorOpening = false;
     private bool doorClosing = false;
@@ -19,9 +29,11 @@ public class HoldDoorButton : MonoBehaviour
 
     void Update()
     {
+
         if (doorOpening)
         {
-            if (door.transform.position.y < 4f)
+            //open door until certain height
+            if (door.transform.position.y < doorOpenHeight)
             {
                 door.transform.Translate(Vector3.up * Time.deltaTime * doorSpeed, Space.World);
             }
@@ -33,7 +45,8 @@ public class HoldDoorButton : MonoBehaviour
 
         if (doorClosing)
         {
-            if (door.transform.position.y > 1.3f)
+            //close door until certain height
+            if (door.transform.position.y > doorOriginalHeight)
             {
                 door.transform.Translate(Vector3.down * Time.deltaTime * doorSpeed, Space.World);
             }
@@ -45,6 +58,7 @@ public class HoldDoorButton : MonoBehaviour
 
     }
 
+    //door open only on enter
     public void OnTriggerEnter(Collider other)
     {
         doorOpening = true;

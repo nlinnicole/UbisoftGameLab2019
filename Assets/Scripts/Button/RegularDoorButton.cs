@@ -7,9 +7,18 @@ public class RegularDoorButton : MonoBehaviour
 
     [SerializeField]
     private GameObject door;
-
+    [SerializeField]
     private float doorSpeed = 5f;
+    [SerializeField]
     private float doorDuration = 3f;
+
+    //door height
+    [SerializeField]
+    private float doorOpenHeight;
+
+    //door original position 
+    [SerializeField]
+    private float doorOriginalHeight;
 
     private float doorTimer;
     private bool doorOpening = false;
@@ -23,10 +32,10 @@ public class RegularDoorButton : MonoBehaviour
 
     void Update()
     {
-
+        //open door until certain height, then close door after certain time
         if (doorOpening)
         {
-            if(door.transform.position.y < 4f)
+            if(door.transform.position.y < doorOpenHeight)
             {
                 door.transform.Translate(Vector3.up * Time.deltaTime * doorSpeed, Space.World);
             }
@@ -38,7 +47,7 @@ public class RegularDoorButton : MonoBehaviour
         }
         else if (doorClosing && Time.time > doorTimer + doorDuration)
         {
-            if(door.transform.position.y > 1.3f)
+            if(door.transform.position.y > doorOriginalHeight)
             {
                 door.transform.Translate(Vector3.down * Time.deltaTime * doorSpeed, Space.World);
             }
@@ -49,7 +58,7 @@ public class RegularDoorButton : MonoBehaviour
         }
 
     }
-
+    //trigger only on enter
     public void OnTriggerEnter(Collider other)
     {
         doorTimer = Time.time;

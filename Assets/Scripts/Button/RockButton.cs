@@ -21,6 +21,7 @@ public class RockButton : MonoBehaviour
         
     }
 
+    //on triggr, object falls from above
     public void OnTriggerEnter(Collider other)
     {
         if(Time.time > timer + rockTimer)
