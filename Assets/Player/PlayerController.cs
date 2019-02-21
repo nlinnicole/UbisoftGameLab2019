@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
     //public bool abilityOn = false;
     //public float ballRadius = 0.01f;
 
-    Vector3 velocity;
     Vector3 faceDirection;
     float sprintMod = 1;
     LayerMask itemLayerMask;
