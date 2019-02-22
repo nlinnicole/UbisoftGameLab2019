@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SlowZone : MonoBehaviour
 {
+    [SerializeField]
+    private float slowSpeed;
+    [SerializeField]
+    private float regularSpeed;
+
     void Start()
     {
         
@@ -16,11 +21,11 @@ public class SlowZone : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<PlayerController>().changePlayerSpeed(1f);
+        other.GetComponent<PlayerController>().changePlayerSpeed(slowSpeed);
     }
 
     public void OnTriggerExit(Collider other)
     {
-        other.GetComponent<PlayerController>().changePlayerSpeed(5f);
+        other.GetComponent<PlayerController>().changePlayerSpeed(regularSpeed);
     }
 }
