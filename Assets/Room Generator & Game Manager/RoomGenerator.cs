@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class GameManager : MonoBehaviour
+public class RoomGenerator : MonoBehaviour
 {
     public int baseRoomSize = 40;
     public int amountOfRooms = 10;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject Team2Space;
 
     [Header("Rooms")]
-    public GameObject[] roomArray;
+    GameObject[] roomArray;
 
     public GameObject[] Team1Rooms;
     int[,] team1RoomRefs;
@@ -31,11 +32,13 @@ public class GameManager : MonoBehaviour
     GameObject team1Rooms;
     GameObject team2Rooms;
 
-    public GameObject team1Start;
-    public GameObject team2Start;
+    //public GameObject team1Start;
+    //public GameObject team2Start;
 
     bool team1InFirstRoom = true;
     bool team2InFirstRoom = true;
+
+    public GameObject baseRoom;
 
     void Start()
     {
@@ -44,8 +47,15 @@ public class GameManager : MonoBehaviour
 
     public void GenerateRooms(int amount)
     {
+        roomArray = Resources.LoadAll("Rooms", typeof(GameObject)).Cast<GameObject>().ToArray();
+        if (roomArray.Length == 0)
+        {
+            roomArray = new GameObject[1];
+            roomArray[0] = baseRoom;
+        }
+
         //delete all old rooms
-        for(int i = 0; i < Team1Rooms.Length; i++)
+        for (int i = 0; i < Team1Rooms.Length; i++)
         {
             DestroyImmediate(Team1Rooms[i]);
             DestroyImmediate(Team2Rooms[i]);

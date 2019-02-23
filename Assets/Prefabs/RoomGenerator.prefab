@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 6267590158048030386}
   - component: {fileID: 6267590158048030387}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: RoomGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -263,14 +263,10 @@ MonoBehaviour:
   amountOfRooms: 10
   team1: {fileID: 0}
   team1StartRoom: {fileID: 0}
-  team1CurrentRoom: {fileID: 0}
   Team1Space: {fileID: 2063031725}
   team2: {fileID: 0}
-  team2StartRoom: {fileID: 5037287520386282256, guid: 25b2d2161f47ada4798129458a123106,
-    type: 3}
+  team2StartRoom: {fileID: 0}
   Team2Space: {fileID: 1458538046}
-  roomArray:
-  - {fileID: 5037287520386282256, guid: 25b2d2161f47ada4798129458a123106, type: 3}
   Team1Rooms:
   - {fileID: 0}
   - {fileID: 0}
@@ -317,5 +313,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Team2RoomNumber: 0
-  team1Start: {fileID: 0}
-  team2Start: {fileID: 0}
+  baseRoom: {fileID: 5037287520386282256, guid: 25b2d2161f47ada4798129458a123106,
+    type: 3}
