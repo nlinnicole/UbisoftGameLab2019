@@ -277,8 +277,6 @@ public class PlayerController : MonoBehaviour
         //{
         //    abilityOn = false;
         //}
-
-
         //void turnToBall()
         //{
         //    Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
@@ -297,4 +295,12 @@ public class PlayerController : MonoBehaviour
         //}
 
     }
+    
+    
+    public void changePlayerSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
 }
+ 
