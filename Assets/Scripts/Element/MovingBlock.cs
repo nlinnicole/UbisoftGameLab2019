@@ -21,11 +21,12 @@ public class MovingBlock : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if(player== null)
         {
             Debug.Log("CUBE !");
             player = collision.gameObject;
             distance = player.transform.position - transform.position;
         }
+
     }
 }
