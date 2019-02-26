@@ -6,9 +6,9 @@ public class ProjectileButton : MonoBehaviour
 {
 
     [SerializeField]
-    private int amountShot;
+    private int amountShot = 3;
     [SerializeField]
-    private int durationBetweenShot;
+    private int durationBetweenShot =2;
     [SerializeField]
     private GameObject weapon;
     [SerializeField]

@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuickSand : MonoBehaviour
 {
     [SerializeField]
-    private float sinkingSpeed;
+    private float sinkingSpeed = 0.2f;
 
     private bool sinking = false;
     private GameObject target;

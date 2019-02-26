@@ -5,9 +5,9 @@ using UnityEngine;
 public class SlowZone : MonoBehaviour
 {
     [SerializeField]
-    private float slowSpeed;
+    private float slowSpeed = 1;
     [SerializeField]
-    private float regularSpeed;
+    private float regularSpeed = 5;
 
     void Start()
     {

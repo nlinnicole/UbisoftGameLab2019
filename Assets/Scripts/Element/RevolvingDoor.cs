@@ -5,13 +5,13 @@ using UnityEngine;
 public class RevolvingDoor : MonoBehaviour
 {
     [SerializeField]
-    private float doorLength;
+    private float doorLength = 5f;
     [SerializeField]
-    private float doorArmsAmount;
+    private float doorArmsAmount = 3f;
     [SerializeField]
     private GameObject doorArm;
     [SerializeField]
-    private float rotateSpeed;
+    private float rotateSpeed = 0.1f;
 
     private List<GameObject> armList = new List<GameObject>();
 

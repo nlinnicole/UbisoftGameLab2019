@@ -13,11 +13,11 @@ public class HoldDoorButton : MonoBehaviour
 
     //door height
     [SerializeField]
-    private float doorOpenHeight;
+    private float doorOpenHeight = 7.5f;
 
     //door original position 
     [SerializeField]
-    private float doorOriginalHeight;
+    private float doorOriginalHeight = 7.5f;
 
     private bool doorOpening = false;
     private bool doorClosing = false;
