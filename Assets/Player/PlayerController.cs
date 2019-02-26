@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public int playerNumber = 1;
+    public Camera playerCamera;
+
     [Header("Movement")]
     public float moveSpeed = 1f;
     public float sprintMultiplier;
@@ -51,10 +53,11 @@ public class PlayerController : MonoBehaviour
     //public float ballRadius = 0.01f;
 
     Vector3 faceDirection;
+    Vector3 CamForward;
+    Vector3 CamRight;
     float sprintMod = 1;
     LayerMask itemLayerMask;
     Collider[] nearbyItems;
-    public LayerMask jumpIgnore;
 
     void Start()
     {
@@ -79,6 +82,7 @@ public class PlayerController : MonoBehaviour
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+
         if (jumpCooldownCount > 0)
         {
             jumpCooldownCount -= Time.deltaTime;
@@ -87,17 +91,11 @@ public class PlayerController : MonoBehaviour
         {
             jumpCooldownFinished = true;
         }
-
         //check if on the ground
-        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance, jumpIgnore))
+        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
         {
             isGrounded = true;
         }
-        else
-        {
-            isGrounded = false;
-        }
-
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
         {
             jumpCooldownCount = jumpCooldown;
@@ -192,7 +190,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         } else if(isRolling && rollTime < rollDuration + rollCooldown) {
             rollTime += Time.deltaTime;
-            //isGrounded = true;
+            isGrounded = true;
             rollMod = 1;
         } else {
             isRolling = false;
@@ -201,53 +199,55 @@ public class PlayerController : MonoBehaviour
 
 
         faceDirection = Vector3.zero;
+        CamForward = new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z);
+        CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
         if (isGrounded)
         {
             //movement
             if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity.x += 1 * moveSpeed;
-                faceDirection.x = 1;
+                velocity += CamRight * moveSpeed;
+                faceDirection += CamRight;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity.x -= 1 * moveSpeed;
-                faceDirection.x = -1;
+                velocity -= CamRight * moveSpeed;
+                faceDirection += -CamRight;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity.z += 1 * moveSpeed;
-                faceDirection.z = 1;
+                velocity += CamForward * moveSpeed;
+                faceDirection += CamForward;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity.z -= 1 * moveSpeed;
-                faceDirection.z = -1;
+                velocity -= CamForward * moveSpeed;
+                faceDirection += -CamForward;
             }
 
             velocity /= deceleration; //reduce velocity vector to look like drag
         }
         else {
             //reduced movement when jumping
-            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0 || Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
             {
-                velocity.x += (1 * moveSpeed) / (jumpMovementReduction * 100);
-                faceDirection.x = 1;
+                velocity += (CamRight * moveSpeed) / jumpMovementReduction;
+                faceDirection += CamRight;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity.x -= (1 * moveSpeed) / (jumpMovementReduction * 100);
-                faceDirection.x = -1;
+                velocity -= (CamRight * moveSpeed) / jumpMovementReduction;
+                faceDirection += -CamRight;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity.z += (1 * moveSpeed) / (jumpMovementReduction * 100);
-                faceDirection.z = 1;
+                velocity += (CamForward * moveSpeed) / jumpMovementReduction;
+                faceDirection += CamForward;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity.z -= (1 * moveSpeed) / (jumpMovementReduction * 100);
-                faceDirection.z = -1;
+                velocity -= (CamForward * moveSpeed) / jumpMovementReduction;
+                faceDirection += -CamForward;
             }
         }
 
@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
 
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
         //transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
-        transform.position += velocity/100;   
+        transform.localPosition += velocity/100;
 
         //if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
         //{
