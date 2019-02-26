@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool jumpCooldownFinished = true;
     public float groundDetectDistance = 0.6f;
     public Vector3 velocity;
+    public LayerMask jumpLayerMask;
 
 
     [Header("Roll")]
@@ -92,10 +93,15 @@ public class PlayerController : MonoBehaviour
             jumpCooldownFinished = true;
         }
         //check if on the ground
-        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
+        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance, jumpLayerMask))
         {
             isGrounded = true;
         }
+        else
+        {
+            isGrounded = false;
+        }
+
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
         {
             jumpCooldownCount = jumpCooldown;
@@ -190,7 +196,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         } else if(isRolling && rollTime < rollDuration + rollCooldown) {
             rollTime += Time.deltaTime;
-            isGrounded = true;
             rollMod = 1;
         } else {
             isRolling = false;
