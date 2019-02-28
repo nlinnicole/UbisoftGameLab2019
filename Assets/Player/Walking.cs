@@ -46,21 +46,24 @@ public class Walking : MonoBehaviour
         stepDelay -= Time.deltaTime;
 
         //rounding feet positions for steps
-        if(stepDelay <= 0 && player.velocity.magnitude > 0.001 )
-        {
-            if (rightFootsTurn)
-            {
-                rightFoot.transform.position = new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.z/2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z/2)));
-            }
-            else
-            {
-                leftFoot.transform.position = new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.x/2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z/2)));
-            }
+        //if(stepDelay <= 0 && player.velocity.magnitude > 0.001 )
+        //{
+        //    if (rightFootsTurn)
+        //    {
+        //        rightFoot.transform.position = new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.z/2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z/2)));
+        //    }
+        //    else
+        //    {
+        //        leftFoot.transform.position = new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.x/2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z/2)));
+        //    }
 
-            rightFootsTurn = !rightFootsTurn;
-            stepDelay = stepDelayLength;
-        }
+        //    rightFootsTurn = !rightFootsTurn;
+        //    stepDelay = stepDelayLength;
+        //}
 
+
+        rightFoot.transform.Translate(new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.z / 2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z / 2))));
+        leftFoot.transform.Translate(new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.z / 2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z / 2))));
 
         ////draw lines to closest
         //rightFoot.GetComponent<LineRenderer>().SetPosition(0, rightFoot.transform.position);

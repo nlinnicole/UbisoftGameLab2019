@@ -274,7 +274,7 @@ public class PlayerController : MonoBehaviour
 
 
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-        //transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
+        transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
 
         
         //rope limit
@@ -283,7 +283,7 @@ public class PlayerController : MonoBehaviour
         //    velocity -= velocity * (rope.totalDistance - rope.distanceLimit);
         //}
 
-        transform.localPosition += velocity/100;
+       // transform.localPosition += velocity/100;
 
         //if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
         //{
