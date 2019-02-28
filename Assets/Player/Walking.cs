@@ -23,8 +23,7 @@ public class Walking : MonoBehaviour
 
     void Start()
     {
-        rightFoot = Instantiate(foot);
-        leftFoot = Instantiate(foot);
+
     }
 
     void FixedUpdate()
@@ -63,12 +62,12 @@ public class Walking : MonoBehaviour
         }
 
 
-        //draw lines to closest
-        rightFoot.GetComponent<LineRenderer>().SetPosition(0, rightFoot.transform.position);
-        rightFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        ////draw lines to closest
+        //rightFoot.GetComponent<LineRenderer>().SetPosition(0, rightFoot.transform.position);
+        //rightFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
-        leftFoot.GetComponent<LineRenderer>().SetPosition(0, leftFoot.transform.position);
-        leftFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        //leftFoot.GetComponent<LineRenderer>().SetPosition(0, leftFoot.transform.position);
+        //leftFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
 
 
