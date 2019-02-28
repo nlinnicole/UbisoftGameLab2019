@@ -70,9 +70,13 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Vector3 feetVelocity;
 
+
+    private Animator anim;
+
     void Start()
     {
         itemLayerMask = LayerMask.GetMask("Items");
+        anim = GetComponent<Animator>();
 
         //make ball mesh
         //if(ability == Ability.ball)
@@ -319,6 +323,11 @@ public class PlayerController : MonoBehaviour
         //}
 
         feetVelocity = velocity;
+
+        //animation
+        anim.SetFloat("PlayerVelocity", velocity.magnitude);
+
+
     }
     
     

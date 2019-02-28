@@ -35,7 +35,7 @@ public class Walking : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, player.groundDetectDistance, player.jumpLayerMask))
             {
-                feetHeight = hit.point.y;
+               // feetHeight = hit.point.y;
             }
         }
         else
@@ -62,15 +62,22 @@ public class Walking : MonoBehaviour
         //}
 
 
-        rightFoot.transform.Translate(new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.z / 2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z / 2))));
-        leftFoot.transform.Translate(new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.z / 2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z / 2))));
+        rightFoot.transform.position = (new Vector3(
+            Mathf.Round(this.transform.position.x), 
+            feetHeight, 
+            Mathf.Round(this.transform.position.z)));
+
+        leftFoot.transform.position = (new Vector3(
+            Mathf.Round(this.transform.position.x) + (0.2f * player.transform.right.x) + (0.5f * player.transform.forward.x), 
+            feetHeight, 
+            Mathf.Round(this.transform.position.z) + (0.2f * player.transform.right.z) + (0.5f * player.transform.forward.z)));
 
         ////draw lines to closest
-        //rightFoot.GetComponent<LineRenderer>().SetPosition(0, rightFoot.transform.position);
-        //rightFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        rightFoot.GetComponent<LineRenderer>().SetPosition(0, rightFoot.transform.position);
+        rightFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
-        //leftFoot.GetComponent<LineRenderer>().SetPosition(0, leftFoot.transform.position);
-        //leftFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        leftFoot.GetComponent<LineRenderer>().SetPosition(0, leftFoot.transform.position);
+        leftFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
 
 

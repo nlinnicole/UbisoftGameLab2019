@@ -846,26 +846,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 336133560}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &386523154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1481624519722743728, guid: 199975b3db025dc429b6878ff9dd2a3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 3058323370018763476}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &386523159
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386523154}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.009176557
-  m_Height: 0.045184657
-  m_Direction: 1
-  m_Center: {x: -0.00029059759, y: -0.018331032, z: 0.0009379577}
 --- !u!43 &566694620
 Mesh:
   m_ObjectHideFlags: 0
@@ -1406,7 +1386,8 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4207819869891564028, guid: 199975b3db025dc429b6878ff9dd2a3b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 199975b3db025dc429b6878ff9dd2a3b, type: 3}
 --- !u!43 &715149008
 Mesh:
@@ -3297,31 +3278,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8577234815863874185, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 0.013
-      objectReference: {fileID: 0}
-    - target: {fileID: 1481624520845819369, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1481624519722743730, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1481624519722743757, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_Force.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714376504027953619, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_Force.y
-      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 199975b3db025dc429b6878ff9dd2a3b, type: 3}
