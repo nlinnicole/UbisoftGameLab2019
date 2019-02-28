@@ -46,6 +46,13 @@ public class PlayerController : MonoBehaviour
     public float playerSwapDelay = 1;
     float playerSwapCountdown = 0;
 
+    [Header("Rope")]
+    public RopeGenerator rope;
+
+    [Header("Ragdoll")]
+    public GameObject head;
+
+
     //[Header("Ability")]
     //public Ability ability;
     //public enum Ability { anchor, ball }
@@ -59,6 +66,9 @@ public class PlayerController : MonoBehaviour
     float sprintMod = 1;
     LayerMask itemLayerMask;
     Collider[] nearbyItems;
+
+    [HideInInspector]
+    public Vector3 feetVelocity;
 
     void Start()
     {
@@ -262,8 +272,17 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
         }
 
+
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
         //transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
+
+        
+        //rope limit
+        //if(rope.totalDistance > rope.distanceLimit)
+        //{
+        //    velocity -= velocity * (rope.totalDistance - rope.distanceLimit);
+        //}
+
         transform.localPosition += velocity/100;
 
         //if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
@@ -299,6 +318,7 @@ public class PlayerController : MonoBehaviour
 
         //}
 
+        feetVelocity = velocity;
     }
     
     

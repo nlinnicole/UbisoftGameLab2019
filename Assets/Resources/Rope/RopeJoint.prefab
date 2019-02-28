@@ -116,7 +116,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6161125710149035045}
   serializedVersion: 2
-  m_Mass: 0.0000001
+  m_Mass: 0.0025
   m_Drag: 2
   m_AngularDrag: 2
   m_UseGravity: 1
@@ -138,17 +138,17 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: -22.9, y: -17.630001, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 0
-  m_YMotion: 0
-  m_ZMotion: 0
+  m_XMotion: 1
+  m_YMotion: 1
+  m_ZMotion: 1
   m_AngularXMotion: 2
   m_AngularYMotion: 2
   m_AngularZMotion: 2
   m_LinearLimitSpring:
-    spring: 1
+    spring: 100
     damper: 0
   m_LinearLimit:
-    limit: 1
+    limit: 0.001
     bounciness: 1
     contactDistance: 0
   m_AngularXLimitSpring:
