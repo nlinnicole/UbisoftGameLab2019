@@ -105,13 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7295891279492884636}
-  foot: {fileID: 5588482677493975981, guid: 5b476f6d23b28a340b579adac8172262, type: 3}
-  rightFoot: {fileID: 0}
-  leftFoot: {fileID: 0}
+  feetMoveSpeed: 10
+  movingDistBetweenFeet: 1
+  stoppedDistBetweenFeet: 0.3
+  walkingSpeed: 0.1
+  targetFootR: {fileID: 0}
+  targetFootL: {fileID: 0}
   nextL: {fileID: 0}
   nextR: {fileID: 0}
-  footDistance: 0
+  rightFoot: {fileID: 0}
+  leftFoot: {fileID: 0}
   stepSize: 0
+  maxFootDistFromCenter: 0
   stepDelayLength: 0.14
   feetHeight: 0
 --- !u!1 &64188609253934158
@@ -806,13 +811,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8577234815863874185}
-  foot: {fileID: 5588482677493975981, guid: 5b476f6d23b28a340b579adac8172262, type: 3}
-  rightFoot: {fileID: 1481624521524080956}
-  leftFoot: {fileID: 1481624519793113087}
+  feetMoveSpeed: 10
+  movingDistBetweenFeet: 1
+  stoppedDistBetweenFeet: 0.3
+  walkingSpeed: 0.1
+  targetFootR: {fileID: 0}
+  targetFootL: {fileID: 0}
   nextL: {fileID: 0}
   nextR: {fileID: 0}
-  footDistance: 0
+  rightFoot: {fileID: 1481624521524080956}
+  leftFoot: {fileID: 1481624519793113087}
   stepSize: 0
+  maxFootDistFromCenter: 0
   stepDelayLength: 0
   feetHeight: 1.1
 --- !u!54 &924275726
@@ -1012,7 +1022,7 @@ GameObject:
   - component: {fileID: 1837320192177212041}
   - component: {fileID: 1101461854}
   m_Layer: 11
-  m_Name: FootR
+  m_Name: targetFootR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1150,10 +1160,10 @@ SpringJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837320192177212038}
-  m_ConnectedBody: {fileID: 5887128315943984117}
+  m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: -4.96, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00016898576, y: 0.003902934, z: -0.088808864}
+  m_ConnectedAnchor: {x: 17.16, y: 0.099999905, z: 6.015}
   serializedVersion: 2
   m_Spring: 200
   m_Damper: 10
@@ -1486,13 +1496,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2091549613053468399}
-  foot: {fileID: 0}
-  rightFoot: {fileID: 1837320192177212038}
-  leftFoot: {fileID: 6902009059726143189}
+  feetMoveSpeed: 5
+  movingDistBetweenFeet: 1
+  stoppedDistBetweenFeet: 0.3
+  walkingSpeed: 0.1
+  targetFootR: {fileID: 1837320192177212038}
+  targetFootL: {fileID: 6902009059726143189}
   nextL: {fileID: 4785135482798175202}
   nextR: {fileID: 6383050990276734465}
-  footDistance: 1.1
-  stepSize: 0
+  rightFoot: {fileID: 4750283411634060693}
+  leftFoot: {fileID: 2790510768179538101}
+  stepSize: 0.6
+  maxFootDistFromCenter: 0.65
   stepDelayLength: 0
   feetHeight: 1.1
 --- !u!1 &2790510768179538101
@@ -1538,7 +1553,7 @@ Rigidbody:
   m_GameObject: {fileID: 2790510768179538101}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 2
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -2371,7 +2386,7 @@ Rigidbody:
   m_GameObject: {fileID: 4750283411634060693}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 2
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -2931,7 +2946,7 @@ GameObject:
   - component: {fileID: 6902009059726143192}
   - component: {fileID: 1011125093}
   m_Layer: 11
-  m_Name: FootL
+  m_Name: targetFootL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3069,10 +3084,10 @@ SpringJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6902009059726143189}
-  m_ConnectedBody: {fileID: 2627063701609024383}
+  m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: -5.01, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00053038314, y: 0.0033711265, z: -0.08883082}
+  m_ConnectedAnchor: {x: 16.83, y: 0.099999905, z: 6}
   serializedVersion: 2
   m_Spring: 200
   m_Damper: 10
