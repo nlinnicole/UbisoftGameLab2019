@@ -6,25 +6,31 @@ public class Walking : MonoBehaviour
 {
     public PlayerController player;
 
-    public GameObject foot;
-    public GameObject rightFoot;
-    public GameObject leftFoot;
+    public float feetMoveSpeed = 10;
+    public float movingDistBetweenFeet = 1;
+    public float stoppedDistBetweenFeet = 0.3f;
+    public float walkingSpeed = 0.1f;
+
+    public GameObject targetFootR;
+    public GameObject targetFootL;
 
     public GameObject nextL;
     public GameObject nextR;
 
-    public float footDistance;
+    public GameObject rightFoot;
+    public GameObject leftFoot;
 
     public float stepSize;
+    public float maxFootDistFromCenter;
+
     float stepDelay;
     public float stepDelayLength;
 
     public float feetHeight;
 
-    bool rightFootsTurn = true;
+    bool targetFootRsTurn = true;
 
-    Vector3 rightLastPos = Vector3.zero;
-    Vector3 leftLastPos = Vector3.zero;
+    Vector3 thisFeetHeight;
 
     void Start()
     {
@@ -50,63 +56,57 @@ public class Walking : MonoBehaviour
 
         stepDelay -= Time.deltaTime;
 
-        //rounding feet positions for steps
-        //if(stepDelay <= 0 && player.velocity.magnitude > 0.001 )
+
+        thisFeetHeight = new Vector3(this.transform.position.x, feetHeight, this.transform.position.z);
+
+
+        //if walking
+        //if (player.GetComponent<Rigidbody>().velocity.magnitude > walkingSpeed)
         //{
-        //    if (rightFootsTurn)
-        //    {
-        //        rightFoot.transform.position = new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.z/2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z/2)));
-        //    }
-        //    else
-        //    {
-        //        leftFoot.transform.position = new Vector3(Mathf.Round((this.transform.position.x + player.feetVelocity.x/2)), feetHeight, Mathf.Round((this.transform.position.z + player.feetVelocity.z/2)));
-        //    }
+            //right foot
+            nextR.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity.normalized * stepSize;
+            if (Vector3.Distance(targetFootR.transform.position, thisFeetHeight) > maxFootDistFromCenter
+                || Vector3.Distance(leftFoot.transform.position, thisFeetHeight) < 0.1)
+            {
+                targetFootR.transform.position = new Vector3(nextR.transform.position.x, feetHeight, nextR.transform.position.z);
+            }
 
-        //    rightFootsTurn = !rightFootsTurn;
-        //    stepDelay = stepDelayLength;
+            //left foot
+            nextL.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity.normalized * stepSize;
+            if (Vector3.Distance(targetFootL.transform.position, thisFeetHeight) > maxFootDistFromCenter
+                 || Vector3.Distance(rightFoot.transform.position, thisFeetHeight) < 0.1)
+            {
+                targetFootL.transform.position = new Vector3(nextL.transform.position.x, feetHeight, nextL.transform.position.z);
+            }
         //}
+        //if stationary
+       // else if (player.GetComponent<Rigidbody>().velocity.magnitude <= walkingSpeed)
+        //{
+            ////right foot
+            //nextR.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity;
+            //if (Vector3.Distance(targetFootR.transform.position, transform.position) > maxFootDistFromCenter)
+            //{
+            //    targetFootR.transform.position = new Vector3(nextR.transform.position.x, feetHeight, nextR.transform.position.z);
+            //}
 
-
-        //rightFoot.transform.position = (new Vector3(
-        //    Mathf.Round(this.transform.position.x), 
-        //    feetHeight, 
-        //    Mathf.Round(this.transform.position.z)));
-
-        //leftFoot.transform.position = (new Vector3(
-        //    Mathf.Round(this.transform.position.x) + (0.2f * player.transform.right.x) + (0.5f * player.transform.forward.x), 
-        //    feetHeight, 
-        //    Mathf.Round(this.transform.position.z) + (0.2f * player.transform.right.z) + (0.5f * player.transform.forward.z)));
-
-        nextR.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity.normalized *1.5f;
-
-        if (Vector3.Distance(rightFoot.transform.position, transform.position) > footDistance && player.GetComponent<Rigidbody>().velocity.magnitude > 0.01)
-        {
-            rightFoot.transform.position = new Vector3(nextR.transform.position.x, feetHeight, nextR.transform.position.z);
-        }
-        nextL.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity.normalized *1.5f;
-
-
-        if (Vector3.Distance(leftFoot.transform.position, transform.position) > footDistance && player.GetComponent<Rigidbody>().velocity.magnitude > 0.01)
-        {
-            leftFoot.transform.position = new Vector3( nextL.transform.position.x, feetHeight, nextL.transform.position.z);
-        }
+            ////left foot
+            //nextL.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity;
+            //if (Vector3.Distance(targetFootL.transform.position, transform.position) > maxFootDistFromCenter)
+            //{
+            //    targetFootL.transform.position = new Vector3(nextL.transform.position.x, feetHeight, nextL.transform.position.z);
+            //}
+       // }
 
         ////draw lines to closest
-        rightFoot.GetComponent<LineRenderer>().SetPosition(0, rightFoot.transform.position);
-        rightFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        targetFootR.GetComponent<LineRenderer>().SetPosition(0, targetFootR.transform.position);
+        targetFootR.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
-        leftFoot.GetComponent<LineRenderer>().SetPosition(0, leftFoot.transform.position);
-        leftFoot.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        targetFootL.GetComponent<LineRenderer>().SetPosition(0, targetFootL.transform.position);
+        targetFootL.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
+        rightFoot.transform.position = Vector3.MoveTowards(rightFoot.transform.position, targetFootR.transform.position, Time.deltaTime * feetMoveSpeed);
+        leftFoot.transform.position = Vector3.MoveTowards(leftFoot.transform.position, targetFootL.transform.position, Time.deltaTime * feetMoveSpeed);
 
-
-
-    }
-
-    Vector3 calculateNewPos(GameObject foot)
-    {
-        
-        return foot.transform.position + player.velocity;
     }
     
 }

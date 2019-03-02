@@ -322,12 +322,6 @@ public class PlayerController : MonoBehaviour
 
         //}
 
-        feetVelocity = velocity;
-
-        //animation
-        anim.SetFloat("PlayerVelocity", velocity.magnitude);
-
-
     }
     
     
