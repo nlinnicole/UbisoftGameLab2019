@@ -22,6 +22,7 @@ public class MovingBlock : MonoBehaviour
     {
         if(player != null)
         {
+            //move along with the player
             transform.position = new Vector3(player.transform.position.x + distance.x, height, player.transform.position.z + distance.z);
         }
     }
