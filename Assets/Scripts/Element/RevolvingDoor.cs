@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Provide an arm, and it will create a revolving door with it  
+ */
+
 public class RevolvingDoor : MonoBehaviour
 {
     [SerializeField]

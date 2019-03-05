@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Area that will change the speed of the player on enter and go back to the original speed on exit
+ */
+
 public class SlowZone : MonoBehaviour
 {
     [SerializeField]

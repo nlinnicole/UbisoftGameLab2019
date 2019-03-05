@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Players need to press all buttons in order to activate an event
+ */
 public class MultiButtonToDoor : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
