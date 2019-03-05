@@ -20,7 +20,9 @@ public class ContinuousProjectile : MonoBehaviour
     {
         if(Time.time>timeCounter + timer)
         {
-            Instantiate(weapon, transform.position, Quaternion.identity);
+            GameObject current;
+            current = Instantiate(weapon, transform.position, Quaternion.identity);
+            current.GetComponent<ProjectileWeapon>().SetDirection(transform.forward);
             timeCounter = Time.time;
 
         }

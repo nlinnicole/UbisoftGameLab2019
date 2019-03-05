@@ -11,11 +11,16 @@ public class ProjectileWeapon : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
         transform.Translate(direction * Time.deltaTime * shotSpeed, Space.World);
     }
+
+    public void SetDirection(Vector3 _direction){
+      direction = new Vector3(_direction.x, _direction.y, _direction.z);
+    }
+
 }
