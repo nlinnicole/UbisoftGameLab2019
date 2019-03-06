@@ -24,12 +24,17 @@ public class MovingBlock : MonoBehaviour
         {
             //move along with the player
             transform.position = new Vector3(player.transform.position.x + distance.x, height, player.transform.position.z + distance.z);
+
+            if (Input.GetKeyDown("space"))
+            {
+                player = null;
+            }
         }
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(player== null)
+        if(player == null)
         {
             Debug.Log("CUBE !");
             player = collision.gameObject;

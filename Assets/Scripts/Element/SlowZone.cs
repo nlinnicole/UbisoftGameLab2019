@@ -25,11 +25,17 @@ public class SlowZone : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<PlayerController>().changePlayerSpeed(slowSpeed);
+        if(other.tag == "player")
+        {
+            other.GetComponent<PlayerController>().changePlayerSpeed(slowSpeed);
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        other.GetComponent<PlayerController>().changePlayerSpeed(regularSpeed);
+        if (other.tag == "player")
+        {
+            other.GetComponent<PlayerController>().changePlayerSpeed(regularSpeed);
+        }
     }
 }
