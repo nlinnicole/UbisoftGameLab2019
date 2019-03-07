@@ -41,6 +41,7 @@ public class Respawn : MonoBehaviour
           player2.transform.position = transform.position;
           rope.generate();
           rope.isBroken = false;
+          rope.startedGas = false;
         }
     }
 
