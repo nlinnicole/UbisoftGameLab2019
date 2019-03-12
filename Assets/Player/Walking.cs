@@ -27,6 +27,7 @@ public class Walking : MonoBehaviour
     public float stepDelayLength;
 
     public float feetHeight;
+    public float feetOffest;
 
     bool targetFootRsTurn = true;
 
@@ -41,18 +42,7 @@ public class Walking : MonoBehaviour
     {
 
 
-        if (player.isGrounded)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, player.groundDetectDistance, player.jumpLayerMask))
-            {
-               // feetHeight = hit.point.y;
-            }
-        }
-        else
-        {
-        }
-
+        feetHeight = transform.position.y - feetOffest;
 
         stepDelay -= Time.deltaTime;
 
@@ -60,7 +50,7 @@ public class Walking : MonoBehaviour
         thisFeetHeight = new Vector3(this.transform.position.x, feetHeight, this.transform.position.z);
         if(player.playerNumber ==2)
         {
-            print(player.GetComponent<Rigidbody>().velocity.magnitude);
+            //print(player.GetComponent<Rigidbody>().velocity.magnitude);
         }
 
         //if walking
