@@ -103,14 +103,18 @@ public class Walking : MonoBehaviour
         // }
 
         ////draw lines to closest
-        targetFootR.GetComponent<LineRenderer>().SetPosition(0, targetFootR.transform.position);
-        targetFootR.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        //targetFootR.GetComponent<LineRenderer>().SetPosition(0, targetFootR.transform.position);
+        //targetFootR.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
-        targetFootL.GetComponent<LineRenderer>().SetPosition(0, targetFootL.transform.position);
-        targetFootL.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
+        //targetFootL.GetComponent<LineRenderer>().SetPosition(0, targetFootL.transform.position);
+        //targetFootL.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
-        rightFoot.transform.position = Vector3.MoveTowards(rightFoot.transform.position, targetFootR.transform.position, Time.deltaTime * feetMoveSpeed);
-        leftFoot.transform.position = Vector3.MoveTowards(leftFoot.transform.position, targetFootL.transform.position, Time.deltaTime * feetMoveSpeed);
+        if(player.isGrounded)
+        {
+            rightFoot.transform.position = Vector3.MoveTowards(rightFoot.transform.position, targetFootR.transform.position, Time.deltaTime * feetMoveSpeed);
+            leftFoot.transform.position = Vector3.MoveTowards(leftFoot.transform.position, targetFootL.transform.position, Time.deltaTime * feetMoveSpeed);
+        }
+
 
     }
     
