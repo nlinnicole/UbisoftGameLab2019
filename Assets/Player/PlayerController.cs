@@ -227,55 +227,56 @@ public class PlayerController : MonoBehaviour
         CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
 
         //keys
-        //if (isGrounded)
-        //{
-        //    //movement
-        //    if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
-        //    {
-        //        velocity += CamRight * moveSpeed;
-        //        faceDirection += CamRight;
-        //    }
-        //    if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
-        //    {
-        //        velocity -= CamRight * moveSpeed;
-        //        faceDirection += -CamRight;
-        //    }
-        //    if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
-        //    {
-        //        velocity += CamForward * moveSpeed;
-        //        faceDirection += CamForward;
-        //    }
-        //    if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
-        //    {
-        //        velocity -= CamForward * moveSpeed;
-        //        faceDirection += -CamForward;
-        //    }
+        if (isGrounded)
+        {
+            //movement
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+            {
+                velocity += CamRight * moveSpeed;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+            {
+                velocity -= CamRight * moveSpeed;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+            {
+                velocity += CamForward * moveSpeed;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
+            {
+                velocity -= CamForward * moveSpeed;
+                faceDirection += -CamForward;
+            }
 
-        //    velocity /= deceleration; //reduce velocity vector to look like drag
-        //}
-        //else {
-        //    //reduced movement when jumping
-        //    if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
-        //    {
-        //        velocity += (CamRight * moveSpeed) / jumpMovementReduction;
-        //        faceDirection += CamRight;
-        //    }
-        //    if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
-        //    {
-        //        velocity -= (CamRight * moveSpeed) / jumpMovementReduction;
-        //        faceDirection += -CamRight;
-        //    }
-        //    if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
-        //    {
-        //        velocity += (CamForward * moveSpeed) / jumpMovementReduction;
-        //        faceDirection += CamForward;
-        //    }
-        //    if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
-        //    {
-        //        velocity -= (CamForward * moveSpeed) / jumpMovementReduction;
-        //        faceDirection += -CamForward;
-        //    }
-        //}
+            velocity /= deceleration; //reduce velocity vector to look like drag
+        }
+        else
+        {
+            //reduced movement when jumping
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+            {
+                velocity += (CamRight * moveSpeed) / jumpMovementReduction;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+            {
+                velocity -= (CamRight * moveSpeed) / jumpMovementReduction;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+            {
+                velocity += (CamForward * moveSpeed) / jumpMovementReduction;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
+            {
+                velocity -= (CamForward * moveSpeed) / jumpMovementReduction;
+                faceDirection += -CamForward;
+            }
+        }
 
         //joysticks
         joyInput = Vector3.zero;
@@ -289,31 +290,10 @@ public class PlayerController : MonoBehaviour
                 joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
             }
 
-            ////movement
-            //if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) > dead  && Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
-            //{
-            //    velocity += CamRight * moveSpeed * Input.GetAxisRaw("HorizontalJoy" + playerNumber);
-            //    faceDirection += CamRight + velocity.normalized;
-            //}
-            //if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) < -dead && Input.GetAxisRaw("HorizontalJoy" + playerNumber) < 0)
-            //{
-            //    velocity += CamRight * moveSpeed * Input.GetAxisRaw("HorizontalJoy" + playerNumber);
-            //    faceDirection += -CamRight + velocity.normalized;
-            //}
-            //if (Input.GetAxisRaw("VerticalJoy" + playerNumber) > dead && Input.GetAxisRaw("VerticalJoy" + playerNumber) > 0)
-            //{
-            //    velocity += CamForward * moveSpeed * Input.GetAxisRaw("VerticalJoy" + playerNumber);
-            //    faceDirection += CamForward + velocity.normalized;
-            //}
-            //if (Input.GetAxisRaw("VerticalJoy" + playerNumber) < -dead && Input.GetAxisRaw("VerticalJoy" + playerNumber) < 0)
-            //{
-            //    velocity += CamForward * moveSpeed * Input.GetAxisRaw("VerticalJoy" + playerNumber);
-            //    faceDirection += -CamForward + velocity.normalized;
-            //}
 
-            velocity = joyInput;
-
+            velocity += joyInput * moveSpeed;
             velocity /= deceleration; //reduce velocity vector to look like drag
+            faceDirection += joyInput;
         }
         else
         {
@@ -340,13 +320,11 @@ public class PlayerController : MonoBehaviour
             //}
         }
 
-
         faceDirection.Normalize();
         if(faceDirection != Vector3.zero)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
         }
-
 
         velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
         transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody

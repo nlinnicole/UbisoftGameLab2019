@@ -48,16 +48,12 @@ public class Walking : MonoBehaviour
 
 
         thisFeetHeight = new Vector3(this.transform.position.x, feetHeight, this.transform.position.z);
-        if(player.playerNumber ==2)
-        {
-            //print(player.GetComponent<Rigidbody>().velocity.magnitude);
-        }
 
-        //if walking
-        //if (player.GetComponent<Rigidbody>().velocity.magnitude > walkingSpeed)
-        //{
 
-        if(Vector3.Distance(rightFoot.transform.position, leftFoot.transform.position) < 0.1)
+
+
+
+        if (Vector3.Distance(rightFoot.transform.position, leftFoot.transform.position) < 0.1)
         {
             nextR.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity.normalized * stepSize;
             targetFootR.transform.position = new Vector3(nextR.transform.position.x, feetHeight, nextR.transform.position.z);
@@ -74,12 +70,14 @@ public class Walking : MonoBehaviour
 
             //left foot
             nextL.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity.normalized * stepSize;
-            if (Vector3.Distance(targetFootL.transform.position, thisFeetHeight) > maxFootDistFromCenter
+            if ((Vector3.Distance(targetFootL.transform.position, thisFeetHeight) > maxFootDistFromCenter
                  || Vector3.Distance(rightFoot.transform.position, thisFeetHeight) < 0.1)
+                 && Vector3.Distance(targetFootR.transform.position, targetFootL.transform.position) >= 0.1)
             {
                 targetFootL.transform.position = new Vector3(nextL.transform.position.x, feetHeight, nextL.transform.position.z);
             }
         }
+
 
 
 
@@ -109,7 +107,7 @@ public class Walking : MonoBehaviour
         //targetFootL.GetComponent<LineRenderer>().SetPosition(0, targetFootL.transform.position);
         //targetFootL.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
-        if(player.isGrounded)
+        if (player.isGrounded)
         {
             rightFoot.transform.position = Vector3.MoveTowards(rightFoot.transform.position, targetFootR.transform.position, Time.deltaTime * feetMoveSpeed);
             leftFoot.transform.position = Vector3.MoveTowards(leftFoot.transform.position, targetFootL.transform.position, Time.deltaTime * feetMoveSpeed);
