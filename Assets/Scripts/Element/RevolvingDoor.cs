@@ -23,6 +23,7 @@ public class RevolvingDoor : MonoBehaviour
             float angle = (360 / doorArmsAmount) * x;
             GameObject arm = Instantiate(doorArm, new Vector3(transform.position.x+(doorLength/2), transform.position.y, transform.position.z), Quaternion.identity);
             arm.transform.RotateAround(transform.position, Vector3.up, angle);
+            arm.SetActive(true);
             armList.Add(arm);
         }
     }

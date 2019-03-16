@@ -82,6 +82,7 @@ public class RopeGenerator : MonoBehaviour
             } else {
                 newJoint.GetComponent<ConfigurableJoint>().connectedBody = ropeStart.GetComponent<Rigidbody>();
             }
+            
             ropeJoints[i] = newJoint;
         }
 
