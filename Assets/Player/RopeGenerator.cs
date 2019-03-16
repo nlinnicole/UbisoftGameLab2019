@@ -23,6 +23,9 @@ public class RopeGenerator : MonoBehaviour
     public float minGasForce;
     public float maxGasForce;
 
+    public float totalDistance = 0;
+    public float distanceLimit = 10;
+
     void FixedUpdate()
     {
         if(isBroken && !startedGas)
@@ -49,11 +52,23 @@ public class RopeGenerator : MonoBehaviour
             transform.GetChild(brokenJoint - 1).gameObject.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce));
             transform.GetChild(brokenJoint + 1).gameObject.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce));
         }
+
+
+        totalDistance = 0;
+        for(int i = 0; i < ropeJoints.Length; i++)
+        {
+            if(i < ropeJoints.Length -1)
+            {
+                totalDistance += Vector3.Distance(ropeJoints[i].transform.position, ropeJoints[i + 1].transform.position);
+            }
+        }
+
     }
 
     void Start()
     {
         ropeJointsTrans = transform.GetComponentsInChildren<Transform>();
+        generate();
     }
 
 
@@ -71,10 +86,6 @@ public class RopeGenerator : MonoBehaviour
             newJoint.transform.localScale = new Vector3(ropeRadius, (ropeLength / ropeResolution)/2, ropeRadius);
             newJoint.transform.localPosition = new Vector3(0, -(ropeLength / ropeResolution) * i, 0);
             newJoint.GetComponent<ConfigurableJoint>().projectionMode = JointProjectionMode.PositionAndRotation;
-
-            SoftJointLimit softJointLimit = new SoftJointLimit();
-            softJointLimit.limit = ropeLength / ropeResolution;
-            newJoint.GetComponent<ConfigurableJoint>().linearLimit = softJointLimit;
 
             if (i > 0)
             {
