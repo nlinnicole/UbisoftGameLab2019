@@ -201,7 +201,9 @@ public class PlayerController : MonoBehaviour
             rollMod = rollMultiplier;
             rollTime += Time.deltaTime;
             isGrounded = false;
+            GetComponent<Rigidbody>().useGravity = false;
         } else if(isRolling && rollTime < rollDuration + rollCooldown) {
+            GetComponent<Rigidbody>().useGravity = true;
             rollTime += Time.deltaTime;
             rollMod = 1;
         } else {
