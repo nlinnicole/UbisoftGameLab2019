@@ -83,19 +83,7 @@ public class PlayerController : MonoBehaviour
         itemLayerMask = LayerMask.GetMask("Items");
         anim = GetComponent<Animator>();
 
-        //make ball mesh
-        //if(ability == Ability.ball)
-        //{
-        //    Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
-        //    for (int i = 0; i < verts.Length; i++)
-        //    {
-        //        verts[i] = verts[i].normalized * ballRadius;
-        //    }
-        //    body.GetComponent<MeshFilter>().mesh.vertices = verts;
-        //    gameObject.GetComponent<SphereCollider>().enabled = true;
-        //    gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        //    body.transform.localPosition = Vector3.zero;
-        //}
+
     }
 
 
@@ -191,13 +179,6 @@ public class PlayerController : MonoBehaviour
         playerSwapCountdown -= Time.deltaTime;
 
 
-        //sprint
-        //if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && isGrounded)
-        //{
-        //    sprintMod = sprintMultiplier;
-        //} else {
-        //    sprintMod = 1;
-        //}
 
         //roll
         if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
@@ -232,22 +213,22 @@ public class PlayerController : MonoBehaviour
             //movement
             if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity += CamRight * moveSpeed;
+                velocity += CamRight * moveSpeed * 100 * Time.deltaTime;
                 faceDirection += CamRight;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity -= CamRight * moveSpeed;
+                velocity -= CamRight * moveSpeed * 100 * Time.deltaTime;
                 faceDirection += -CamRight;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity += CamForward * moveSpeed;
+                velocity += CamForward * moveSpeed * 100 * Time.deltaTime;
                 faceDirection += CamForward;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity -= CamForward * moveSpeed;
+                velocity -= CamForward * moveSpeed * 100 * Time.deltaTime;
                 faceDirection += -CamForward;
             }
 
@@ -258,22 +239,22 @@ public class PlayerController : MonoBehaviour
             //reduced movement when jumping
             if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity += (CamRight * moveSpeed) / jumpMovementReduction;
+                velocity += (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
                 faceDirection += CamRight;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity -= (CamRight * moveSpeed) / jumpMovementReduction;
+                velocity -= (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
                 faceDirection += -CamRight;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity += (CamForward * moveSpeed) / jumpMovementReduction;
+                velocity += (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
                 faceDirection += CamForward;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity -= (CamForward * moveSpeed) / jumpMovementReduction;
+                velocity -= (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
                 faceDirection += -CamForward;
             }
         }
@@ -282,42 +263,31 @@ public class PlayerController : MonoBehaviour
         joyInput = Vector3.zero;
         if (isGrounded)
         {
-            if(Input.GetAxisRaw("HorizontalJoy" + playerNumber) > dead 
-                || Input.GetAxisRaw("HorizontalJoy" + playerNumber) < -dead
-                || Input.GetAxisRaw("VerticalJoy" + playerNumber) > dead
-                || Input.GetAxisRaw("VerticalJoy" + playerNumber) < -dead)
+
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
             {
                 joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
             }
 
 
-            velocity += joyInput * moveSpeed;
+            velocity += joyInput * moveSpeed * 100 * Time.deltaTime;
             velocity /= deceleration; //reduce velocity vector to look like drag
             faceDirection += joyInput;
         }
         else
         {
             ////reduced movement when jumping
-            //if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
-            //{
-            //    velocity += (CamRight * moveSpeed) / jumpMovementReduction;
-            //    faceDirection += CamRight;
-            //}
-            //if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
-            //{
-            //    velocity -= (CamRight * moveSpeed) / jumpMovementReduction;
-            //    faceDirection += -CamRight;
-            //}
-            //if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
-            //{
-            //    velocity += (CamForward * moveSpeed) / jumpMovementReduction;
-            //    faceDirection += CamForward;
-            //}
-            //if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
-            //{
-            //    velocity -= (CamForward * moveSpeed) / jumpMovementReduction;
-            //    faceDirection += -CamForward;
-            //}
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            {
+                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
+            }
+
+
+            velocity += (joyInput * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+            velocity /= deceleration; //reduce velocity vector to look like drag
+            faceDirection += joyInput;
         }
 
         faceDirection.Normalize();
@@ -326,50 +296,10 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
         }
 
-        velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
+        //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
+
+
         transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
-
-
-        //rope limit
-        //if(rope.totalDistance > rope.distanceLimit)
-        //{
-        //    velocity -= velocity * (rope.totalDistance - rope.distanceLimit);
-        //}
-
-        // transform.localPosition += velocity/100;
-
-        //if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
-        //{
-        //    abilityOn = true;
-        //    if(ability == Ability.anchor)
-        //    {
-
-        //    }
-        //    else if(ability == Ability.ball)
-        //    {
-        //        turnToBall();
-        //    }
-        //}
-        //else if(Input.GetKeyDown(KeyCode.E) && abilityOn)
-        //{
-        //    abilityOn = false;
-        //}
-        //void turnToBall()
-        //{
-        //    Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
-        //    for(int i = 0; i < verts.Length; i++)
-        //    {
-        //        verts[i] = verts[i].normalized * ballRadius;
-        //    }
-        //    body.GetComponent<MeshFilter>().mesh.vertices = verts;
-        //    gameObject.GetComponent<SphereCollider>().enabled = true;
-        //    gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        //    body.transform.localPosition = Vector3.zero;
-        //}
-        //void turnOutOfBall()
-        //{
-
-        //}
 
 
         //for anim
