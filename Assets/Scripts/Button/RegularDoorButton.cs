@@ -61,10 +61,5 @@ public class RegularDoorButton : MonoBehaviour
         }
 
     }
-    //trigger only on enter
-    public void OnTriggerEnter(Collider other)
-    {
-        doorTimer = Time.time;
-        doorOpening = true;
-    }
+
 }
