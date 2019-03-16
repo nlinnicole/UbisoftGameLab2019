@@ -117,12 +117,12 @@ public class RoomGenerator : MonoBehaviour
     {
         if(team1InFirstRoom)
         {
-            if (team1StartRoom.GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[0].SetActive(true);
                 team1InFirstRoom = false;
             }
-            else if (team1StartRoom.GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[1].SetActive(true);
                 team1InFirstRoom = false;
@@ -132,13 +132,13 @@ public class RoomGenerator : MonoBehaviour
         else
         {
             //check which room the players choose
-            if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam1 = 0;
                 Team1Rooms[Team1RoomNumber + adderTeam1].SetActive(true);
             }
-            else if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam1 = 1;
@@ -150,12 +150,12 @@ public class RoomGenerator : MonoBehaviour
         //team2
         if (team2InFirstRoom)
         {
-            if (team1StartRoom.GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[0].SetActive(true);
                 team2InFirstRoom = false;
             }
-            else if (team1StartRoom.GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[1].SetActive(true);
                 team2InFirstRoom = false;
@@ -165,13 +165,13 @@ public class RoomGenerator : MonoBehaviour
         else
         {
             //check which room the players choose
-            if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam2 = 0;
                 Team1Rooms[Team1RoomNumber + adderTeam2].SetActive(true);
             }
-            else if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam2 = 1;
