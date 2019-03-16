@@ -49,7 +49,7 @@ public class Walking : MonoBehaviour
 
         thisFeetHeight = new Vector3(this.transform.position.x, feetHeight, this.transform.position.z);
 
-
+        feetMoveSpeed = 5 * player.GetComponent<Rigidbody>().velocity.magnitude;
 
 
 
@@ -79,33 +79,6 @@ public class Walking : MonoBehaviour
         }
 
 
-
-
-        //}
-        //if stationary
-        // else if (player.GetComponent<Rigidbody>().velocity.magnitude <= walkingSpeed)
-        //{
-        ////right foot
-        //nextR.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity;
-        //if (Vector3.Distance(targetFootR.transform.position, transform.position) > maxFootDistFromCenter)
-        //{
-        //    targetFootR.transform.position = new Vector3(nextR.transform.position.x, feetHeight, nextR.transform.position.z);
-        //}
-
-        ////left foot
-        //nextL.transform.position = transform.position + player.GetComponent<Rigidbody>().velocity;
-        //if (Vector3.Distance(targetFootL.transform.position, transform.position) > maxFootDistFromCenter)
-        //{
-        //    targetFootL.transform.position = new Vector3(nextL.transform.position.x, feetHeight, nextL.transform.position.z);
-        //}
-        // }
-
-        ////draw lines to closest
-        //targetFootR.GetComponent<LineRenderer>().SetPosition(0, targetFootR.transform.position);
-        //targetFootR.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
-
-        //targetFootL.GetComponent<LineRenderer>().SetPosition(0, targetFootL.transform.position);
-        //targetFootL.GetComponent<LineRenderer>().SetPosition(1, this.transform.position);
 
         if (player.isGrounded)
         {
