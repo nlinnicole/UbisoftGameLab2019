@@ -9,9 +9,41 @@
         _InnerFog("InnerFog", Range(0.5, 2.0)) = 0.3
         _Bottom("Bottom", float) = 0
         _Top("Top", float) = 1
+		_OccludedColor("Occluded Color", Color) = (1,1,1,1)
     }
     SubShader
     {
+
+	   Pass
+		{
+			Tags { "Queue" = "Geometry+1" }
+			ZTest Greater
+			ZWrite Off
+
+			CGPROGRAM
+			#pragma vertex vert            
+			#pragma fragment frag
+			#pragma fragmentoption ARB_precision_hint_fastest
+
+			half4 _OccludedColor;
+
+			float4 vert(float4 pos : POSITION) : SV_POSITION
+			{
+				float4 viewPos = UnityObjectToClipPos(pos);
+				return viewPos;
+			}
+
+				half4 frag(float4 pos : SV_POSITION) : COLOR
+			{
+				return _OccludedColor;
+			}
+
+			ENDCG
+		}
+
+
+
+
         Tags { "Queue"="Transparent" "RenderType"="Transparent" }
         LOD 200
 
