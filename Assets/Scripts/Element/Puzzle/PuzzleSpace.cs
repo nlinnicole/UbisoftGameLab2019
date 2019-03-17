@@ -27,7 +27,6 @@ public class PuzzleSpace : MonoBehaviour
     {
         if(puzzle.GetComponent<CubeMatchPuzzle>().checkPuzzleMatch(other.gameObject, gameObject))
         {
-            Debug.Log("GOT MATCH");
             match = true;
         }
     }

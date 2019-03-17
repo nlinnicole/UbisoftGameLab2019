@@ -24,7 +24,15 @@ public class PuzzleSet : MonoBehaviour
 
     //puzzle
     [SerializeField]
-    private GameObject puzzle; 
+    private GameObject puzzle;
+
+    //bar
+    [SerializeField]
+    private GameObject bar;
+    [SerializeField]
+    private GameObject barPosition;
+    private bool barSpawn = false;
+    private float barTimer; 
 
     void Start()
     {
@@ -65,7 +73,6 @@ public class PuzzleSet : MonoBehaviour
         {
             if (puzzle.GetComponent<CubeMatchPuzzle>().checkPuzzle())
             {
-                Debug.Log("CORRECT!");
                 doorTimer = Time.time;
                 doorOpening = true;
             }
@@ -82,6 +89,7 @@ public class PuzzleSet : MonoBehaviour
         {
             if (!buttonList[i].GetComponent<PuzzleButton>().getPress())
             {
+                barSpawn = false;
                 return false;
             }
         }
@@ -90,7 +98,14 @@ public class PuzzleSet : MonoBehaviour
 
     public void setTrap()
     {
-        Debug.Log("WRONG!");
+        if (!barSpawn)
+        {
+            Debug.Log("WRONG!");
+            barSpawn = true;
+            Instantiate(bar, barPosition.transform.position, Quaternion.identity);
+            barTimer = Time.time;
+        }
     }
+
 
 }

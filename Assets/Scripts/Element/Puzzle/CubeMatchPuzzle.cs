@@ -33,8 +33,6 @@ public class CubeMatchPuzzle : MonoBehaviour {
 
     public bool checkPuzzle()
     {
-        Debug.Log("Checking Puzzle...");
-
         for (int i = 0; i<puzzleSpaceArray.Count; i++)
         {
             if (!puzzleSpaceArray[i].GetComponent<PuzzleSpace>().getMatch())
