@@ -313,6 +313,11 @@ public class PlayerController : MonoBehaviour
         //for anim
         GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
 
+        if(GetComponent<Rigidbody>().velocity.magnitude > 50)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+
     }
     
     
