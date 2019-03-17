@@ -9,7 +9,6 @@ public class Room : MonoBehaviour
     public bool isConnected;
 
 
-    public GameObject door1Trigger;
-    public GameObject door2Trigger;
+    public GameObject doorTrigger;
 
 }
