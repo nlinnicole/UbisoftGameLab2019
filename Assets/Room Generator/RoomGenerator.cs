@@ -48,7 +48,7 @@ public class RoomGenerator : MonoBehaviour
     public void GenerateRooms(int amount)
     {
         roomArray = Resources.LoadAll("Rooms", typeof(GameObject)).Cast<GameObject>().ToArray();
-        if (roomArray.Length > 1)
+        if (roomArray.Length == 1)
         {
             roomArray = new GameObject[1];
             roomArray[0] = baseRoom;
