@@ -28,7 +28,8 @@ public class RopeGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(isBroken && !startedGas)
+
+        if (isBroken && !startedGas)
         {
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -67,8 +68,8 @@ public class RopeGenerator : MonoBehaviour
 
     void Start()
     {
-        ropeJointsTrans = transform.GetComponentsInChildren<Transform>();
         generate();
+        ropeJointsTrans = transform.GetComponentsInChildren<Transform>();
     }
 
 
