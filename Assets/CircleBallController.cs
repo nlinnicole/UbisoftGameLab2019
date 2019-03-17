@@ -8,7 +8,15 @@ public class CircleBallController : MonoBehaviour
     public GameObject players;
     Transform CurrentLocation;
 
+    public GameObject exitdoor;
+
+    int boardkillcounter = 0;
+
     int negativer = -1;
+
+    float initialTimeLeft = 4f;
+
+    float lerpvalue;
 
     public Rigidbody rb;
 
@@ -17,6 +25,8 @@ public class CircleBallController : MonoBehaviour
     Vector3 attackDirection;
 
     private float timeLeft =5f;
+
+    bool startattacking = false;
 
     bool triggeredNeg = true;
     bool ReturnToCenter;
@@ -39,58 +49,73 @@ public class CircleBallController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
 
         // Keep a note of the time the movement started.
-        startTime = Time.time;
+       
 
-        // Calculate the journey length.
-        journeyLength = Vector3.Distance(gameObject.transform.position, gameObject.transform.position + transform.forward * 5);
         //InvokeRepeating("attackPlayer", 2, 4);
 
         attackPlayer();
     }
+    
+    void whenGoingBack()
+    {
+        startTime = Time.time;
+
+        // Calculate the journey length.
+        journeyLengthBack = Vector3.Distance(gameObject.transform.position, centerPoint.transform.position);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-
-        if (ReturnToCenter)
+        if (startattacking)
         {
-            Debug.Log("returning");
-            returnToCenter();
-            timeLeft -= Time.deltaTime;
-            if(timeLeft < 0)
+            if (ReturnToCenter)
             {
-                ReturnToCenter = false;
-                directionFinder = true;
-                timeLeft = 4;
-                if (triggeredNeg)
+                whenGoingBack();
+                Debug.Log("returning");
+                returnToCenter();
+                timeLeft -= Time.deltaTime;
+                if (timeLeft < 0)
                 {
-                    negativer = negativer * -1;
-                    triggeredNeg = false;
+                    startTime = 0;
+                    ReturnToCenter = false;
+                    directionFinder = true;
+                    timeLeft = 4;
+                    if (triggeredNeg)
+                    {
+                        negativer = negativer * -1;
+                        triggeredNeg = false;
+                    }
                 }
             }
-        }
-        else
-        {
-            if (directionFinder)
+            else
             {
-                attackDirection = transform.forward;
-                directionFinder = false;
+
+                if (directionFinder)
+                {
+                    attackDirection = transform.forward;
+                    directionFinder = false;
+                }
+                Debug.Log("Attacking");
+                attackPlayer();
             }
-            Debug.Log("Attacking");
-            attackPlayer();
         }
 
 
+        if (boardkillcounter == 1)
+        {
+            exitdoor.transform.position = exitdoor.transform.position + Vector3.up * 0.2f;
+            
+        }
 
         transform.LookAt(players.gameObject.transform.position);
 
-
-        
-        
-            
-
-        
-
+        initialTimeLeft -= Time.deltaTime;
+        if(initialTimeLeft < 0)
+        {
+            startattacking = true;
+        }
 
     }
 
@@ -103,24 +128,11 @@ public class CircleBallController : MonoBehaviour
 
     void returnToCenter()
     {
+        startTime += Time.deltaTime;
+        lerpvalue = (startTime / backspeed);
+        transform.position = Vector3.Lerp(gameObject.transform.position,centerPoint.position, lerpvalue);
 
-
-        journeyLengthBack = Vector3.Distance(gameObject.transform.position, centerPoint.position);
-
-
-        // Distance moved = time * speed.
-        float distCovered = (Time.time - startTime) * backspeed;
-
-        // Fraction of journey completed = current distance divided by total distance.
-        float fracJourney = distCovered / journeyLengthBack;
-
-        // Set our position as a fraction of the distance between the markers.
-        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, centerPoint.position, fracJourney);
-
-        
-
-        
-
+        Debug.Log("Running");        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -128,12 +140,17 @@ public class CircleBallController : MonoBehaviour
         if(collision.gameObject.tag == "Wall")
         {
             ReturnToCenter = true;
-
         }
 
         if (collision.gameObject.tag == "Board")
         {
+            boardkillcounter++;
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.tag == "Player")
+        {
+            Application.LoadLevel(Application.loadedLevel);
         }
     }
 }
