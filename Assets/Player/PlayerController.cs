@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -90,6 +92,11 @@ public class PlayerController : MonoBehaviour
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
         if (jumpCooldownCount > 0)
         {
@@ -194,7 +201,9 @@ public class PlayerController : MonoBehaviour
             rollMod = rollMultiplier;
             rollTime += Time.deltaTime;
             isGrounded = false;
+            GetComponent<Rigidbody>().useGravity = false;
         } else if(isRolling && rollTime < rollDuration + rollCooldown) {
+            GetComponent<Rigidbody>().useGravity = true;
             rollTime += Time.deltaTime;
             rollMod = 1;
         } else {
@@ -296,14 +305,18 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
         }
 
+
         //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-
-
-        transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
+        transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x * rollMod, transform.GetComponent<Rigidbody>().velocity.y, velocity.z * rollMod); //apply velocity to rigidbody
 
 
         //for anim
         GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
+
+        if(GetComponent<Rigidbody>().velocity.magnitude > 50)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
 
     }
     
