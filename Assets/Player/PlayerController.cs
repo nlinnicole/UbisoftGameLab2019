@@ -193,7 +193,8 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             isRolling = true;
             rollTime = 0;
-        } 
+        }
+
 
         if(isRolling && rollTime < rollDuration)
         {
