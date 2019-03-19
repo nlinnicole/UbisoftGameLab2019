@@ -89,22 +89,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         itemLayerMask = LayerMask.GetMask("Items");
         anim = GetComponent<Animator>();
-        if (photonView.IsMine)
-        {
-            PlayerController.LocalPlayerInstance = this.gameObject;
-        }
-
     }
 
 
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
-
-        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
-        {
-            return;
-        }
 
         if (Input.GetKeyDown(KeyCode.R))
             {
