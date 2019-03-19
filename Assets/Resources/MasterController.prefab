@@ -1143,7 +1143,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: -4.96, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 22.32, y: -2.8000002, z: 6.0299997}
+  m_ConnectedAnchor: {x: 17.439999, y: -2.8000002, z: 6.0299997}
   serializedVersion: 2
   m_Spring: 200
   m_Damper: 10
@@ -2340,7 +2340,6 @@ GameObject:
   - component: {fileID: 2184996418334623115}
   - component: {fileID: 2091549613053468399}
   - component: {fileID: 3397041480451785992}
-  - component: {fileID: 4745696199244638334}
   - component: {fileID: 1456776702927652565}
   - component: {fileID: 5071747014423159962}
   - component: {fileID: 3879799190344551742}
@@ -2398,7 +2397,7 @@ Rigidbody:
   m_GameObject: {fileID: 3628197345598738127}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 3
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -2434,6 +2433,7 @@ MonoBehaviour:
   playerNumber: 1
   playerCamera: {fileID: 7295891279464177422}
   moveSpeed: 3
+  maxSpeed: 5
   sprintMultiplier: 2
   deceleration: 1
   rotationSpeed: 0.013
@@ -2448,7 +2448,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 27959
   isRolling: 0
-  rollMultiplier: 20
+  rollMultiplier: 10
   rollDuration: 0.25
   rollCooldown: 1
   heldItem: {fileID: 0}
@@ -2496,19 +2496,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!65 &4745696199244638334
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3628197345598738127}
-  m_Material: {fileID: 13400000, guid: 035acc6de245dd340a30125e159b1a85, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1184006, y: 1.427032, z: 0.8994169}
-  m_Center: {x: -0.016342163, y: -0.213516, z: 0.16805696}
 --- !u!114 &1456776702927652565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,7 +2517,7 @@ MonoBehaviour:
   - {fileID: 5071747014423159962}
   - {fileID: 3879799190344551742}
   viewIdField: 0
-  InstantiationId: 3
+  InstantiationId: 2
   isRuntimeInstantiated: 0
 --- !u!114 &5071747014423159962
 MonoBehaviour:
@@ -3224,7 +3211,6 @@ GameObject:
   - component: {fileID: 4883877067723425242}
   - component: {fileID: 5813216310725895983}
   - component: {fileID: 2903841649100914270}
-  - component: {fileID: 1132118387239543530}
   - component: {fileID: 8803996520967846290}
   - component: {fileID: 1909763143458564589}
   - component: {fileID: 246859824098015624}
@@ -3318,6 +3304,7 @@ MonoBehaviour:
   playerNumber: 2
   playerCamera: {fileID: 7295891279464177422}
   moveSpeed: 3
+  maxSpeed: 5
   sprintMultiplier: 2
   deceleration: 1.057
   rotationSpeed: 0.013
@@ -3332,7 +3319,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 27959
   isRolling: 0
-  rollMultiplier: 20
+  rollMultiplier: 10
   rollDuration: 0.25
   rollCooldown: 1
   heldItem: {fileID: 0}
@@ -3380,19 +3367,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!65 &1132118387239543530
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4372944007076025298}
-  m_Material: {fileID: 13400000, guid: 035acc6de245dd340a30125e159b1a85, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1184006, y: 1.427032, z: 0.8994169}
-  m_Center: {x: -0.016342163, y: -0.213516, z: 0.16805696}
 --- !u!114 &8803996520967846290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4786,7 +4760,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6536774379298968008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.88, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7743869935201469140}
@@ -5115,7 +5089,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: -5.01, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 21.66, y: -2.8000002, z: 6}
+  m_ConnectedAnchor: {x: 16.779999, y: -2.8000002, z: 6}
   serializedVersion: 2
   m_Spring: 200
   m_Damper: 10

@@ -79,7 +79,6 @@ public class Walking : MonoBehaviour
         }
 
 
-
         if (player.isGrounded)
         {
             rightFoot.transform.position = Vector3.MoveTowards(rightFoot.transform.position, targetFootR.transform.position, Time.deltaTime * feetMoveSpeed);
