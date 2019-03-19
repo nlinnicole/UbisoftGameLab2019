@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
     float rollTime = 0;
-    float rollMod = 1;
+    float rollMod = 0;
 
     [Header("Item")]
     public GameObject heldItem;
@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
@@ -216,13 +217,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
             } else if(isRolling && rollTime < rollDuration + rollCooldown) {
                 GetComponent<Rigidbody>().useGravity = true;
                 rollTime += Time.deltaTime;
-                rollMod = 1;
+                rollMod = 0;
             } else {
                 isRolling = false;
-                rollMod = 1;
+                rollMod = 0;
             }
 
-
+            velocity = Vector3.zero;
             faceDirection = Vector3.zero;
             CamForward = new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z);
             CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
@@ -233,48 +234,47 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 //movement
                 if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
                 {
-                    velocity += CamRight * moveSpeed * 100 * Time.deltaTime;
+                    velocity += CamRight * moveSpeed * 100;
                     faceDirection += CamRight;
                 }
                 if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
                 {
-                    velocity -= CamRight * moveSpeed * 100 * Time.deltaTime;
+                    velocity -= CamRight * moveSpeed * 100;
                     faceDirection += -CamRight;
-                }
-                if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
                 {
-                    velocity += CamForward * moveSpeed * 100 * Time.deltaTime;
+                    velocity += CamForward * moveSpeed * 100;
                     faceDirection += CamForward;
                 }
                 if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
                 {
-                    velocity -= CamForward * moveSpeed * 100 * Time.deltaTime;
+                    velocity -= CamForward * moveSpeed * 100;
                     faceDirection += -CamForward;
                 }
 
-                velocity /= deceleration; //reduce velocity vector to look like drag
             }
             else
             {
                 //reduced movement when jumping
                 if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
                 {
-                    velocity += (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                    velocity += (CamRight * moveSpeed * 100) / jumpMovementReduction;
                     faceDirection += CamRight;
                 }
                 if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
                 {
-                    velocity -= (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                    velocity -= (CamRight * moveSpeed * 100) / jumpMovementReduction;
                     faceDirection += -CamRight;
                 }
                 if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
                 {
-                    velocity += (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                    velocity += (CamForward * moveSpeed * 100) / jumpMovementReduction;
                     faceDirection += CamForward;
                 }
                 if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
                 {
-                    velocity -= (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                    velocity -= (CamForward * moveSpeed * 100) / jumpMovementReduction;
                     faceDirection += -CamForward;
                 }
             }
@@ -292,7 +292,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
 
                 velocity += joyInput * moveSpeed * 100 * Time.deltaTime;
-                velocity /= deceleration; //reduce velocity vector to look like drag
                 faceDirection += joyInput;
             }
             else
@@ -305,7 +304,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 }
 
                 velocity += (joyInput * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
-                velocity /= deceleration; //reduce velocity vector to look like drag
                 faceDirection += joyInput;
             }
 
@@ -316,15 +314,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
 
             //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-            transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z) + this.transform.forward * rollMod; //apply velocity to rigidbody
+            transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z) + this.transform.forward * rollMod); //apply velocity to 
 
             //for anim
             GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
 
-            if(GetComponent<Rigidbody>().velocity.magnitude > 50)
-            {
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
+
         
     }
     
