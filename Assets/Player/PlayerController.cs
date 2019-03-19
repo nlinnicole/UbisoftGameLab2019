@@ -315,17 +315,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
 
             //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-            if(transform.GetComponent<Rigidbody>().velocity.magnitude < maxSpeed)
+            if(transform.GetComponent<Rigidbody>().velocity.magnitude > maxSpeed)
             {
-                transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z) + this.transform.forward * rollMod); //apply velocity to rigidbody
+                transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
             }
 
-            transform.GetComponent<Rigidbody>().AddForce(this.transform.forward * rollMod * 100); //roll velocity to rigidbody
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
+
+
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
 
 
         //for anim
         GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
-
 
         
     }
