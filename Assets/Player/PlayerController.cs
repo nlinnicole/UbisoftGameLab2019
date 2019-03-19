@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 }
 
 
-                velocity += joyInput * moveSpeed * 100 * Time.deltaTime;
+                velocity += joyInput * moveSpeed * 100;
                 faceDirection += joyInput;
             }
             else
@@ -304,7 +304,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
                 }
 
-                velocity += (joyInput * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                velocity += (joyInput * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += joyInput;
             }
 
