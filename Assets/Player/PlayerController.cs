@@ -319,5 +319,9 @@ public class PlayerController : MonoBehaviour
         moveSpeed = speed;
     }
 
+    //AddingTrigger
+
+    
+
 }
  

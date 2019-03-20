@@ -16,6 +16,8 @@ public class CircleBallController : MonoBehaviour
 
     float initialTimeLeft = 4f;
 
+    Transform LastPointHit;
+
     float lerpvalue;
 
     public Rigidbody rb;
@@ -24,13 +26,17 @@ public class CircleBallController : MonoBehaviour
 
     Vector3 attackDirection;
 
-    private float timeLeft =5f;
+    private float fraction = 0;
+
+    private float timeLeft =2f;
 
     bool startattacking = false;
 
-    bool triggeredNeg = true;
-    bool ReturnToCenter;
+
+    bool centered = true;
+    bool ReturnToCenter = false;
     bool directionFinder = true;
+    bool FirstHit = true;
     // Movement speed in units/sec.
     public float speed = 1.0F;
     public float backspeed = 0.5f;
@@ -42,29 +48,25 @@ public class CircleBallController : MonoBehaviour
     private float journeyLength;
     private float journeyLengthBack;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-
-        // Keep a note of the time the movement started.
-       
-
-        //InvokeRepeating("attackPlayer", 2, 4);
-
-        attackPlayer();
     }
     
-    void whenGoingBack()
+    void returnBallToCenter()
     {
-        startTime = Time.time;
-
-        // Calculate the journey length.
-        journeyLengthBack = Vector3.Distance(gameObject.transform.position, centerPoint.transform.position);
+        if (fraction < 2)
+        {
+            Debug.Log("Returning to Center");
+            fraction += Time.deltaTime * 0.5f;
+            gameObject.transform.position = Vector3.Lerp(LastPointHit.position, centerPoint.transform.position, fraction);
+        }
     }
 
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -72,14 +74,21 @@ public class CircleBallController : MonoBehaviour
         {
             if (ReturnToCenter)
             {
+                if (FirstHit)
+                {
+                    LastPointHit = gameObject.transform;
+                    FirstHit = false;
+                    Debug.Log("Hit Wall");
+                }
+                LastPointHit = gameObject.transform;
                 whenGoingBack();
                 Debug.Log("returning");
-                returnToCenter();
                 timeLeft -= Time.deltaTime;
                 if (timeLeft < 0)
                 {
                     startTime = 0;
                     ReturnToCenter = false;
+                    FirstHit = true;
                     directionFinder = true;
                     timeLeft = 4;
                     if (triggeredNeg)
@@ -92,11 +101,7 @@ public class CircleBallController : MonoBehaviour
             else
             {
 
-                if (directionFinder)
-                {
-                    attackDirection = transform.forward;
-                    directionFinder = false;
-                }
+                
                 Debug.Log("Attacking");
                 attackPlayer();
             }
@@ -118,28 +123,63 @@ public class CircleBallController : MonoBehaviour
         }
 
     }
+    */
+
+    private void Update()
+    {
+        Debug.Log("Centered :" + centered);
+        Debug.Log("Returning to Center" + ReturnToCenter);
+
+        if (ReturnToCenter)
+        {
+            returnBallToCenter();
+            
+        }
+        else if(centered)
+        {
+
+            timeLeft -= Time.deltaTime;
+            if(timeLeft < 0f)
+            {
+                Debug.Log(timeLeft);
+
+                startattacking = true;
+                timeLeft = 4f;
+            }
+
+            
+
+            if (startattacking)
+            {
+                Debug.Log("Attacking");
+                attackPlayer();
+            }else
+            {
+                transform.LookAt(players.gameObject.transform.position);
+                attackDirection = transform.forward;
+
+            }
+
+        }
+    }
 
     void attackPlayer()
     {
-        transform.position += attackDirection * negativer * Time.deltaTime * speed;
-
-
+        transform.position += attackDirection * Time.deltaTime * speed;
+ 
     }
 
-    void returnToCenter()
-    {
-        startTime += Time.deltaTime;
-        lerpvalue = (startTime / backspeed);
-        transform.position = Vector3.Lerp(gameObject.transform.position,centerPoint.position, lerpvalue);
-
-        Debug.Log("Running");        
-    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Wall")
         {
+            Debug.Log("Hit a wall");
             ReturnToCenter = true;
+            LastPointHit = gameObject.transform;
+            startattacking = false;
+            
         }
 
         if (collision.gameObject.tag == "Board")
@@ -153,4 +193,17 @@ public class CircleBallController : MonoBehaviour
             Application.LoadLevel(Application.loadedLevel);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Center")
+        {
+            fraction = 0;
+            centered = true;
+            ReturnToCenter = false;
+        }
+
+    }
+
+    
 }
