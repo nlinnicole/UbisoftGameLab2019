@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [ExecuteInEditMode]
 public class CamPlayerFollow : MonoBehaviour
@@ -20,8 +21,12 @@ public class CamPlayerFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        target = (new Vector3(player1.transform.position.x, player1.transform.position.y + heightOffset, player1.transform.position.z) + 
-            new Vector3(player2.transform.position.x, player2.transform.position.y + heightOffset, player2.transform.position.z) )/2;
-        transform.position = Vector3.Lerp(transform.position, target, lerpAmount);
+       // if (photonView.IsMine)
+        {
+            target = (new Vector3(player1.transform.position.x, player1.transform.position.y, player1.transform.position.z) + 
+                new Vector3(player2.transform.position.x, player2.transform.position.y, player2.transform.position.z))/2 
+                + Vector3.up * heightOffset;
+            transform.position = Vector3.Lerp(transform.position, target, lerpAmount);
+        }
     }
 }
