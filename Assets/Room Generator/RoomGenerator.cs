@@ -10,11 +10,13 @@ public class RoomGenerator : MonoBehaviour
 
     [Header("Team 1")]
     public GameObject team1;
+    public int team1CurrentRoom = -1;
     public GameObject team1StartRoom;
     public GameObject Team1Space;
 
     [Header("Team 2")]
     public GameObject team2;
+    public int team2CurrentRoom = -1;
     public GameObject team2StartRoom;
     public GameObject Team2Space;
 
@@ -23,11 +25,9 @@ public class RoomGenerator : MonoBehaviour
 
     public GameObject[] Team1Rooms;
     int[,] team1RoomRefs;
-    public int Team1RoomNumber = 0;
 
     public GameObject[] Team2Rooms;
     int[,] team2RoomRefs;
-    public int Team2RoomNumber = 0;
 
     GameObject team1Rooms;
     GameObject team2Rooms;
@@ -43,6 +43,8 @@ public class RoomGenerator : MonoBehaviour
     void Start()
     {
         GenerateRooms(10);
+        team1CurrentRoom = -1;
+        team2CurrentRoom = -1;
     }
 
     public void GenerateRooms(int amount)
@@ -78,9 +80,6 @@ public class RoomGenerator : MonoBehaviour
         team1RoomRefs = new int[amount, 2];
         team2RoomRefs = new int[amount, 2];
 
-        Team1RoomNumber = 0;
-        Team2RoomNumber = 0;
-
         for (int i = 0, k = 1; i < amount; i++, k++)
         {
 
@@ -111,71 +110,40 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    short adderTeam1 = 0;
-    short adderTeam2 = 0;
     void FixedUpdate()
     {
         if(team1InFirstRoom)
         {
             if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
-                Team1Rooms[0].SetActive(true);
+                team1CurrentRoom++;
                 team1InFirstRoom = false;
-            }
-            else if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
-            {
-                Team1Rooms[1].SetActive(true);
-                team1InFirstRoom = false;
-                adderTeam1 = 1;
             }
         }
         else
         {
             //check which room the players choose
-            if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
+            if (Team1Rooms[team1CurrentRoom].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
-                Team1RoomNumber += 2;
-                adderTeam1 = 0;
-                Team1Rooms[Team1RoomNumber + adderTeam1].SetActive(true);
+                team1CurrentRoom++;
             }
-            else if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
-            {
-                Team1RoomNumber += 2;
-                adderTeam1 = 1;
-                Team1Rooms[Team1RoomNumber + adderTeam1].SetActive(true);
-            }
-
         }
 
         //team2
         if (team2InFirstRoom)
         {
-            if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
+            if (team2StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
-                Team1Rooms[0].SetActive(true);
                 team2InFirstRoom = false;
-            }
-            else if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
-            {
-                Team1Rooms[1].SetActive(true);
-                team2InFirstRoom = false;
-                adderTeam2 = 1;
+                team2CurrentRoom++;
             }
         }
         else
         {
             //check which room the players choose
-            if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
+            if (Team2Rooms[team2CurrentRoom].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
-                Team1RoomNumber += 2;
-                adderTeam2 = 0;
-                Team1Rooms[Team1RoomNumber + adderTeam2].SetActive(true);
-            }
-            else if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
-            {
-                Team1RoomNumber += 2;
-                adderTeam2 = 1;
-                Team1Rooms[Team1RoomNumber + adderTeam2].SetActive(true);
+                team2CurrentRoom++;
             }
         }
     }
