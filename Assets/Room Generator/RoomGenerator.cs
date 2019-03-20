@@ -72,8 +72,8 @@ public class RoomGenerator : MonoBehaviour
         //team1Start = Instantiate(team1StartRoom);
         //team2Start = Instantiate(team2StartRoom, new Vector3(-baseRoomSize, 0, 0), Quaternion.identity);
 
-        Team1Rooms = new GameObject[(amount * 2)+1];
-        Team2Rooms = new GameObject[(amount * 2)+1];
+        Team1Rooms = new GameObject[(amount)];
+        Team2Rooms = new GameObject[(amount)];
 
         team1RoomRefs = new int[amount, 2];
         team2RoomRefs = new int[amount, 2];
@@ -81,7 +81,7 @@ public class RoomGenerator : MonoBehaviour
         Team1RoomNumber = 0;
         Team2RoomNumber = 0;
 
-        for (int i = 0, k = 1; i < amount * 2; i += 2, k++)
+        for (int i = 0, k = 1; i < amount; i++, k++)
         {
 
             //randomly choose a room
@@ -90,23 +90,23 @@ public class RoomGenerator : MonoBehaviour
             Team1Rooms[i] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
             //change name
             Team1Rooms[i].gameObject.name += " (Option 1)";
-            Team1Rooms[i].SetActive(false);
+            //Team1Rooms[i].SetActive(false);
 
-            roomToBuild = roomArray[Random.Range(0, roomArray.Length)];
-            Team1Rooms[i+1] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
-            Team1Rooms[i+1].gameObject.name += " (Option 2)";
-            Team1Rooms[i+1].SetActive(false);
+            //roomToBuild = roomArray[Random.Range(0, roomArray.Length)];
+            //Team1Rooms[i+1] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
+            //Team1Rooms[i+1].gameObject.name += " (Option 2)";
+            //Team1Rooms[i+1].SetActive(false);
 
             //team2
             roomToBuild = roomArray[Random.Range(0, roomArray.Length)];
             Team2Rooms[i] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
             Team2Rooms[i].gameObject.name += " (Option 1)";
-            Team2Rooms[i].SetActive(false);
+            //Team2Rooms[i].SetActive(false);
 
-            roomToBuild = roomArray[Random.Range(0, roomArray.Length)];
-            Team2Rooms[i+1] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
-            Team2Rooms[i+1].gameObject.name += " (Option 2)";
-            Team2Rooms[i+1].SetActive(false);
+            //roomToBuild = roomArray[Random.Range(0, roomArray.Length)];
+            //Team2Rooms[i+1] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
+            //Team2Rooms[i+1].gameObject.name += " (Option 2)";
+            //Team2Rooms[i+1].SetActive(false);
            
         }
     }
