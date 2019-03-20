@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
 
     public int playerNumber = 1;
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 1f;
+    public float maxSpeed = 5;
     public float sprintMultiplier;
     [Range(1, 2)]
     public float deceleration = 1f; //lower means slower deceleration
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
     float rollTime = 0;
-    float rollMod = 1;
+    float rollMod = 0;
 
     [Header("Item")]
     public GameObject heldItem;
@@ -56,6 +58,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Joystick")]
     public float dead = 0.5f;
+
+    [Header("Networking")]
+    public static GameObject LocalPlayerInstance;
 
 
     //[Header("Ability")]
@@ -80,11 +85,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 joyInput;
 
-    void Start()
+    void Awake()
     {
         itemLayerMask = LayerMask.GetMask("Items");
         anim = GetComponent<Animator>();
-
+        if (photonView.IsMine)
+        {
+            PlayerController.LocalPlayerInstance = this.gameObject;
+        }
 
     }
 
@@ -93,7 +101,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -139,7 +152,7 @@ public class PlayerController : MonoBehaviour
                     if (Input.GetButtonDown("Fire" + playerNumber))
                     {
                         playerSwapCountdown = playerSwapDelay;
-                       
+
                         //old item
                         heldItem.layer = 10;
                         heldItem.transform.parent = null;
@@ -156,7 +169,9 @@ public class PlayerController : MonoBehaviour
                         heldItem.GetComponent<Rigidbody>().isKinematic = true;
                         heldItem.GetComponent<Rigidbody>().useGravity = false;
                     }
-                } else {
+                }
+                else
+                {
                     swapText.gameObject.SetActive(false);
                 }
             }
@@ -179,7 +194,9 @@ public class PlayerController : MonoBehaviour
 
 
 
-        } else {
+        }
+        else
+        {
             swapText.gameObject.SetActive(false);
         }
 
@@ -192,24 +209,30 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
             isRolling = true;
-
             rollTime = 0;
-        } 
+        }
 
-        if(isRolling && rollTime < rollDuration)
+
+        if (isRolling && rollTime < rollDuration)
         {
             rollMod = rollMultiplier;
             rollTime += Time.deltaTime;
             isGrounded = false;
-        } else if(isRolling && rollTime < rollDuration + rollCooldown) {
+            GetComponent<Rigidbody>().useGravity = false;
+        }
+        else if (isRolling && rollTime < rollDuration + rollCooldown)
+        {
+            GetComponent<Rigidbody>().useGravity = true;
             rollTime += Time.deltaTime;
-            rollMod = 1;
-        } else {
+            rollMod = 0;
+        }
+        else
+        {
             isRolling = false;
-            rollMod = 1;
+            rollMod = 0;
         }
 
-
+        velocity = Vector3.zero;
         faceDirection = Vector3.zero;
         CamForward = new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z);
         CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
@@ -220,48 +243,47 @@ public class PlayerController : MonoBehaviour
             //movement
             if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity += CamRight * moveSpeed * 100 * Time.deltaTime;
+                velocity += CamRight * moveSpeed * 100;
                 faceDirection += CamRight;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity -= CamRight * moveSpeed * 100 * Time.deltaTime;
+                velocity -= CamRight * moveSpeed * 100;
                 faceDirection += -CamRight;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity += CamForward * moveSpeed * 100 * Time.deltaTime;
+                velocity += CamForward * moveSpeed * 100;
                 faceDirection += CamForward;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity -= CamForward * moveSpeed * 100 * Time.deltaTime;
+                velocity -= CamForward * moveSpeed * 100;
                 faceDirection += -CamForward;
             }
 
-            velocity /= deceleration; //reduce velocity vector to look like drag
         }
         else
         {
             //reduced movement when jumping
             if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity += (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                velocity += (CamRight * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += CamRight;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity -= (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                velocity -= (CamRight * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += -CamRight;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity += (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                velocity += (CamForward * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += CamForward;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity -= (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
+                velocity -= (CamForward * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += -CamForward;
             }
         }
@@ -278,8 +300,7 @@ public class PlayerController : MonoBehaviour
             }
 
 
-            velocity += joyInput * moveSpeed * 100 * Time.deltaTime;
-            velocity /= deceleration; //reduce velocity vector to look like drag
+            velocity += joyInput * moveSpeed * 100;
             faceDirection += joyInput;
         }
         else
@@ -291,29 +312,35 @@ public class PlayerController : MonoBehaviour
                 joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
             }
 
-
-            velocity += (joyInput * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
-            velocity /= deceleration; //reduce velocity vector to look like drag
+            velocity += (joyInput * moveSpeed * 100) / jumpMovementReduction;
             faceDirection += joyInput;
         }
 
         faceDirection.Normalize();
-        if(faceDirection != Vector3.zero)
+        if (faceDirection != Vector3.zero)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
         }
 
         //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
+        if (transform.GetComponent<Rigidbody>().velocity.magnitude > maxSpeed)
+        {
+            transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
+        }
 
-        transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
+
+
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
 
 
         //for anim
         GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
 
+
     }
-    
-    
+
+
     public void changePlayerSpeed(float speed)
     {
         moveSpeed = speed;
@@ -324,4 +351,3 @@ public class PlayerController : MonoBehaviour
     
 
 }
- 

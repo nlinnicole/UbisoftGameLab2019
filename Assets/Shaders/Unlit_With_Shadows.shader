@@ -11,24 +11,24 @@ Shader "Unlit/Unlit_With_Shadows"
 		Pass{
 		Tags{ "LightMode" = "ForwardBase" }
 		CGPROGRAM
-#pragma vertex vert
-#pragma fragment frag
-#pragma multi_compile_fwdbase
-#pragma fragmentoption ARB_fog_exp2
-#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma vertex vert
+		#pragma fragment frag
+		#pragma multi_compile_fwdbase
+		#pragma fragmentoption ARB_fog_exp2
+		#pragma fragmentoption ARB_precision_hint_fastest
 
-#include "UnityCG.cginc"
-#include "AutoLight.cginc"
+		#include "UnityCG.cginc"
+		#include "AutoLight.cginc"
 
 		struct v2f
-	{
-		float4	pos			: SV_POSITION;
-		float2	uv			: TEXCOORD0;
-		LIGHTING_COORDS(1,2)
-	};
-	float4 _MainTex_ST;
-	v2f vert(appdata_tan v)
-	{
+		{
+			float4	pos			: SV_POSITION;
+			float2	uv			: TEXCOORD0;
+			LIGHTING_COORDS(1,2)
+		};
+		float4 _MainTex_ST;
+		v2f vert(appdata_tan v)
+		{
 		v2f o;
 
 		o.pos = UnityObjectToClipPos(v.vertex);
