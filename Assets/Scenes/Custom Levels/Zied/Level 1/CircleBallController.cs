@@ -8,6 +8,9 @@ public class CircleBallController : MonoBehaviour
     public GameObject players;
     Transform CurrentLocation;
 
+    public Animator RaiseDoor;
+
+
     public GameObject exitdoor;
 
     int boardkillcounter = 0;
@@ -60,7 +63,7 @@ public class CircleBallController : MonoBehaviour
         if (fraction < 2)
         {
             Debug.Log("Returning to Center");
-            fraction += Time.deltaTime * 0.5f;
+            fraction += Time.deltaTime * 0.2f;
             gameObject.transform.position = Vector3.Lerp(LastPointHit.position, centerPoint.transform.position, fraction);
         }
     }
@@ -161,7 +164,20 @@ public class CircleBallController : MonoBehaviour
             }
 
         }
+
+        CheckBoardKills();
+
     }
+
+    void CheckBoardKills()
+    {
+        if(boardkillcounter > 1)
+        {
+            RaiseDoor.SetBool("RaiseDoor", true);
+            Destroy(gameObject, 2);
+        }
+    }
+
 
     void attackPlayer()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelDoorControls : MonoBehaviour
 {
 
-    private Animator anim;
+    public Animator anim;
 
     bool OnlyOnce = true;
 
@@ -15,7 +15,6 @@ public class LevelDoorControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
 
     }
 
