@@ -7,7 +7,7 @@ public class Room : MonoBehaviour
 
     public int roomNumber;
     public bool isConnected;
-
+    public GameObject respawnPoint;
 
     public GameObject doorTrigger;
 

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public int playerNumber = 1;
     public Camera playerCamera;
+    public GameObject teamManager;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
@@ -106,11 +107,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
         if (jumpCooldownCount > 0)
         {
             jumpCooldownCount -= Time.deltaTime;
@@ -127,6 +123,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
         else
         {
             isGrounded = false;
+        }
+
+        if(Input.GetButtonDown("Reset" + playerNumber))
+        {
+            teamManager.GetComponent<TeamManager>().respawn();
         }
 
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
