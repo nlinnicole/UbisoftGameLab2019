@@ -7,9 +7,6 @@ public class Walking : MonoBehaviour
     public PlayerController player;
 
     public float feetMoveSpeed = 10;
-    public float movingDistBetweenFeet = 1;
-    public float stoppedDistBetweenFeet = 0.3f;
-    public float walkingSpeed = 0.1f;
 
     public GameObject targetFootR;
     public GameObject targetFootL;
@@ -49,7 +46,7 @@ public class Walking : MonoBehaviour
 
         thisFeetHeight = new Vector3(this.transform.position.x, feetHeight, this.transform.position.z);
 
-        feetMoveSpeed = 5 * player.GetComponent<Rigidbody>().velocity.magnitude;
+        feetMoveSpeed = 3 * player.GetComponent<Rigidbody>().velocity.magnitude;
 
 
 
@@ -77,7 +74,6 @@ public class Walking : MonoBehaviour
                 targetFootL.transform.position = new Vector3(nextL.transform.position.x, feetHeight, nextL.transform.position.z);
             }
         }
-
 
 
         if (player.isGrounded)

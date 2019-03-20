@@ -10,9 +10,9 @@ public class RopeGenButton : Editor
         DrawDefaultInspector();
 
         RopeGenerator myScript = (RopeGenerator)target;
-        if (GUILayout.Button("Generate Rope"))
-        {
-            myScript.generate();
-        }
+        //if (GUILayout.Button("Generate Rope"))
+        //{
+        //    myScript.generate();
+        //}
     }
 }
