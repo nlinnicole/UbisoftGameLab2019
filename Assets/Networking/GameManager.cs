@@ -12,15 +12,9 @@ namespace Concordia1.Gamelab
     {
 
         bool ready = false;
-        [Tooltip("The prefab to use for representing the player")]
         public GameObject playerPrefab;
+ 
 
-        #region Photon Callbacks
-
-
-        /// <summary>
-        /// Called when the local player left the room. We need to load the launcher scene.
-        /// </summary>
         public override void OnLeftRoom()
         {
             SceneManager.LoadScene(0);
@@ -29,12 +23,9 @@ namespace Concordia1.Gamelab
 
         public override void OnPlayerEnteredRoom(Player other)
         {
-            Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
-
-
             if (PhotonNetwork.IsMasterClient)
             {
-                Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom;
+
             }
         }
 
@@ -46,16 +37,11 @@ namespace Concordia1.Gamelab
 
             if (PhotonNetwork.IsMasterClient)
             {
-                Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
-
-
                 LoadMenu();
             }
         }
 
 
-
-        #endregion
 
 
         #region Public Methods
@@ -104,7 +90,8 @@ namespace Concordia1.Gamelab
             {
                     Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
                     // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-                    PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(50f, 5f, 10f), Quaternion.identity, 0);
+                    GameObject sam = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(50f, 5f, 10f), Quaternion.identity, 0);
+                    sam.GetComponentInChildren<Camera>().enabled = true;
             }
         }
 
