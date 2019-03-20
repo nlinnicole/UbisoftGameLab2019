@@ -347,4 +347,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         moveSpeed = speed;
     }
 
+    //AddingTrigger
+
+    
+
 }
