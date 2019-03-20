@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     [Header("Movement")]
     public float moveSpeed = 1f;
+    public float maxSpeed = 5;
     public float sprintMultiplier;
     [Range(1, 2)]
     public float deceleration = 1f; //lower means slower deceleration
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
     float rollTime = 0;
-    float rollMod = 1;
+    float rollMod = 0;
 
     [Header("Item")]
     public GameObject heldItem;
@@ -99,240 +100,250 @@ public class PlayerController : MonoBehaviourPunCallbacks
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
-            if (jumpCooldownCount > 0)
-            {
-                jumpCooldownCount -= Time.deltaTime;
-            }
-            else
-            {
-                jumpCooldownFinished = true;
-            }
-            //check if on the ground
-            if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance, jumpLayerMask))
-            {
-                isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
-            }
+        if (jumpCooldownCount > 0)
+        {
+            jumpCooldownCount -= Time.deltaTime;
+        }
+        else
+        {
+            jumpCooldownFinished = true;
+        }
+        //check if on the ground
+        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance, jumpLayerMask))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
 
-            if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
-            {
-                jumpCooldownCount = jumpCooldown;
-                jumpCooldownFinished = false;
-                isGrounded = false;
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            }
+        if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
+        {
+            jumpCooldownCount = jumpCooldown;
+            jumpCooldownFinished = false;
+            isGrounded = false;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
 
-            //item pickup
-            nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
-            nearbyItems = Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask);
-            if (nearbyItems.Length > 0)
-            {
+        //item pickup
+        nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
+        nearbyItems = Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask);
+        if (nearbyItems.Length > 0)
+        {
 
-                if (nearbyItems.Length > 0 && heldItem != null)
+            if (nearbyItems.Length > 0 && heldItem != null)
+            {
+                if (nearbyItems[0].GetComponent<Item>().swapCountDown <= 0 && playerSwapCountdown <= 0)
                 {
-                    if (nearbyItems[0].GetComponent<Item>().swapCountDown <= 0 && playerSwapCountdown <= 0)
+                    swapText.gameObject.SetActive(true);
+                    if (Input.GetButtonDown("Fire" + playerNumber))
                     {
-                        swapText.gameObject.SetActive(true);
-                        if (Input.GetButtonDown("Fire" + playerNumber))
-                        {
-                            playerSwapCountdown = playerSwapDelay;
-                       
-                            //old item
-                            heldItem.layer = 10;
-                            heldItem.transform.parent = null;
-                            heldItem.GetComponent<Item>().swapCountDown = swapCooldown;
-                            heldItem.GetComponent<Rigidbody>().isKinematic = false;
-                            heldItem.GetComponent<Rigidbody>().useGravity = true;
+                        playerSwapCountdown = playerSwapDelay;
+
+                        //old item
+                        heldItem.layer = 10;
+                        heldItem.transform.parent = null;
+                        heldItem.GetComponent<Item>().swapCountDown = swapCooldown;
+                        heldItem.GetComponent<Rigidbody>().isKinematic = false;
+                        heldItem.GetComponent<Rigidbody>().useGravity = true;
 
 
-                            //new item
-                            heldItem = nearbyItems[0].gameObject;
-                            heldItem.transform.position = inventory.transform.position;
-                            heldItem.transform.parent = inventory.transform;
-                            heldItem.layer = 0;
-                            heldItem.GetComponent<Rigidbody>().isKinematic = true;
-                            heldItem.GetComponent<Rigidbody>().useGravity = false;
-                        }
-                    } else {
-                        swapText.gameObject.SetActive(false);
+                        //new item
+                        heldItem = nearbyItems[0].gameObject;
+                        heldItem.transform.position = inventory.transform.position;
+                        heldItem.transform.parent = inventory.transform;
+                        heldItem.layer = 0;
+                        heldItem.GetComponent<Rigidbody>().isKinematic = true;
+                        heldItem.GetComponent<Rigidbody>().useGravity = false;
                     }
                 }
                 else
                 {
                     swapText.gameObject.SetActive(false);
                 }
-
-
-
-                if (heldItem == null)
-                {
-                    heldItem = nearbyItems[0].gameObject;
-                    heldItem.transform.position = inventory.transform.position;
-                    heldItem.transform.parent = inventory.transform;
-                    heldItem.layer = 0;
-                    heldItem.GetComponent<Rigidbody>().isKinematic = true;
-                    heldItem.GetComponent<Rigidbody>().useGravity = false;
-                }
-
-
-
-            } else {
+            }
+            else
+            {
                 swapText.gameObject.SetActive(false);
             }
 
-            playerSwapCountdown -= Time.deltaTime;
 
 
-
-            //roll
-            if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+            if (heldItem == null)
             {
-                isGrounded = false;
-                isRolling = true;
-                rollTime = 0;
+                heldItem = nearbyItems[0].gameObject;
+                heldItem.transform.position = inventory.transform.position;
+                heldItem.transform.parent = inventory.transform;
+                heldItem.layer = 0;
+                heldItem.GetComponent<Rigidbody>().isKinematic = true;
+                heldItem.GetComponent<Rigidbody>().useGravity = false;
             }
 
 
-            if(isRolling && rollTime < rollDuration)
+
+        }
+        else
+        {
+            swapText.gameObject.SetActive(false);
+        }
+
+        playerSwapCountdown -= Time.deltaTime;
+
+
+
+        //roll
+        if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+        {
+            isGrounded = false;
+            isRolling = true;
+            rollTime = 0;
+        }
+
+
+        if (isRolling && rollTime < rollDuration)
+        {
+            rollMod = rollMultiplier;
+            rollTime += Time.deltaTime;
+            isGrounded = false;
+            GetComponent<Rigidbody>().useGravity = false;
+        }
+        else if (isRolling && rollTime < rollDuration + rollCooldown)
+        {
+            GetComponent<Rigidbody>().useGravity = true;
+            rollTime += Time.deltaTime;
+            rollMod = 0;
+        }
+        else
+        {
+            isRolling = false;
+            rollMod = 0;
+        }
+
+        velocity = Vector3.zero;
+        faceDirection = Vector3.zero;
+        CamForward = new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z);
+        CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
+
+        //keys
+        if (isGrounded)
+        {
+            //movement
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                rollMod = rollMultiplier;
-                rollTime += Time.deltaTime;
-                isGrounded = false;
-                GetComponent<Rigidbody>().useGravity = false;
-            } else if(isRolling && rollTime < rollDuration + rollCooldown) {
-                GetComponent<Rigidbody>().useGravity = true;
-                rollTime += Time.deltaTime;
-                rollMod = 1;
-            } else {
-                isRolling = false;
-                rollMod = 1;
+                velocity += CamRight * moveSpeed * 100;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+            {
+                velocity -= CamRight * moveSpeed * 100;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+            {
+                velocity += CamForward * moveSpeed * 100;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
+            {
+                velocity -= CamForward * moveSpeed * 100;
+                faceDirection += -CamForward;
+            }
+
+        }
+        else
+        {
+            //reduced movement when jumping
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+            {
+                velocity += (CamRight * moveSpeed * 100) / jumpMovementReduction;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+            {
+                velocity -= (CamRight * moveSpeed * 100) / jumpMovementReduction;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+            {
+                velocity += (CamForward * moveSpeed * 100) / jumpMovementReduction;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
+            {
+                velocity -= (CamForward * moveSpeed * 100) / jumpMovementReduction;
+                faceDirection += -CamForward;
+            }
+        }
+
+        //joysticks
+        joyInput = Vector3.zero;
+        if (isGrounded)
+        {
+
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            {
+                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
             }
 
 
-            faceDirection = Vector3.zero;
-            CamForward = new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z);
-            CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
-
-            //keys
-            if (isGrounded)
+            velocity += joyInput * moveSpeed * 100;
+            faceDirection += joyInput;
+        }
+        else
+        {
+            ////reduced movement when jumping
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
             {
-                //movement
-                if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
-                {
-                    velocity += CamRight * moveSpeed * 100 * Time.deltaTime;
-                    faceDirection += CamRight;
-                }
-                if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
-                {
-                    velocity -= CamRight * moveSpeed * 100 * Time.deltaTime;
-                    faceDirection += -CamRight;
-                }
-                if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
-                {
-                    velocity += CamForward * moveSpeed * 100 * Time.deltaTime;
-                    faceDirection += CamForward;
-                }
-                if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
-                {
-                    velocity -= CamForward * moveSpeed * 100 * Time.deltaTime;
-                    faceDirection += -CamForward;
-                }
-
-                velocity /= deceleration; //reduce velocity vector to look like drag
-            }
-            else
-            {
-                //reduced movement when jumping
-                if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
-                {
-                    velocity += (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
-                    faceDirection += CamRight;
-                }
-                if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
-                {
-                    velocity -= (CamRight * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
-                    faceDirection += -CamRight;
-                }
-                if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
-                {
-                    velocity += (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
-                    faceDirection += CamForward;
-                }
-                if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
-                {
-                    velocity -= (CamForward * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
-                    faceDirection += -CamForward;
-                }
+                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
             }
 
-            //joysticks
-            joyInput = Vector3.zero;
-            if (isGrounded)
-            {
+            velocity += (joyInput * moveSpeed * 100) / jumpMovementReduction;
+            faceDirection += joyInput;
+        }
 
-                if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
-                    || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
-                {
-                    joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
-                }
+        faceDirection.Normalize();
+        if (faceDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
+        }
+
+        //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
+        if (transform.GetComponent<Rigidbody>().velocity.magnitude > maxSpeed)
+        {
+            transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
+        }
+
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
 
 
-                velocity += joyInput * moveSpeed * 100 * Time.deltaTime;
-                velocity /= deceleration; //reduce velocity vector to look like drag
-                faceDirection += joyInput;
-            }
-            else
-            {
-                ////reduced movement when jumping
-                if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
-                    || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
-                {
-                    joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
-                }
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
 
-                velocity += (joyInput * moveSpeed * 100 * Time.deltaTime) / jumpMovementReduction;
-                velocity /= deceleration; //reduce velocity vector to look like drag
-                faceDirection += joyInput;
-            }
 
-            faceDirection.Normalize();
-            if(faceDirection != Vector3.zero)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
-            }
+        //for anim
+        GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
 
-            //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-            transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z) + this.transform.forward * rollMod; //apply velocity to rigidbody
 
-            //for anim
-            GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
-
-            if(GetComponent<Rigidbody>().velocity.magnitude > 50)
-            {
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
-        
     }
-    
-    
+
+
     public void changePlayerSpeed(float speed)
     {
         moveSpeed = speed;
     }
 
 }
- 
