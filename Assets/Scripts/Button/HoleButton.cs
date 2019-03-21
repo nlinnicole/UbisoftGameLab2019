@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Create a hole (delete a plane) when pressed
+ */
 public class HoleButton : MonoBehaviour
 {
     [SerializeField]
