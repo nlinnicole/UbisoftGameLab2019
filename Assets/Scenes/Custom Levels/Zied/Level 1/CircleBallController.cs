@@ -35,6 +35,7 @@ public class CircleBallController : MonoBehaviour
 
     bool startattacking = false;
 
+    public static bool foundplayer = false;
 
     bool centered = true;
     bool ReturnToCenter = false;
@@ -130,44 +131,53 @@ public class CircleBallController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Centered :" + centered);
-        Debug.Log("Returning to Center" + ReturnToCenter);
-
-        if (ReturnToCenter)
+        if (LevelDoorControls.EnteredLevel && !foundplayer)
         {
-            returnBallToCenter();
-            
-        }
-        else if(centered)
-        {
-
-            timeLeft -= Time.deltaTime;
-            if(timeLeft < 0f)
-            {
-                Debug.Log(timeLeft);
-
-                startattacking = true;
-                timeLeft = 4f;
-            }
-
-
-            if (startattacking)
-            {
-                Debug.Log("Attacking");
-                attackPlayer();
-            }
-            else
-            {
-                transform.LookAt(players.gameObject.transform.position);
-                attackDirection = transform.forward;
-
-            }
-            
-
-
+            players = GameObject.FindGameObjectWithTag("Player");
+            foundplayer = true;
         }
 
-        CheckBoardKills();
+
+        if (foundplayer)
+        {
+            if (ReturnToCenter)
+            {
+                returnBallToCenter();
+
+            }
+            else if (centered)
+            {
+
+                timeLeft -= Time.deltaTime;
+                if (timeLeft < 0f)
+                {
+                    Debug.Log(timeLeft);
+
+                    startattacking = true;
+                    timeLeft = 4f;
+                }
+
+
+                if (startattacking)
+                {
+                    Debug.Log("Attacking");
+                    attackPlayer();
+                }
+                else
+                {
+                    transform.LookAt(players.gameObject.transform.position);
+                    attackDirection = transform.forward;
+
+                }
+
+
+
+            }
+
+            CheckBoardKills();
+        }
+
+        
 
     }
 
