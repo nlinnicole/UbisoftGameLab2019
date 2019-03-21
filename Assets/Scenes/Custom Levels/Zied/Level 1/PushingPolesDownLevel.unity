@@ -119,9 +119,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 532, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
-      propertyPath: m_Name
-      value: MasterController
+    - target: {fileID: 1982, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 823, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 823, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
+      propertyPath: orthographic size
+      value: 9.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 823, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 794, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,6 +183,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 532, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
+      propertyPath: m_Name
+      value: MasterController
+      objectReference: {fileID: 0}
     - target: {fileID: 1355, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
       propertyPath: viewIdField
       value: 2
@@ -202,18 +222,6 @@ PrefabInstance:
     - target: {fileID: 534, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
       propertyPath: m_Layer
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 823, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 823, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
-      propertyPath: orthographic size
-      value: 9.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 823, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 637de55985f01234fb96b61662ba08a5, type: 3}
@@ -444,7 +452,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 53.7, y: 72.2, z: 0}
 --- !u!43 &590031250
 Mesh:
@@ -1406,12 +1414,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1861264154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 488, guid: 637de55985f01234fb96b61662ba08a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 282256950}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &970302784729840474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1508,7 +1510,7 @@ PrefabInstance:
         type: 3}
       propertyPath: players
       value: 
-      objectReference: {fileID: 1861264154}
+      objectReference: {fileID: 0}
     - target: {fileID: 970302783188957472, guid: 7c1efe66d2f69bd42808e9847be8689e,
         type: 3}
       propertyPath: m_Mesh

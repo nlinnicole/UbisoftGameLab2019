@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Button will shoot projectile object when pressed
+ */
+
 public class ProjectileButton : MonoBehaviour
 {
 

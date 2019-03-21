@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Suppose to sink the player very slowly, need to fix 
+ */
+
 public class QuickSand : MonoBehaviour
 {
     [SerializeField]

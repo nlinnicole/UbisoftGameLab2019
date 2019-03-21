@@ -356,75 +356,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &402333429
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8408143869855848103, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_Name
-      value: MasterController
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251225873074175537, guid: 199975b3db025dc429b6878ff9dd2a3b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 199975b3db025dc429b6878ff9dd2a3b, type: 3}
 --- !u!1 &494620848
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +662,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
+  playerCamera: {fileID: 0}
   moveSpeed: 5
+  maxSpeed: 5
   sprintMultiplier: 2
   deceleration: 1
   rotationSpeed: 1
@@ -742,6 +675,9 @@ MonoBehaviour:
   jumpCooldownFinished: 1
   groundDetectDistance: 0.6
   velocity: {x: 0, y: 0, z: 0}
+  jumpLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   isRolling: 0
   rollMultiplier: 3
   rollDuration: 0.25
@@ -752,9 +688,10 @@ MonoBehaviour:
   swapText: {fileID: 1665781180}
   swapCooldown: 1
   playerSwapDelay: 0.1
-  jumpIgnore:
-    serializedVersion: 2
-    m_Bits: 0
+  rope: {fileID: 0}
+  head: {fileID: 0}
+  dead: 0.5
+  feetVelocity: {x: 0, y: 0, z: 0}
 --- !u!4 &1230976264
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,6 +953,7 @@ MonoBehaviour:
   player1: {fileID: 2034576497}
   player2: {fileID: 1230976257}
   lerpAmount: 0.4
+  heightOffset: 0
 --- !u!4 &1360779555
 Transform:
   m_ObjectHideFlags: 0
@@ -1339,7 +1277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
+  playerCamera: {fileID: 0}
   moveSpeed: 5
+  maxSpeed: 5
   sprintMultiplier: 2
   deceleration: 1
   rotationSpeed: 1
@@ -1350,6 +1290,9 @@ MonoBehaviour:
   jumpCooldownFinished: 1
   groundDetectDistance: 0.6
   velocity: {x: 0, y: 0, z: 0}
+  jumpLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   isRolling: 0
   rollMultiplier: 3
   rollDuration: 0.25
@@ -1360,9 +1303,10 @@ MonoBehaviour:
   swapText: {fileID: 1665781180}
   swapCooldown: 1
   playerSwapDelay: 0.1
-  jumpIgnore:
-    serializedVersion: 2
-    m_Bits: 0
+  rope: {fileID: 0}
+  head: {fileID: 0}
+  dead: 0.5
+  feetVelocity: {x: 0, y: 0, z: 0}
 --- !u!4 &2034576499
 Transform:
   m_ObjectHideFlags: 0
