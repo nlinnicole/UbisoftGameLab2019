@@ -23,7 +23,7 @@ public class SlowZone : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if(other.tag == "player")
         {
