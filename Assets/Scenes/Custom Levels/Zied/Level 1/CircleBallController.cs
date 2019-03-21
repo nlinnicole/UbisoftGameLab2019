@@ -150,18 +150,20 @@ public class CircleBallController : MonoBehaviour
                 timeLeft = 4f;
             }
 
-            
 
             if (startattacking)
             {
                 Debug.Log("Attacking");
                 attackPlayer();
-            }else
+            }
+            else
             {
                 transform.LookAt(players.gameObject.transform.position);
                 attackDirection = transform.forward;
 
             }
+            
+
 
         }
 
