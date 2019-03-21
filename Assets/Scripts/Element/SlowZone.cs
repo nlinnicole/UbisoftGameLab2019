@@ -25,7 +25,7 @@ public class SlowZone : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if(other.tag == "player")
+        if(other.tag == "Player")
         {
             other.GetComponent<PlayerController>().changePlayerSpeed(slowSpeed);
         }
@@ -33,7 +33,7 @@ public class SlowZone : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             other.GetComponent<PlayerController>().changePlayerSpeed(regularSpeed);
         }
