@@ -40,12 +40,15 @@ public class RopeGenerator : MonoBehaviour
                 }
             }
 
-            GameObject gas = Instantiate(ropeGas, ropeJointsTrans[brokenJoint].transform);
-            GameObject gas2 = Instantiate(ropeGas, ropeJointsTrans[brokenJoint+2].transform);
-            startedGas = true;
+            if (ropeJointsTrans[brokenJoint].transform != null && ropeJointsTrans[brokenJoint +2].transform != null ){
+              GameObject gas = Instantiate(ropeGas, ropeJointsTrans[brokenJoint].transform);
+              GameObject gas2 = Instantiate(ropeGas, ropeJointsTrans[brokenJoint+2].transform);
+              startedGas = true;
 
-            transform.GetChild(brokenJoint - 1).gameObject.AddComponent<ConstantForce>();
-            transform.GetChild(brokenJoint+1).gameObject.AddComponent<ConstantForce>();
+              transform.GetChild(brokenJoint - 1).gameObject.AddComponent<ConstantForce>();
+              transform.GetChild(brokenJoint+1).gameObject.AddComponent<ConstantForce>();
+            }
+
         }
 
         if(startedGas)
@@ -102,7 +105,7 @@ public class RopeGenerator : MonoBehaviour
             } else {
                 newJoint.GetComponent<ConfigurableJoint>().connectedBody = ropeStart.GetComponent<Rigidbody>();
             }
-            
+
             ropeJoints[i] = newJoint;
         }
 
