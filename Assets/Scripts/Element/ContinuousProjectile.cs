@@ -9,6 +9,8 @@ public class ContinuousProjectile : MonoBehaviour
     [SerializeField]
     private float timer;
 
+    public int shotdirection;
+
     private float timeCounter;
 
     void Start()
@@ -22,7 +24,8 @@ public class ContinuousProjectile : MonoBehaviour
         {
             GameObject current;
             current = Instantiate(weapon, transform.position, Quaternion.identity);
-            current.GetComponent<ProjectileWeapon>().SetDirection(transform.forward);
+            
+
             timeCounter = Time.time;
 
         }

@@ -75,6 +75,14 @@ public class RopeGenerator : MonoBehaviour
 
     public void generate()
     {
+
+        //destroy all
+        foreach (Transform child in this.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+
         ropeLength = Vector3.Distance(ropeEnd.transform.position, ropeStart.transform.position);
 
         ropeJoints = new GameObject[ropeResolution];

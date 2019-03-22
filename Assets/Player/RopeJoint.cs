@@ -15,4 +15,10 @@ public class RopeJoint : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    private void FixedUpdate()
+    {
+        transform.GetChild(0).GetComponent<LineRenderer>().SetPosition(0, this.transform.position);
+        transform.GetChild(0).GetComponent<LineRenderer>().SetPosition(1, GetComponent<ConfigurableJoint>().connectedBody.transform.position);
+    }
 }
