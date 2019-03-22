@@ -36,8 +36,7 @@ namespace Concordia1.Gamelab
         {
             if (playerPrefab != null)
             {
-                    GameObject sam = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(50f, 5f, 10f), Quaternion.identity, 0);
-                    sam.GetComponentInChildren<Camera>().enabled = true;
+                    PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 10f), Quaternion.identity, 0);
             }
         }
     }

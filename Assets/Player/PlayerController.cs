@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public int playerNumber = 1;
     public Camera playerCamera;
+    public GameObject teamManager;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
@@ -89,10 +90,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         itemLayerMask = LayerMask.GetMask("Items");
         anim = GetComponent<Animator>();
-        if (photonView.IsMine)
+        if (photonView.IsMine == true)
         {
             PlayerController.LocalPlayerInstance = this.gameObject;
+            playerCamera.enabled = true;
+
         }
+        
+
 
     }
 
@@ -100,15 +105,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
-
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (jumpCooldownCount > 0)
@@ -127,6 +126,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
         else
         {
             isGrounded = false;
+        }
+
+        if(Input.GetButtonDown("Reset" + playerNumber))
+        {
+            teamManager.GetComponent<TeamManager>().respawn();
         }
 
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
@@ -345,5 +349,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         moveSpeed = speed;
     }
+
+    //AddingTrigger
+
+    
 
 }
