@@ -15,11 +15,12 @@ public class Axe : MonoBehaviour
 
     void Start()
     {
-        axe = Instantiate(axeObject, new Vector3(transform.position.x, transform.position.y + (axeLength / 2), transform.position.z), Quaternion.identity);
+        axe = Instantiate(axeObject, this.transform.position, Quaternion.identity);
     }
 
     void Update()
     {
-        axe.transform.RotateAround(transform.position, Vector3.forward, 180*Time.deltaTime * rotateSpeed);
+        float angle = 60 * Mathf.Sin(Time.time);
+        axe.transform.eulerAngles = new Vector3(0, 0, angle);
     }
 }
