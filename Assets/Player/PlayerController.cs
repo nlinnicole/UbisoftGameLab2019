@@ -347,7 +347,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public void changePlayerSpeed(float speed)
     {
-        Debug.Log(moveSpeed);
         moveSpeed = speed;
     }
 
