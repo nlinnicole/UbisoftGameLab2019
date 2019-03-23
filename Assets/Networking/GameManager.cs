@@ -11,6 +11,7 @@ namespace Concordia1.Gamelab
     public class GameManager : MonoBehaviourPunCallbacks
     {
 
+        public GameObject startPos;
         bool ready = false;
         public GameObject playerPrefab;
  
@@ -36,7 +37,7 @@ namespace Concordia1.Gamelab
         {
             if (playerPrefab != null)
             {
-                    GameObject sam = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(50f, 5f, 10f), Quaternion.identity, 0);
+                    GameObject sam = PhotonNetwork.Instantiate(this.playerPrefab.name, startPos.transform.position, Quaternion.identity, 0);
                     sam.GetComponentInChildren<Camera>().enabled = true;
             }
         }
