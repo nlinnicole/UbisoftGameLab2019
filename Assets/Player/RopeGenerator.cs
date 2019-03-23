@@ -40,7 +40,7 @@ public class RopeGenerator : MonoBehaviour
                     break;
                 }
             }
-
+            
             if(transform.GetChild(brokenJoint + 1) != null)
             {
 

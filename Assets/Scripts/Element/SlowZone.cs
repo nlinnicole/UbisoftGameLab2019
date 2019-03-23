@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * Area that will change the speed of the player on enter and go back to the original speed on exit
- */
-
 public class SlowZone : MonoBehaviour
 {
     [SerializeField]
@@ -23,19 +19,13 @@ public class SlowZone : MonoBehaviour
         
     }
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
-        {
-            other.GetComponent<PlayerController>().changePlayerSpeed(slowSpeed);
-        }
+        other.GetComponent<PlayerController>().changePlayerSpeed(slowSpeed);
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            other.GetComponent<PlayerController>().changePlayerSpeed(regularSpeed);
-        }
+        other.GetComponent<PlayerController>().changePlayerSpeed(regularSpeed);
     }
 }

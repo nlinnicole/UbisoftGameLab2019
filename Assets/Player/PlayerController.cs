@@ -109,18 +109,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         itemLayerMask = LayerMask.GetMask("Items");
         anim = GetComponent<Animator>();
-        if (photonView.IsMine == true)
+        if (photonView.IsMine)
         {
             PlayerController.LocalPlayerInstance = this.gameObject;
-            playerCamera.enabled = true;
-
         }
-       
+
     }
 
 
     void FixedUpdate()
     {
+
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;

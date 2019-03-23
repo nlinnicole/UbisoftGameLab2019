@@ -5,12 +5,12 @@ using UnityEngine;
 public class RaisePlatform : MonoBehaviour
 {
     private Animator anim;
-    bool OnlyOnce = true;
-    bool ReachedEnd = false;
-
+    bool reachedend = false;
     // Start is called before the first frame update
     void Start()
     {
+        bool reachedend = false;
+
         anim = gameObject.GetComponent<Animator>();
 
     }
@@ -18,15 +18,9 @@ public class RaisePlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OnlyOnce)
+        if (reachedend)
         {
-            if (ReachedEnd)
-            {
-                Debug.Log("Raiseing platform");
-                anim.SetBool("RaisePlatform", true);
-                ReachedEnd = false;
-                OnlyOnce = false;
-            }
+            anim.SetBool("RaisePlatform", true);
         }
     }
 
@@ -35,7 +29,7 @@ public class RaisePlatform : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Finished");
-            ReachedEnd = true;
+            reachedend = true;
         }
     }
 

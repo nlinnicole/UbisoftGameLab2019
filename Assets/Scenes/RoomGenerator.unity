@@ -1217,10 +1217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deac18d155832f942bb517b38e689937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleCubeArray:
-  - {fileID: 1469555377}
-  puzzleSpaceArray:
-  - {fileID: 1925612337}
 --- !u!4 &379484388
 Transform:
   m_ObjectHideFlags: 0
@@ -1566,7 +1562,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17424
+  m_Name: pb_Mesh9110
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -27776,7 +27772,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17368
+  m_Name: pb_Mesh9054
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -29017,11 +29013,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 494695030}
-    - target: {fileID: 3542126138004552773, guid: 25b2d2161f47ada4798129458a123106,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.24
-      objectReference: {fileID: 0}
     - target: {fileID: 6651789283623873187, guid: 25b2d2161f47ada4798129458a123106,
         type: 3}
       propertyPath: m_Mesh
@@ -29037,6 +29028,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1904158764}
+    - target: {fileID: 3955121384040196947, guid: 25b2d2161f47ada4798129458a123106,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1904158764}
+    - target: {fileID: 3542126138004552773, guid: 25b2d2161f47ada4798129458a123106,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.24
+      objectReference: {fileID: 0}
     - target: {fileID: 4158953959132558973, guid: 25b2d2161f47ada4798129458a123106,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
@@ -29117,11 +29118,6 @@ PrefabInstance:
       propertyPath: m_SelectedVertices.Array.data[3]
       value: 39
       objectReference: {fileID: 0}
-    - target: {fileID: 3955121384040196947, guid: 25b2d2161f47ada4798129458a123106,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 1904158764}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b2d2161f47ada4798129458a123106, type: 3}
 --- !u!1 &1301192004
@@ -29158,7 +29154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358cfadfa67ff114781e7e3265d0e140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 1415372576}
 --- !u!65 &1301192006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29480,7 +29475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1359581323
 Transform:
   m_ObjectHideFlags: 0
@@ -29507,15 +29502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ca252d2b3c7a34ba70de122eddafba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSpeed: 5
-  doorDuration: 3
-  buttonList:
-  - {fileID: 599649182}
-  - {fileID: 2063891722}
-  puzzle1: {fileID: 379484386}
-  puzzle2: {fileID: 1415372575}
-  bar: {fileID: 0}
-  barPosition: {fileID: 0}
 --- !u!64 &1359581325
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30129,10 +30115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deac18d155832f942bb517b38e689937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleCubeArray:
-  - {fileID: 2097674508}
-  puzzleSpaceArray:
-  - {fileID: 1301192004}
 --- !u!4 &1415372577
 Transform:
   m_ObjectHideFlags: 0
@@ -30577,11 +30559,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 848507828}
-    - target: {fileID: 3542126138004552773, guid: 25b2d2161f47ada4798129458a123106,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.15
-      objectReference: {fileID: 0}
     - target: {fileID: 6651789283623873187, guid: 25b2d2161f47ada4798129458a123106,
         type: 3}
       propertyPath: m_Mesh
@@ -30602,6 +30579,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 715149008}
+    - target: {fileID: 3542126138004552773, guid: 25b2d2161f47ada4798129458a123106,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b2d2161f47ada4798129458a123106, type: 3}
 --- !u!1 &1887509718
@@ -30853,7 +30835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1910392708
 Transform:
   m_ObjectHideFlags: 0
@@ -31162,15 +31144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ca252d2b3c7a34ba70de122eddafba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorSpeed: 5
-  doorDuration: 3
-  buttonList:
-  - {fileID: 599649182}
-  - {fileID: 2063891722}
-  puzzle1: {fileID: 379484386}
-  puzzle2: {fileID: 1415372575}
-  bar: {fileID: 0}
-  barPosition: {fileID: 0}
 --- !u!1 &1925612337
 GameObject:
   m_ObjectHideFlags: 0
@@ -31506,7 +31479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358cfadfa67ff114781e7e3265d0e140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 379484387}
 --- !u!1 &2063891722
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
       healthBar = bar.GetChild(0).GetChild(0).GetComponent<Image>();
       bar.gameObject.SetActive(false);
     }
-
+    
     void FixedUpdate(){
       if (onOxygen){
         if (health <= 0)
@@ -45,12 +45,13 @@ public class Health : MonoBehaviour
       //}
     }
 
+
     void TakeDamage(){
       if (!bar.gameObject.activeSelf)
         bar.gameObject.SetActive(true);
-
+      
         health -= damage;
-
+        
         healthBar.fillAmount = health / maxHealth;
     }
 

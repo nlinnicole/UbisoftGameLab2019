@@ -50,7 +50,7 @@ public class TeamManager : MonoBehaviour
           }
 
         }
-
+        
         if ((!player1Health.alive && !player2Health.alive) || (player1.GetComponent<PlayerController>().isInDeathZone && player2.GetComponent<PlayerController>().isInDeathZone))
         {
           Transform[] children = rope.GetComponentsInChildren<Transform>();
@@ -63,7 +63,7 @@ public class TeamManager : MonoBehaviour
             player2Health.Reset();
 
             respawn();
-         }
+          }
 
     }
 

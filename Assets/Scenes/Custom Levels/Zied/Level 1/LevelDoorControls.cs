@@ -9,7 +9,6 @@ public class LevelDoorControls : MonoBehaviour
 
     bool OnlyOnce = true;
 
-    public GameObject monster;
 
     public static bool EnteredLevel = false;
 
@@ -27,8 +26,6 @@ public class LevelDoorControls : MonoBehaviour
             if (EnteredLevel)
             {
                 Debug.Log("Lowering Door");
-                
-
                 anim.SetBool("LowerDoor", true);
                 EnteredLevel = false;
                 OnlyOnce = false;
@@ -41,9 +38,6 @@ public class LevelDoorControls : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            CircleBallController.foundplayer = true;
-
-            monster.GetComponent<CircleBallController>().players = other.gameObject;
             Debug.Log("Triggering Door");
             LevelDoorControls.EnteredLevel = true;
         }

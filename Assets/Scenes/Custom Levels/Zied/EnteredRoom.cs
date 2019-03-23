@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class EnteredRoom : MonoBehaviour
 {
+    int PlayerCount = 0;
+
+    public Animator entrancedoor;
+    public Animator exitdoor;
+
+    public Rigidbody Monster;
+
+    public void Start()
+    {
+        Monster.isKinematic = true;
+        PlayerCount = 0;
+    }
+
 
     public GameObject monster;
 
@@ -11,10 +24,14 @@ public class EnteredRoom : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            CircleBallController.foundplayer = true;
-            monster.GetComponent<CircleBallController>().players = other.gameObject;
-            LevelDoorControls.EnteredLevel = true;
-            Destroy(gameObject);
+            PlayerCount++;
+            if(PlayerCount == 1)
+            {
+                monster.GetComponent<CircleBallController>().players = other.gameObject;
+                entrancedoor.SetBool("CloseEntrance", true);
+                Monster.isKinematic = false;
+            }
+
         }
 
     }
