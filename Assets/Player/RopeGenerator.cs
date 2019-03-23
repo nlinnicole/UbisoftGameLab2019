@@ -31,6 +31,7 @@ public class RopeGenerator : MonoBehaviour
 
         if (isBroken && !startedGas)
         {
+
             for (int i = 0; i < transform.childCount; i++)
             {
                 if (transform.GetChild(i).GetComponent<RopeJoint>().broken)
@@ -40,18 +41,32 @@ public class RopeGenerator : MonoBehaviour
                 }
             }
 
-            GameObject gas = Instantiate(ropeGas, ropeJointsTrans[brokenJoint].transform);
-            GameObject gas2 = Instantiate(ropeGas, ropeJointsTrans[brokenJoint+2].transform);
-            startedGas = true;
+            if(transform.GetChild(brokenJoint + 1) != null)
+            {
 
-            transform.GetChild(brokenJoint - 1).gameObject.AddComponent<ConstantForce>();
-            transform.GetChild(brokenJoint+1).gameObject.AddComponent<ConstantForce>();
+                Destroy(transform.GetChild(brokenJoint + 1).GetChild(0).GetComponent<LineRenderer>());
+                transform.GetChild(brokenJoint + 1).GetComponent<RopeJoint>().lineDeleted = true;
+            }
+
+
+            if (transform.GetChild(brokenJoint-1) != null && transform.GetChild(brokenJoint+1) != null )
+            {
+              GameObject gas = Instantiate(ropeGas, transform.GetChild(brokenJoint-1).transform);
+              GameObject gas2 = Instantiate(ropeGas, transform.GetChild(brokenJoint+1).transform);
+              startedGas = true;
+
+              transform.GetChild(brokenJoint-1).gameObject.AddComponent<ConstantForce>();
+              transform.GetChild(brokenJoint+1).gameObject.AddComponent<ConstantForce>();
+            }
+
+            transform.GetChild(brokenJoint).gameObject.SetActive(false);
+
         }
 
         if(startedGas)
         {
-            transform.GetChild(brokenJoint - 1).gameObject.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce));
-            transform.GetChild(brokenJoint + 1).gameObject.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce));
+            transform.GetChild(brokenJoint-1).gameObject.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce));
+            transform.GetChild(brokenJoint+1).gameObject.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce), Random.Range(minGasForce, maxGasForce));
         }
 
 
@@ -102,7 +117,7 @@ public class RopeGenerator : MonoBehaviour
             } else {
                 newJoint.GetComponent<ConfigurableJoint>().connectedBody = ropeStart.GetComponent<Rigidbody>();
             }
-            
+
             ropeJoints[i] = newJoint;
         }
 

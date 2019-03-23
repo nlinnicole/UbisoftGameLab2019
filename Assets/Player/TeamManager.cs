@@ -14,19 +14,57 @@ public class TeamManager : MonoBehaviour
     public GameObject player2HeadTop;
     Vector3 player2HeadTopPos;
 
+    //Variables for health
+    public Transform currentRespawnArea;
+    public Health player1Health;
+    public Health player2Health;
+    public float cooldownBeforeRespawn = 2f;
+    public bool respawnInCurrent = true;
+
 
     private void Start()
     {
+        if (roomGen == null){
+          roomGen = GameObject.Find("RoomGenerator").GetComponent<RoomGenerator>();
+        }
+
         player1HeadTopPos = player1HeadTop.transform.localPosition;
         player2HeadTopPos = player2HeadTop.transform.localPosition;
+
+        player1Health = player1.GetComponent<Health>();
+        player2Health = player2.GetComponent<Health>();
     }
 
     void FixedUpdate()
     {
         if(rope.isBroken)
         {
+          if (!player1Health.onOxygen){
+            player1Health.onOxygen = true;
+            player1Health.bar.gameObject.SetActive(true);
+          }
+
+          if (!player2Health.onOxygen){
+            player2Health.onOxygen = true;
+            player1Health.bar.gameObject.SetActive(true);
+          }
 
         }
+
+        if ((!player1Health.alive && !player2Health.alive) || (player1.GetComponent<PlayerController>().isInDeathZone && player2.GetComponent<PlayerController>().isInDeathZone))
+        {
+          Transform[] children = rope.GetComponentsInChildren<Transform>();
+          foreach(Transform child in children){
+            if (child.name != "Rope")
+              GameObject.Destroy(child.gameObject);
+            }
+
+            player1Health.Reset();
+            player2Health.Reset();
+
+            respawn();
+         }
+
     }
 
     public void respawn()
@@ -40,8 +78,16 @@ public class TeamManager : MonoBehaviour
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
                 this.transform.parent.transform.position = roomGen.Team1Rooms[roomGen.team1CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
-                player1.transform.localPosition = new Vector3(-4, 0, 0);
-                player2.transform.localPosition = new Vector3(4, 0, 0);
+
+                if (respawnInCurrent){
+                  currentRespawnArea = roomGen.GetCurrentRespawn(teamNumber);
+
+                  player1.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x - 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
+                  player2.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x + 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
+                } else {
+                  player1.transform.localPosition = new Vector3(-4, 0, 0);
+                  player2.transform.localPosition = new Vector3(4, 0, 0);
+                }
             }
             else
             {
@@ -54,6 +100,9 @@ public class TeamManager : MonoBehaviour
                 player2.transform.localPosition = new Vector3(4, 0, 0);
             }
             rope.generate();
+
+            rope.isBroken = false;
+            rope.startedGas = false;
         }
         if (teamNumber == 2)
         {
@@ -63,9 +112,19 @@ public class TeamManager : MonoBehaviour
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
-                this.transform.parent.transform.position = roomGen.Team2Rooms[roomGen.team2CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
-                player1.transform.localPosition = new Vector3(-4, 0, 0);
-                player2.transform.localPosition = new Vector3(4, 0, 0);
+
+
+                if (respawnInCurrent){
+                  currentRespawnArea = roomGen.GetCurrentRespawn(teamNumber);
+
+                  player1.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x - 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
+                  player2.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x + 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
+                } else {
+                  this.transform.parent.transform.position = roomGen.Team2Rooms[roomGen.team2CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
+
+                  player1.transform.localPosition = new Vector3(-4, 0, 0);
+                  player2.transform.localPosition = new Vector3(4, 0, 0);
+                }
             }
             else
             {
@@ -78,6 +137,9 @@ public class TeamManager : MonoBehaviour
                 player2.transform.localPosition = new Vector3(4, 0, 0);
             }
             rope.generate();
+
+            rope.isBroken = false;
+            rope.startedGas = false;
         }
     }
 }

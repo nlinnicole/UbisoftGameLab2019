@@ -6,16 +6,19 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public Transform bar;
-    private Image barFill;
+    public Image healthBar;
+
+    public float deathzone = -10f;
 
     public bool alive = true;
     public bool onOxygen = false;
-    public float startHealth = 100f;
-    private float health;
+    private float maxHealth = 100f;
+    public float health;
     public float damage = 1f;
 
+
     void Start(){
-      health = startHealth;
+      health = maxHealth;
 
       Transform[] children = GetComponentsInChildren<Transform>();
 
@@ -24,36 +27,43 @@ public class Health : MonoBehaviour
           bar = child;
       }
 
-      barFill = bar.GetChild(0).GetChild(0).GetComponent<Image>();
+      healthBar = bar.GetChild(0).GetChild(0).GetComponent<Image>();
       bar.gameObject.SetActive(false);
     }
 
-    void Update(){
-      if (onOxygen && health > 0){
-        if (!bar.gameObject.activeSelf)
-          bar.gameObject.SetActive(true);
+    void FixedUpdate(){
+      if (onOxygen){
+        if (health <= 0)
+          Die();
+        else
+          TakeDamage();
+      }
 
-        bar.transform.position = Camera.main.WorldToScreenPoint(transform.position);
+      //if (transform.position.y < deathzone){
+      //  GetComponent<PlayerController>().rope.isBroken = true;
+      //  Die();
+      //}
+    }
+
+    void TakeDamage(){
+      if (!bar.gameObject.activeSelf)
+        bar.gameObject.SetActive(true);
 
         health -= damage;
 
-      } else if (health <= 0){
-        alive = false;
-        this.gameObject.SetActive(false);
-      }
+        healthBar.fillAmount = health / maxHealth;
+    }
 
-      if (transform.position.y < - 8){
-        health = 0;
-      }
-
-      barFill.fillAmount = health / startHealth;
+    void Die(){
+      alive = false;
+      this.gameObject.SetActive(false);
     }
 
     public void Reset(){
       gameObject.SetActive(true);
       alive = true;
       onOxygen = false;
-      health = startHealth;
+      health = maxHealth;
       bar.gameObject.SetActive(false);
     }
 

@@ -25,7 +25,7 @@ public class CamPlayerFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        changeCameraTo2D();
+        //changeCameraTo2D();
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class CamPlayerFollow : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.Slerp(start.rotation, des.rotation, Time.time * speed);
+        //transform.rotation = Quaternion.Slerp(start.rotation, des.rotation, Time.time * speed);
     }
 
 }

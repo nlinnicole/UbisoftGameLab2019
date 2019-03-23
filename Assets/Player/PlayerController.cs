@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public int playerNumber = 1;
     public Camera playerCamera;
     public GameObject teamManager;
+    public bool isInDeathZone = false;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
@@ -86,6 +87,24 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private Vector3 joyInput;
 
+
+    //check deathzone
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.layer == 15)
+        {
+            isInDeathZone = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 15)
+        {
+            isInDeathZone = false;
+        }
+    }
+
     void Awake()
     {
         itemLayerMask = LayerMask.GetMask("Items");
@@ -96,13 +115,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
             playerCamera.enabled = true;
 
         }
-        
-
-
+       
     }
 
 
-    //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
