@@ -49,7 +49,6 @@ public class RoomGenerator2 : MonoBehaviour
     {
         GenerateRooms(10);
 
-        bgmManager = new BGMchanges();
 
         //---------------- start lobby music -------------//
 
@@ -64,7 +63,7 @@ public class RoomGenerator2 : MonoBehaviour
         AkSoundEngine.PostEvent("startBGM" + roomCounter, gameObject);
         roomCounter += 1;
 
-        bgmManager.SetAllStates(roomCounter);
+        gameObject.GetComponent<BGMchanges>().SetAllStates(roomCounter);
     }
 
     public void GenerateRooms(int amount)
@@ -139,7 +138,7 @@ public class RoomGenerator2 : MonoBehaviour
     {
         if(team1InFirstRoom)
         {
-            if (team1StartRoom.GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[0].SetActive(true);
                 team1InFirstRoom = false;
@@ -147,7 +146,7 @@ public class RoomGenerator2 : MonoBehaviour
                 // trigger bgm
                 triggerRoomBGM();
             }
-            else if (team1StartRoom.GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[1].SetActive(true);
                 team1InFirstRoom = false;
@@ -161,7 +160,7 @@ public class RoomGenerator2 : MonoBehaviour
         else
         {
             //check which room the players choose
-            if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam1 = 0;
@@ -169,7 +168,7 @@ public class RoomGenerator2 : MonoBehaviour
                 // trigger bgm
                 triggerRoomBGM();
             }
-            else if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (Team1Rooms[Team1RoomNumber + adderTeam1].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam1 = 1;
@@ -183,12 +182,12 @@ public class RoomGenerator2 : MonoBehaviour
         //team2
         if (team2InFirstRoom)
         {
-            if (team1StartRoom.GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[0].SetActive(true);
                 team2InFirstRoom = false;
             }
-            else if (team1StartRoom.GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1Rooms[1].SetActive(true);
                 team2InFirstRoom = false;
@@ -198,13 +197,13 @@ public class RoomGenerator2 : MonoBehaviour
         else
         {
             //check which room the players choose
-            if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().door1Trigger.GetComponent<DoorTrigger>().doorChosen)
+            if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam2 = 0;
                 Team1Rooms[Team1RoomNumber + adderTeam2].SetActive(true);
             }
-            else if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().door2Trigger.GetComponent<DoorTrigger>().doorChosen)
+            else if (Team1Rooms[Team1RoomNumber + adderTeam2].GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
             {
                 Team1RoomNumber += 2;
                 adderTeam2 = 1;

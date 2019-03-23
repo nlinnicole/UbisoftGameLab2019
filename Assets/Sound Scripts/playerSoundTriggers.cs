@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerSoundTriggers : MonoBehaviour
 {
+    BGMchanges bgmManager;
+
     bool walkStarted = false;
     bool isWalking = false;
     bool rollStarted = false;
@@ -18,16 +20,15 @@ public class playerSoundTriggers : MonoBehaviour
 
     void Start()
     {
-       
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        /*
         // -------------- ROLL ----------------------------
-        currentlyRolling = gameObject.GetComponent<PlayerController>().isRolling;
-        rollMod = gameObject.GetComponent<PlayerController>().rollMod;
+        currentlyRolling = gameObject.GetComponent<PlayerController2>().isRolling;
+        rollMod = gameObject.GetComponent<PlayerController2>().rollMod;
 
         if (currentlyRolling && !rollStarted)
         {
@@ -49,9 +50,11 @@ public class playerSoundTriggers : MonoBehaviour
             rollStarted = false;
             rollStopped = false;
         }
+        */
+
 
         playerVelocity = Vector3.zero;
-        playerVelocity = gameObject.GetComponent<PlayerController>().velocity;
+        playerVelocity = gameObject.GetComponent<PlayerController2>().velocity;
 
         totalVelocity = System.Math.Abs(playerVelocity.x) + System.Math.Abs(playerVelocity.z);
        //  Debug.Log(( totalVelocity ) / 100);
@@ -62,7 +65,7 @@ public class playerSoundTriggers : MonoBehaviour
 
 
         // -------------- STEPS ----------------------------
-        playerNumber = gameObject.GetComponent<PlayerController>().playerNumber;
+        playerNumber = gameObject.GetComponent<PlayerController2>().playerNumber;
 
             //movement
             if (
@@ -87,5 +90,7 @@ public class playerSoundTriggers : MonoBehaviour
             walkStarted = false;
             AkSoundEngine.PostEvent("stopSteps", gameObject);
         }
+
+    
     }
 }

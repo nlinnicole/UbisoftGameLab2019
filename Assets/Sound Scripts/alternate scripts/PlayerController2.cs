@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class PlayerController2 : MonoBehaviour
+
+public class PlayerController2 : MonoBehaviourPunCallbacks
 {
 
     public int playerNumber = 1;
     public Camera playerCamera;
+    public GameObject teamManager;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
+    public float maxSpeed = 5;
     public float sprintMultiplier;
     [Range(1, 2)]
     public float deceleration = 1f; //lower means slower deceleration
@@ -26,6 +31,7 @@ public class PlayerController2 : MonoBehaviour
     public bool jumpCooldownFinished = true;
     public float groundDetectDistance = 0.6f;
     public Vector3 velocity;
+    public LayerMask jumpLayerMask;
 
 
     [Header("Roll")]
@@ -34,7 +40,7 @@ public class PlayerController2 : MonoBehaviour
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
     float rollTime = 0;
-    float rollMod = 1;
+    float rollMod = 0;
 
     [Header("Item")]
     public GameObject heldItem;
@@ -45,16 +51,18 @@ public class PlayerController2 : MonoBehaviour
     public float playerSwapDelay = 1;
     float playerSwapCountdown = 0;
 
+    [Header("Rope")]
+    public RopeGenerator rope;
 
+    [Header("Ragdoll")]
+    public GameObject head;
 
+    [Header("Joystick")]
+    public float dead = 0.5f;
 
-    public BGMchanges bgmManager;
-    // ---------------- sound triggers -------------------//
+    [Header("Networking")]
+    public static GameObject LocalPlayerInstance;
 
-    public bool jumpStarted = false;
-    public bool walkStarted = false;
-    public bool isWalking = false;
-    public bool rollStopped = false;
 
     //[Header("Ability")]
     //public Ability ability;
@@ -70,30 +78,45 @@ public class PlayerController2 : MonoBehaviour
     LayerMask itemLayerMask;
     Collider[] nearbyItems;
 
-    void Start()
+    [HideInInspector]
+    public Vector3 feetVelocity;
+
+
+    // ------------------------- sound variables 
+
+    public bool jumpStarted = false;
+    public bool walkStarted = false;
+    public bool isWalking = false;
+    public bool rollStopped = false;
+
+
+    private Animator anim;
+
+    private Vector3 joyInput;
+
+    void Awake()
     {
+        itemLayerMask = LayerMask.GetMask("Items");
+        anim = GetComponent<Animator>();
+        if (photonView.IsMine == true)
+        {
+            PlayerController.LocalPlayerInstance = this.gameObject;
+            playerCamera.enabled = true;
 
-            itemLayerMask = LayerMask.GetMask("Items");
+        }
 
-        //make ball mesh
-        //if(ability == Ability.ball)
-        //{
-        //    Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
-        //    for (int i = 0; i < verts.Length; i++)
-        //    {
-        //        verts[i] = verts[i].normalized * ballRadius;
-        //    }
-        //    body.GetComponent<MeshFilter>().mesh.vertices = verts;
-        //    gameObject.GetComponent<SphereCollider>().enabled = true;
-        //    gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        //    body.transform.localPosition = Vector3.zero;
-        //}
+
+
     }
 
 
     //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            return;
+        }
 
         if (jumpCooldownCount > 0)
         {
@@ -104,10 +127,20 @@ public class PlayerController2 : MonoBehaviour
             jumpCooldownFinished = true;
         }
         //check if on the ground
-        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance))
+        if (Physics.Raycast(transform.position, Vector3.down, groundDetectDistance, jumpLayerMask))
         {
             isGrounded = true;
         }
+        else
+        {
+            isGrounded = false;
+        }
+
+        if (Input.GetButtonDown("Reset" + playerNumber))
+        {
+            teamManager.GetComponent<TeamManager>().respawn();
+        }
+
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
         {
             jumpCooldownCount = jumpCooldown;
@@ -115,19 +148,7 @@ public class PlayerController2 : MonoBehaviour
             isGrounded = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-            // ---------------- trigger jump sound --------------
-            jumpStarted = true;
-            AkSoundEngine.PostEvent("startJump", gameObject);
-            GameObject.FindWithTag("RoomGenerator").GetComponent<roomMusicTrigger>().bgmManager.SetRandomVoiceState();
-
-            // ----------------- trigger end
-
         }
-
-
-        
-        // --------------- trigger end
 
         //item pickup
         nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
@@ -143,7 +164,7 @@ public class PlayerController2 : MonoBehaviour
                     if (Input.GetButtonDown("Fire" + playerNumber))
                     {
                         playerSwapCountdown = playerSwapDelay;
-                       
+
                         //old item
                         heldItem.layer = 10;
                         heldItem.transform.parent = null;
@@ -160,7 +181,9 @@ public class PlayerController2 : MonoBehaviour
                         heldItem.GetComponent<Rigidbody>().isKinematic = true;
                         heldItem.GetComponent<Rigidbody>().useGravity = false;
                     }
-                } else {
+                }
+                else
+                {
                     swapText.gameObject.SetActive(false);
                 }
             }
@@ -183,27 +206,21 @@ public class PlayerController2 : MonoBehaviour
 
 
 
-        } else {
+        }
+        else
+        {
             swapText.gameObject.SetActive(false);
         }
 
         playerSwapCountdown -= Time.deltaTime;
 
 
-        //sprint
-        //if(Input.GetAxisRaw("Run") > 0 && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && isGrounded)
-        //{
-        //    sprintMod = sprintMultiplier;
-        //} else {
-        //    sprintMod = 1;
-        //}
 
         //roll
         if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
         {
             isGrounded = false;
             isRolling = true;
-
             rollTime = 0;
 
             // ---------------- trigger roll sound ------------------
@@ -212,12 +229,19 @@ public class PlayerController2 : MonoBehaviour
             // ------------------- trigger end 
         }
 
+
         if (isRolling && rollTime < rollDuration)
         {
             rollMod = rollMultiplier;
             rollTime += Time.deltaTime;
             isGrounded = false;
-        } else if(isRolling && rollTime < rollDuration + rollCooldown) {
+            GetComponent<Rigidbody>().useGravity = false;
+        }
+        else if (isRolling && rollTime < rollDuration + rollCooldown)
+        {
+            GetComponent<Rigidbody>().useGravity = true;
+            rollTime += Time.deltaTime;
+            rollMod = 0;
 
             // ------------------- trigger roll stop -----------------
             if (!rollStopped)
@@ -226,47 +250,50 @@ public class PlayerController2 : MonoBehaviour
             }
             rollStopped = true;
             // ---------------- trigger end 
-
-            rollTime += Time.deltaTime;
-            isGrounded = true;
-            rollMod = 1;
-        } else {
+        }
+        else
+        {
             isRolling = false;
-            rollMod = 1;
+            rollMod = 0;
         }
 
-
+        velocity = Vector3.zero;
         faceDirection = Vector3.zero;
         CamForward = new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z);
         CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
+
+        //keys
         if (isGrounded)
         {
             //movement
             if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity += CamRight * moveSpeed;
+                velocity += CamRight * moveSpeed * 100;
                 faceDirection += CamRight;
+                // tell sound trigger we are walking
                 isWalking = true;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity -= CamRight * moveSpeed;
+                velocity -= CamRight * moveSpeed * 100;
                 faceDirection += -CamRight;
+                // tell sound trigger we are walking
                 isWalking = true;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity += CamForward * moveSpeed;
+                velocity += CamForward * moveSpeed * 100;
                 faceDirection += CamForward;
+                // tell sound trigger we are walking
                 isWalking = true;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity -= CamForward * moveSpeed;
+                velocity -= CamForward * moveSpeed * 100;
                 faceDirection += -CamForward;
+                // tell sound trigger we are walking
                 isWalking = true;
             }
-
 
             //----------------  trigger walking sound -----------------------
             if (isWalking && walkStarted == false)
@@ -276,7 +303,6 @@ public class PlayerController2 : MonoBehaviour
 
             }
             // ------------------ trigger end
-
 
             // ------------------------ trigger stop walking --------------------
             if (velocity.x < 0.1
@@ -291,102 +317,96 @@ public class PlayerController2 : MonoBehaviour
             }
             // ------------------------ trigger end 
 
-
-
-            velocity /= deceleration; //reduce velocity vector to look like drag
-
-
-            // -------------- SEND VELOCITY TO WWISE ----------------------------
+          // -------------- SEND VELOCITY TO WWISE ----------------------------
 
             AkSoundEngine.SetRTPCValue("velocity", (velocity.x+velocity.z)/2, gameObject);
         }
-        else {
+        else
+        {
             //reduced movement when jumping
-            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0 || Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
+            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
             {
-                velocity += (CamRight * moveSpeed) / jumpMovementReduction;
+                velocity += (CamRight * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += CamRight;
             }
             if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
             {
-                velocity -= (CamRight * moveSpeed) / jumpMovementReduction;
+                velocity -= (CamRight * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += -CamRight;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
             {
-                velocity += (CamForward * moveSpeed) / jumpMovementReduction;
+                velocity += (CamForward * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += CamForward;
             }
             if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             {
-                velocity -= (CamForward * moveSpeed) / jumpMovementReduction;
+                velocity -= (CamForward * moveSpeed * 100) / jumpMovementReduction;
                 faceDirection += -CamForward;
             }
         }
 
+        //joysticks
+        joyInput = Vector3.zero;
+        if (isGrounded)
+        {
+
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            {
+                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
+            }
+
+
+            velocity += joyInput * moveSpeed * 100;
+            faceDirection += joyInput;
+        }
+        else
+        {
+            ////reduced movement when jumping
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            {
+                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
+            }
+
+            velocity += (joyInput * moveSpeed * 100) / jumpMovementReduction;
+            faceDirection += joyInput;
+        }
+
         faceDirection.Normalize();
-        if(faceDirection != Vector3.zero)
+        if (faceDirection != Vector3.zero)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(faceDirection), rotationSpeed);
         }
 
-        velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-        //transform.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, transform.GetComponent<Rigidbody>().velocity.y, velocity.z); //apply velocity to rigidbody
-        transform.localPosition += velocity/100;
+        //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
+        if (transform.GetComponent<Rigidbody>().velocity.magnitude > maxSpeed)
+        {
+            transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
+        }
 
-        //if(Input.GetKeyDown(KeyCode.E) && !abilityOn)
-        //{
-        //    abilityOn = true;
-        //    if(ability == Ability.anchor)
-        //    {
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
 
-        //    }
-        //    else if(ability == Ability.ball)
-        //    {
-        //        turnToBall();
-        //    }
-        //}
-        //else if(Input.GetKeyDown(KeyCode.E) && abilityOn)
-        //{
-        //    abilityOn = false;
-        //}
-        //void turnToBall()
-        //{
-        //    Vector3[] verts = body.GetComponent<MeshFilter>().mesh.vertices;
-        //    for(int i = 0; i < verts.Length; i++)
-        //    {
-        //        verts[i] = verts[i].normalized * ballRadius;
-        //    }
-        //    body.GetComponent<MeshFilter>().mesh.vertices = verts;
-        //    gameObject.GetComponent<SphereCollider>().enabled = true;
-        //    gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        //    body.transform.localPosition = Vector3.zero;
-        //}
-        //void turnOutOfBall()
-        //{
 
-        //}
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
+
+
+        //for anim
+        GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
+
 
     }
-    
-    
+
+
     public void changePlayerSpeed(float speed)
     {
+        Debug.Log(moveSpeed);
         moveSpeed = speed;
     }
 
+    //AddingTrigger
 
-//---------------------- TRIGGER COLLISION SOUND AKA JUMP LAND ------------------
-    public void OnCollisionStay(Collision collision)
-    {
-        if (collision.relativeVelocity.magnitude > 3 && jumpStarted &&jumpCooldownFinished)
-        {
-            AkSoundEngine.PostEvent("landJump", gameObject);
-            jumpStarted = false;
-        }
-        
 
-    }
 
 }
- 

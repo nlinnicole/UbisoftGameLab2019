@@ -16,11 +16,13 @@ public class shooterTrapSFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         counter = gameObject.GetComponent<ProjectileButton>().counter;
         if (shotsFired != counter)
         {
             shotsFired = counter;
             AkSoundEngine.PostEvent("fireShot", gameObject);
         }
+        */
     }
 }

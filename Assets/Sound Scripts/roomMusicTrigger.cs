@@ -24,7 +24,7 @@ public class roomMusicTrigger : MonoBehaviour
   
     void Update()
     {
-
+        /*
         //---------------- listen for room changes , trigger new room bgm -------------//
 
         checkFirstRoom = gameObject.GetComponent<RoomGenerator>().team1InFirstRoom;
@@ -51,6 +51,7 @@ public class roomMusicTrigger : MonoBehaviour
                 bgmManager.SetAllToRandomState();
             }
         }
+        */
     }
 
     
