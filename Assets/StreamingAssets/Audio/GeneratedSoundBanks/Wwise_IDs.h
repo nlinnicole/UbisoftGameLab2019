@@ -16,7 +16,6 @@ namespace AK
         static const AkUniqueID ACTIVATESWITCH = 3168238102U;
         static const AkUniqueID CONTINUOUSSHOT = 2103141236U;
         static const AkUniqueID DOOROPENED = 2649542654U;
-        static const AkUniqueID DOORSHUT = 3782881839U;
         static const AkUniqueID FIRESHOT = 617139305U;
         static const AkUniqueID ITEMPICKUP = 1851462748U;
         static const AkUniqueID LANDJUMP = 2269710510U;
@@ -30,11 +29,15 @@ namespace AK
         static const AkUniqueID STARTBGM1 = 2143400112U;
         static const AkUniqueID STARTBGM2 = 2143400115U;
         static const AkUniqueID STARTBGMLOBBY = 2644786861U;
+        static const AkUniqueID STARTCHARGE = 3999190331U;
+        static const AkUniqueID STARTDRAG = 3320195105U;
         static const AkUniqueID STARTJUMP = 3262940047U;
         static const AkUniqueID STARTPROJECTILEWIZZ = 3842171722U;
         static const AkUniqueID STARTREVOLVINGDOOR = 3107300489U;
         static const AkUniqueID STARTSTEPS = 1931595660U;
         static const AkUniqueID STOPALL = 3086540886U;
+        static const AkUniqueID STOPCHARGE = 771416205U;
+        static const AkUniqueID STOPDRAG = 2651995319U;
         static const AkUniqueID STOPLAVA = 4190725747U;
         static const AkUniqueID STOPSTEPS = 3774011366U;
         static const AkUniqueID SWITCHLAVA = 1756357707U;
@@ -251,6 +254,7 @@ namespace AK
         static const AkUniqueID CHAINMONSTER = 2878223726U;
         static const AkUniqueID CONTINUOUSSHOOTER = 1126427000U;
         static const AkUniqueID DOOR = 1877847629U;
+        static const AkUniqueID MOVEABLEOBJECT = 2254612011U;
         static const AkUniqueID PLAYER = 1069431850U;
         static const AkUniqueID PROJECTILE = 624914268U;
         static const AkUniqueID REVOLVINGDOOR = 440849463U;
