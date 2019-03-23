@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
       bar.gameObject.SetActive(false);
     }
 
-    void Update(){
+    void FixedUpdate(){
       if (onOxygen){
         if (health <= 0)
           Die();
@@ -39,10 +39,10 @@ public class Health : MonoBehaviour
           TakeDamage();
       }
 
-      if (transform.position.y < deathzone){
-        GetComponent<PlayerController>().rope.isBroken = true;
-        Die();
-      }
+      //if (transform.position.y < deathzone){
+      //  GetComponent<PlayerController>().rope.isBroken = true;
+      //  Die();
+      //}
     }
 
     void TakeDamage(){
