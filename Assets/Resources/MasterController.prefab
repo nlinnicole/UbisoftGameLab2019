@@ -2958,8 +2958,8 @@ MonoBehaviour:
   ropeJointsTrans: []
   brokenJoint: 0
   startedGas: 0
-  minGasForce: -0.0003
-  maxGasForce: 0.0003
+  minGasForce: -50
+  maxGasForce: 50
   totalDistance: 0
   distanceLimit: 10
 --- !u!1 &495
@@ -5149,10 +5149,10 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -100
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 6.83
   m_Depth: -1
   m_CullingMask:
@@ -6727,7 +6727,7 @@ MonoBehaviour:
   currentRespawnArea: {fileID: 0}
   player1Health: {fileID: 0}
   player2Health: {fileID: 0}
-  cooldownBeforeRespawn: 2
+  cooldownBeforeRespawn: 10
   respawnInCurrent: 0
 --- !u!1001 &1285291828859992426
 PrefabInstance:
@@ -6736,6 +6736,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 805}
     m_Modifications:
+    - target: {fileID: 1594162033461552892, guid: d56ee33ca1d25e945b8d647ac67a288f,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthUI
+      objectReference: {fileID: 0}
     - target: {fileID: 9205039317478700209, guid: d56ee33ca1d25e945b8d647ac67a288f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6856,11 +6861,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.04000001
       objectReference: {fileID: 0}
-    - target: {fileID: 1594162033461552892, guid: d56ee33ca1d25e945b8d647ac67a288f,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthUI
-      objectReference: {fileID: 0}
     - target: {fileID: 3945024536858998307, guid: d56ee33ca1d25e945b8d647ac67a288f,
         type: 3}
       propertyPath: m_Type
@@ -6886,6 +6886,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 788}
     m_Modifications:
+    - target: {fileID: 1594162033461552892, guid: d56ee33ca1d25e945b8d647ac67a288f,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthUI
+      objectReference: {fileID: 0}
     - target: {fileID: 9205039317478700209, guid: d56ee33ca1d25e945b8d647ac67a288f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7005,11 +7010,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 1594162033461552892, guid: d56ee33ca1d25e945b8d647ac67a288f,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthUI
       objectReference: {fileID: 0}
     - target: {fileID: 3945024536858998307, guid: d56ee33ca1d25e945b8d647ac67a288f,
         type: 3}
