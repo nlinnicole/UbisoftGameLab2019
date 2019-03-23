@@ -67,7 +67,13 @@ namespace Concordia1.Gamelab
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
             Debug.Log("COnnection Failed");
-            PhotonNetwork.CreateRoom(null, new RoomOptions{ MaxPlayers = maxPlayersPerRoom });
+            PhotonNetwork.CreateRoom(null, new RoomOptions{ MaxPlayers = maxPlayersPerRoom }, null, null);
+        }
+
+        public override void OnCreateRoomFailed(short returnCode, string message)
+        {
+            Debug.Log("Room gen failed " + returnCode + "  " + message);
+            base.OnCreateRoomFailed(returnCode, message);
         }
 
         public override void OnJoinedRoom()
