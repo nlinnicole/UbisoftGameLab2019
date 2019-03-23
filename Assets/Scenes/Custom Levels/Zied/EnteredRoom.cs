@@ -13,7 +13,6 @@ public class EnteredRoom : MonoBehaviour
 
     public void Start()
     {
-        Monster.isKinematic = true;
         PlayerCount = 0;
     }
 
