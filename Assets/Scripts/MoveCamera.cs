@@ -19,7 +19,6 @@ public class MoveCamera : MonoBehaviour
         transform.position = Vector3.Slerp(start.position, Cam2D.position, Time.deltaTime * cammovespeed);
         transform.rotation = Quaternion.Slerp(start.rotation, Cam2D.rotation, Time.deltaTime * cammovespeed);
         gameObject.GetComponent<Camera>().orthographic = true;
-        Debug.Log("Slerping");
 
     }
 
@@ -29,7 +28,6 @@ public class MoveCamera : MonoBehaviour
         transform.position = Vector3.Slerp(start.position, CamDefault.position, Time.deltaTime * cammovespeed);
         transform.rotation = Quaternion.Slerp(start.rotation, CamDefault.rotation, Time.deltaTime * cammovespeed);
         gameObject.GetComponent<Camera>().orthographic = true;
-        Debug.Log("Slerping");
 
     }
 
@@ -39,7 +37,6 @@ public class MoveCamera : MonoBehaviour
         transform.position = Vector3.Slerp(start.position, CamTopDown.position, Time.deltaTime * cammovespeed);
         transform.rotation = Quaternion.Slerp(start.rotation, CamTopDown.rotation, Time.deltaTime * cammovespeed);
         gameObject.GetComponent<Camera>().orthographic = false;
-        Debug.Log("Slerping");
 
     }
 

@@ -8,7 +8,6 @@ public class EnteredMazeLevel : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("EnteredTopDown");
             other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().viewangle = 2;
 
         }

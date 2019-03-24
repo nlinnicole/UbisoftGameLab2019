@@ -25,7 +25,6 @@ public class LevelDoorControls : MonoBehaviour
         {
             if (EnteredLevel)
             {
-                Debug.Log("Lowering Door");
                 anim.SetBool("LowerDoor", true);
                 EnteredLevel = false;
                 OnlyOnce = false;
