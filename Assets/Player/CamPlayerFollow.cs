@@ -57,6 +57,10 @@ public class CamPlayerFollow : MonoBehaviour
         {
             GetComponentInChildren<MoveCamera>().changeTo2D();
         }
+        if(viewangle == 2)
+        {
+            GetComponentInChildren<MoveCamera>().changeToTopDown();
+        }
 
     }
 
