@@ -27,7 +27,7 @@ public class MoveCamera : MonoBehaviour
         start = gameObject.transform;
         transform.position = Vector3.Slerp(start.position, CamDefault.position, Time.deltaTime * cammovespeed);
         transform.rotation = Quaternion.Slerp(start.rotation, CamDefault.rotation, Time.deltaTime * cammovespeed);
-        gameObject.GetComponent<Camera>().orthographic = true;
+        gameObject.GetComponent<Camera>().orthographic = false;
 
     }
 
@@ -38,6 +38,14 @@ public class MoveCamera : MonoBehaviour
         transform.rotation = Quaternion.Slerp(start.rotation, CamTopDown.rotation, Time.deltaTime * cammovespeed);
         gameObject.GetComponent<Camera>().orthographic = false;
 
+    }
+
+    public void changeToBehind()
+    {
+        start = gameObject.transform;
+        transform.position = Vector3.Slerp(start.position, CamBehind.position, Time.deltaTime * cammovespeed);
+        transform.rotation = Quaternion.Slerp(start.rotation, CamBehind.rotation, Time.deltaTime * cammovespeed);
+        gameObject.GetComponent<Camera>().orthographic = false;
     }
 
 
