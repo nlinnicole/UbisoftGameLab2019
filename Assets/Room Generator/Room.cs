@@ -14,4 +14,6 @@ public class Room : MonoBehaviour
     public bool isTopDown;
     public bool isForwardView;
 
+
+
 }

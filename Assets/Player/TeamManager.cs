@@ -14,6 +14,8 @@ public class TeamManager : MonoBehaviour
     public GameObject player2HeadTop;
     Vector3 player2HeadTopPos;
 
+    public int gemCount;
+
     //Variables for health
     public Transform currentRespawnArea;
     public Health player1Health;
