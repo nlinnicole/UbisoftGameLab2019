@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
         else
         {
-            swapText.gameObject.SetActive(false);
+            //swapText.gameObject.SetActive(false);
         }
 
         playerSwapCountdown -= Time.deltaTime;
