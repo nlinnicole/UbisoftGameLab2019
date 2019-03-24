@@ -33,6 +33,16 @@ public class MoveCamera : MonoBehaviour
 
     }
 
+    public void changeToTopDown()
+    {
+        start = gameObject.transform;
+        transform.position = Vector3.Slerp(start.position, CamTopDown.position, Time.deltaTime * cammovespeed);
+        transform.rotation = Quaternion.Slerp(start.rotation, CamTopDown.rotation, Time.deltaTime * cammovespeed);
+        gameObject.GetComponent<Camera>().orthographic = false;
+        Debug.Log("Slerping");
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
