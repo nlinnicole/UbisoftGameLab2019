@@ -13,11 +13,16 @@ public class CamPlayerFollow : MonoBehaviour
     Vector3 target;
     public float heightOffset;
 
+
+    Transform camobject;
+
     //Camera Movement Per Level
     public float speed = .2f;
 
     private Transform start;
     public Transform des;
+
+    public float cammovespeed;
 
     // 0 = default, 1 = 2D, 2 = Top down, 3 =behind view
 
@@ -27,9 +32,8 @@ public class CamPlayerFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        camobject = this.gameObject.transform.GetChild(0);
         changeCameraTo2D();
-        des = start;
     }
 
     // Update is called once per frame
@@ -44,10 +48,14 @@ public class CamPlayerFollow : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, target, lerpAmount);
         }
 
+        if(viewangle == 0)
+        {
+            GetComponentInChildren<MoveCamera>().changetoDefault();
+        }
+
         if(viewangle == 1)
         {
-            Debug.Log("Moving");
-            transform.rotation = Quaternion.Slerp(start.rotation, des.rotation, Time.time * speed);
+            GetComponentInChildren<MoveCamera>().changeTo2D();
         }
 
     }

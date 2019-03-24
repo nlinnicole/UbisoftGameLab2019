@@ -5,12 +5,11 @@ using UnityEngine;
 public class twodlevelenetered : MonoBehaviour
 {
 
-    public Transform destination;
-    private Animator anim;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
+        
 
     }
 
@@ -27,9 +26,9 @@ public class twodlevelenetered : MonoBehaviour
             Debug.Log("Hit Player");
             anim.SetBool("StartLava", true);
             other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().viewangle = 1;
-            other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().des = destination;
-            Debug.Log("Hit Player123");
+            
         }
+
     }
 
 }
