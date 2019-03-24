@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * Regular button that will open the door when pressed
- */
-
 public class RegularDoorButton : MonoBehaviour
 {
 
@@ -17,8 +13,11 @@ public class RegularDoorButton : MonoBehaviour
     private float doorDuration = 3f;
 
     //door height
+    [SerializeField]
     private float doorOpenHeight;
+
     //door original position 
+    [SerializeField]
     private float doorOriginalHeight;
 
     private float doorTimer;
@@ -28,9 +27,7 @@ public class RegularDoorButton : MonoBehaviour
 
     void Start()
     {
-        //get the height of door to set the height the door will open
-        doorOpenHeight = (door.GetComponent<Collider>().bounds.size.y)*2;
-        doorOriginalHeight = (door.GetComponent<Collider>().bounds.size.y)/2;
+
     }
 
     void Update()
@@ -61,5 +58,10 @@ public class RegularDoorButton : MonoBehaviour
         }
 
     }
-
+    //trigger only on enter
+    public void OnTriggerEnter(Collider other)
+    {
+        doorTimer = Time.time;
+        doorOpening = true;
+    }
 }

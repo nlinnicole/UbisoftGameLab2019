@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public int playerNumber = 1;
     public Camera playerCamera;
     public GameObject teamManager;
+    public bool isInDeathZone = false;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
@@ -74,6 +75,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
     Vector3 faceDirection;
     Vector3 CamForward;
     Vector3 CamRight;
+    Vector3 CamTopDown;
+
+
+    //Angle of Camera
+    public GameObject CamParent;
+
+    
+
+
     float sprintMod = 1;
     LayerMask itemLayerMask;
     Collider[] nearbyItems;
@@ -86,25 +96,39 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private Vector3 joyInput;
 
+
+    //check deathzone
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.layer == 15)
+        {
+            isInDeathZone = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 15)
+        {
+            isInDeathZone = false;
+        }
+    }
+
     void Awake()
     {
         itemLayerMask = LayerMask.GetMask("Items");
         anim = GetComponent<Animator>();
-        if (photonView.IsMine == true)
+        if (photonView.IsMine)
         {
             PlayerController.LocalPlayerInstance = this.gameObject;
-            playerCamera.enabled = true;
-
         }
-        
-
 
     }
 
 
-    //wallsticking on jump may occur if the wall doesnt have a friction-less physics material
     void FixedUpdate()
     {
+
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
@@ -240,30 +264,76 @@ public class PlayerController : MonoBehaviourPunCallbacks
         faceDirection = Vector3.zero;
         CamForward = new Vector3(playerCamera.transform.forward.x, 0, playerCamera.transform.forward.z);
         CamRight = new Vector3(playerCamera.transform.right.x, 0, playerCamera.transform.right.z);
+        //TopDownChanges
+        CamTopDown = new Vector3(playerCamera.transform.up.x, 0, playerCamera.transform.up.z);
 
         //keys
         if (isGrounded)
         {
-            //movement
-            if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+            //Default Camera State Movement
+            if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0)
             {
-                velocity += CamRight * moveSpeed * 100;
-                faceDirection += CamRight;
+                //movement
+                if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+                {
+                    velocity += CamRight * moveSpeed * 100;
+                    faceDirection += CamRight;
+                }
+                if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+                {
+                    velocity -= CamRight * moveSpeed * 100;
+                    faceDirection += -CamRight;
+                }
+                if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+                {
+                    velocity += CamForward * moveSpeed * 100;
+                    faceDirection += CamForward;
+                }
+                if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
+                {
+                    velocity -= CamForward * moveSpeed * 100;
+                    faceDirection += -CamForward;
+                }
             }
-            if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+            //TopDownCamera Movement
+            if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
             {
-                velocity -= CamRight * moveSpeed * 100;
-                faceDirection += -CamRight;
+                //movement
+                if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+                {
+                    velocity += CamRight * moveSpeed * 100;
+                    faceDirection += CamRight;
+                }
+                if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+                {
+                    velocity -= CamRight * moveSpeed * 100;
+                    faceDirection += -CamRight;
+                }
+                if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+                {
+                    velocity += CamTopDown * moveSpeed * 100;
+                    faceDirection += CamTopDown;
+                }
+                if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
+                {
+                    velocity -= CamTopDown * moveSpeed * 100;
+                    faceDirection += -CamTopDown;
+                }
             }
-            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0)
+
+            if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 1)
             {
-                velocity += CamForward * moveSpeed * 100;
-                faceDirection += CamForward;
-            }
-            if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
-            {
-                velocity -= CamForward * moveSpeed * 100;
-                faceDirection += -CamForward;
+                if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
+                {
+                    velocity += CamRight * moveSpeed * 100;
+                    faceDirection += CamRight;
+                }
+                if (Input.GetAxisRaw("Horizontal" + playerNumber) < 0)
+                {
+                    velocity -= CamRight * moveSpeed * 100;
+                    faceDirection += -CamRight;
+                }
+                
             }
 
         }

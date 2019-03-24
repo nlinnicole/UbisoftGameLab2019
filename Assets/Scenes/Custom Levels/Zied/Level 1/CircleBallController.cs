@@ -6,22 +6,14 @@ public class CircleBallController : MonoBehaviour
 {
     //If possible, in the future lets add a controller that swaps players from each one.
     public GameObject players;
-    Transform CurrentLocation;
 
     public Animator RaiseDoor;
 
-
-    public GameObject exitdoor;
-
     int boardkillcounter = 0;
 
-    int negativer = -1;
-
-    float initialTimeLeft = 4f;
+    bool enteredroom = false;
 
     Transform LastPointHit;
-
-    float lerpvalue;
 
     public Rigidbody rb;
 
@@ -35,27 +27,24 @@ public class CircleBallController : MonoBehaviour
 
     bool startattacking = false;
 
-    public static bool foundplayer = false;
 
     bool centered = true;
     bool ReturnToCenter = false;
-    bool directionFinder = true;
-    bool FirstHit = true;
+
     // Movement speed in units/sec.
     public float speed = 1.0F;
     public float backspeed = 0.5f;
 
     // Time when the movement started.
-    private float startTime;
 
-    // Total distance between the markers.
-    private float journeyLength;
-    private float journeyLengthBack;
+
 
     
     // Start is called before the first frame update
     void Start()
     {
+        int boardkillcounter = 0;
+        players = GameObject.FindGameObjectWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody>();
     }
     
@@ -131,15 +120,11 @@ public class CircleBallController : MonoBehaviour
 
     private void Update()
     {
-        if (LevelDoorControls.EnteredLevel && !foundplayer)
+        if (enteredroom)
         {
-            players = GameObject.FindGameObjectWithTag("Player");
-            foundplayer = true;
-        }
+            Debug.Log("Centered :" + centered);
+            Debug.Log("Returning to Center" + ReturnToCenter);
 
-
-        if (foundplayer)
-        {
             if (ReturnToCenter)
             {
                 returnBallToCenter();
@@ -183,10 +168,10 @@ public class CircleBallController : MonoBehaviour
 
     void CheckBoardKills()
     {
-        if(boardkillcounter > 1)
+        if(boardkillcounter > 2)
         {
-            RaiseDoor.SetBool("RaiseDoor", true);
-            Destroy(gameObject, 2);
+            RaiseDoor.SetBool("OpenExit", true);
+            Destroy(gameObject, 1);
         }
     }
 
@@ -229,6 +214,11 @@ public class CircleBallController : MonoBehaviour
             fraction = 0;
             centered = true;
             ReturnToCenter = false;
+        }
+
+        if(other.tag == "Player")
+        {
+            enteredroom = true;
         }
 
     }
