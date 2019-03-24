@@ -6,27 +6,62 @@ using Photon.Pun;
 [ExecuteInEditMode]
 public class CamPlayerFollow : MonoBehaviour
 {
+    
     public GameObject player1;
     public GameObject player2;
     public float lerpAmount;
     Vector3 target;
     public float heightOffset;
 
+    //Camera Movement Per Level
+    public float speed = .2f;
+
+    private Transform start;
+    public Transform des;
+
+    // 0 = default, 1 = 2D, 2 = Top down, 3 =behind view
+
+    public int viewangle = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
+        changeCameraTo2D();
+        des = start;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-       // if (photonView.IsMine)
+        // if (photonView.IsMine)
+
         {
-            target = (new Vector3(player1.transform.position.x, player1.transform.position.y, player1.transform.position.z) + 
-                new Vector3(player2.transform.position.x, player2.transform.position.y, player2.transform.position.z))/2 
+            target = (new Vector3(player1.transform.position.x, player1.transform.position.y, player1.transform.position.z) +
+                new Vector3(player2.transform.position.x, player2.transform.position.y, player2.transform.position.z)) / 2
                 + Vector3.up * heightOffset;
             transform.position = Vector3.Lerp(transform.position, target, lerpAmount);
         }
+
+        if(viewangle == 1)
+        {
+            Debug.Log("Moving");
+            transform.rotation = Quaternion.Slerp(start.rotation, des.rotation, Time.time * speed);
+        }
+
     }
+
+    public void changeCameraTo2D()
+    {
+        start = gameObject.transform;
+        
+        
+    }
+
+    private void Update()
+    {
+       
+    }
+
 }

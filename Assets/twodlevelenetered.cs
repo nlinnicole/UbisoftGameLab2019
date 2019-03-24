@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class twodlevelenetered : MonoBehaviour
 {
-    private Animator anim;
 
+    public Transform destination;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -22,7 +24,11 @@ public class twodlevelenetered : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            Debug.Log("Hit Player");
             anim.SetBool("StartLava", true);
+            other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().viewangle = 1;
+            other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().des = destination;
+            Debug.Log("Hit Player123");
         }
     }
 
