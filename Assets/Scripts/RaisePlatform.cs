@@ -5,6 +5,7 @@ using UnityEngine;
 public class RaisePlatform : MonoBehaviour
 {
     private Animator anim;
+    public Animator buttonanimator;
     bool reachedend = false;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class RaisePlatform : MonoBehaviour
         if (reachedend)
         {
             anim.SetBool("RaisePlatform", true);
+            buttonanimator.SetBool("PressButton", true);
         }
     }
 
