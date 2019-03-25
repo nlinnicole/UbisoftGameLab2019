@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (isGrounded)
         {
             //Default Camera State Movement
-            if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0)
+            if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3)
             {
                 //movement
                 if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)

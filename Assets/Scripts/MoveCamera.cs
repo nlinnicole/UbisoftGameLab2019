@@ -40,6 +40,14 @@ public class MoveCamera : MonoBehaviour
 
     }
 
+    public void changeToBehind()
+    {
+        start = gameObject.transform;
+        transform.position = Vector3.Slerp(start.position, CamBehind.position, Time.deltaTime * cammovespeed);
+        transform.rotation = Quaternion.Slerp(start.rotation, CamBehind.rotation, Time.deltaTime * cammovespeed);
+        gameObject.GetComponent<Camera>().orthographic = false;
+    }
+
 
     // Start is called before the first frame update
     void Start()
