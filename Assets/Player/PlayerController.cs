@@ -233,12 +233,23 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
 
         //roll
-        if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
         {
-            isGrounded = false;
-            isRolling = true;
-            rollTime = 0;
+            if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+            {
+                isGrounded = false;
+                isRolling = true;
+                rollTime = 0;
+            }
         }
+        else
+        {
+            if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+            {
+                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
+            }
+        }
+        
 
 
         if (isRolling && rollTime < rollDuration)
@@ -402,10 +413,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
             transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
         }
 
-        transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
+        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
+        {
+
+            transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
 
 
-        transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
+            transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
+
+        }
+        else if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 1)
+        {
+            transform.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, velocity.z));
+        }
 
 
         //for anim
