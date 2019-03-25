@@ -61,6 +61,10 @@ public class CamPlayerFollow : MonoBehaviour
         {
             GetComponentInChildren<MoveCamera>().changeToTopDown();
         }
+        if(viewangle == 3)
+        {
+            GetComponentInChildren<MoveCamera>().changeToBehind();
+        }
 
     }
 

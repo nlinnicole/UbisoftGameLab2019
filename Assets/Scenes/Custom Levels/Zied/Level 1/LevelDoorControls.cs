@@ -37,7 +37,6 @@ public class LevelDoorControls : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Triggering Door");
             LevelDoorControls.EnteredLevel = true;
         }
     }

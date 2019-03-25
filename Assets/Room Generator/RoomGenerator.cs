@@ -6,7 +6,7 @@ using System.Linq;
 public class RoomGenerator : MonoBehaviour
 {
     public int baseRoomSize = 40;
-    public int amountOfRooms = 10;
+    public int amountOfRooms = 5;
 
     [Header("Team 1")]
     public GameObject team1;
@@ -40,9 +40,11 @@ public class RoomGenerator : MonoBehaviour
 
     public GameObject baseRoom;
 
+    bool[] chosenRooms;
+
     void Start()
     {
-        GenerateRooms(5);
+        GenerateRooms(amountOfRooms);
         team1CurrentRoom = -1;
         team2CurrentRoom = -1;
     }
@@ -55,6 +57,8 @@ public class RoomGenerator : MonoBehaviour
             roomArray = new GameObject[1];
             roomArray[0] = baseRoom;
         }
+
+        chosenRooms = new bool[roomArray.Length];
 
         //delete all old rooms
         for (int i = 0; i < Team1Rooms.Length; i++)
@@ -83,14 +87,27 @@ public class RoomGenerator : MonoBehaviour
         for (int i = 0, k = 1; i < amount; i++, k++)
         {
             //randomly choose a room
-            GameObject roomToBuild = roomArray[Random.Range(0, roomArray.Length)];
+            int chosenRoom = 0;
+            bool uniqueRoom = false;
+
+            while (!uniqueRoom)
+            {
+                chosenRoom = (int)Random.Range(0, roomArray.Length);
+                if(!chosenRooms[chosenRoom])
+                {
+                    uniqueRoom = true;
+                    chosenRooms[chosenRoom] = true;
+                }
+            }
+
+
+            GameObject roomToBuild = roomArray[chosenRoom];
             //create room
             Team1Rooms[i] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
             //change name
             Team1Rooms[i].gameObject.name += " (Option 1)";
 
             //team2
-            roomToBuild = roomArray[Random.Range(0, roomArray.Length)];
             Team2Rooms[i] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
             Team2Rooms[i].gameObject.name += " (Option 1)";
         }

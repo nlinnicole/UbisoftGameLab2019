@@ -75,6 +75,8 @@ public class TeamManager : MonoBehaviour
         {
             if(roomGen.team1CurrentRoom != -1)
             {
+                player1.transform.parent = transform.parent;
+                player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
@@ -93,6 +95,8 @@ public class TeamManager : MonoBehaviour
             }
             else
             {
+                player1.transform.parent = transform.parent;
+                player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
@@ -110,10 +114,13 @@ public class TeamManager : MonoBehaviour
         {
             if(roomGen.team2CurrentRoom != -1)
             {
+                player1.transform.parent = transform.parent;
+                player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
+                this.transform.parent.transform.position = roomGen.Team2Rooms[roomGen.team2CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
 
 
                 if (respawnInCurrent){
@@ -130,6 +137,8 @@ public class TeamManager : MonoBehaviour
             }
             else
             {
+                player1.transform.parent = transform.parent;
+                player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
