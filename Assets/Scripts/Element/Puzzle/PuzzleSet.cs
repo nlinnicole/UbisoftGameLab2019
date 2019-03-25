@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class PuzzleSet : MonoBehaviour
 {
     [SerializeField]
@@ -24,7 +24,9 @@ public class PuzzleSet : MonoBehaviour
 
     //puzzle
     [SerializeField]
-    private GameObject puzzle;
+    private GameObject puzzle1;
+    [SerializeField]
+    private GameObject puzzle2;
 
     //bar
     [SerializeField]
@@ -71,14 +73,17 @@ public class PuzzleSet : MonoBehaviour
 
         if (activated())
         {
-            if (puzzle.GetComponent<CubeMatchPuzzle>().checkPuzzle())
+            if (puzzle1.GetComponent<CubeMatchPuzzle>().checkPuzzle() && puzzle2.GetComponent<CubeMatchPuzzle>().checkPuzzle())
             {
                 doorTimer = Time.time;
                 doorOpening = true;
             }
             else
             {
-                setTrap();
+                if (barPosition != null)
+                {
+                    setTrap();
+                }
             }
         }
     }
@@ -108,4 +113,4 @@ public class PuzzleSet : MonoBehaviour
     }
 
 
-}
+}*/

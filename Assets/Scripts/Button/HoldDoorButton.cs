@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * players need to stay on the button to keep the door open (pressure plate)
- */ 
-
 public class HoldDoorButton : MonoBehaviour
 {
     [SerializeField]
@@ -16,18 +12,19 @@ public class HoldDoorButton : MonoBehaviour
     private float doorSpeed = 5f;
 
     //door height
-    private float doorOpenHeight;
+    [SerializeField]
+    private float doorOpenHeight = 7.5f;
+
     //door original position 
-    private float doorOriginalHeight;
+    [SerializeField]
+    private float doorOriginalHeight = 7.5f;
 
     private bool doorOpening = false;
     private bool doorClosing = false;
 
     void Start()
     {
-        //get the height of door to set the height the door will open
-        doorOpenHeight = (door.GetComponent<Collider>().bounds.size.y) * 2;
-        doorOriginalHeight = (door.GetComponent<Collider>().bounds.size.y) / 2;
+
     }
 
     void Update()

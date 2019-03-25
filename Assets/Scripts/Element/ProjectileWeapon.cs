@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  Script for the object been shot, used to set the speed and direction
- */
-
 public class ProjectileWeapon : MonoBehaviour
 {
     [SerializeField]

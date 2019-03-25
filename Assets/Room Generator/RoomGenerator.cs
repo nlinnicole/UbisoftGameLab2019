@@ -80,7 +80,6 @@ public class RoomGenerator : MonoBehaviour
         team1RoomRefs = new int[amount, 2];
         team2RoomRefs = new int[amount, 2];
 
-
         for (int i = 0, k = 1; i < amount; i++, k++)
         {
             //randomly choose a room
@@ -99,6 +98,7 @@ public class RoomGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Debug.Log(team1InFirstRoom);
         if(team1InFirstRoom)
         {
             if (team1StartRoom.GetComponent<Room>().doorTrigger.GetComponent<DoorTrigger>().doorChosen)
@@ -133,5 +133,13 @@ public class RoomGenerator : MonoBehaviour
                 team2CurrentRoom++;
             }
         }
+    }
+
+    public Transform GetCurrentRespawn(int teamNb){
+      if (teamNb == 1){
+        return Team1Rooms[team1CurrentRoom].GetComponent<Room>().respawnPoint.transform;
+      } else {
+        return Team1Rooms[team1CurrentRoom].GetComponent<Room>().respawnPoint.transform;
+      }
     }
 }
