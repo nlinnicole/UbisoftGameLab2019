@@ -5,7 +5,7 @@ using UnityEngine;
 public class StartScreenCamera : MonoBehaviour
 {
     public Transform target;
-    public int speed = 5;
+    public int speed = 7;
 
     // Update is called once per frame
     void Update()
