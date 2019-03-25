@@ -5078,7 +5078,7 @@ Transform:
   - {fileID: 802}
   - {fileID: 3085083609752316662}
   - {fileID: 3203338118666420430}
-  - {fileID: 2922631237260249110}
+  - {fileID: 2330948498422063177}
   m_Father: {fileID: 794}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5279,7 +5279,7 @@ MonoBehaviour:
   Cam2D: {fileID: 7822713767369292700}
   CamDefault: {fileID: 3085083609752316662}
   CamTopDown: {fileID: 3203338118666420430}
-  CamBehind: {fileID: 2922631237260249110}
+  CamBehind: {fileID: 2330948498422063177}
 --- !u!1 &535
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,6 +7133,36 @@ MonoBehaviour:
   player2Health: {fileID: 0}
   cooldownBeforeRespawn: 10
   respawnInCurrent: 0
+--- !u!1 &8089478268798058863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2330948498422063177}
+  m_Layer: 8
+  m_Name: BehindCameraLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2330948498422063177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089478268798058863}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: -3.33, y: -8.34, z: -11.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 801}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!1 &8841387286152262407
 GameObject:
   m_ObjectHideFlags: 0
