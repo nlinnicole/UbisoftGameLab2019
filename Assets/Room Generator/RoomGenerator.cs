@@ -6,7 +6,7 @@ using System.Linq;
 public class RoomGenerator : MonoBehaviour
 {
     public int baseRoomSize = 40;
-    public int amountOfRooms = 10;
+    public int amountOfRooms = 5;
 
     [Header("Team 1")]
     public GameObject team1;
@@ -44,7 +44,7 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
-        GenerateRooms(5);
+        GenerateRooms(amountOfRooms);
         team1CurrentRoom = -1;
         team2CurrentRoom = -1;
     }
