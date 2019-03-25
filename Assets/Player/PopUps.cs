@@ -26,7 +26,7 @@ public class PopUps : MonoBehaviour
         {
             readyToSwear = false;
             swearing = true;
-            swearCountdown = 5;
+            swearCountdown = 10;
             swearTime = 0;
         }
 

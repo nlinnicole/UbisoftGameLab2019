@@ -2381,8 +2381,8 @@ MonoBehaviour:
   deathzone: -5
   alive: 1
   onOxygen: 0
-  health: 0
-  damage: 1
+  health: 10
+  damage: 0.1
 --- !u!59 &1091
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -3194,8 +3194,8 @@ MonoBehaviour:
   deathzone: -5
   alive: 1
   onOxygen: 0
-  health: 0
-  damage: 1
+  health: 10
+  damage: 0.1
 --- !u!59 &1089
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -3453,7 +3453,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.009086609, y: -0.65707016, z: -0.027425766}
   serializedVersion: 2
-  m_Spring: 300
+  m_Spring: 500
   m_Damper: 10
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -5345,7 +5345,10 @@ MonoBehaviour:
   player: {fileID: 488}
   displayHeight: 2.5
   headJoint: {fileID: 499}
-  forceForSwearing: 200
+  forceForSwearing: 300
+  currentForce: 0
+  readyToSwear: 1
+  swearCountdown: 0
   text: {fileID: 536}
   bg: {fileID: 8841387286152262407}
   m_Camera: {fileID: 823}
@@ -6368,7 +6371,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.009086609, y: -0.68707013, z: -0.027425766}
   serializedVersion: 2
-  m_Spring: 300
+  m_Spring: 500
   m_Damper: 10
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -6769,7 +6772,10 @@ MonoBehaviour:
   player: {fileID: 497}
   displayHeight: 2.5
   headJoint: {fileID: 546}
-  forceForSwearing: 200
+  forceForSwearing: 300
+  currentForce: 0
+  readyToSwear: 1
+  swearCountdown: 0
   text: {fileID: 5085956203473626997}
   bg: {fileID: 9182302944657685120}
   m_Camera: {fileID: 823}
