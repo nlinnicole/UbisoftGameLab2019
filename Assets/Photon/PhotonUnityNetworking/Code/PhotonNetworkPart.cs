@@ -2015,7 +2015,7 @@ namespace Photon.Pun
 
                     object[] pvUpdates = (object[])photonEvent[ParameterCode.Data];
                     int remoteUpdateServerTimestamp = (int)pvUpdates[0];
-                    short remoteLevelPrefix = (pvUpdates[1] != null) ? (short)pvUpdates[1] : (short)0;
+                    short remoteLevelPrefix = (pvUpdates[1] != null) ? (byte)pvUpdates[1] : (short)0;
 
                     object[] viewUpdate = null;
                     for (int i = 2; i < pvUpdates.Length; i++)

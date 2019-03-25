@@ -79,9 +79,6 @@ namespace Photon.Realtime
                     return this.bestRegionCache;
                 }
 
-                Region result = null;
-                int bestRtt = Int32.MaxValue;
-
                 this.EnabledRegions.Sort((a, b) => { return (a.Ping == b.Ping) ? 0 : (a.Ping < b.Ping) ? -1 : 1; });
 
                 this.bestRegionCache = this.EnabledRegions[0];

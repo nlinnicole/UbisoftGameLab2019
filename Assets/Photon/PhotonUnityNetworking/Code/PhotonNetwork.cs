@@ -1082,7 +1082,6 @@ namespace Photon.Pun
             {
                 NetworkingClient.DebugReturn(DebugLevel.WARNING, "WebGL requires WebSockets. Switching TransportProtocol to WebSocketSecure.");
                 NetworkingClient.LoadBalancingPeer.TransportProtocol = ConnectionProtocol.WebSocketSecure;
-                SocketWebTcp.SerializationProtocol = Enum.GetName(typeof(SerializationProtocol), NetworkingClient.LoadBalancingPeer.SerializationProtocolType);
             }
             #endif
 
@@ -1112,9 +1111,6 @@ namespace Photon.Pun
             if (PhotonServerSettings.AppSettings.IsMasterServerAddress)
             {
                 NetworkingClient.LoadBalancingPeer.SerializationProtocolType = SerializationProtocol.GpBinaryV16;   // this is a workaround to use On Premise Servers, which don't support GpBinaryV18 yet.
-                #if UNITY_WEBGL
-                SocketWebTcp.SerializationProtocol = "GpBinaryV16";
-                #endif
                 if (AuthValues == null)
                 {
                     AuthValues = new AuthenticationValues(Guid.NewGuid().ToString());
