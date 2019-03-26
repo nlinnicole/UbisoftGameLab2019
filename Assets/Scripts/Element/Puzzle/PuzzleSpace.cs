@@ -17,7 +17,7 @@ public class PuzzleSpace : MonoBehaviour
     {
         
     }
-
+        
     public bool getMatch()
     {
         return match;
