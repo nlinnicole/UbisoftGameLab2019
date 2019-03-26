@@ -5,10 +5,10 @@
 		_Color("Acid Bottom", Color) = (1,1,1,1)
 		_Color2("Acid Top", Color) = (1,1,1,1)
 
+			 _HeightMin("Height Min", Float) = -1
+	 _HeightMax("Height Max", Float) = 1
+
 		_ColorRes("Color res", float) = 5
-		_Noise("Noise", 2D) = "white" {}
-		_Glossiness("Smoothness", Range(0,1)) = 0.5
-		_Metallic("Metallic", Range(0,1)) = 0.0
 		_WaveDensityX("Wave density x", float) = 1
 		_WaveDensityZ("Wave density z", float) = 1
 		_WaveSpeed("Wave speed", float) = 1
@@ -18,8 +18,6 @@
 
 		_EdgeColor("Edge Color", Color) = (1, 1, 1, 1)
 		_DepthFactor("Depth Factor", float) = 1.0
-		_WaveSpeed("Wave Speed", float) = 1.0
-		_WaveAmp("Wave Amp", float) = 0.2
 		_NoiseTex("Noise Texture", 2D) = "white" {}
 
 
@@ -32,7 +30,6 @@
 
 		Pass
 		{
-			Blend SrcAlpha OneMinusSrcAlpha
 
 			CGPROGRAM
 			#include "UnityCG.cginc"
@@ -56,6 +53,9 @@
 		float _WaveDensityZ;
 		float _WaveOffset;
 
+		float _HeightMin;
+		float _HeightMax;
+
 
 		float _ColorRes;
 
@@ -69,7 +69,7 @@
 		struct vertexOutput
 		{
 			float4 pos : SV_POSITION;
-			float4 texCoord : TEXCOORD0;
+			float height : TEXCOORD0;
 			float4 screenPos : TEXCOORD1;
 		};
 
@@ -81,14 +81,16 @@
 			output.pos = UnityObjectToClipPos(input.vertex);
 
 			// apply wave animation
-			float noiseSample = tex2Dlod(_NoiseTex, float4(input.texCoord.xy, 0, 0));
-			output.pos.y += sin(output.pos.x * _WaveDensityX + (_Time * _WaveSpeed)) * _WaveHeight + sin(output.pos.z * _WaveDensityZ + (_Time * _WaveSpeed * _WaveOffset)) * _WaveHeight;
+			float noise = tex2Dlod(_NoiseTex, float4(input.texCoord.xy, 0, 0));
+			float height = sin(input.vertex.x * _WaveDensityX + noise * 3 + (_Time * _WaveSpeed)) * _WaveHeight + sin(input.vertex.z * _WaveDensityZ + (_Time * _WaveSpeed * _WaveOffset)) * _WaveHeight;
+
+			
+			output.height = height;
+			output.pos.y += height;
 
 			// compute depth
 			output.screenPos = ComputeScreenPos(output.pos);
 
-			// texture coordinates 
-			output.texCoord = input.texCoord;
 
 			return output;
 		}
@@ -102,19 +104,12 @@
 			// create foamline
 			float foamLine = 1 - saturate(_DepthFactor * (depth - input.screenPos.w));
 
-			//float heightGradient = ((input.pos.y / _WaveHeight + 1)*0.5);
-			//heightGradient = floor(heightGradient * _ColorRes);
+			float h = (_HeightMax - input.height) / (_HeightMax-_HeightMin);
+			h = floor(h * _ColorRes) / _ColorRes;
+			fixed4 hCol = lerp(_Color.rgba, _Color2.rgba, h);
 
-			////for extrusion based color
-			////fixed4 bubbles = -step(tex2D(_BubbleTex, uv), lerp(0,1,sin(_Time.x * _BubbleDissolveSpeed) +1.5)) + _BubbleColor;
-			//fixed4 c = /*bubbles +*/ lerp(_Color, _Color2, heightGradient);
+			float4 col = hCol + foamLine * _EdgeColor;
 
-			float heightGradient = input.pos.y / _WaveHeight;
-			heightGradient = floor(heightGradient / _ColorRes)* _ColorRes;
-			fixed4 c = /*bubbles +*/ lerp(_Color, _Color2, heightGradient);
-
-
-			float4 col = (input.pos.y / _WaveHeight) * _Color2 /*+ foamLine * _EdgeColor*/;
 			return col;
 		}
 
