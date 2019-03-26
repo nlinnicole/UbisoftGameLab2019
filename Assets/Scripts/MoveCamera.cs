@@ -12,7 +12,7 @@ public class MoveCamera : MonoBehaviour
     public Transform CamBehind;
 
 
-    float cammovespeed = 1f;
+    public float cammovespeed = 1f;
     public void changeTo2D()
     {
         start = gameObject.transform;
