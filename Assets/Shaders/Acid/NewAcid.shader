@@ -102,15 +102,19 @@
 			// create foamline
 			float foamLine = 1 - saturate(_DepthFactor * (depth - input.screenPos.w));
 
-			float heightGradient = ((input.pos.y / _WaveHeight + 1)*0.5);
-			heightGradient = floor(heightGradient * _ColorRes);
+			//float heightGradient = ((input.pos.y / _WaveHeight + 1)*0.5);
+			//heightGradient = floor(heightGradient * _ColorRes);
 
-			//for extrusion based color
-			//fixed4 bubbles = -step(tex2D(_BubbleTex, uv), lerp(0,1,sin(_Time.x * _BubbleDissolveSpeed) +1.5)) + _BubbleColor;
+			////for extrusion based color
+			////fixed4 bubbles = -step(tex2D(_BubbleTex, uv), lerp(0,1,sin(_Time.x * _BubbleDissolveSpeed) +1.5)) + _BubbleColor;
+			//fixed4 c = /*bubbles +*/ lerp(_Color, _Color2, heightGradient);
+
+			float heightGradient = input.pos.y / _WaveHeight;
+			heightGradient = floor(heightGradient / _ColorRes)* _ColorRes;
 			fixed4 c = /*bubbles +*/ lerp(_Color, _Color2, heightGradient);
 
 
-			float4 col = c /*+ foamLine * _EdgeColor*/;
+			float4 col = (input.pos.y / _WaveHeight) * _Color2 /*+ foamLine * _EdgeColor*/;
 			return col;
 		}
 
