@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,62 +26,63 @@ public class playerSoundTriggers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+
         // -------------- ROLL ----------------------------
-        currentlyRolling = gameObject.GetComponent<PlayerController2>().isRolling;
-        rollMod = gameObject.GetComponent<PlayerController2>().rollMod;
+        currentlyRolling = gameObject.GetComponent<PlayerController>().isRolling;
+        rollMod = gameObject.GetComponent<PlayerController>().rollMod;
 
         if (currentlyRolling && !rollStarted)
         {
             // trigger roll start event
             AkSoundEngine.PostEvent("rollStart", gameObject);
             rollStarted = true;
-            GameObject.FindWithTag("RoomGenerator").GetComponent<roomMusicTrigger>().bgmManager.SetRandomVoiceState();
+
+            GameObject.FindWithTag("RoomGenerator").GetComponent<BGMchanges>().SetRandomVoiceState();
 
         }
-        if(rollMod==0 && rollStarted && !rollStopped)
+        if (rollMod == 0 && rollStarted && !rollStopped)
         {
             // trigger roll stop event
             AkSoundEngine.PostEvent("rollStop", gameObject);
             rollStopped = true;
-            
+
         }
-        if(rollStarted && !currentlyRolling)
+        if (rollStarted && !currentlyRolling)
         {
             rollStarted = false;
             rollStopped = false;
         }
-        */
+
 
 
         playerVelocity = Vector3.zero;
-        playerVelocity = gameObject.GetComponent<PlayerController2>().velocity;
+        playerVelocity = gameObject.GetComponent<PlayerController>().velocity;
 
         totalVelocity = System.Math.Abs(playerVelocity.x) + System.Math.Abs(playerVelocity.z);
-       //  Debug.Log(( totalVelocity ) / 100);
+        //  Debug.Log(( totalVelocity ) / 100);
 
 
         // -------------- SEND VELOCITY TO WWISE ----------------------------
-        AkSoundEngine.SetRTPCValue("velocity", ( totalVelocity ) / 100, gameObject);
+        AkSoundEngine.SetRTPCValue("velocity", (totalVelocity) / 100, gameObject);
 
 
         // -------------- STEPS ----------------------------
-        playerNumber = gameObject.GetComponent<PlayerController2>().playerNumber;
+        playerNumber = gameObject.GetComponent<PlayerController>().playerNumber;
 
-            //movement
-            if (
-            Input.GetAxisRaw("Horizontal" + playerNumber) > 0
-                || Input.GetAxisRaw("Horizontal" + playerNumber) < 0
-                || Input.GetAxisRaw("Vertical" + playerNumber) > 0
-                || Input.GetAxisRaw("Vertical" + playerNumber) < 0
-                 )
-            {
+        //movement
+        if (
+        Input.GetAxisRaw("Horizontal" + playerNumber) > 0
+            || Input.GetAxisRaw("Horizontal" + playerNumber) < 0
+            || Input.GetAxisRaw("Vertical" + playerNumber) > 0
+            || Input.GetAxisRaw("Vertical" + playerNumber) < 0
+             )
+        {
             if (!walkStarted)
             {
                 // trigger start steps event 
                 walkStarted = true;
                 AkSoundEngine.PostEvent("startSteps", gameObject);
-               // Debug.Log("steps started");
+                // Debug.Log("steps started");
             }
         }
 
@@ -91,6 +93,7 @@ public class playerSoundTriggers : MonoBehaviour
             AkSoundEngine.PostEvent("stopSteps", gameObject);
         }
 
-    
+
     }
 }
+*/

@@ -13,7 +13,7 @@ public class BGMchanges : MonoBehaviour
     int loops;
     int[] voicing = new int[1];
 
-    // 0 bass, 1 piano, 2 short, 3 short1, 4 med, 5 med1, 6 long, 7 long1
+
 
     int[] lobbyCues = new int[5] { 0, 24, 48, 72, 96 };
     int[][] lobbyVoicings = {
@@ -62,11 +62,55 @@ public class BGMchanges : MonoBehaviour
         new int[] { 0, 3, 6 }
     };
 
+    // 0 bass, 1 piano, 2 short, 3 short1, 4 med, 5 med1, 6 long, 7 long1
+
+    int[] stressCues = new int[12] { 0, 12, 23, 45, 57, 69, 92, 104, 119, 126, 134, 138 };
+    int[][] stressVoicings = {
+        new int[] { 2, 5 },
+        new int[] { 0, 1, 2, 5 },
+        new int[] { 0, 1, 2, 4, 5 },
+        new int[] { 0, 1, 2, 5 },
+        new int[] { 0, 1, 2, 7 },
+        new int[] { 0, 1, 2, 4, 7 },
+        new int[] { 0, 1, 2, 7 },
+        new int[] { 0, 1, 2, 5, 7 },
+        new int[] { 0, 1, 2, 5 },
+        new int[] { 0, 2, 5 },
+        new int[] { 0, 2 },
+    };
+
+    int[] deathCues = new int[] { 0, 6, 12, 23, 46, 69, 91, 104 };
+    int[][] deathVoicings = {
+        new int[] { 7 },
+        new int[] { 0, 7 },
+        new int[] { 0, 5, 6, 7 },
+        new int[] { 0, 3, 5, 6, 7 },
+        new int[] { 0, 2, 3, 5, 6, 7 },
+        new int[] { 0, 3, 5, 6, 7 },
+        new int[] { 5, 7 },
+    };
+
+    int[] bs1Cues = new int[] { 0, 43 };
+    int[][] bs1Voicings = {
+        new int[] { 0, 4, 6, 7 }
+    };
+
+    int[] bs2Cues = new int[] { 0, 12, 36, 59, 84, 96 };
+    int[][] bs2Voicings = {
+        new int[] { 0, 6, 7 },
+        new int[] { 0, 7 },
+        new int[] { 0, 6, 7 },
+        new int[] { 0, 7 },
+        new int[] { 0, 6},
+    };
+
+
     int[] lastStateChosen = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
     void Start()
     {
+        rnd = new System.Random();
     }
 
     void Update()
@@ -79,7 +123,7 @@ public class BGMchanges : MonoBehaviour
         rnd = new System.Random();
 
         AkSoundEngine.GetState("BGM", out uint result);
-        // Debug.Log("this room's state ID is "+result);
+        Debug.Log("this room's state ID is " + result);
 
         switch (result)
         {
@@ -87,8 +131,10 @@ public class BGMchanges : MonoBehaviour
             case 1359360136: setRandomVoice(room1Cues, room1Voicings); break;
             case 1359360138: setRandomVoice(room2Cues, room2Voicings); break;
             case 1359360140: setRandomVoice(room3Cues, room3Voicings); break;
-                //  case 3840192365: setRandomVoice(); break;
-
+            case 3840192365: setRandomVoice(stressCues, stressVoicings); break;
+            case 378875112: setRandomVoice(deathCues, deathVoicings); break;
+            case 748276845: setRandomVoice(bs1Cues, bs1Voicings); break;
+            case 748276846: setRandomVoice(bs2Cues, bs2Voicings); break;
         }
     }
 
@@ -208,7 +254,19 @@ public class BGMchanges : MonoBehaviour
     {
         // ------------- trigger next room bgm ---------------//
 
-        AkSoundEngine.PostEvent("startBGM" + roomCounter, gameObject);
+        if (roomCounter < 3)
+        {
+            AkSoundEngine.PostEvent("startBGM" + roomCounter, gameObject);
+        }
+
+        else if (roomCounter == 3)
+        {
+            AkSoundEngine.PostEvent("startBSTrack2", gameObject);
+        }
+        else if (roomCounter == 4)
+        {
+            AkSoundEngine.PostEvent("startStressTrack", gameObject);
+        }
 
         bgmStarted = Time.time;
         roomCounter += 1;
@@ -217,3 +275,5 @@ public class BGMchanges : MonoBehaviour
         SetAllStates(roomCounter);
     }
 }
+
+
