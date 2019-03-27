@@ -82,7 +82,6 @@ namespace Photon.Pun
             UnityEngine.SceneManagement.SceneManager.sceneLoaded += (scene, loadingMode) =>
             {
                 PhotonNetwork.NewSceneLoaded();
-                PhotonNetwork.SetLevelInPropsIfSynced(SceneManagerHelper.ActiveSceneName);
             };
         }
 
@@ -153,12 +152,7 @@ namespace Photon.Pun
                 this.nextSendTickCount = currentMsSinceStart + this.UpdateInterval;
             }
         }
-
-        public void OnJoinedRoom()
-        {
-            PhotonNetwork.LoadLevelIfSynced(); //TODO: do we really need this since we do this inside OnRoomPropertiesUpdate()
-        }
-
+        
         public void OnCreatedRoom()
         {
             PhotonNetwork.SetLevelInPropsIfSynced(SceneManagerHelper.ActiveSceneName);
@@ -168,6 +162,8 @@ namespace Photon.Pun
         {
             PhotonNetwork.LoadLevelIfSynced();
         }
+
+        public void OnJoinedRoom(){}
 
         public void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps){}
 
