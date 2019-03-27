@@ -32,6 +32,7 @@ public class CamPlayerFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.GetComponentInChildren<Camera>().depthTextureMode = DepthTextureMode.Depth;
         camobject = this.gameObject.transform.GetChild(0);
         changeCameraTo2D();
     }
@@ -60,6 +61,10 @@ public class CamPlayerFollow : MonoBehaviour
         if(viewangle == 2)
         {
             GetComponentInChildren<MoveCamera>().changeToTopDown();
+        }
+        if(viewangle == 3)
+        {
+            GetComponentInChildren<MoveCamera>().changeToBehind();
         }
 
     }

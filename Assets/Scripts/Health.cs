@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
       if (!bar.gameObject.activeSelf)
         bar.gameObject.SetActive(true);
       
-        health -= damage;
+        health -= damage * 100 * Time.deltaTime;
         
         healthBar.fillAmount = health / maxHealth;
     }

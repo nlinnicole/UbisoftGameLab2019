@@ -690,6 +690,10 @@ namespace Photon.Realtime
         {
             this.DisconnectedCause = DisconnectCause.None;
 
+            #if UNITY_WEBGL
+            SocketWebTcp.SerializationProtocol = Enum.GetName(typeof(SerializationProtocol), this.LoadBalancingPeer.SerializationProtocolType);
+            #endif
+
             if (this.LoadBalancingPeer.Connect(this.MasterServerAddress, this.AppId, this.TokenForInit))
             {
                 this.State = ClientState.ConnectingToMasterserver;
@@ -717,6 +721,10 @@ namespace Photon.Realtime
         {
             this.IsUsingNameServer = true;
             this.CloudRegion = null;
+
+            #if UNITY_WEBGL
+            SocketWebTcp.SerializationProtocol = Enum.GetName(typeof(SerializationProtocol), this.LoadBalancingPeer.SerializationProtocolType);
+            #endif
 
             if (this.AuthMode == AuthModeOption.AuthOnceWss)
             {
@@ -749,6 +757,10 @@ namespace Photon.Realtime
 
             this.LoadBalancingPeer.Disconnect();
             this.CloudRegion = region;
+
+            #if UNITY_WEBGL
+            SocketWebTcp.SerializationProtocol = Enum.GetName(typeof(SerializationProtocol), this.LoadBalancingPeer.SerializationProtocolType);
+            #endif
 
             if (this.AuthMode == AuthModeOption.AuthOnceWss)
             {
