@@ -53,6 +53,7 @@ namespace Concordia1.Gamelab
             if (isConnecting)
             {
                 PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
             }
         }
 

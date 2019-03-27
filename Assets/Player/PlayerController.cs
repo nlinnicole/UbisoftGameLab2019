@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         anim = GetComponent<Animator>();
         if (photonView.IsMine)
         {
+            playerCamera.enabled = true;
             PlayerController.LocalPlayerInstance = this.gameObject;
         }
 
@@ -132,6 +133,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
+
         }
 
         if (jumpCooldownCount > 0)
