@@ -32,7 +32,6 @@ public class RegularDoorButton : MonoBehaviour
 
     void Update()
     {
-        //open door until certain height, then close door after certain time
         if (doorOpening)
         {
             if(door.transform.position.y < doorOpenHeight)
@@ -45,6 +44,7 @@ public class RegularDoorButton : MonoBehaviour
                 doorClosing = true;
             }
         }
+        //OPEN DOOR
         else if (doorClosing && Time.time > doorTimer + doorDuration)
         {
             if(door.transform.position.y > doorOriginalHeight)
@@ -58,10 +58,12 @@ public class RegularDoorButton : MonoBehaviour
         }
 
     }
-    //trigger only on enter
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
-        doorTimer = Time.time;
-        doorOpening = true;
+        if (other.gameObject.tag == "DiceTrigger")
+        {
+            doorTimer = Time.time;
+            doorOpening = true;
+        }
     }
 }

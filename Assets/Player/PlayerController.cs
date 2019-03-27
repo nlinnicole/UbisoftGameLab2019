@@ -413,7 +413,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
         }
 
-        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
+        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3)
         {
 
             transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
@@ -424,7 +424,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
         else if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 1)
         {
+
             transform.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, velocity.z));
+
+        }else if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
+        {
+            transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.y*-1)); //apply velocity to rigidbody
+
+
+            transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.y*-1) * rollMod * 1000); //roll velocity to rigidbody
         }
 
 

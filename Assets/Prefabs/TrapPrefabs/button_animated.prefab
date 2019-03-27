@@ -39,7 +39,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678642366523657277}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.83, y: 1, z: 2.21}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 3669893011758241847}
   - component: {fileID: 3669893011751253975}
   - component: {fileID: 7390263051948625188}
-  - component: {fileID: 3814387320752148721}
+  - component: {fileID: 865826437}
   m_Layer: 0
   m_Name: button_animated
   m_TagString: Board
@@ -269,7 +269,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.37, y: 1, z: 3.66}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3814387320752148721
+--- !u!114 &865826437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,11 +278,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3669893011758531607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcadbcdb532c1934eaff86ce20164bf6, type: 3}
+  m_Script: {fileID: 11500000, guid: df91931769323d441a102825c16b8667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  dice_trigger: {fileID: 0}
+  doorSpeed: 10
+  doorDuration: 2
+  doorOpenHeight: 0
+  doorOriginalHeight: -10
 --- !u!1 &5588250144091162446
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +325,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5588250144091162446}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.83, y: 1, z: 2.21}

@@ -21,12 +21,11 @@ public class UniversalButton : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "DiceTrigger")
+        if (other.tag == "DiceTrigger")
         {
             Debug.Log("hello");
-            //door.transform.Translate()
         }
     }
 }
