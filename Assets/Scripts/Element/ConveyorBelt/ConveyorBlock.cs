@@ -6,7 +6,7 @@ using UnityEngine;
 public class ConveyorBlock : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 5;
+    private static float speed = 1;
 
     [SerializeField]
     private bool left = true;

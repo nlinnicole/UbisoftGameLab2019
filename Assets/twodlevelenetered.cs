@@ -24,7 +24,7 @@ public class twodlevelenetered : MonoBehaviour
         if(other.tag == "Player")
         {
             Debug.Log("Hit Player");
-            anim.SetBool("StartLava", true);
+            //anim.SetBool("StartLava", true);
             other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().viewangle = 1;
             
         }

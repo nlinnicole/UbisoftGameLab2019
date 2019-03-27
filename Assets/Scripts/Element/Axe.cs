@@ -20,7 +20,7 @@ public class Axe : MonoBehaviour
 
     void Update()
     {
-        float angle = 180 *  Mathf.Sin(Time.time);
+        float angle = 90 *  Mathf.Sin(Time.time) - 90;
         axe.transform.eulerAngles = new Vector3(angle, 90, 90);
         //axe.transform.RotateAround(pivot.transform.position, Vector3.up, 20 * Time.deltaTime);
     }
