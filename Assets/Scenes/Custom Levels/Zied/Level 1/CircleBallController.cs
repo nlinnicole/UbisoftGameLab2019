@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class CircleBallController : MonoBehaviour
 {
@@ -20,11 +21,11 @@ public class CircleBallController : MonoBehaviour
     public Transform centerPoint;
 
     Vector3 attackDirection;
-    public Quaternion targetDirection;
+    public Quaternion targetDirection = Quaternion.identity;
 
     private float fraction = 0;
 
-    private float cooldown =2f;
+    private float cooldown =1f;
 
     bool startAttacking = false;
 
@@ -36,6 +37,8 @@ public class CircleBallController : MonoBehaviour
     public float backspeed = 0.5f;
     private float rotationLerp = 0.0f;
     public float rotationSpeed = 1f;
+
+    public PlayableDirector myDirector;
 
 
     // Time when the movement started.
@@ -51,6 +54,7 @@ public class CircleBallController : MonoBehaviour
         players = GameObject.FindGameObjectWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody>();
 
+        myDirector = GetComponentInChildren<PlayableDirector>();
     }
 
     private void FixedUpdate()
@@ -62,7 +66,7 @@ public class CircleBallController : MonoBehaviour
           cooldown -= Time.deltaTime;
           if(cooldown < 0f)
           {
-              cooldown = 2f;
+              cooldown = 1f;
               myState = State.target;
           }
           break;
@@ -70,6 +74,7 @@ public class CircleBallController : MonoBehaviour
           //Debug.Log("Monster state: finding target");
           if (targetDirection == Quaternion.identity){
             targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
+            //Debug.Log("Turning towards target: " + targetDirection);
           }
 
           transform.rotation = Quaternion.Slerp(transform.rotation, targetDirection, rotationLerp * rotationSpeed);
@@ -84,6 +89,8 @@ public class CircleBallController : MonoBehaviour
         case State.attack:
           //Debug.Log("Monster state: attacking");
           attackPlayer();
+
+          myDirector.Play();
           break;
         case State.recenter:
           //Debug.Log("Monster state: recentering");
@@ -136,7 +143,7 @@ public class CircleBallController : MonoBehaviour
             myState = State.recenter;
 
             LastPointHit = gameObject.transform;
-
+            myDirector.Stop();
         }
 
         if (collision.gameObject.tag == "Board")
@@ -166,6 +173,7 @@ public class CircleBallController : MonoBehaviour
         if(other.tag == "Player")
         {
             myState = State.target;
+            targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
         }
 
     }
