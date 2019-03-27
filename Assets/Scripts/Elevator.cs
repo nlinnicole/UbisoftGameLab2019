@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    public float speed;
-    public float amount;
-    public float offset;
+    public GameObject elevator;
 
-    private void FixedUpdate()
+    private void OnTriggerEnter(Collider other)
     {
-        this.transform.position += new Vector3(0, Mathf.Sin(Time.time * speed) + offset, 0) * amount;
+        if(other.gameObject.layer == 11)
+        {
+            elevator.GetComponent<Animator>().SetBool("IsActive", true);
+        }
     }
+
+
 }

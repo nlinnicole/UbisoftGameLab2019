@@ -410,7 +410,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
 
         //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-        if (transform.GetComponent<Rigidbody>().velocity.magnitude > maxSpeed)
+        if ( Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.x) + Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.z) > maxSpeed)
         {
             transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
         }
