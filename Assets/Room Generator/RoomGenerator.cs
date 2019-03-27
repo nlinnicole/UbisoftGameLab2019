@@ -103,13 +103,12 @@ public class RoomGenerator : MonoBehaviour
 
             GameObject roomToBuild = roomArray[chosenRoom];
             //create room
-            Team1Rooms[i] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
+            Team1Rooms[i] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
             //change name
-            Team1Rooms[i].gameObject.name += " (Option 1)";
+            //Team1Rooms[i].transform.position += new Vector3(40, 0, 0);
 
             //team2
-            Team2Rooms[i] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
-            Team2Rooms[i].gameObject.name += " (Option 1)";
+            Team2Rooms[i] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
             Team2Rooms[i].transform.localScale = new Vector3(-Team2Rooms[i].transform.localScale.x, Team2Rooms[i].transform.localScale.y, Team2Rooms[i].transform.localScale.z);
             Team2Rooms[i].transform.position += new Vector3(40, 0, 0);
         }
