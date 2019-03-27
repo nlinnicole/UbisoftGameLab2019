@@ -5,19 +5,54 @@ using UnityEngine;
 using UnityEngine.UI;
 public class WhichRoomAreYouIn : MonoBehaviour
 {
-    public GameObject Team1Position, Team2Position;
+    public int teamnumber;
 
-    public Transform FinalPosition;
+    public float percentdone;
 
-    float Team1Progress;
-    float Team2Progress;
+    public Slider ProgressBar;
+
+    public float initialdistance;
+
+    public GameObject MyTeamPos, Team2Position;
+
+    public GameObject FinalPosition;
+
+    public float MyTeamProgress;
+    public float Team2Progress;
+
+    private void Start()
+    {
+
+
+        if(teamnumber == 1)
+        {
+            //Team2Position = GameObject.FindGameObjectWithTag("Team2Pos");
+        }else if(teamnumber == 2)
+        {
+            //Team2Position = GameObject.FindGameObjectWithTag("Team1Pos");
+        }
+
+        FinalPosition = GameObject.FindGameObjectWithTag("FinalPoint");
+
+        initialdistance = Math.Abs(FinalPosition.transform.position.z - MyTeamPos.transform.position.z);
+
+        ProgressBar.value = percentdone;
+
+    }
 
 
     void FindDistance()
     {
-        Team1Progress = Math.Abs(FinalPosition.transform.position.z - Team1Position.transform.position.z);
+        MyTeamProgress = Math.Abs(FinalPosition.transform.position.z - MyTeamPos.transform.position.z);
 
-        Team2Progress = Math.Abs(FinalPosition.transform.position.z - Team2Position.transform.position.z);
+        percentdone = Math.Abs(MyTeamProgress - initialdistance) / initialdistance;
+        //Team2Progress = Math.Abs(FinalPosition.transform.position.z - Team2Position.transform.position.z);
+    }
+
+    private void Update()
+    {
+        FindDistance();
+        ProgressBar.value = percentdone;
     }
 
 }
