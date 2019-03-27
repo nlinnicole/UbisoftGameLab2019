@@ -11,6 +11,7 @@ public class Win2DLevel : MonoBehaviour
         if(other.tag == "2DCube")
         {
             topcover.SetBool("OpenTop", true);
+            Destroy(gameObject, 1f);
         }
     }
 }
