@@ -5,9 +5,6 @@
 		_Color("Acid Bottom", Color) = (1,1,1,1)
 		_Color2("Acid Top", Color) = (1,1,1,1)
 
-			 _HeightMin("Height Min", Float) = -1
-	 _HeightMax("Height Max", Float) = 1
-
 		_ColorRes("Color res", float) = 5
 		_WaveDensityX("Wave density x", float) = 1
 		_WaveDensityZ("Wave density z", float) = 1
@@ -104,7 +101,7 @@
 			// create foamline
 			float foamLine = 1 - saturate(_DepthFactor * (depth - input.screenPos.w));
 
-			float h = (_HeightMax - input.height) / (_HeightMax-_HeightMin);
+			float h = (_WaveHeight - input.height) / (_WaveHeight - (-_WaveHeight));
 			h = floor(h * _ColorRes) / _ColorRes;
 			fixed4 hCol = lerp(_Color.rgba, _Color2.rgba, h);
 
