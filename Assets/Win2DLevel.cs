@@ -6,6 +6,7 @@ public class Win2DLevel : MonoBehaviour
 {
     public Animator topcover;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "2DCube")
