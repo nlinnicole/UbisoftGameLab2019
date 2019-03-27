@@ -40,8 +40,8 @@ namespace Concordia1.Gamelab
             {
                 if (PhotonNetwork.IsMasterClient)
                     PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(22f, 5f, 10f), Quaternion.identity, 0);
-                //else
-                    //PhotonNetwork.Instantiate(this.playerPrefab2.name, new Vector3(-22f, 5f, 10f), Quaternion.identity, 0);
+                else
+                    PhotonNetwork.Instantiate(this.playerPrefab2.name, new Vector3(-22f, 5f, 10f), Quaternion.identity, 0);
             }
 
         }
