@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Acid
-  m_Shader: {fileID: 4800000, guid: 9333dfa4f51793c478b41ad72ac72d89, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5ac1aa8b774d40640a28a48587afb87c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -55,6 +55,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 2f7a2a856d441294b8fe565541568087, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: f65f63fba87d69a4aad2d08f2ae69970, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -85,6 +89,7 @@ Material:
     - _ColorHeight3: 0.43
     - _ColorRes: 2.87
     - _Cutoff: 0.5
+    - _DepthFactor: 1
     - _DepthMaxDistance: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -95,6 +100,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.25
     - _GlossyReflections: 1
+    - _HeightMax: 1
+    - _HeightMin: -1
     - _InvFade: 1.04
     - _Metallic: 0
     - _Mode: 0
@@ -129,6 +136,7 @@ Material:
     - _Color3: {r: 1, g: 0, b: 0.16484404, a: 1}
     - _DepthGradientDeep: {r: 0, g: 0.764151, b: 0.085357346, a: 1}
     - _DepthGradientShallow: {r: 0.068610616, g: 0.3773585, b: 0, a: 1}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Foam: {r: 0.1, g: 0.375, b: 0, a: 0}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
