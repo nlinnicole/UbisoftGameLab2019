@@ -39,7 +39,7 @@ public class CircleBallController : MonoBehaviour
 
 
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +47,7 @@ public class CircleBallController : MonoBehaviour
         players = GameObject.FindGameObjectWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody>();
     }
-    
+
     void returnBallToCenter()
     {
         if (fraction < 2)
@@ -94,7 +94,7 @@ public class CircleBallController : MonoBehaviour
             else
             {
 
-                
+
                 Debug.Log("Attacking");
                 attackPlayer();
             }
@@ -104,7 +104,7 @@ public class CircleBallController : MonoBehaviour
         if (boardkillcounter == 1)
         {
             exitdoor.transform.position = exitdoor.transform.position + Vector3.up * 0.2f;
-            
+
         }
 
         transform.LookAt(players.gameObject.transform.position);
@@ -129,40 +129,33 @@ public class CircleBallController : MonoBehaviour
             {
                 returnBallToCenter();
 
-            }
-            else if (centered)
+            timeLeft -= Time.deltaTime;
+            if(timeLeft < 0f)
             {
+                Debug.Log(timeLeft);
 
-                timeLeft -= Time.deltaTime;
-                if (timeLeft < 0f)
-                {
-                    Debug.Log(timeLeft);
-
-                    startattacking = true;
-                    timeLeft = 4f;
-                }
-
-
-                if (startattacking)
-                {
-                    Debug.Log("Attacking");
-                    attackPlayer();
-                }
-                else
-                {
-                    transform.LookAt(players.gameObject.transform.position);
-                    attackDirection = transform.forward;
-
-                }
-
-
-
+                startattacking = true;
+                timeLeft = 4f;
             }
 
-            CheckBoardKills();
+
+            if (startattacking)
+            {
+                Debug.Log("Attacking");
+                attackPlayer();
+            }
+            else
+            {
+                transform.LookAt(players.gameObject.transform.position);
+                attackDirection = transform.forward;
+
+            }
+          }
+
+
         }
 
-        
+        CheckBoardKills();
 
     }
 
@@ -179,10 +172,10 @@ public class CircleBallController : MonoBehaviour
     void attackPlayer()
     {
         transform.position += attackDirection * Time.deltaTime * speed;
- 
+
     }
 
-    
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -192,7 +185,7 @@ public class CircleBallController : MonoBehaviour
             ReturnToCenter = true;
             LastPointHit = gameObject.transform;
             startattacking = false;
-            
+
         }
 
         if (collision.gameObject.tag == "Board")
@@ -223,5 +216,5 @@ public class CircleBallController : MonoBehaviour
 
     }
 
-    
+
 }
