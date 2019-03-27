@@ -5,6 +5,7 @@ Shader "Custom/SeeThrough"
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
+		_Emission("Emission", Float) = 1
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
@@ -77,6 +78,7 @@ Shader "Custom/SeeThrough"
 		half _Glossiness;
 		half _Metallic;
 		fixed4 _Color;
+		float _Emission;
 
 		UNITY_INSTANCING_BUFFER_START(Props)
 		UNITY_INSTANCING_BUFFER_END(Props)
@@ -88,6 +90,7 @@ Shader "Custom/SeeThrough"
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
+			o.Emission = _Emission;
 		}
 		ENDCG
     }
