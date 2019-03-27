@@ -5,11 +5,15 @@ using UnityEngine;
 public class Axe : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pivot;
-    [SerializeField]
     private GameObject axeObject;
     [SerializeField]
     private float rotateSpeed = 0.5f;
+    [SerializeField]
+    private int yAngle = 90;
+    [SerializeField]
+    private int zAngle = 90;
+    [SerializeField]
+    private int offset = -90;
 
     private GameObject axe;
 
@@ -20,8 +24,7 @@ public class Axe : MonoBehaviour
 
     void Update()
     {
-        float angle = 90 *  Mathf.Sin(Time.time) - 90;
-        axe.transform.eulerAngles = new Vector3(angle, 90, 90);
-        //axe.transform.RotateAround(pivot.transform.position, Vector3.up, 20 * Time.deltaTime);
+        float angle = 90 * Mathf.Sin(Time.time) + offset; ;
+        axe.transform.eulerAngles = new Vector3(angle, yAngle, zAngle);
     }
 }
