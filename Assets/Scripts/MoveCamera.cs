@@ -12,6 +12,7 @@ public class MoveCamera : MonoBehaviour
     public Transform CamDefault;
     public Transform CamTopDown;
     public Transform CamBehind;
+    public Transform CamFinalLevel;
 
     public int teamnumber;
 
@@ -61,6 +62,14 @@ public class MoveCamera : MonoBehaviour
         start = gameObject.transform;
         transform.position = Vector3.Slerp(start.position, CamBehind.position, Time.deltaTime * cammovespeed);
         transform.rotation = Quaternion.Slerp(start.rotation, CamBehind.rotation, Time.deltaTime * cammovespeed);
+        gameObject.GetComponent<Camera>().orthographic = false;
+    }
+
+    public void changeToFinalLevel()
+    {
+        start = gameObject.transform;
+        transform.position = Vector3.Slerp(start.position, CamFinalLevel.position, Time.deltaTime * cammovespeed);
+        transform.rotation = Quaternion.Slerp(start.rotation, CamFinalLevel.rotation, Time.deltaTime * cammovespeed);
         gameObject.GetComponent<Camera>().orthographic = false;
     }
 
