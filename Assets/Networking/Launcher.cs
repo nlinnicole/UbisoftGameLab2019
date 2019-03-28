@@ -38,7 +38,9 @@ namespace Concordia1.Gamelab
             controlPanel.SetActive(false);
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.JoinRandomRoom();
+                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+
             }
             else
             {
@@ -52,8 +54,8 @@ namespace Concordia1.Gamelab
             Debug.Log("Joined Master room");
             if (isConnecting)
             {
-                //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
             }
         }
 
