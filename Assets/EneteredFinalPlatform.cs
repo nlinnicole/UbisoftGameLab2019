@@ -7,6 +7,7 @@ public class EneteredFinalPlatform : MonoBehaviour
     public GameObject MovingPlatform;
 
     Transform position;
+    public bool running = true;
 
     public int counter = 0;
     public float platformspeed = 1;
@@ -33,19 +34,28 @@ public class EneteredFinalPlatform : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player" && counter >2)
+        if (running)
         {
-            other.gameObject.transform.SetParent(MovingPlatform.transform);
-            gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed);
+            if (other.tag == "Player" && counter > 2)
+            {
+                other.gameObject.transform.SetParent(MovingPlatform.transform);
+                gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed);
 
+                Vector3 clampedPosition = transform.position;
+                // Now we can manipulte it to clamp the y element
+                clampedPosition.x = Mathf.Clamp(transform.position.x, -10f, 15f);
+                // re-assigning the transform's position will clamp it
+                transform.position = clampedPosition;
+
+            }
         }
+
+        
     }
 
     private void Update()
     {
-        Vector3 clampedPosition = transform.position;
-        clampedPosition.x = Mathf.Clamp(transform.position.y, -10f, 15f);
-        transform.position = clampedPosition;
+        
 
     }
 
