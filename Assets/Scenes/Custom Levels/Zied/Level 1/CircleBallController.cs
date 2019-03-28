@@ -38,7 +38,7 @@ public class CircleBallController : MonoBehaviour
     private float rotationLerp = 0.0f;
     public float rotationSpeed = 1f;
 
-    public PlayableDirector myDirector;
+    public Animator  myAnims;
 
     public GameObject invisibleWall;
 
@@ -56,7 +56,7 @@ public class CircleBallController : MonoBehaviour
         players = GameObject.FindGameObjectWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody>();
 
-        myDirector = GetComponentInChildren<PlayableDirector>();
+        myAnims = GetComponentInChildren<Animator>();
 
         if (invisibleWall == null){
           invisibleWall = GameObject.Find("InvisibleWall");
@@ -94,19 +94,24 @@ public class CircleBallController : MonoBehaviour
             myState = State.attack;
             attackDirection = transform.forward;
             rotationLerp = 0f;
-        }
+
+            myAnims.SetBool("hasHitWall", false);
+            myAnims.SetInteger("currentAttack", Random.Range(1, 4));
+          }
           break;
         case State.attack:
           //Debug.Log("Monster state: attacking");
           attackPlayer();
 
-          myDirector.Play();
+
           break;
         case State.recenter:
           //Debug.Log("Monster state: recentering");
 
-          returnBallToCenter();
-          targetDirection = Quaternion.identity;
+          if (myAnims.GetCurrentAnimatorStateInfo(0).IsName("Retreat")){
+            returnBallToCenter();
+            targetDirection = Quaternion.identity;
+          }
 
           break;
       }
@@ -153,7 +158,8 @@ public class CircleBallController : MonoBehaviour
             myState = State.recenter;
 
             LastPointHit = gameObject.transform;
-            myDirector.Stop();
+
+            myAnims.SetBool("hasHitWall", true);
         }
 
         if (collision.gameObject.tag == "Board")
@@ -182,10 +188,12 @@ public class CircleBallController : MonoBehaviour
 
         if(other.tag == "Player" && !playersInRoom)
         {
-          playersInRoom = true;
+            playersInRoom = true;
             myState = State.target;
             targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
             invisibleWall.SetActive(true);
+
+            myAnims.SetBool("playersInRoom", true);
         }
 
     }
