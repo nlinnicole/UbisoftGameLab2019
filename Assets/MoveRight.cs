@@ -5,7 +5,6 @@ using UnityEngine;
 public class MoveRight : MonoBehaviour
 {
     public GameObject MovingPlatform;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +14,9 @@ public class MoveRight : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && gameObject.GetComponentInParent<EneteredFinalPlatform>().counter > 2)
         {
-            MovingPlatform.transform.Translate(Vector3.right * -1 * Time.deltaTime);
+            MovingPlatform.transform.Translate(Vector3.right * Time.deltaTime);
         }
     }
 }

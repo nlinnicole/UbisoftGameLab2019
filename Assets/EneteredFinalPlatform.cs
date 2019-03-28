@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class EneteredFinalPlatform : MonoBehaviour
 {
-    int counter = 0;
+    public GameObject MovingPlatform;
+
+    public int counter = 0;
     public float platformspeed = 1;
+
+    private void Start()
+    {
+        counter = 0;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        counter++;
-        if (other.tag == "Player" && counter > 1) 
+        if(other.tag == "Player")
+        {
+            counter++;
+        }
+
+        if (other.tag == "Player" && counter > 2) 
         {
             other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().viewangle = 4;
 
@@ -20,9 +31,9 @@ public class EneteredFinalPlatform : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && counter >2)
         {
-            other.gameObject.transform.SetParent(gameObject.transform, true);
+            other.gameObject.transform.SetParent(MovingPlatform.transform);
             gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed);
         }
     }

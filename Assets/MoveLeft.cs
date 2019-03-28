@@ -15,9 +15,9 @@ public class MoveLeft : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && gameObject.GetComponentInParent<EneteredFinalPlatform>().counter > 2)
         {
-            MovingPlatform.transform.Translate(Vector3.right * Time.deltaTime);
+            MovingPlatform.transform.Translate(Vector3.right * -1 * Time.deltaTime);
         }
     }
 }
