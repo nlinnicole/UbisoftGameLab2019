@@ -16,7 +16,7 @@
 
 	   Pass
 		{
-			Tags { "Queue" = "Geometry+1" }
+			Tags {"Queue" = "AlphaTest" "IgnoreProjector" = "True" "RenderType" = "Geometry"}
 			ZTest Greater
 			ZWrite Off
 
