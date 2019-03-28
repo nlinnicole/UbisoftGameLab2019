@@ -248,7 +248,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
             {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
+                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
             }
         }
         
@@ -284,7 +284,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (isGrounded)
         {
             //Default Camera State Movement
-            if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3)
+            if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 4)
             {
                 //movement
                 if (Input.GetAxisRaw("Horizontal" + playerNumber) > 0)
@@ -415,7 +415,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
         }
 
-        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3)
+        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 4)
         {
 
             transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody

@@ -5,7 +5,6 @@ using UnityEngine;
 public class twodlevelenetered : MonoBehaviour
 {
 
-    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +22,7 @@ public class twodlevelenetered : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("Hit Player");
-            //anim.SetBool("StartLava", true);
+            //Debug.Log("Hit Player");
             other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().viewangle = 1;
             
         }
