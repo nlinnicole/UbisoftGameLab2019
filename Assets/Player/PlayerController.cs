@@ -168,69 +168,69 @@ public class PlayerController : MonoBehaviourPunCallbacks
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
-        //item pickup
-        nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
-        nearbyItems = Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask);
-        if (nearbyItems.Length > 0)
-        {
+        ////item pickup
+        //nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
+        //nearbyItems = Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask);
+        //if (nearbyItems.Length > 0)
+        //{
 
-            if (nearbyItems.Length > 0 && heldItem != null)
-            {
-                if (nearbyItems[0].GetComponent<Item>().swapCountDown <= 0 && playerSwapCountdown <= 0)
-                {
-                    swapText.gameObject.SetActive(true);
-                    if (Input.GetButtonDown("Fire" + playerNumber))
-                    {
-                        playerSwapCountdown = playerSwapDelay;
+        //    if (nearbyItems.Length > 0 && heldItem != null)
+        //    {
+        //        if (nearbyItems[0].GetComponent<Item>().swapCountDown <= 0 && playerSwapCountdown <= 0)
+        //        {
+        //            swapText.gameObject.SetActive(true);
+        //            if (Input.GetButtonDown("Fire" + playerNumber))
+        //            {
+        //                playerSwapCountdown = playerSwapDelay;
 
-                        //old item
-                        heldItem.layer = 10;
-                        heldItem.transform.parent = null;
-                        heldItem.GetComponent<Item>().swapCountDown = swapCooldown;
-                        heldItem.GetComponent<Rigidbody>().isKinematic = false;
-                        heldItem.GetComponent<Rigidbody>().useGravity = true;
-
-
-                        //new item
-                        heldItem = nearbyItems[0].gameObject;
-                        heldItem.transform.position = inventory.transform.position;
-                        heldItem.transform.parent = inventory.transform;
-                        heldItem.layer = 0;
-                        heldItem.GetComponent<Rigidbody>().isKinematic = true;
-                        heldItem.GetComponent<Rigidbody>().useGravity = false;
-                    }
-                }
-                else
-                {
-                    swapText.gameObject.SetActive(false);
-                }
-            }
-            else
-            {
-                swapText.gameObject.SetActive(false);
-            }
+        //                //old item
+        //                heldItem.layer = 10;
+        //                heldItem.transform.parent = null;
+        //                heldItem.GetComponent<Item>().swapCountDown = swapCooldown;
+        //                heldItem.GetComponent<Rigidbody>().isKinematic = false;
+        //                heldItem.GetComponent<Rigidbody>().useGravity = true;
 
 
-
-            if (heldItem == null)
-            {
-                heldItem = nearbyItems[0].gameObject;
-                heldItem.transform.position = inventory.transform.position;
-                heldItem.transform.parent = inventory.transform;
-                heldItem.layer = 0;
-                heldItem.GetComponent<Rigidbody>().isKinematic = true;
-                heldItem.GetComponent<Rigidbody>().useGravity = false;
-            }
+        //                //new item
+        //                heldItem = nearbyItems[0].gameObject;
+        //                heldItem.transform.position = inventory.transform.position;
+        //                heldItem.transform.parent = inventory.transform;
+        //                heldItem.layer = 0;
+        //                heldItem.GetComponent<Rigidbody>().isKinematic = true;
+        //                heldItem.GetComponent<Rigidbody>().useGravity = false;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            swapText.gameObject.SetActive(false);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        swapText.gameObject.SetActive(false);
+        //    }
 
 
 
-        }
-        else
-        {
-            //swapText.gameObject.SetActive(false);
-        }
+        //    if (heldItem == null)
+        //    {
+        //        heldItem = nearbyItems[0].gameObject;
+        //        heldItem.transform.position = inventory.transform.position;
+        //        heldItem.transform.parent = inventory.transform;
+        //        heldItem.layer = 0;
+        //        heldItem.GetComponent<Rigidbody>().isKinematic = true;
+        //        heldItem.GetComponent<Rigidbody>().useGravity = false;
+        //    }
 
-        playerSwapCountdown -= Time.deltaTime;
+
+
+        //}
+        //else
+        //{
+        //    //swapText.gameObject.SetActive(false);
+        //}
+
+        //playerSwapCountdown -= Time.deltaTime;
 
 
 
@@ -410,7 +410,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
 
         //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
-        if (transform.GetComponent<Rigidbody>().velocity.magnitude > maxSpeed)
+        if ( Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.x) + Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.z) > maxSpeed)
         {
             transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
         }
