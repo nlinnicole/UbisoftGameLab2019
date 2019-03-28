@@ -46,7 +46,7 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
-        if (PhotonNetwork.IsMasterClient)
+        //if (PhotonNetwork.IsMasterClient)
             GenerateRooms(amountOfRooms);
         team1CurrentRoom = -1;
         team2CurrentRoom = -1;
