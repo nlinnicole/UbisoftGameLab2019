@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class CircleBallController : MonoBehaviour
 {
@@ -9,9 +10,9 @@ public class CircleBallController : MonoBehaviour
 
     public Animator RaiseDoor;
 
-    int boardkillcounter = 0;
+    int boardKillCounter = 0;
 
-    bool enteredroom = false;
+    bool playersInRoom = false;
 
     Transform LastPointHit;
 
@@ -20,32 +21,106 @@ public class CircleBallController : MonoBehaviour
     public Transform centerPoint;
 
     Vector3 attackDirection;
+    public Quaternion targetDirection = Quaternion.identity;
 
     private float fraction = 0;
 
-    private float timeLeft =2f;
+    private float cooldown =1f;
 
-    bool startattacking = false;
+    bool startAttacking = false;
 
-
-    bool centered = true;
-    bool ReturnToCenter = false;
+    //bool centered = true;
+    //bool ReturnToCenter = false;
 
     // Movement speed in units/sec.
     public float speed = 1.0F;
     public float backspeed = 0.5f;
+    private float rotationLerp = 0.0f;
+    public float rotationSpeed = 1f;
+
+    public PlayableDirector myDirector;
+
+    public GameObject invisibleWall;
+
 
     // Time when the movement started.
 
 
-
+    public enum State{rest, target, attack, recenter};
+    public State myState = State.rest;
 
     // Start is called before the first frame update
     void Start()
     {
-        int boardkillcounter = 0;
+        int boardKillCounter = 0;
         players = GameObject.FindGameObjectWithTag("Player");
         rb = gameObject.GetComponent<Rigidbody>();
+
+        myDirector = GetComponentInChildren<PlayableDirector>();
+
+        if (invisibleWall == null){
+          invisibleWall = GameObject.Find("InvisibleWall");
+          invisibleWall.SetActive(false);
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+
+      switch(myState){
+        case State.rest:
+          //Debug.Log("Monster state: resting");
+          if (playersInRoom){
+            cooldown -= Time.deltaTime;
+            if(cooldown < 0f)
+            {
+                cooldown = 1f;
+                myState = State.target;
+            }
+          }
+          break;
+        case State.target:
+          //Debug.Log("Monster state: finding target");
+          if (targetDirection == Quaternion.identity){
+            targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
+            //Debug.Log("Turning towards target: " + targetDirection);
+          }
+
+          transform.rotation = Quaternion.Slerp(transform.rotation, targetDirection, rotationLerp * rotationSpeed);
+          rotationLerp += Time.deltaTime;
+
+          if (rotationLerp >= 1f){
+            myState = State.attack;
+            attackDirection = transform.forward;
+            rotationLerp = 0f;
+        }
+          break;
+        case State.attack:
+          //Debug.Log("Monster state: attacking");
+          attackPlayer();
+
+          myDirector.Play();
+          break;
+        case State.recenter:
+          //Debug.Log("Monster state: recentering");
+
+          returnBallToCenter();
+          targetDirection = Quaternion.identity;
+
+          break;
+      }
+
+      Debug.Log("Players in room :" + playersInRoom);
+
+      CheckBoardKills();
+
+    }
+
+    void attackPlayer()
+    {
+        transform.position += attackDirection * Time.deltaTime * speed;
+
     }
 
     void returnBallToCenter()
@@ -53,17 +128,73 @@ public class CircleBallController : MonoBehaviour
         if (fraction < 2)
         {
             Debug.Log("Returning to Center");
-            fraction += Time.deltaTime * 0.2f;
-            gameObject.transform.position = Vector3.Lerp(LastPointHit.position, centerPoint.transform.position, fraction);
+            fraction += Time.deltaTime * backspeed;
+            gameObject.transform.position = Vector3.Lerp(LastPointHit.position, centerPoint.transform.position, Time.deltaTime * backspeed);
+        } else {
+          myState = State.rest;
         }
     }
 
+    void CheckBoardKills()
+    {
+        if(boardKillCounter > 2)
+        {
+            RaiseDoor.SetBool("OpenExit", true);
+            Destroy(gameObject, 1);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+            Debug.Log("Hit a wall");
+
+            myState = State.recenter;
+
+            LastPointHit = gameObject.transform;
+            myDirector.Stop();
+        }
+
+        if (collision.gameObject.tag == "Board")
+        {
+            boardKillCounter++;
+            Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Health>().health = 0;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Center")
+        {
+            fraction = 0;
+            //centered = true;
+            //ReturnToCenter = false;
+
+
+            //startAttacking = false;
+        }
+
+        if(other.tag == "Player" && !playersInRoom)
+        {
+          playersInRoom = true;
+            myState = State.target;
+            targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
+            invisibleWall.SetActive(true);
+        }
+
+    }
 
     /*
     // Update is called once per frame
     void Update()
     {
-        if (startattacking)
+        if (startAttacking)
         {
             if (ReturnToCenter)
             {
@@ -76,14 +207,14 @@ public class CircleBallController : MonoBehaviour
                 LastPointHit = gameObject.transform;
                 whenGoingBack();
                 Debug.Log("returning");
-                timeLeft -= Time.deltaTime;
-                if (timeLeft < 0)
+                cooldown -= Time.deltaTime;
+                if (cooldown < 0)
                 {
                     startTime = 0;
                     ReturnToCenter = false;
                     FirstHit = true;
                     directionFinder = true;
-                    timeLeft = 4;
+                    cooldown = 4;
                     if (triggeredNeg)
                     {
                         negativer = negativer * -1;
@@ -101,7 +232,7 @@ public class CircleBallController : MonoBehaviour
         }
 
 
-        if (boardkillcounter == 1)
+        if (boardKillCounter == 1)
         {
             exitdoor.transform.position = exitdoor.transform.position + Vector3.up * 0.2f;
 
@@ -109,112 +240,14 @@ public class CircleBallController : MonoBehaviour
 
         transform.LookAt(players.gameObject.transform.position);
 
-        initialTimeLeft -= Time.deltaTime;
-        if(initialTimeLeft < 0)
+        initialcooldown -= Time.deltaTime;
+        if(initialcooldown < 0)
         {
-            startattacking = true;
+            startAttacking = true;
         }
 
     }
     */
-
-    private void Update()
-    {
-        if (enteredroom)
-        {
-            Debug.Log("Centered :" + centered);
-            Debug.Log("Returning to Center" + ReturnToCenter);
-
-            if (ReturnToCenter)
-            {
-                returnBallToCenter();
-
-            timeLeft -= Time.deltaTime;
-            if(timeLeft < 0f)
-            {
-                Debug.Log(timeLeft);
-
-                startattacking = true;
-                timeLeft = 4f;
-            }
-
-
-            if (startattacking)
-            {
-                Debug.Log("Attacking");
-                attackPlayer();
-            }
-            else
-            {
-                transform.LookAt(players.gameObject.transform.position);
-                attackDirection = transform.forward;
-
-            }
-          }
-
-
-        }
-
-        CheckBoardKills();
-
-    }
-
-    void CheckBoardKills()
-    {
-        if(boardkillcounter > 2)
-        {
-            RaiseDoor.SetBool("OpenExit", true);
-            Destroy(gameObject, 1);
-        }
-    }
-
-
-    void attackPlayer()
-    {
-        transform.position += attackDirection * Time.deltaTime * speed;
-
-    }
-
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Wall")
-        {
-            Debug.Log("Hit a wall");
-            ReturnToCenter = true;
-            LastPointHit = gameObject.transform;
-            startattacking = false;
-
-        }
-
-        if (collision.gameObject.tag == "Board")
-        {
-            boardkillcounter++;
-            Destroy(collision.gameObject);
-        }
-
-        if(collision.gameObject.tag == "Player")
-        {
-            Application.LoadLevel(Application.loadedLevel);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Center")
-        {
-            fraction = 0;
-            centered = true;
-            ReturnToCenter = false;
-        }
-
-        if(other.tag == "Player")
-        {
-            enteredroom = true;
-        }
-
-    }
 
 
 }
