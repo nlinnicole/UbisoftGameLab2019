@@ -23,6 +23,9 @@ public class TeamManager : MonoBehaviour
     public float cooldownBeforeRespawn = 2f;
     public bool respawnInCurrent = true;
 
+    [Header("Death")]
+    public float suffocateTime;
+
 
     private void Start()
     {
@@ -37,35 +40,40 @@ public class TeamManager : MonoBehaviour
         player2Health = player2.GetComponent<Health>();
     }
 
+    void suffocating()
+    {
+
+    }
+
     void FixedUpdate()
     {
-        if(rope.isBroken)
-        {
-          if (!player1Health.onOxygen){
-            player1Health.onOxygen = true;
-            player1Health.bar.gameObject.SetActive(true);
-          }
+        //if(rope.isBroken)
+        //{
+        //  if (!player1Health.onOxygen){
+        //    player1Health.onOxygen = true;
+        //    player1Health.bar.gameObject.SetActive(true);
+        //  }
 
-          if (!player2Health.onOxygen){
-            player2Health.onOxygen = true;
-            player1Health.bar.gameObject.SetActive(true);
-          }
+        //  if (!player2Health.onOxygen){
+        //    player2Health.onOxygen = true;
+        //    player1Health.bar.gameObject.SetActive(true);
+        //  }
 
-        }
+        //}
         
-        if ((!player1Health.alive && !player2Health.alive) || (player1.GetComponent<PlayerController>().isInDeathZone && player2.GetComponent<PlayerController>().isInDeathZone))
-        {
-          Transform[] children = rope.GetComponentsInChildren<Transform>();
-          foreach(Transform child in children){
-            if (child.name != "Rope")
-              GameObject.Destroy(child.gameObject);
-            }
+        //if ((!player1Health.alive && !player2Health.alive) || (player1.GetComponent<PlayerController>().inDeathZone && player2.GetComponent<PlayerController>().inDeathZone))
+        //{
+        //  Transform[] children = rope.GetComponentsInChildren<Transform>();
+        //  foreach(Transform child in children){
+        //    if (child.name != "Rope")
+        //      GameObject.Destroy(child.gameObject);
+        //    }
 
-            player1Health.Reset();
-            player2Health.Reset();
+        //    player1Health.Reset();
+        //    player2Health.Reset();
 
-            respawn();
-          }
+        //    respawn();
+        //  }
 
     }
 

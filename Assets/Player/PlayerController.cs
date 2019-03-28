@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public int playerNumber = 1;
     public Camera playerCamera;
     public GameObject teamManager;
-    public bool isInDeathZone = false;
+    public bool inDeathZone = false;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
@@ -97,22 +97,22 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Vector3 joyInput;
 
 
-    //check deathzone
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.layer == 15)
-        {
-            isInDeathZone = true;
-        }
-    }
+    ////check deathzone
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if(collision.gameObject.layer == 15)
+    //    {
+    //        isInDeathZone = true;
+    //    }
+    //}
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.layer == 15)
-        {
-            isInDeathZone = false;
-        }
-    }
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.layer == 15)
+    //    {
+    //        isInDeathZone = false;
+    //    }
+    //}
 
     void Awake()
     {
