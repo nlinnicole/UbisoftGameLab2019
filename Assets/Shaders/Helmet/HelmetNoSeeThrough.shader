@@ -17,7 +17,7 @@
 
 
 
-			Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
+			Tags {"Queue" = "AlphaTest" "IgnoreProjector" = "True" "RenderType" = "Geometry"}
 			LOD 200
 
 			ZWrite Off
