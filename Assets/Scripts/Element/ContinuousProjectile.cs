@@ -7,7 +7,7 @@ public class ContinuousProjectile : MonoBehaviour
     [SerializeField]
     private GameObject weapon;
     [SerializeField]
-    private float timer;
+    public float timer;
 
     public int shotdirection;
 

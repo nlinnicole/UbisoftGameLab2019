@@ -15,8 +15,10 @@ namespace AK
     {
         static const AkUniqueID ACTIVATESWITCH = 3168238102U;
         static const AkUniqueID CONTINUOUSSHOT = 2103141236U;
+        static const AkUniqueID DOORCLICK = 3771692483U;
         static const AkUniqueID DOOROPENED = 2649542654U;
         static const AkUniqueID FIRESHOT = 617139305U;
+        static const AkUniqueID GETGEM = 850850592U;
         static const AkUniqueID GRUNTP1 = 4194020144U;
         static const AkUniqueID GRUNTP2 = 4194020147U;
         static const AkUniqueID ITEMPICKUP = 1851462748U;

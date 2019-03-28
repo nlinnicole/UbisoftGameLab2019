@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8320450047635980022}
   - component: {fileID: 1258533294499959656}
   - component: {fileID: 3895559854917310965}
+  - component: {fileID: 944145487108129286}
+  - component: {fileID: 1151860759539269909}
   m_Layer: 0
   m_Name: ContinuousFireBall
   m_TagString: Untagged
@@ -323,3 +325,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 371890528532029146, guid: 1b688f8c4e8ac5741abd71eba3a5c53b, type: 3}
   timer: 2
+  shotdirection: 0
+--- !u!114 &944145487108129286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682614465109397832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf2f4a68c089e3498594c7f2a5ede68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: continuousShooter
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 68c7ab286531894b8209287488e41db3
+--- !u!114 &1151860759539269909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682614465109397832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033ba1dd81b656e4a887efd02beb32b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

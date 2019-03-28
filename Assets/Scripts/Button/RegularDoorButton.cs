@@ -24,6 +24,9 @@ public class RegularDoorButton : MonoBehaviour
     private bool doorOpening = false;
     private bool doorClosing = false;
 
+    private bool doorSlamTriggered = false;
+    private bool doorTriggered = false;
+
 
     void Start()
     {
@@ -40,6 +43,10 @@ public class RegularDoorButton : MonoBehaviour
             }
             else
             {
+                // sound triggers
+                doorSlamTriggered = false;
+                doorTriggered = false;
+
                 doorOpening = false;
                 doorClosing = true;
             }
@@ -49,10 +56,20 @@ public class RegularDoorButton : MonoBehaviour
         {
             if(door.transform.position.y > doorOriginalHeight)
             {
+                // trigger sound events
+               
+
+                if( door.transform.position.y > doorOriginalHeight - 5 && !doorSlamTriggered)
+                {
+                    AkSoundEngine.PostEvent("doorOpened", gameObject);
+                    doorSlamTriggered = true;
+                }
+                
                 door.transform.Translate(Vector3.down * Time.deltaTime * doorSpeed, Space.World);
             }
             else
             {
+                
                 doorClosing = false;
             }
         }
@@ -64,6 +81,13 @@ public class RegularDoorButton : MonoBehaviour
         {
             doorTimer = Time.time;
             doorOpening = true;
+
+            if (!doorTriggered)
+            {
+                AkSoundEngine.PostEvent("doorClick", gameObject);
+                doorTriggered = true;
+
+            }
         }
     }
 }

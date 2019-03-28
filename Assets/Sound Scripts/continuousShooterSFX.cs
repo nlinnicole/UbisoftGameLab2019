@@ -16,7 +16,7 @@ public class continuousShooterSFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         timer = gameObject.GetComponent<ContinuousProjectile>().timer;
 
         if (Time.time > timeCounter + timer)
@@ -25,6 +25,6 @@ public class continuousShooterSFX : MonoBehaviour
             timeCounter = Time.time;
 
         }
-        */
+        
     }
 }

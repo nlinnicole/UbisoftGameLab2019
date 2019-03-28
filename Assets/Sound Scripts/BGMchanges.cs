@@ -15,6 +15,7 @@ public class BGMchanges : MonoBehaviour
     int state3;
     int state5;
     int state6;
+    int lastState=-1;
 
   
 
@@ -119,6 +120,7 @@ public class BGMchanges : MonoBehaviour
     void Start()
     {
         rnd = new System.Random();
+        SetAllToRandomState();
     }
 
     void Update()
@@ -131,7 +133,6 @@ public class BGMchanges : MonoBehaviour
         rnd = new System.Random();
 
         AkSoundEngine.GetState("BGM", out uint result);
-        Debug.Log("this room's state ID is " + result);
 
         switch (result)
         {
@@ -176,6 +177,15 @@ public class BGMchanges : MonoBehaviour
         }
 
         int randomPick = rnd.Next(0, voicing.Length);
+
+        if (voicing.Length > 0)
+        {
+            while (randomPick == lastState)
+            {
+                randomPick = rnd.Next(0, voicing.Length);
+            }
+        }
+        
         SetRandomState(voicing[randomPick]);
     }
 
@@ -300,7 +310,7 @@ public class BGMchanges : MonoBehaviour
         roomCounter += 1;
 
         // set instrument states
-        SetAllStates(roomCounter);
+        SetAllToRandomState();
     }
 }
 
