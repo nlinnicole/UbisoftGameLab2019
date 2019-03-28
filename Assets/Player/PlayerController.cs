@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviourPunCallbacks
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public Camera playerCamera;
     public GameObject teamManager;
     public bool inDeathZone = false;
+    public Image resetImage;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Vector3 joyInput;
 
 
+
     ////check deathzone
     //private void OnCollisionStay(Collision collision)
     //{
@@ -135,16 +138,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if(playerNumber == 1)
             {
-                rope.ropeJoints[1].GetComponent<RopeJoint>().broken = true;
+                rope.ropeJoints[2].GetComponent<RopeJoint>().broken = true;
                 rope.isBroken = true;
-                rope.ropeJoints[1].SetActive(false);
                 playerCamera.GetComponentInParent<CamPlayerFollow>().player1Dead = true;
             }
             else if (playerNumber == 2)
             {
                 rope.ropeJoints[rope.ropeJoints.Length-2].GetComponent<RopeJoint>().broken = true;
                 rope.isBroken = true;
-                rope.ropeJoints[rope.ropeJoints.Length - 2].SetActive(false);
                 playerCamera.GetComponentInParent<CamPlayerFollow>().player2Dead = true;
 
             }
@@ -174,10 +175,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
             isGrounded = false;
         }
 
-        if(Input.GetButtonDown("Reset" + playerNumber))
+        if(Input.GetButton("Reset" + playerNumber) && !rope.isBroken && !GetComponent<Health>().onOxygen)
         {
-            teamManager.GetComponent<TeamManager>().respawn();
+            holdReset();
         }
+        
+        if(!Input.GetButton("Reset" + 1) && !Input.GetButton("Reset" + 2))
+        {
+            resetImage.fillAmount -= Time.deltaTime/3;
+        }
+
+
+
 
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
         {
@@ -470,8 +479,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
         moveSpeed = speed;
     }
 
-    //AddingTrigger
 
     
+    void holdReset()
+    {
 
+        resetImage.fillAmount += Time.deltaTime/3;
+
+        if(resetImage.fillAmount >= 1)
+        {
+            GetComponent<Health>().onOxygen = true;
+            resetImage.fillAmount = 0;
+        }
+
+
+    }
 }

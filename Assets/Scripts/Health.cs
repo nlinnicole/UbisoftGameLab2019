@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     public Transform bar;
     public Image healthBar;
+    public GameObject cam;
 
     public float deathzone = -10f;
 
@@ -18,7 +19,7 @@ public class Health : MonoBehaviour
 
 
     void Start(){
-      health = maxHealth;
+        maxHealth = health;
 
       Transform[] children = GetComponentsInChildren<Transform>();
 
@@ -47,17 +48,27 @@ public class Health : MonoBehaviour
 
 
     void TakeDamage(){
-      if (!bar.gameObject.activeSelf)
-        bar.gameObject.SetActive(true);
+      //if (!bar.gameObject.activeSelf)
+      //  bar.gameObject.SetActive(true);
       
-        health -= damage * 100 * Time.deltaTime;
-        
-        healthBar.fillAmount = health / maxHealth;
+        health -= /*damage * 100 **/ Time.deltaTime;
+
+        //healthBar.fillAmount = health / maxHealth;
+
+
+        cam.GetComponent<Animator>().SetTrigger("isDying");
+
+
+
+
     }
 
     void Die(){
       alive = false;
-      this.gameObject.SetActive(false);
+
+
+
+        this.gameObject.SetActive(false);
     }
 
     public void Reset(){
@@ -65,7 +76,7 @@ public class Health : MonoBehaviour
       alive = true;
       onOxygen = false;
       health = maxHealth;
-      bar.gameObject.SetActive(false);
+      //bar.gameObject.SetActive(false);
     }
 
 }

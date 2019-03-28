@@ -2335,6 +2335,7 @@ MonoBehaviour:
   playerCamera: {fileID: 5187}
   teamManager: {fileID: 674}
   inDeathZone: 0
+  resetImage: {fileID: 4432132253979473388}
   moveSpeed: 6
   maxSpeed: 6
   sprintMultiplier: 2
@@ -2379,10 +2380,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 0}
   healthBar: {fileID: 0}
+  cam: {fileID: 653}
   deathzone: -5
   alive: 1
   onOxygen: 0
-  health: 10
+  health: 3
   damage: 0.1
 --- !u!59 &8319
 HingeJoint:
@@ -3148,6 +3150,7 @@ MonoBehaviour:
   playerCamera: {fileID: 5187}
   teamManager: {fileID: 674}
   inDeathZone: 0
+  resetImage: {fileID: 4432132253979473388}
   moveSpeed: 6
   maxSpeed: 6
   sprintMultiplier: 2
@@ -3192,10 +3195,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 0}
   healthBar: {fileID: 0}
+  cam: {fileID: 653}
   deathzone: -5
   alive: 1
   onOxygen: 0
-  health: 10
+  health: 3
   damage: 0.1
 --- !u!59 &8317
 HingeJoint:
@@ -7162,7 +7166,7 @@ MonoBehaviour:
   player2Health: {fileID: 0}
   cooldownBeforeRespawn: 10
   respawnInCurrent: 0
-  suffocateTime: 0
+  cam: {fileID: 653}
 --- !u!1 &675
 GameObject:
   m_ObjectHideFlags: 0
@@ -7486,6 +7490,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 9974}
+  - {fileID: 3029390180705180104}
   m_Father: {fileID: 3005}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7554,6 +7559,80 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &3318793050072274946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3029390180705180104}
+  - component: {fileID: 9074171116851068666}
+  - component: {fileID: 4432132253979473388}
+  m_Layer: 5
+  m_Name: ResetUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3029390180705180104
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318793050072274946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9969}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -125.2, y: 71.4}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9074171116851068666
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318793050072274946}
+  m_CullTransparentMesh: 0
+--- !u!114 &4432132253979473388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318793050072274946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bd293dc32f4aaf94e8274f2fac2cdf89, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 0
+  m_FillClockwise: 0
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!1 &6041239257409546502
 GameObject:
   m_ObjectHideFlags: 0
