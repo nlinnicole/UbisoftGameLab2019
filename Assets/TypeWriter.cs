@@ -14,4 +14,9 @@ public class TypeWriter : MonoBehaviour
         transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
 
+    private void Start()
+    {
+        Destroy(gameObject, 15);
+    }
+
 }
