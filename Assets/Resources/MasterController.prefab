@@ -2256,6 +2256,8 @@ GameObject:
   - component: {fileID: 1365}
   - component: {fileID: 22545220}
   - component: {fileID: 22545221}
+  - component: {fileID: 7123009764796111267}
+  - component: {fileID: 7236604549223319522}
   m_Layer: 11
   m_Name: Player1
   m_TagString: Player
@@ -2353,6 +2355,7 @@ MonoBehaviour:
   rollMultiplier: 10
   rollDuration: 0.25
   rollCooldown: 1
+  rollMod: 0
   heldItem: {fileID: 0}
   itemPickupDistance: 3
   inventory: {fileID: 0}
@@ -2504,6 +2507,38 @@ CapsuleCollider:
   m_Height: 4.0368233
   m_Direction: 1
   m_Center: {x: 0, y: 1.2255421, z: 0}
+--- !u!114 &7123009764796111267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf2f4a68c089e3498594c7f2a5ede68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: player
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 75ed4943808e8448a5369690b7c50b88
+--- !u!114 &7236604549223319522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9962e87e1e4bfda41a2c3e12d97076af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2884,8 @@ GameObject:
   m_Component:
   - component: {fileID: 806}
   - component: {fileID: 1359}
+  - component: {fileID: 158318348022063371}
+  - component: {fileID: 3874743677467936600}
   m_Layer: 21
   m_Name: Rope
   m_TagString: Untagged
@@ -2948,6 +2985,42 @@ MonoBehaviour:
   maxGasForce: 50
   totalDistance: 0
   distanceLimit: 10
+--- !u!114 &158318348022063371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a793c1979e89c15438c50e343585ad75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &3874743677467936600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11931f600bc37f4b93737848da66158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
 --- !u!1 &495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,6 +3142,8 @@ GameObject:
   - component: {fileID: 1353}
   - component: {fileID: 9191289983056489493}
   - component: {fileID: 4980635636816364249}
+  - component: {fileID: 4624458561834780685}
+  - component: {fileID: 4459292731446071394}
   m_Layer: 11
   m_Name: Player2
   m_TagString: Player
@@ -3166,6 +3241,7 @@ MonoBehaviour:
   rollMultiplier: 10
   rollDuration: 0.25
   rollCooldown: 1
+  rollMod: 0
   heldItem: {fileID: 0}
   itemPickupDistance: 3
   inventory: {fileID: 0}
@@ -3317,6 +3393,38 @@ CapsuleCollider:
   m_Height: 4.0368233
   m_Direction: 1
   m_Center: {x: 0, y: 1.2255421, z: 0}
+--- !u!114 &4624458561834780685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf2f4a68c089e3498594c7f2a5ede68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: player
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 75ed4943808e8448a5369690b7c50b88
+--- !u!114 &4459292731446071394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9962e87e1e4bfda41a2c3e12d97076af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &498
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,11 +7772,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 794}
     m_Modifications:
-    - target: {fileID: 2702162181211637141, guid: fac8aac7caae13c4f8e321ad3ede6e94,
-        type: 3}
-      propertyPath: m_Name
-      value: Network Manager
-      objectReference: {fileID: 0}
     - target: {fileID: 2702162181211637145, guid: fac8aac7caae13c4f8e321ad3ede6e94,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7773,6 +7876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702162181211637141, guid: fac8aac7caae13c4f8e321ad3ede6e94,
+        type: 3}
+      propertyPath: m_Name
+      value: Network Manager
       objectReference: {fileID: 0}
     - target: {fileID: 2702162180237904688, guid: fac8aac7caae13c4f8e321ad3ede6e94,
         type: 3}
