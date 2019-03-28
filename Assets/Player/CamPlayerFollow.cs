@@ -8,7 +8,9 @@ public class CamPlayerFollow : MonoBehaviour
 {
     
     public GameObject player1;
+    public bool player1Dead = false;
     public GameObject player2;
+    public bool player2Dead = false;
     public float lerpAmount;
     Vector3 target;
     public float heightOffset;
@@ -42,6 +44,10 @@ public class CamPlayerFollow : MonoBehaviour
     {
         // if (photonView.IsMine)
 
+
+
+
+        if(!player1Dead && !player2Dead)
         {
             target = (new Vector3(player1.transform.position.x, player1.transform.position.y, player1.transform.position.z) +
                 new Vector3(player2.transform.position.x, player2.transform.position.y, player2.transform.position.z)) / 2

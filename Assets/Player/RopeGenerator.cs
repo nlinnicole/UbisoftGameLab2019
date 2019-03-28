@@ -118,6 +118,18 @@ public class RopeGenerator : MonoBehaviour
                 newJoint.GetComponent<ConfigurableJoint>().connectedBody = ropeStart.GetComponent<Rigidbody>();
             }
 
+
+            if(i == 0)
+            {
+                newJoint.GetComponent<RopeJoint>().canBreak = false;
+            }
+
+            if (i == ropeResolution-1)
+            {
+                newJoint.GetComponent<RopeJoint>().canBreak = false;
+            }
+
+
             ropeJoints[i] = newJoint;
         }
 
