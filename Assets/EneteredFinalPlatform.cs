@@ -38,6 +38,7 @@ public class EneteredFinalPlatform : MonoBehaviour
         {
             if (other.tag == "Player" && counter > 2)
             {
+                
                 other.gameObject.transform.SetParent(MovingPlatform.transform);
                 gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed);
 

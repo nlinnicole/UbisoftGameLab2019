@@ -248,7 +248,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
             {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
+                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
             }
         }
         
