@@ -19,6 +19,7 @@ public class Gem : MonoBehaviour
             Destroy(diamond);
             other.gameObject.GetComponent<PlayerController>().teamManager.GetComponent<TeamManager>().gemCount++;
             particle.Play();
+            Destroy(gameObject, 3);
         }
     }
 
