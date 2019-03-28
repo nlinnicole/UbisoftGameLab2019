@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
+
 public class PuzzleSet : MonoBehaviour
 {
     [SerializeField]
@@ -29,9 +29,7 @@ public class PuzzleSet : MonoBehaviour
     private GameObject puzzle2;
 
     //bar
-    [SerializeField]
     private GameObject bar;
-    [SerializeField]
     private GameObject barPosition;
     private bool barSpawn = false;
     private float barTimer; 
@@ -113,4 +111,4 @@ public class PuzzleSet : MonoBehaviour
     }
 
 
-}*/
+}
