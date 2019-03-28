@@ -157,7 +157,7 @@ public class RoomGenerator : MonoBehaviour
       if (teamNb == 1){
         return Team1Rooms[team1CurrentRoom].GetComponent<Room>().respawnPoint.transform;
       } else {
-        return Team1Rooms[team1CurrentRoom].GetComponent<Room>().respawnPoint.transform;
+        return Team2Rooms[team2CurrentRoom].GetComponent<Room>().respawnPoint.transform;
       }
     }
 }

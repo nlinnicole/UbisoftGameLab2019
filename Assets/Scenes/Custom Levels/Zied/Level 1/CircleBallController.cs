@@ -116,7 +116,7 @@ public class CircleBallController : MonoBehaviour
           break;
       }
 
-      Debug.Log("Players in room :" + playersInRoom);
+      //Debug.Log("Players in room :" + playersInRoom);
 
       CheckBoardKills();
 
@@ -132,7 +132,7 @@ public class CircleBallController : MonoBehaviour
     {
         if (fraction < 2)
         {
-            Debug.Log("Returning to Center");
+            //Debug.Log("Returning to Center");
             fraction += Time.deltaTime * backspeed;
             gameObject.transform.position = Vector3.Lerp(LastPointHit.position, centerPoint.transform.position, Time.deltaTime * backspeed);
         } else {
@@ -153,7 +153,7 @@ public class CircleBallController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Wall")
         {
-            Debug.Log("Hit a wall");
+            //Debug.Log("Hit a wall");
 
             myState = State.recenter;
 
