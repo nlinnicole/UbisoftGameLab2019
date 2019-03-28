@@ -2280,6 +2280,7 @@ Transform:
   - {fileID: 799}
   - {fileID: 720}
   - {fileID: 5165244559533525985}
+  - {fileID: 2296879299592119407}
   m_Father: {fileID: 794}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2340,7 +2341,7 @@ MonoBehaviour:
   deceleration: 1
   rotationSpeed: 0.013
   jumpForce: 75000
-  jumpMovementReduction: 1
+  jumpMovementReduction: 10
   isGrounded: 0
   jumpCooldown: 0.2
   jumpCooldownFinished: 0
@@ -3153,7 +3154,7 @@ MonoBehaviour:
   deceleration: 1.057
   rotationSpeed: 0.013
   jumpForce: 75000
-  jumpMovementReduction: 1
+  jumpMovementReduction: 10
   isGrounded: 0
   jumpCooldown: 0.2
   jumpCooldownFinished: 0
@@ -5017,7 +5018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794}
   m_Layer: 0
-  m_Name: MasterController 2
+  m_Name: MasterController2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5148,7 +5149,7 @@ Camera:
   m_GameObject: {fileID: 534}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.1525899, g: 0.19230598, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -5284,7 +5285,7 @@ MonoBehaviour:
   CamDefault: {fileID: 3085083609752316662}
   CamTopDown: {fileID: 3203338118666420430}
   CamBehind: {fileID: 2330948498422063177}
-  teamnumber: -1
+  teamnumber: 1
   cammovespeed: 0.7
 --- !u!1 &535
 GameObject:
@@ -6906,6 +6907,36 @@ Transform:
   m_Father: {fileID: 801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &4854276557081337069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2296879299592119407}
+  m_Layer: 11
+  m_Name: Team2Pos
+  m_TagString: Team2Pos
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2296879299592119407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854276557081337069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 788}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5085956203473626997
 GameObject:
   m_ObjectHideFlags: 0
@@ -7664,11 +7695,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 794}
     m_Modifications:
-    - target: {fileID: 2702162181211637141, guid: fac8aac7caae13c4f8e321ad3ede6e94,
-        type: 3}
-      propertyPath: m_Name
-      value: Network Manager
-      objectReference: {fileID: 0}
     - target: {fileID: 2702162181211637145, guid: fac8aac7caae13c4f8e321ad3ede6e94,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7774,6 +7800,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2702162181211637141, guid: fac8aac7caae13c4f8e321ad3ede6e94,
+        type: 3}
+      propertyPath: m_Name
+      value: Network Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 2702162180237904688, guid: fac8aac7caae13c4f8e321ad3ede6e94,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -7786,6 +7817,12 @@ PrefabInstance:
       objectReference: {fileID: 6168094006413421060}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac8aac7caae13c4f8e321ad3ede6e94, type: 3}
+--- !u!224 &6168094007587169448 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2702162181211637145, guid: fac8aac7caae13c4f8e321ad3ede6e94,
+    type: 3}
+  m_PrefabInstance: {fileID: 8077622638273339697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6168094006413421062 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2702162180237904695, guid: fac8aac7caae13c4f8e321ad3ede6e94,
@@ -7810,9 +7847,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ddb8038c7afd24db70de314430781b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6168094007587169448 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2702162181211637145, guid: fac8aac7caae13c4f8e321ad3ede6e94,
-    type: 3}
-  m_PrefabInstance: {fileID: 8077622638273339697}
-  m_PrefabAsset: {fileID: 0}
