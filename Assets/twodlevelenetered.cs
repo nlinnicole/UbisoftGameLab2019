@@ -22,7 +22,7 @@ public class twodlevelenetered : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("Hit Player");
+            //Debug.Log("Hit Player");
             other.gameObject.GetComponent<PlayerController>().playerCamera.GetComponentInParent<CamPlayerFollow>().viewangle = 1;
             
         }
