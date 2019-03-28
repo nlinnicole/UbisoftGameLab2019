@@ -6,6 +6,8 @@ public class EneteredFinalPlatform : MonoBehaviour
 {
     public GameObject MovingPlatform;
 
+    Transform position;
+
     public int counter = 0;
     public float platformspeed = 1;
 
@@ -36,6 +38,14 @@ public class EneteredFinalPlatform : MonoBehaviour
             other.gameObject.transform.SetParent(MovingPlatform.transform);
             gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed);
         }
+    }
+
+    private void Update()
+    {
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.y = Mathf.Clamp(transform.position.y, -10f, 15f);
+        transform.position = clampedPosition;
+
     }
 
 
