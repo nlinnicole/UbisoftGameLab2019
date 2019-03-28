@@ -37,13 +37,14 @@ public class EneteredFinalPlatform : MonoBehaviour
         {
             other.gameObject.transform.SetParent(MovingPlatform.transform);
             gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed);
+
         }
     }
 
     private void Update()
     {
         Vector3 clampedPosition = transform.position;
-        clampedPosition.y = Mathf.Clamp(transform.position.y, -10f, 15f);
+        clampedPosition.x = Mathf.Clamp(transform.position.y, -10f, 15f);
         transform.position = clampedPosition;
 
     }
