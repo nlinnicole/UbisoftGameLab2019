@@ -40,6 +40,8 @@ public class CircleBallController : MonoBehaviour
 
     public PlayableDirector myDirector;
 
+    public GameObject invisibleWall;
+
 
     // Time when the movement started.
 
@@ -55,6 +57,12 @@ public class CircleBallController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
 
         myDirector = GetComponentInChildren<PlayableDirector>();
+
+        if (invisibleWall == null){
+          invisibleWall = GameObject.Find("InvisibleWall");
+          invisibleWall.SetActive(false);
+        }
+
     }
 
     private void FixedUpdate()
@@ -63,11 +71,13 @@ public class CircleBallController : MonoBehaviour
       switch(myState){
         case State.rest:
           //Debug.Log("Monster state: resting");
-          cooldown -= Time.deltaTime;
-          if(cooldown < 0f)
-          {
-              cooldown = 1f;
-              myState = State.target;
+          if (playersInRoom){
+            cooldown -= Time.deltaTime;
+            if(cooldown < 0f)
+            {
+                cooldown = 1f;
+                myState = State.target;
+            }
           }
           break;
         case State.target:
@@ -170,10 +180,12 @@ public class CircleBallController : MonoBehaviour
             //startAttacking = false;
         }
 
-        if(other.tag == "Player")
+        if(other.tag == "Player" && !playersInRoom)
         {
+          playersInRoom = true;
             myState = State.target;
             targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
+            invisibleWall.SetActive(true);
         }
 
     }
