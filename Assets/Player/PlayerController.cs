@@ -130,6 +130,26 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void FixedUpdate()
     {
 
+        //death zones
+        if(inDeathZone)
+        {
+            if(playerNumber == 1)
+            {
+                rope.ropeJoints[1].GetComponent<RopeJoint>().broken = true;
+                rope.isBroken = true;
+                rope.ropeJoints[1].SetActive(false);
+                playerCamera.GetComponentInParent<CamPlayerFollow>().player1Dead = true;
+            }
+            else if (playerNumber == 2)
+            {
+                rope.ropeJoints[rope.ropeJoints.Length-2].GetComponent<RopeJoint>().broken = true;
+                rope.isBroken = true;
+                rope.ropeJoints[rope.ropeJoints.Length - 2].SetActive(false);
+                playerCamera.GetComponentInParent<CamPlayerFollow>().player2Dead = true;
+
+            }
+        }
+
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;

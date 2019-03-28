@@ -22,13 +22,13 @@ public class Health : MonoBehaviour
 
       Transform[] children = GetComponentsInChildren<Transform>();
 
-      foreach(Transform child in children){
-        if (child.name == "HealthUI")
-          bar = child;
-      }
+      //foreach(Transform child in children){
+      //  if (child.name == "HealthUI")
+      //    bar = child;
+      //}
 
-      healthBar = bar.GetChild(0).GetChild(0).GetComponent<Image>();
-      bar.gameObject.SetActive(false);
+      //healthBar = bar.GetChild(0).GetChild(0).GetComponent<Image>();
+      //bar.gameObject.SetActive(false);
     }
     
     void FixedUpdate(){
