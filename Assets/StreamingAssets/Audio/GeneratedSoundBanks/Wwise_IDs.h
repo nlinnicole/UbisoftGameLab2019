@@ -17,6 +17,8 @@ namespace AK
         static const AkUniqueID CONTINUOUSSHOT = 2103141236U;
         static const AkUniqueID DOOROPENED = 2649542654U;
         static const AkUniqueID FIRESHOT = 617139305U;
+        static const AkUniqueID GRUNTP1 = 4194020144U;
+        static const AkUniqueID GRUNTP2 = 4194020147U;
         static const AkUniqueID ITEMPICKUP = 1851462748U;
         static const AkUniqueID LANDJUMP = 2269710510U;
         static const AkUniqueID PLAYERDEAD = 2356585300U;
@@ -29,16 +31,25 @@ namespace AK
         static const AkUniqueID STARTBGM1 = 2143400112U;
         static const AkUniqueID STARTBGM2 = 2143400115U;
         static const AkUniqueID STARTBGMLOBBY = 2644786861U;
+        static const AkUniqueID STARTBSTRACK1 = 112010768U;
+        static const AkUniqueID STARTBSTRACK2 = 112010771U;
         static const AkUniqueID STARTCHARGE = 3999190331U;
+        static const AkUniqueID STARTCONVEYOR = 351109284U;
+        static const AkUniqueID STARTDEATHTRACK = 927461340U;
         static const AkUniqueID STARTDRAG = 3320195105U;
         static const AkUniqueID STARTJUMP = 3262940047U;
         static const AkUniqueID STARTPROJECTILEWIZZ = 3842171722U;
         static const AkUniqueID STARTREVOLVINGDOOR = 3107300489U;
+        static const AkUniqueID STARTROTATE = 1362470238U;
         static const AkUniqueID STARTSTEPS = 1931595660U;
+        static const AkUniqueID STARTSTRESSTRACK = 4048065828U;
+        static const AkUniqueID STARTSWINGINGAXE = 3028330587U;
         static const AkUniqueID STOPALL = 3086540886U;
         static const AkUniqueID STOPCHARGE = 771416205U;
+        static const AkUniqueID STOPCONVEYOR = 3080476154U;
         static const AkUniqueID STOPDRAG = 2651995319U;
         static const AkUniqueID STOPLAVA = 4190725747U;
+        static const AkUniqueID STOPROTATE = 2488125324U;
         static const AkUniqueID STOPSTEPS = 3774011366U;
         static const AkUniqueID SWITCHLAVA = 1756357707U;
     } // namespace EVENTS
@@ -51,6 +62,8 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID BS1 = 748276845U;
+                static const AkUniqueID BS2 = 748276846U;
                 static const AkUniqueID DED = 378875112U;
                 static const AkUniqueID LOBBY = 290285391U;
                 static const AkUniqueID ROOM0 = 1359360136U;
@@ -90,6 +103,8 @@ namespace AK
                 static const AkUniqueID GUIT2 = 1111279912U;
                 static const AkUniqueID GUIT3 = 1111279913U;
                 static const AkUniqueID GUIT4 = 1111279918U;
+                static const AkUniqueID GUIT5 = 1111279919U;
+                static const AkUniqueID GUIT6 = 1111279916U;
             } // namespace STATE
         } // namespace GUITAR
 
@@ -139,6 +154,7 @@ namespace AK
                 static const AkUniqueID STATE2 = 1208172674U;
                 static const AkUniqueID STATE3 = 1208172675U;
                 static const AkUniqueID STATE4 = 1208172676U;
+                static const AkUniqueID STATE5 = 1208172677U;
             } // namespace STATE
         } // namespace MEDIUMSOUNDS
 
@@ -152,6 +168,7 @@ namespace AK
                 static const AkUniqueID STATE2 = 1208172674U;
                 static const AkUniqueID STATE3 = 1208172675U;
                 static const AkUniqueID STATE4 = 1208172676U;
+                static const AkUniqueID STATE5 = 1208172677U;
             } // namespace STATE
         } // namespace MEDIUMSOUNDS_01
 
@@ -166,16 +183,16 @@ namespace AK
             } // namespace STATE
         } // namespace MOVINGGROUND
 
-        namespace ROPE
+        namespace PLAYERS
         {
-            static const AkUniqueID GROUP = 2362472877U;
+            static const AkUniqueID GROUP = 2188949101U;
 
             namespace STATE
             {
-                static const AkUniqueID BROKEN = 231230354U;
-                static const AkUniqueID NOTBROKEN = 858767335U;
+                static const AkUniqueID ALIVE = 655265632U;
+                static const AkUniqueID DEAD = 2044049779U;
             } // namespace STATE
-        } // namespace ROPE
+        } // namespace PLAYERS
 
         namespace SHORTSOUNDS
         {
@@ -186,6 +203,8 @@ namespace AK
                 static const AkUniqueID STATE1 = 1208172673U;
                 static const AkUniqueID STATE2 = 1208172674U;
                 static const AkUniqueID STATE3 = 1208172675U;
+                static const AkUniqueID STATE4 = 1208172676U;
+                static const AkUniqueID STATE5 = 1208172677U;
             } // namespace STATE
         } // namespace SHORTSOUNDS
 
@@ -198,6 +217,8 @@ namespace AK
                 static const AkUniqueID STATE1 = 1208172673U;
                 static const AkUniqueID STATE2 = 1208172674U;
                 static const AkUniqueID STATE3 = 1208172675U;
+                static const AkUniqueID STATE4 = 1208172676U;
+                static const AkUniqueID STATE5 = 1208172677U;
             } // namespace STATE
         } // namespace SHORTSOUNDS_01
 
@@ -247,24 +268,34 @@ namespace AK
         static const AkUniqueID VELOCITY = 3519441192U;
     } // namespace GAME_PARAMETERS
 
+    namespace TRIGGERS
+    {
+        static const AkUniqueID DEATHTRIGGER = 3997319839U;
+    } // namespace TRIGGERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID AXE = 765201635U;
         static const AkUniqueID BGM = 412724365U;
         static const AkUniqueID CHAINMONSTER = 2878223726U;
         static const AkUniqueID CONTINUOUSSHOOTER = 1126427000U;
+        static const AkUniqueID CONVEYOR = 719019138U;
+        static const AkUniqueID DEATHMANAGER = 2653892230U;
         static const AkUniqueID DOOR = 1877847629U;
         static const AkUniqueID MOVEABLEOBJECT = 2254612011U;
         static const AkUniqueID PLAYER = 1069431850U;
         static const AkUniqueID PROJECTILE = 624914268U;
         static const AkUniqueID REVOLVINGDOOR = 440849463U;
         static const AkUniqueID ROPE = 2362472877U;
+        static const AkUniqueID SEESAW = 1369217777U;
         static const AkUniqueID SHOOTERTRAP = 1414999774U;
         static const AkUniqueID SWITCH = 3202316517U;
     } // namespace BANKS
 
     namespace BUSSES
     {
+        static const AkUniqueID ALTBUS = 2592526588U;
         static const AkUniqueID BASS = 1291433344U;
         static const AkUniqueID DRUM = 2247793849U;
         static const AkUniqueID JUMP = 3833651337U;

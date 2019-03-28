@@ -12,8 +12,11 @@ public class BGMchanges : MonoBehaviour
     float bgmStarted = 0;
     int loops;
     int[] voicing = new int[1];
+    int state3;
+    int state5;
+    int state6;
 
-
+  
 
     int[] lobbyCues = new int[5] { 0, 24, 48, 72, 96 };
     int[][] lobbyVoicings = {
@@ -39,6 +42,8 @@ public class BGMchanges : MonoBehaviour
         new int[] { 0, 5 }
     };
 
+    
+
     int[] room2Cues = new int[7] { 0, 21, 41, 62, 83, 104, 126 };
     int[][] room2Voicings = {
 
@@ -49,6 +54,8 @@ public class BGMchanges : MonoBehaviour
         new int[] { 0, 1, 2, 7 },
         new int[] { 0, 1, 2, 6, 7 }
     };
+
+
 
     int[] room3Cues = new int[8] { 0, 17, 51, 68, 85, 102, 119, 154 };
     int[][] room3Voicings = {
@@ -62,16 +69,17 @@ public class BGMchanges : MonoBehaviour
         new int[] { 0, 3, 6 }
     };
 
+
     // 0 bass, 1 piano, 2 short, 3 short1, 4 med, 5 med1, 6 long, 7 long1
 
     int[] stressCues = new int[12] { 0, 12, 23, 45, 57, 69, 92, 104, 119, 126, 134, 138 };
     int[][] stressVoicings = {
         new int[] { 2, 5 },
         new int[] { 0, 1, 2, 5 },
-        new int[] { 0, 1, 2, 4, 5 },
+        new int[] { 0, 1, 2, 6, 5 },
         new int[] { 0, 1, 2, 5 },
         new int[] { 0, 1, 2, 7 },
-        new int[] { 0, 1, 2, 4, 7 },
+        new int[] { 0, 1, 2, 6, 7 },
         new int[] { 0, 1, 2, 7 },
         new int[] { 0, 1, 2, 5, 7 },
         new int[] { 0, 1, 2, 5 },
@@ -193,51 +201,71 @@ public class BGMchanges : MonoBehaviour
     void SetRandomState(int voice)
     {
 
-        // Debug.Log("pick " + voice);
-        int state3 = rnd.Next(1, 4);
-        int state4 = rnd.Next(1, 5);
-
-        while (state3 == lastStateChosen[voice] || state4 == lastStateChosen[voice])
-        {
-            state3 = rnd.Next(1, 4);
-            state4 = rnd.Next(1, 5);
-        }
-
         switch (voice)
         {
             case 0:
-                AkSoundEngine.SetState("guitar", "guit" + state4);
-                lastStateChosen[0] = state4;
+                newState6(voice);
+                AkSoundEngine.SetState("guitar", "guit" + state6);
                 break;
             case 1:
+                newState3(voice);
                 AkSoundEngine.SetState("keys", "state" + state3);
-                lastStateChosen[1] = state3;
                 break;
             case 2:
-                AkSoundEngine.SetState("shortSounds", "state" + state3);
-                lastStateChosen[2] = state3;
+                newState5(voice);
+                AkSoundEngine.SetState("shortSounds", "state" + state5);
                 break;
             case 3:
-                AkSoundEngine.SetState("shortSounds_01", "state" + state3);
-                lastStateChosen[3] = state3;
+                newState5(voice);
+                AkSoundEngine.SetState("shortSounds_01", "state" + state5);
                 break;
             case 4:
-                AkSoundEngine.SetState("mediumSounds", "state" + state4);
-                lastStateChosen[4] = state4;
+                newState5(voice);
+                AkSoundEngine.SetState("mediumSounds", "state" + state5);
                 break;
             case 5:
-                AkSoundEngine.SetState("mediumSounds_01", "state" + state4);
-                lastStateChosen[5] = state4;
+                newState5(voice);
+                AkSoundEngine.SetState("mediumSounds_01", "state" + state5);
                 break;
             case 6:
+                newState3(voice);
                 AkSoundEngine.SetState("longSounds", "state" + state3);
-                lastStateChosen[6] = state3;
                 break;
             case 7:
+                newState3(voice);
                 AkSoundEngine.SetState("longSounds_01", "state" + state3);
-                lastStateChosen[7] = state4;
                 break;
         }
+    }
+
+    void newState3(int voice)
+    {
+        state3 = rnd.Next(1, 4);
+        while (state3 == lastStateChosen[voice])
+        {
+            state3 = rnd.Next(1, 4);
+        }
+        lastStateChosen[voice] = state3;
+    }
+
+    void newState5(int voice)
+    {
+        state5 = rnd.Next(1, 6);
+        while (state5 == lastStateChosen[voice])
+        {
+            state5 = rnd.Next(1, 6);
+        }
+        lastStateChosen[voice] = state5;
+    }
+
+    void newState6(int voice)
+    {
+        state6 = rnd.Next(1, 7);
+        while (state6 == lastStateChosen[voice])
+        {
+            state6 = rnd.Next(1, 7);
+        }
+        lastStateChosen[voice] = state6;
     }
 
 
