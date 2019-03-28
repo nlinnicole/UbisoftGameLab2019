@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class RoomGenerator : MonoBehaviour
 {
@@ -44,7 +46,8 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
-        GenerateRooms(amountOfRooms);
+        if (PhotonNetwork.IsMasterClient)
+            GenerateRooms(amountOfRooms);
         team1CurrentRoom = -1;
         team2CurrentRoom = -1;
     }
