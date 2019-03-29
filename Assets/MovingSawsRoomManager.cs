@@ -10,12 +10,12 @@ public class MovingSawsRoomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnSaw", 5f, 1f);
+        InvokeRepeating("SpawnSaw", 1f, 1f);
     }
 
     // Update is called once per frame
     void SpawnSaw()
     {
-        Instantiate(SawPrefab, SawSpawns[Random.Range(0,12)].transform.position, SawSpawns[0].transform.rotation);
+        Instantiate(SawPrefab, SawSpawns[Random.Range(0,5)].transform.position, SawSpawns[0].transform.rotation);
     }
 }
