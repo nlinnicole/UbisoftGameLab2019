@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     public GameObject MovingPlatform;
-
+    public float strafespeed = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class MoveLeft : MonoBehaviour
     {
         if (other.tag == "Player" && gameObject.GetComponentInParent<EneteredFinalPlatform>().counter > 2)
         {
-            MovingPlatform.transform.Translate(Vector3.right * -1 * Time.deltaTime);
+            MovingPlatform.transform.Translate(Vector3.right * -1 * Time.deltaTime * strafespeed);
         }
     }
 }

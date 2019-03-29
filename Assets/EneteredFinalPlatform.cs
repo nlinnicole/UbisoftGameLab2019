@@ -5,13 +5,15 @@ using UnityEngine;
 public class EneteredFinalPlatform : MonoBehaviour
 {
     public GameObject MovingPlatform;
+    public GameObject Parent;
 
     Transform position;
     public bool running = true;
 
     public int counter = 0;
     public float platformspeed = 1;
-
+    public float acceleration = 0;
+    public float factor = 0.01f;
     private void Start()
     {
         counter = 0;
@@ -39,12 +41,14 @@ public class EneteredFinalPlatform : MonoBehaviour
             if (other.tag == "Player" && counter > 2)
             {
                 
-                other.gameObject.transform.SetParent(MovingPlatform.transform);
-                gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed);
+                other.gameObject.transform.SetParent(Parent.transform);
+                gameObject.transform.Translate(Vector3.forward * Time.deltaTime * platformspeed * acceleration);
+
+                acceleration += Time.deltaTime * factor;
 
                 Vector3 clampedPosition = transform.position;
                 // Now we can manipulte it to clamp the y element
-                clampedPosition.x = Mathf.Clamp(transform.position.x, -10f, 15f);
+                clampedPosition.x = Mathf.Clamp(transform.position.x, -22f, 5f);
                 // re-assigning the transform's position will clamp it
                 transform.position = clampedPosition;
 

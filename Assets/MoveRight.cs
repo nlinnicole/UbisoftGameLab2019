@@ -5,6 +5,8 @@ using UnityEngine;
 public class MoveRight : MonoBehaviour
 {
     public GameObject MovingPlatform;
+    public float strafespeed = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,7 @@ public class MoveRight : MonoBehaviour
     {
         if (other.tag == "Player" && gameObject.GetComponentInParent<EneteredFinalPlatform>().counter > 2)
         {
-            MovingPlatform.transform.Translate(Vector3.right * Time.deltaTime);
+            MovingPlatform.transform.Translate(Vector3.right * Time.deltaTime * strafespeed);
         }
     }
 }
