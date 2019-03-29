@@ -31,8 +31,6 @@ public class RoomGenerator : MonoBehaviour
     public GameObject[] Team2Rooms;
     int[,] team2RoomRefs;
 
-    GameObject team1Rooms;
-    GameObject team2Rooms;
 
     //public GameObject team1Start;
     //public GameObject team2Start;
@@ -47,78 +45,82 @@ public class RoomGenerator : MonoBehaviour
     void Start()
     {
         //if (PhotonNetwork.IsMasterClient)
-            GenerateRooms(amountOfRooms);
+            //GenerateRooms(amountOfRooms);
         team1CurrentRoom = -1;
         team2CurrentRoom = -1;
+
+       // Team1Rooms = team1Rooms.GetComponentsInChildren<Transform>();
+        //Team2Rooms = team2Rooms.GetComponentsInChildren<Transform>();
     }
 
-    public void GenerateRooms(int amount)
-    {
-        roomArray = Resources.LoadAll("Rooms", typeof(GameObject)).Cast<GameObject>().ToArray();
-        if (roomArray.Length < 1)
-        {
-            roomArray = new GameObject[1];
-            roomArray[0] = baseRoom;
-        }
+    //public void GenerateRooms(int amount)
+    //{
+    //    roomArray = Resources.LoadAll("Rooms", typeof(GameObject)).Cast<GameObject>().ToArray();
+    //    if (roomArray.Length < 1)
+    //    {
+    //        roomArray = new GameObject[1];
+    //        roomArray[0] = baseRoom;
+    //    }
 
-        chosenRooms = new bool[roomArray.Length];
+    //    chosenRooms = new bool[roomArray.Length];
 
-        //delete all old rooms
-        for (int i = 0; i < Team1Rooms.Length; i++)
-        {
-            DestroyImmediate(Team1Rooms[i]);
-            DestroyImmediate(Team2Rooms[i]);
-        }
+    //    //delete all old rooms
+    //    for (int i = 0; i < Team1Rooms.Length; i++)
+    //    {
+    //        DestroyImmediate(Team1Rooms[i]);
+    //        DestroyImmediate(Team2Rooms[i]);
+    //    }
 
-        DestroyImmediate(team1Rooms);
-        DestroyImmediate(team2Rooms);
+    //    DestroyImmediate(team1Rooms);
+    //    DestroyImmediate(team2Rooms);
 
-        team1Rooms = new GameObject();
-        team2Rooms = new GameObject();
-        team1Rooms.name = "Team1 Rooms";
-        team2Rooms.name = "Team2 Rooms";
+    //    team1Rooms = new GameObject();
+    //    team2Rooms = new GameObject();
+    //    team1Rooms.name = "Team1 Rooms";
+    //    team2Rooms.name = "Team2 Rooms";
 
-        //team1Start = Instantiate(team1StartRoom);
-        //team2Start = Instantiate(team2StartRoom, new Vector3(-baseRoomSize, 0, 0), Quaternion.identity);
+    //    //team1Start = Instantiate(team1StartRoom);
+    //    //team2Start = Instantiate(team2StartRoom, new Vector3(-baseRoomSize, 0, 0), Quaternion.identity);
 
-        Team1Rooms = new GameObject[(amount)];
-        Team2Rooms = new GameObject[(amount)];
+    //    Team1Rooms = new Transform[4];
+    //    Team2Rooms = new Transform[4];
 
-        team1RoomRefs = new int[amount, 2];
-        team2RoomRefs = new int[amount, 2];
+    //    team1RoomRefs = new int[amount, 2];
+    //    team2RoomRefs = new int[amount, 2];
 
-        for (int i = 0, k = 1; i < amount; i++, k++)
-        {
-            //randomly choose a room
-            int chosenRoom = 0;
-            bool uniqueRoom = false;
+    //    for (int i = 0, k = 1; i < amount; i++, k++)
+    //    {
+    //        //randomly choose a room
+    //        int chosenRoom = 0;
+    //        bool uniqueRoom = false;
 
-            while (!uniqueRoom)
-            {
-                chosenRoom = (int)Random.Range(0, roomArray.Length);
-                if(!chosenRooms[chosenRoom])
-                {
-                    uniqueRoom = true;
-                    chosenRooms[chosenRoom] = true;
-                }
-            }
+    //        while (!uniqueRoom)
+    //        {
+    //            chosenRoom = (int)Random.Range(0, roomArray.Length);
+    //            if(!chosenRooms[chosenRoom])
+    //            {
+    //                uniqueRoom = true;
+    //                chosenRooms[chosenRoom] = true;
+    //            }
+    //        }
 
 
-            GameObject roomToBuild = roomArray[chosenRoom];
-            //create room
-            Team1Rooms[i] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
-            //change name
-            //Team1Rooms[i].transform.position += new Vector3(40, 0, 0);
+    //        GameObject roomToBuild = roomArray[chosenRoom];
+    //        //create room
+    //        Team1Rooms[i] = Instantiate(roomToBuild, new Vector3(-baseRoomSize, 0, baseRoomSize * k), Quaternion.identity, team1Rooms.transform) as GameObject;
+    //        //change name
+    //        //Team1Rooms[i].transform.position += new Vector3(40, 0, 0);
 
-            //team2
-            Team2Rooms[i] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
-            Team2Rooms[i].transform.localScale = new Vector3(-Team2Rooms[i].transform.localScale.x, Team2Rooms[i].transform.localScale.y, Team2Rooms[i].transform.localScale.z);
-            Team2Rooms[i].transform.position += new Vector3(40, 0, 0);
-        }
-    }
+    //        //team2
+    //        Team2Rooms[i] = Instantiate(roomToBuild, new Vector3(0, 0, baseRoomSize * k), Quaternion.identity, team2Rooms.transform) as GameObject;
+    //        Team2Rooms[i].transform.localScale = new Vector3(-Team2Rooms[i].transform.localScale.x, Team2Rooms[i].transform.localScale.y, Team2Rooms[i].transform.localScale.z);
+    //        Team2Rooms[i].transform.position += new Vector3(40, 0, 0);
+    //    }
+    //}
 
     void FixedUpdate()
     {
+
         //Debug.Log(team1InFirstRoom);
         if(team1InFirstRoom)
         {
