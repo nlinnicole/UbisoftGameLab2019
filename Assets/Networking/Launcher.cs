@@ -84,7 +84,7 @@ namespace Concordia1.Gamelab
             Debug.Log("Connected as Client");
             if (PhotonNetwork.IsMasterClient)
             {
-                PhotonNetwork.LoadLevel("RoomGenerator");
+                PhotonNetwork.LoadLevel("hardcode_01");
             }
 
         }

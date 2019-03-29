@@ -25,7 +25,7 @@ public class UniversalButton : MonoBehaviour
     {
         if (other.tag == "DiceTrigger")
         {
-            Debug.Log("hello");
+            //Debug.Log("hello");
         }
     }
 }
