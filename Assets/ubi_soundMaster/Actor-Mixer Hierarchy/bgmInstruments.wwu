@@ -1,0 +1,2591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}" SchemaVersion="89" RootDocumentID="{08CF9641-DF28-4304-8495-118963396A17}">
+	<AudioObjects>
+		<WorkUnit Name="bgmInstruments" ID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}" OwnerID="{08CF9641-DF28-4304-8495-118963396A17}" PersistMode="Nested">
+			<ChildrenList>
+				<SwitchContainer Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" ShortID="997706275">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+						<Property Name="InitialDelay" Type="Real64">
+							<ValueList>
+								<Value>0.1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MidiBreakOnNoteOff" Type="bool" Value="True"/>
+						<Property Name="MidiTrackingRootNote" Type="int32" Value="63"/>
+						<Property Name="Priority" Type="int16">
+							<ValueList>
+								<Value>70</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="drumOn" ID="{0DE7B365-F500-409F-B515-8A5D5AE2FE43}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="drum" ID="{11434D83-C0C2-40FC-9234-967FDD023DB4}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="drum" ID="{444A2DB2-AA30-4C2E-AE59-B11F58DA50CA}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="56=Ohkawa" ID="{9097A290-4D3F-4DDC-9144-6FEBEDF1DA26}" ShortID="938266656">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="MidiKeyFilterMax" Type="int32" Value="22"/>
+								<Property Name="MidiKeyFilterMin" Type="int32" Value="1"/>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="21"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="56=Ohkawa" ID="{06A4C375-D2AF-4E18-A83E-C78DA712119E}" ShortID="353585980">
+									<Language>SFX</Language>
+									<AudioFile>56=Ohkawa.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="56=Ohkawa" ID="{06A4C375-D2AF-4E18-A83E-C78DA712119E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="78=Tang Gu" ID="{15341A88-53ED-467E-806D-5211D381F1BA}" ShortID="976801021">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="MidiKeyFilterMax" Type="int32" Value="37"/>
+								<Property Name="MidiKeyFilterMin" Type="int32" Value="23"/>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="23"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="78=Tang Gu" ID="{1AA5EE11-2ADB-4C36-BB03-1326982F5879}" ShortID="291386642">
+									<Language>SFX</Language>
+									<AudioFile>78=Tang Gu.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="78=Tang Gu" ID="{1AA5EE11-2ADB-4C36-BB03-1326982F5879}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="kick" ID="{A3C935C4-6CCD-43AC-8C10-71AD90B0A36A}" ShortID="883931301">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="MidiKeyFilterMax" Type="int32" Value="40"/>
+								<Property Name="MidiKeyFilterMin" Type="int32" Value="38"/>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="38"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="opadrum" ID="{FA90D2DB-F76E-4D20-9801-1CE5E4BCBEFD}" ShortID="169501722">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="2.91926535532839E-02"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.260787705076002"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>opadrum.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="opadrum" ID="{FA90D2DB-F76E-4D20-9801-1CE5E4BCBEFD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="snare" ID="{2E3D93BE-AED9-4C69-9499-58A29DC5B15A}" ShortID="852583876">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="MidiKeyFilterMax" Type="int32" Value="59"/>
+								<Property Name="MidiKeyFilterMin" Type="int32" Value="42"/>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="42"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="opadrum" ID="{7084B106-0A7D-4C64-BA89-77CC14E57305}" ShortID="1052789171">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="2.91926535532839E-02"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.266626235786659"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.389235380710451"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>opadrum.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="opadrum" ID="{7084B106-0A7D-4C64-BA89-77CC14E57305}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="opadrum_02" ID="{D82F7945-33FD-4771-A7B4-2745B1ECEE9F}" ShortID="43834725">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="MidiKeyFilterMax" Type="int32" Value="41"/>
+								<Property Name="MidiKeyFilterMin" Type="int32" Value="41"/>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="41"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="opadrum" ID="{E987E2A2-CF73-407A-A25E-8ACAF3C1CD9D}" ShortID="1004862350">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="2.91926535532839E-02"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.533252471573319"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.827125184009709"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>opadrum.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="opadrum" ID="{E987E2A2-CF73-407A-A25E-8ACAF3C1CD9D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="drum" ID="{444A2DB2-AA30-4C2E-AE59-B11F58DA50CA}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="drumOn" ID="{0DE7B365-F500-409F-B515-8A5D5AE2FE43}"/>
+								<State Name="" ID="{94EF690B-D327-41B6-96D8-D1B596547DF3}" ShortID="599454031"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="opadrum_02" ID="{D82F7945-33FD-4771-A7B4-2745B1ECEE9F}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="78=Tang Gu" ID="{15341A88-53ED-467E-806D-5211D381F1BA}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="56=Ohkawa" ID="{9097A290-4D3F-4DDC-9144-6FEBEDF1DA26}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="snare" ID="{2E3D93BE-AED9-4C69-9499-58A29DC5B15A}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="kick" ID="{A3C935C4-6CCD-43AC-8C10-71AD90B0A36A}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="None" ID="{E86B10DF-E85A-4172-A297-5326A79CFDBB}"/>
+								<ItemList>
+									<ItemRef Name="opadrum_02" ID="{D82F7945-33FD-4771-A7B4-2745B1ECEE9F}"/>
+									<ItemRef Name="kick" ID="{A3C935C4-6CCD-43AC-8C10-71AD90B0A36A}"/>
+									<ItemRef Name="78=Tang Gu" ID="{15341A88-53ED-467E-806D-5211D381F1BA}"/>
+									<ItemRef Name="56=Ohkawa" ID="{9097A290-4D3F-4DDC-9144-6FEBEDF1DA26}"/>
+									<ItemRef Name="snare" ID="{2E3D93BE-AED9-4C69-9499-58A29DC5B15A}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" ShortID="374582344">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>41</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MidiBreakOnNoteOff" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{C2D32F5F-F0F2-411E-86FB-EB3E647CDA32}" ShortID="543968678">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="guitar envelope" ID="{60FB1652-551A-447A-A6CC-721C840DB2C2}" WorkUnitID="{190E0A9C-188B-4CA7-A10B-98903633E899}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{263BCD20-72EA-4A3B-934E-83E543242729}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-200</YPos>
+												<Flags>21</Flags>
+											</Point>
+											<Point>
+												<XPos>1</XPos>
+												<YPos>0</YPos>
+												<Flags>53</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="guit1" ID="{A89EC368-6361-485B-BF16-733344E8C851}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="bass" ID="{74500028-D80C-4CD5-969C-92D39B51CF7F}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="guitar" ID="{A88B35C7-B47D-475F-A871-F852D566C48F}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="ClasGill_C4" ID="{268C4676-BEAB-4FD8-B891-57DC72006A5A}" ShortID="389330527">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="8"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.01</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{1B18A863-16F7-4075-B290-9609A9EEBDBE}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ClasGill_C4" ID="{8F08C764-C73E-4314-BBD1-EA400418A28C}" ShortID="553011465">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.500941465767593"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.64531251243187"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>ClasGill_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ClasGill_C4" ID="{8F08C764-C73E-4314-BBD1-EA400418A28C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TechPro_C4" ID="{1DB6A650-2BDA-4383-9C0F-4778E229A602}" ShortID="626318090">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="8"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.05</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="48"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="TechPro_C4" ID="{460E3C45-D37C-408C-93F3-33F3972920DE}" ShortID="373464969">
+									<Language>SFX</Language>
+									<AudioFile>TechPro_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="TechPro_C4" ID="{460E3C45-D37C-408C-93F3-33F3972920DE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Viral_C3" ID="{660E61F1-D87B-40AF-991A-190465D743F0}" ShortID="168186464">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="8"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.05</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="48"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Viral_C3" ID="{82FB67C7-678E-40DC-AD70-14C7953FFEE5}" ShortID="377842724">
+									<Language>SFX</Language>
+									<AudioFile>Viral_C3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Viral_C3" ID="{82FB67C7-678E-40DC-AD70-14C7953FFEE5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="bassA1" ID="{4D44180C-B385-44FE-BACD-0E7CE155934C}" ShortID="542724610">
+							<PropertyList>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.07</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="21"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bassA1" ID="{124955DC-0266-4A0D-B5D6-EDC3A3E35D3B}" ShortID="886601087">
+									<Language>SFX</Language>
+									<AudioFile>bassA1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bassA1" ID="{124955DC-0266-4A0D-B5D6-EDC3A3E35D3B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="bassC2" ID="{3FFEA9D7-95A6-4835-8BCB-331FD0A7456C}" ShortID="199991270">
+							<PropertyList>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>14</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.07</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="24"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bassC2" ID="{C28D0DD9-25ED-42B1-B4C2-0324AA444D39}" ShortID="891726373">
+									<Language>SFX</Language>
+									<AudioFile>bassC2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bassC2" ID="{C28D0DD9-25ED-42B1-B4C2-0324AA444D39}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="08 FreqS (C2)" ID="{6C100606-DF96-4E43-B6A9-3A34CE8A3BC1}" ShortID="747327991">
+							<PropertyList>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.06</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>21</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="24"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="08 FreqS (C2)" ID="{32FFCA06-5AD5-4E3E-BCF9-76B47CCCA328}" ShortID="853350175">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.03089459760512"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.14728592314119"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>08 FreqS (C2).wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="08 FreqS (C2)" ID="{32FFCA06-5AD5-4E3E-BCF9-76B47CCCA328}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="08 FreqS (C2)" ID="{6C100606-DF96-4E43-B6A9-3A34CE8A3BC1}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="bassA1" ID="{4D44180C-B385-44FE-BACD-0E7CE155934C}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="TechPro_C4" ID="{1DB6A650-2BDA-4383-9C0F-4778E229A602}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="ClasGill_C4" ID="{268C4676-BEAB-4FD8-B891-57DC72006A5A}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="bassC2" ID="{3FFEA9D7-95A6-4835-8BCB-331FD0A7456C}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Viral_C3" ID="{660E61F1-D87B-40AF-991A-190465D743F0}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="guit2" ID="{F2C9890A-75BF-435E-B9F5-065D9E8821DE}"/>
+								<ItemList>
+									<ItemRef Name="08 FreqS (C2)" ID="{6C100606-DF96-4E43-B6A9-3A34CE8A3BC1}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="guit6" ID="{A62A421A-EFAC-40D9-9693-321823989FE7}"/>
+								<ItemList>
+									<ItemRef Name="bassC2" ID="{3FFEA9D7-95A6-4835-8BCB-331FD0A7456C}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="guit4" ID="{D2C2B237-A248-4EF6-89B9-E2A54BD06C44}"/>
+								<ItemList>
+									<ItemRef Name="TechPro_C4" ID="{1DB6A650-2BDA-4383-9C0F-4778E229A602}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="guit1" ID="{A89EC368-6361-485B-BF16-733344E8C851}"/>
+								<ItemList>
+									<ItemRef Name="ClasGill_C4" ID="{268C4676-BEAB-4FD8-B891-57DC72006A5A}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="guit3" ID="{3D88D96B-C3DF-4287-B148-616D8495A70E}"/>
+								<ItemList>
+									<ItemRef Name="Viral_C3" ID="{660E61F1-D87B-40AF-991A-190465D743F0}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="None" ID="{44058C93-294E-40FF-A7B5-660514911F5D}"/>
+								<ItemList>
+									<ItemRef Name="ClasGill_C4" ID="{268C4676-BEAB-4FD8-B891-57DC72006A5A}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="guit5" ID="{E1A354CA-762A-4BE0-9DAB-DCCD66A67BC6}"/>
+								<ItemList>
+									<ItemRef Name="bassA1" ID="{4D44180C-B385-44FE-BACD-0E7CE155934C}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<Sound Name="Snare Velo9RH  Vintage" ID="{26E79860-176C-4C6E-8C0B-4FCC0AC79077}" ShortID="221992304">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Snare Velo9RH  Vintage" ID="{00C73FE5-BFB0-4AB1-9364-D817391E37D4}" ShortID="1007140592">
+							<Language>SFX</Language>
+							<AudioFile>Snare Velo9RH  Vintage.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Snare Velo9RH  Vintage" ID="{00C73FE5-BFB0-4AB1-9364-D817391E37D4}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<SwitchContainer Name="longSounds" ID="{C89095B4-6291-4577-8F55-6C0498819C2B}" ShortID="559817283">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>36</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MidiBreakOnNoteOff" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="state1" ID="{15B482A4-DB03-40EE-9422-06539123FD25}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="long1" ID="{164E6C62-5A05-4A37-8B80-0B1062072E88}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="longSounds" ID="{B13E57C2-F035-4542-BC18-55901A1B5D58}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="brass" ID="{36831CBE-7414-478B-841C-03BCCCE555BE}" ShortID="658682901">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="1"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>47</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.035</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>41</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="brass" ID="{9EA39149-EB15-443E-8A4A-EE16DA3508F4}" ShortID="350027901">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.783575207860922"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.18718071496229"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>8.2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>brass.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="brass" ID="{9EA39149-EB15-443E-8A4A-EE16DA3508F4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CelloVibrato1 C4" ID="{B11C271B-D4B0-41F0-82B3-831A0AAC06B3}" ShortID="486480796">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="1"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.05</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="72"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{A8CFE1D2-3003-41A2-98FE-DB451FC39FA0}" ShortID="174803165">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="cello envelope" ID="{6923DDA3-32C1-45B6-85E9-1C02A29EF25E}" WorkUnitID="{190E0A9C-188B-4CA7-A10B-98903633E899}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{FE289CD5-2FA8-44B0-B551-89B1B220ACE9}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="CelloVibrato1 C4" ID="{958F1E34-5003-4332-BAE8-0FBF884695D6}" ShortID="828773435">
+									<Language>SFX</Language>
+									<AudioFile>CelloVibrato1 C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="CelloVibrato1 C4" ID="{958F1E34-5003-4332-BAE8-0FBF884695D6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="15 BinaryS (C3)" ID="{73DEDD74-BBA5-4FB3-A73D-04FC3A3B4448}" ShortID="144212513">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="1"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="15 BinaryS (C3)" ID="{AAD45040-36FF-4F6A-8243-AE8DB906D290}" ShortID="89926961">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.12280701754386"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.17543859649123"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.719298245614035"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.08771929824561"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>15 BinaryS (C3).wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="15 BinaryS (C3)" ID="{AAD45040-36FF-4F6A-8243-AE8DB906D290}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="CelloVibrato1 C4" ID="{B11C271B-D4B0-41F0-82B3-831A0AAC06B3}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="15 BinaryS (C3)" ID="{73DEDD74-BBA5-4FB3-A73D-04FC3A3B4448}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="brass" ID="{36831CBE-7414-478B-841C-03BCCCE555BE}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="state3" ID="{227B2F16-777B-49BF-B581-96EB7BECD8F5}"/>
+								<ItemList>
+									<ItemRef Name="15 BinaryS (C3)" ID="{73DEDD74-BBA5-4FB3-A73D-04FC3A3B4448}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state1" ID="{15B482A4-DB03-40EE-9422-06539123FD25}"/>
+								<ItemList>
+									<ItemRef Name="CelloVibrato1 C4" ID="{B11C271B-D4B0-41F0-82B3-831A0AAC06B3}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="None" ID="{CBACD0C4-6959-485B-A593-3D9A1CC5DB54}"/>
+								<ItemList>
+									<ItemRef Name="brass" ID="{36831CBE-7414-478B-841C-03BCCCE555BE}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state2" ID="{9E00C5CF-9766-4CE1-8EC2-7739B0094B5B}"/>
+								<ItemList>
+									<ItemRef Name="brass" ID="{36831CBE-7414-478B-841C-03BCCCE555BE}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="medium sounds" ID="{7783261C-1C5B-4E05-87B6-FFB680A5A065}" ShortID="690411108">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="state1" ID="{21363ED8-0C0A-4A2A-A04D-C4947C1B3F47}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="med1" ID="{D994207B-6FE3-4453-8689-457E1E18429C}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="mediumSounds" ID="{34C0200C-7071-443F-8593-2B0073783D17}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Jacknife_C4" ID="{1B29E450-2EB0-4824-86A6-1CB02479A77D}" ShortID="463287627">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{B22B6CCE-3FC5-4D0C-BC1A-BD99978CF1E8}" ShortID="329154673">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="synth envelope1" ID="{E7956C4B-2D5A-4CE9-A320-B0F852D4B206}" WorkUnitID="{190E0A9C-188B-4CA7-A10B-98903633E899}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{74335F63-F702-4BF7-8162-C711904B2577}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jacknife_C4" ID="{1FCF30E9-6FCE-4939-B098-40FFC826BB96}" ShortID="70477870">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.413193606810446"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.821246568802959"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Jacknife_C4.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="287049174"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jacknife_C4" ID="{1FCF30E9-6FCE-4939-B098-40FFC826BB96}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Normal_C4" ID="{FFF3E73A-BA0B-4622-AA6E-DD73FA19BDCA}" ShortID="396076442">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.07</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{D258E6D0-BE32-4E39-A299-2F7C630FAE0B}" ShortID="851300357">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="synth envelope1" ID="{E7956C4B-2D5A-4CE9-A320-B0F852D4B206}" WorkUnitID="{190E0A9C-188B-4CA7-A10B-98903633E899}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{46AA317E-6E8D-44B9-909F-6AF14B5227A8}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Normal_C4" ID="{78883F94-E8EC-4CE6-A6E8-5469AE28444F}" ShortID="413487">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.855392449377416"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.881712217050567"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Normal_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Normal_C4" ID="{78883F94-E8EC-4CE6-A6E8-5469AE28444F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Cleaner_C4" ID="{3296DEC8-7A40-4441-A1BF-D18F071DA80F}" ShortID="561716239">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>43</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>48</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="72"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Cleaner_C4" ID="{F9B8899A-C6DB-4ED1-BE4F-077FF3B6DE60}" ShortID="536240767">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="5.17404550729273E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.672625915948055"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.837254636634641"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Cleaner_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Cleaner_C4" ID="{F9B8899A-C6DB-4ED1-BE4F-077FF3B6DE60}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="FluteClean_C3" ID="{53F4A037-8855-4F65-A778-D3FA7DC77564}" ShortID="978804943">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>21</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{197AC731-F4C6-49BA-96C7-BBB4A96E41AE}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="0.02"/>
+													<Property Name="Min" Type="Real64" Value="-0.02"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{234F038C-9429-4351-8097-22B0F0D6C8E9}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="21"/>
+													<Property Name="Min" Type="Real64" Value="-22"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="72"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>50</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="FluteClean_C3" ID="{EBEDAC71-E831-418E-9B04-4AC71E610EF6}" ShortID="156529259">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="5.04284607152083E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.487696297706293"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="3.26301804627819E-02"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.520326478169075"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>-6.3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>FluteClean_C3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="FluteClean_C3" ID="{EBEDAC71-E831-418E-9B04-4AC71E610EF6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Cell_C4" ID="{A652A4AE-B370-4DD6-86FD-F2D8EE831018}" ShortID="404676600">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Cell_C4" ID="{CA3411F0-C1EE-4A4B-95B7-17B018568DBB}" ShortID="554802194">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="6.85861479094562E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.473244420575247"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.116596451446076"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.754447627004018"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Cell_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Cell_C4" ID="{CA3411F0-C1EE-4A4B-95B7-17B018568DBB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="FluteClean_C3" ID="{53F4A037-8855-4F65-A778-D3FA7DC77564}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Normal_C4" ID="{FFF3E73A-BA0B-4622-AA6E-DD73FA19BDCA}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Jacknife_C4" ID="{1B29E450-2EB0-4824-86A6-1CB02479A77D}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Cell_C4" ID="{A652A4AE-B370-4DD6-86FD-F2D8EE831018}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Cleaner_C4" ID="{3296DEC8-7A40-4441-A1BF-D18F071DA80F}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="state5" ID="{362C7900-3A38-4697-9C48-1312E40A1F88}"/>
+								<ItemList>
+									<ItemRef Name="Cell_C4" ID="{A652A4AE-B370-4DD6-86FD-F2D8EE831018}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="None" ID="{CA50E625-CB1E-47DA-AACA-F3F989D95362}"/>
+								<ItemList>
+									<ItemRef Name="Jacknife_C4" ID="{1B29E450-2EB0-4824-86A6-1CB02479A77D}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state4" ID="{0C13FAB0-0DD2-46C3-81A6-A3DE161BE4E1}"/>
+								<ItemList>
+									<ItemRef Name="FluteClean_C3" ID="{53F4A037-8855-4F65-A778-D3FA7DC77564}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state3" ID="{F79432B4-0C05-4560-B952-94F741B36259}"/>
+								<ItemList>
+									<ItemRef Name="Cleaner_C4" ID="{3296DEC8-7A40-4441-A1BF-D18F071DA80F}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state1" ID="{21363ED8-0C0A-4A2A-A04D-C4947C1B3F47}"/>
+								<ItemList>
+									<ItemRef Name="Jacknife_C4" ID="{1B29E450-2EB0-4824-86A6-1CB02479A77D}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state2" ID="{BDFC28F4-A0B0-44C7-8945-E71ABEA9F203}"/>
+								<ItemList>
+									<ItemRef Name="Normal_C4" ID="{FFF3E73A-BA0B-4622-AA6E-DD73FA19BDCA}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="shortsounds" ID="{605612B4-5745-4088-9806-93A975FF89D4}" ShortID="414281622">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="state1" ID="{9179107C-E981-4B2D-86D6-A69266B5BC54}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="short1" ID="{1FEC4FD4-0BC3-40AD-BEDD-02621EF657DE}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="shortSounds" ID="{E7FB3152-4C1E-4571-A39C-DFF766748171}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Mandy_C4" ID="{B4A35089-6607-4C35-85B3-EC4DABCE1B55}" ShortID="1035763557">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="6"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{C8410B1D-AF7E-4477-AC4E-794CD777AF94}" ShortID="1065555977">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="guitar envelope" ID="{60FB1652-551A-447A-A6CC-721C840DB2C2}" WorkUnitID="{190E0A9C-188B-4CA7-A10B-98903633E899}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{C3F19EA4-41C7-4162-AECF-565B1D856EA5}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>21</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>53</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Mandy_C4" ID="{5475A381-A082-4F47-86F1-4BB2A172F11C}" ShortID="269651978">
+									<Language>SFX</Language>
+									<AudioFile>Mandy_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Mandy_C4" ID="{5475A381-A082-4F47-86F1-4BB2A172F11C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DM-KAL 08" ID="{3A8F8F44-E27D-4782-B09F-52A5273C283F}" ShortID="137202742">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="6"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-17</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DM-KAL 08" ID="{4FB9DDDC-45C9-416B-B186-6674E85D2C44}" ShortID="546479797">
+									<Language>SFX</Language>
+									<AudioFile>DM-KAL 08.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DM-KAL 08" ID="{4FB9DDDC-45C9-416B-B186-6674E85D2C44}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Vibro_C_003" ID="{30246833-8EE8-409F-A40D-D9082284B555}" ShortID="511592644">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="6"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Vibro_C_003" ID="{289C745E-4ED0-42C4-A80C-278034E2F78D}" ShortID="86506224">
+									<Language>SFX</Language>
+									<AudioFile>Vibro_C_003.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Vibro_C_003" ID="{289C745E-4ED0-42C4-A80C-278034E2F78D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Stringy_C5" ID="{CB63D60A-23B2-40AE-98BC-96A5A6D1E293}" ShortID="640937680">
+							<PropertyList>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>49</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="72"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-17</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="med1" ID="{D994207B-6FE3-4453-8689-457E1E18429C}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Stringy_C5" ID="{04A85159-434C-49D1-B386-80A913E2B663}" ShortID="770036348">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.337176870748299"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.349007638142976"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.686184508891276"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Stringy_C5.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Stringy_C5" ID="{04A85159-434C-49D1-B386-80A913E2B663}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="tbC3" ID="{61C3F4C6-D524-4DC4-9804-8C258AF7A204}" ShortID="143341986">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.07</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="tbC3" ID="{FD509D5E-5BF7-457D-AD54-A309A78369F9}" ShortID="111248007">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.115075590782328"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.115075590782328"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>tbC3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="tbC3" ID="{FD509D5E-5BF7-457D-AD54-A309A78369F9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Stringy_C5" ID="{CB63D60A-23B2-40AE-98BC-96A5A6D1E293}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Vibro_C_003" ID="{30246833-8EE8-409F-A40D-D9082284B555}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="DM-KAL 08" ID="{3A8F8F44-E27D-4782-B09F-52A5273C283F}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Mandy_C4" ID="{B4A35089-6607-4C35-85B3-EC4DABCE1B55}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="tbC3" ID="{61C3F4C6-D524-4DC4-9804-8C258AF7A204}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="state3" ID="{6D212B43-84C3-4D7D-9C1E-22F769D84AC2}"/>
+								<ItemList>
+									<ItemRef Name="Vibro_C_003" ID="{30246833-8EE8-409F-A40D-D9082284B555}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state1" ID="{9179107C-E981-4B2D-86D6-A69266B5BC54}"/>
+								<ItemList>
+									<ItemRef Name="Mandy_C4" ID="{B4A35089-6607-4C35-85B3-EC4DABCE1B55}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state5" ID="{00967487-75CE-4810-8A9E-37794BEC2124}"/>
+								<ItemList>
+									<ItemRef Name="Stringy_C5" ID="{CB63D60A-23B2-40AE-98BC-96A5A6D1E293}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state2" ID="{A385849F-CA1B-4024-BA37-952E4374058B}"/>
+								<ItemList>
+									<ItemRef Name="DM-KAL 08" ID="{3A8F8F44-E27D-4782-B09F-52A5273C283F}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state4" ID="{BE034DAE-6EC5-42BE-8929-13DDFCBA3364}"/>
+								<ItemList>
+									<ItemRef Name="tbC3" ID="{61C3F4C6-D524-4DC4-9804-8C258AF7A204}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="None" ID="{08C961CB-F4EB-4E10-90BD-5824F7AAE869}"/>
+								<ItemList>
+									<ItemRef Name="DM-KAL 08" ID="{3A8F8F44-E27D-4782-B09F-52A5273C283F}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="keys" ID="{56D1740F-88D6-46FC-ACA2-69AFD8926338}" ShortID="874976582">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MidiBreakOnNoteOff" Type="bool" Value="True"/>
+						<Property Name="Priority" Type="int16">
+							<ValueList>
+								<Value>60</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="state1" ID="{B89F5C54-7278-4E57-88A9-FD845837E1EA}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+							<ObjectRef Name="New_Wwise_Delay" ID="{14633D53-FA26-4778-BF36-F745202E7A3E}" WorkUnitID="{A48D4453-9624-47E3-888A-805700848C88}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="keys" ID="{BC1DB33F-D1E9-45DF-B1A7-CF63DC4AC3DF}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="keys" ID="{E5EB3BAC-6012-4041-A760-8117E1628181}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="C4" ID="{E089DFDB-E694-4B5A-8DF9-435635D28B09}" ShortID="310924128">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="9"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="72"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C4" ID="{72D07D90-C599-432E-AF2E-9E646D608001}" ShortID="296610296">
+									<Language>SFX</Language>
+									<AudioFile>C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="C4" ID="{72D07D90-C599-432E-AF2E-9E646D608001}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="electrickey" ID="{88AE6B27-FE18-4C53-83D0-E3662A5A3D08}" ShortID="665779630">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="9"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="72"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="electrickey" ID="{D8160AAB-C64E-4651-B709-29FB0B5A8C00}" ShortID="1026318874">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.410526315789474"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.778947368421052"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>electrickey.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="electrickey" ID="{D8160AAB-C64E-4651-B709-29FB0B5A8C00}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="organ" ID="{2D3B7858-6552-48ED-9368-48616723C9FC}" ShortID="947355550">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="9"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>19</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="84"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="organ" ID="{B65D5EC0-5ED0-4F03-8F18-2F6390F86CB7}" ShortID="571246761">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.340350877192982"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.43157894736842"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.43157894736842"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>organ.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="organ" ID="{B65D5EC0-5ED0-4F03-8F18-2F6390F86CB7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="electrickey" ID="{88AE6B27-FE18-4C53-83D0-E3662A5A3D08}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="organ" ID="{2D3B7858-6552-48ED-9368-48616723C9FC}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="C4" ID="{E089DFDB-E694-4B5A-8DF9-435635D28B09}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="state3" ID="{E1BA2313-CAF0-4B61-960B-ED6B9CE5A4A6}"/>
+								<ItemList>
+									<ItemRef Name="organ" ID="{2D3B7858-6552-48ED-9368-48616723C9FC}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state1" ID="{B89F5C54-7278-4E57-88A9-FD845837E1EA}"/>
+								<ItemList>
+									<ItemRef Name="C4" ID="{E089DFDB-E694-4B5A-8DF9-435635D28B09}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="None" ID="{07EAA873-8E5C-4D1E-9148-CB4401ADEDFC}"/>
+								<ItemList>
+									<ItemRef Name="C4" ID="{E089DFDB-E694-4B5A-8DF9-435635D28B09}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state2" ID="{831B7B93-72A1-49D2-B48C-621B3EFAFD51}"/>
+								<ItemList>
+									<ItemRef Name="electrickey" ID="{88AE6B27-FE18-4C53-83D0-E3662A5A3D08}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="medium sounds_01" ID="{9B4C701D-A457-4B27-B787-165202051B6A}" ShortID="960084068">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="state1" ID="{B82FF8E1-C7BD-4CED-96B4-02DE07F0FB54}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="med2" ID="{A4E953E5-2319-440C-A9B8-245CD5317D58}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="mediumSounds_01" ID="{AACAACA3-6136-4DF9-BABA-BEC02B5FA111}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="C3b" ID="{3B847F00-CAD4-4446-BAD4-5EA8AE4DE343}" ShortID="69654798">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>41</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.05</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C3b" ID="{33710D16-8E1B-4E63-8FA7-B6D193630CFA}" ShortID="1018426192">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="4.04706548080353E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.736565917506243"/>
+										<Property Name="TrimBegin" Type="Real64" Value="5.66589167312495E-02"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.938919191546419"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>C3b.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="C3b" ID="{33710D16-8E1B-4E63-8FA7-B6D193630CFA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="JZ_GTR    D3" ID="{B91B79D6-8F7D-46DD-B9D2-495E89E266ED}" ShortID="160151811">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="50"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="JZ_GTR    D3" ID="{05E52D84-7A86-48DB-94D2-AF10E2084890}" ShortID="740801414">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.879855334538878"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.879855334538878"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>JZ.GTR    D3.WAV</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="JZ_GTR    D3" ID="{05E52D84-7A86-48DB-94D2-AF10E2084890}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PS_C4" ID="{E6A57511-0389-44A4-958C-197E2F4971B5}" ShortID="452730215">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>43</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>28</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PS_C4" ID="{7AE80C28-987B-4DF7-80F4-8BF7A63DF669}" ShortID="766742135">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="5.34647952007807E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.691223423667236"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.866893465041231"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>PS_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PS_C4" ID="{7AE80C28-987B-4DF7-80F4-8BF7A63DF669}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CelloFast1 C3" ID="{41E67001-FD4A-42A9-968C-D71CD1354204}" ShortID="321217213">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>33</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="84"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="CelloFast1 C3" ID="{8FB0928D-B945-47F4-B3FA-EAE6B71E2502}" ShortID="877177158">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.048975901391298"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.9752875314704"/>
+										<Property Name="TrimBegin" Type="Real64" Value="3.53714843381596E-02"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.14924506426303"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>CelloFast1 C3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="CelloFast1 C3" ID="{8FB0928D-B945-47F4-B3FA-EAE6B71E2502}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Solina_C 3" ID="{35569FAC-FC89-4ECA-9DD5-CDE4FBEFF863}" ShortID="875310484">
+							<PropertyList>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="med1" ID="{D994207B-6FE3-4453-8689-457E1E18429C}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Solina_C 3" ID="{A627895D-C1AA-4B4D-85E7-A4E585321CA5}" ShortID="306291840">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.63556783824641"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.838305933484505"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Solina_C 3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Solina_C 3" ID="{A627895D-C1AA-4B4D-85E7-A4E585321CA5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="C3b" ID="{3B847F00-CAD4-4446-BAD4-5EA8AE4DE343}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="CelloFast1 C3" ID="{41E67001-FD4A-42A9-968C-D71CD1354204}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="PS_C4" ID="{E6A57511-0389-44A4-958C-197E2F4971B5}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Solina_C 3" ID="{35569FAC-FC89-4ECA-9DD5-CDE4FBEFF863}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="JZ_GTR    D3" ID="{B91B79D6-8F7D-46DD-B9D2-495E89E266ED}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="state4" ID="{0B71EC20-F23B-421E-B43C-E71534FBAD99}"/>
+								<ItemList>
+									<ItemRef Name="C3b" ID="{3B847F00-CAD4-4446-BAD4-5EA8AE4DE343}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state5" ID="{546DA84B-AD12-4AE8-B97F-40C556FB0160}"/>
+								<ItemList>
+									<ItemRef Name="Solina_C 3" ID="{35569FAC-FC89-4ECA-9DD5-CDE4FBEFF863}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state2" ID="{5BCE6661-8F57-4541-AF8C-3520C3166B6A}"/>
+								<ItemList>
+									<ItemRef Name="PS_C4" ID="{E6A57511-0389-44A4-958C-197E2F4971B5}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="None" ID="{77CC2188-B0C8-4D55-AB48-D8BCDC2C4F10}"/>
+								<ItemList>
+									<ItemRef Name="C3b" ID="{3B847F00-CAD4-4446-BAD4-5EA8AE4DE343}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state1" ID="{B82FF8E1-C7BD-4CED-96B4-02DE07F0FB54}"/>
+								<ItemList>
+									<ItemRef Name="JZ_GTR    D3" ID="{B91B79D6-8F7D-46DD-B9D2-495E89E266ED}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state3" ID="{91EFFEFE-25D5-45B2-A3CF-AE5F153B85C3}"/>
+								<ItemList>
+									<ItemRef Name="CelloFast1 C3" ID="{41E67001-FD4A-42A9-968C-D71CD1354204}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" ShortID="320522335">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MidiBreakOnNoteOff" Type="bool" Value="True"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="state1" ID="{D4F9C1F9-3712-485D-B7FC-7C5D38830C40}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="long2" ID="{F7052D6D-7F5A-46EC-8E9C-000296A24DC6}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="longSounds_01" ID="{DA4AFA61-C943-4D6C-89F5-9EC98BA2A3B2}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="brass" ID="{EA206A15-3810-40BD-BE97-9C7430E2A3D6}" ShortID="404081436">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="14"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.06</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="72"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="brass" ID="{E8FBF8DD-8705-4117-B611-FAAF9DAD77A5}" ShortID="902988279">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.415389266817838"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.13858604341877"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>6.7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>brass.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="589098651"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="brass" ID="{E8FBF8DD-8705-4117-B611-FAAF9DAD77A5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Clarinet3_C3" ID="{7647075A-558C-4F31-943D-E308C773B3A2}" ShortID="423150566">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="14"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.06</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Clarinet3_C3" ID="{69F6335B-BC66-478A-874C-79078961C1BD}" ShortID="274963227">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="2.40035309181994"/>
+										<Property Name="TrimBegin" Type="Real64" Value="8.01164540560045E-02"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.48046954587595"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Clarinet3_C3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Clarinet3_C3" ID="{69F6335B-BC66-478A-874C-79078961C1BD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="P6 STRING C4" ID="{8D653BA5-9947-4F92-AA2A-82FB47346FE0}" ShortID="897665873">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="14"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="P6 STRING C4" ID="{9E91FFC9-D7E9-4441-8BE6-BE311C5D0D09}" ShortID="914988189">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.08962451767928E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.90738054961523"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="2.17924903535857E-02"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.53710466642797"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>1.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>P6 STRING C4.WAV</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="P6 STRING C4" ID="{9E91FFC9-D7E9-4441-8BE6-BE311C5D0D09}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="brass" ID="{EA206A15-3810-40BD-BE97-9C7430E2A3D6}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Clarinet3_C3" ID="{7647075A-558C-4F31-943D-E308C773B3A2}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="P6 STRING C4" ID="{8D653BA5-9947-4F92-AA2A-82FB47346FE0}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="None" ID="{76A1C052-6BEB-4F4A-9878-59F85E60DBA6}"/>
+								<ItemList>
+									<ItemRef Name="Clarinet3_C3" ID="{7647075A-558C-4F31-943D-E308C773B3A2}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state3" ID="{69C99290-1D64-4ADF-95FB-DD883DA0FD90}"/>
+								<ItemList>
+									<ItemRef Name="P6 STRING C4" ID="{8D653BA5-9947-4F92-AA2A-82FB47346FE0}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state2" ID="{B67A39B3-3EF3-4DB1-9B75-FF71D9DE5A6E}"/>
+								<ItemList>
+									<ItemRef Name="Clarinet3_C3" ID="{7647075A-558C-4F31-943D-E308C773B3A2}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state1" ID="{D4F9C1F9-3712-485D-B7FC-7C5D38830C40}"/>
+								<ItemList>
+									<ItemRef Name="brass" ID="{EA206A15-3810-40BD-BE97-9C7430E2A3D6}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<SwitchContainer Name="shortsounds_01" ID="{6DED24E6-7E58-4EF4-88FE-AB2C3F021C17}" ShortID="308522350">
+					<PropertyList>
+						<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="DefaultSwitchOrState">
+							<ObjectRef Name="None" ID="{6FA5B5DD-6664-48CC-88F7-944713C4C995}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="short2" ID="{960E8CBB-F63D-4961-84EA-A7128F9D4BC0}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+						<Reference Name="SwitchGroupOrStateGroup">
+							<ObjectRef Name="shortSounds_01" ID="{97093975-9F70-468F-B667-CE0F7223B7EE}" WorkUnitID="{365B7018-D54C-40FA-AE1A-3C513A1684E3}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Pizz1_C4" ID="{B658697A-176F-4D8E-BE09-36F8F1BC84BF}" ShortID="39611781">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="19"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pizz1_C4" ID="{E97637BB-B412-40FD-A901-BCF960100160}" ShortID="234476721">
+									<Language>SFX</Language>
+									<AudioFile>Pizz1_C4.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Pizz1_C4" ID="{E97637BB-B412-40FD-A901-BCF960100160}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CelloPizzi C3" ID="{A6382B7F-5B40-4628-A754-9711D153ED22}" ShortID="316525851">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="19"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="CelloPizzi C3" ID="{3CD924A1-B633-430C-9CA4-B28EED57E181}" ShortID="233493433">
+									<Language>SFX</Language>
+									<AudioFile>CelloPizzi C3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="CelloPizzi C3" ID="{3CD924A1-B633-430C-9CA4-B28EED57E181}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="XYLO  S" ID="{F4B59A55-A7FC-4E19-BFCE-8E14F96590BF}" ShortID="740430790">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="XYLO  S" ID="{010C8E94-28AB-454E-B915-B14A789EAF17}" ShortID="406752065">
+									<Language>SFX</Language>
+									<AudioFile>XYLO  S.WAV</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="XYLO  S" ID="{010C8E94-28AB-454E-B915-B14A789EAF17}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SHIAO  B4 -S" ID="{D4A403FD-0EB7-4219-B267-F9AA2DB46BDD}" ShortID="443394460">
+							<PropertyList>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="71"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SHIAO  B4 -S" ID="{377C4CCD-0258-4D7B-87CD-09FCD234F9E9}" ShortID="264398742">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.95648175606658E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.310027109038243"/>
+										<Property Name="TrimBegin" Type="Real64" Value="6.01994386482025E-03"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.316047052903063"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SHIAO  B4 -S.WAV</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SHIAO  B4 -S" ID="{377C4CCD-0258-4D7B-87CD-09FCD234F9E9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Groan_C5" ID="{FB778614-FA64-414B-B899-9EB5C38EBB9D}" ShortID="390906981">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Groan_C5" ID="{3B1CB183-A2D4-4C26-ABC7-EAACA5869A2B}" ShortID="171273500">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="4.25443554788707E-02"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.425443554788715"/>
+										<Property Name="TrimBegin" Type="Real64" Value="6.95600212079548"/>
+										<Property Name="TrimEnd" Type="Real64" Value="7.38144567558419"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Groan_C5.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Groan_C5" ID="{3B1CB183-A2D4-4C26-ABC7-EAACA5869A2B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<GroupingInfo>
+						<GroupingBehaviorList>
+							<GroupingBehavior>
+								<ItemRef Name="Groan_C5" ID="{FB778614-FA64-414B-B899-9EB5C38EBB9D}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="XYLO  S" ID="{F4B59A55-A7FC-4E19-BFCE-8E14F96590BF}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Pizz1_C4" ID="{B658697A-176F-4D8E-BE09-36F8F1BC84BF}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="CelloPizzi C3" ID="{A6382B7F-5B40-4628-A754-9711D153ED22}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="SHIAO  B4 -S" ID="{D4A403FD-0EB7-4219-B267-F9AA2DB46BDD}"/>
+							</GroupingBehavior>
+						</GroupingBehaviorList>
+						<GroupingList>
+							<Grouping>
+								<SwitchRef Name="state3" ID="{16B2F61D-C7C1-4AE7-8F13-9818577F53F9}"/>
+								<ItemList>
+									<ItemRef Name="CelloPizzi C3" ID="{A6382B7F-5B40-4628-A754-9711D153ED22}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state1" ID="{9EF6E839-A174-42DB-B23E-E403E98FFC39}"/>
+								<ItemList>
+									<ItemRef Name="Groan_C5" ID="{FB778614-FA64-414B-B899-9EB5C38EBB9D}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state5" ID="{BAA9D16F-18B5-4B4B-B54B-D95779351ACD}"/>
+								<ItemList>
+									<ItemRef Name="SHIAO  B4 -S" ID="{D4A403FD-0EB7-4219-B267-F9AA2DB46BDD}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="None" ID="{6FA5B5DD-6664-48CC-88F7-944713C4C995}"/>
+								<ItemList>
+									<ItemRef Name="XYLO  S" ID="{F4B59A55-A7FC-4E19-BFCE-8E14F96590BF}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state2" ID="{A2020AF1-F910-4057-9D24-F5AAEFDD6588}"/>
+								<ItemList>
+									<ItemRef Name="Pizz1_C4" ID="{B658697A-176F-4D8E-BE09-36F8F1BC84BF}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
+								<SwitchRef Name="state4" ID="{743FD0F8-6FFA-4CAA-A737-943A65F777DF}"/>
+								<ItemList>
+									<ItemRef Name="XYLO  S" ID="{F4B59A55-A7FC-4E19-BFCE-8E14F96590BF}"/>
+								</ItemList>
+							</Grouping>
+						</GroupingList>
+					</GroupingInfo>
+				</SwitchContainer>
+				<Folder Name="alt" ID="{7879C512-958D-40FA-B793-88C75FB46E08}" ShortID="271748614">
+					<ChildrenList>
+						<Sound Name="CelloFast1 C3" ID="{73881AAD-C836-4E09-AAF2-C7A12B0577B8}" ShortID="475160785">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="17"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>33</Value>
+									</ValueList>
+								</Property>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.08</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="84"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="CelloFast1 C3" ID="{F0E9BF14-84C6-4EE1-A4C1-43D23B6DB410}" ShortID="339684815">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.048975901391298"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.9752875314704"/>
+										<Property Name="TrimBegin" Type="Real64" Value="3.53714843381596E-02"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.14924506426303"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>CelloFast1 C3.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="877177158"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="CelloFast1 C3" ID="{F0E9BF14-84C6-4EE1-A4C1-43D23B6DB410}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="snare" ID="{59E18EE5-7AE1-486F-97CF-2479595C7B7A}" ShortID="1051810042">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="MidiKeyFilterMax" Type="int32" Value="59"/>
+								<Property Name="MidiKeyFilterMin" Type="int32" Value="42"/>
+								<Property Name="MidiTrackingRootNote" Type="int32" Value="42"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="opadrum" ID="{11255ECF-5764-4671-B239-C54973B330D6}" ShortID="938232484">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="2.91926535532839E-02"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.266626235786659"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.389235380710451"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>opadrum.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="1052789171"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="opadrum" ID="{11255ECF-5764-4671-B239-C54973B330D6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ClasGill_C4" ID="{876BDCEE-B49A-4A95-AF33-2E4B03BDE366}" ShortID="634267573">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="8"/>
+								<Property Name="EnableMidiNoteTracking" Type="bool" Value="True"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.01</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideMidiNoteTracking" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ClasGill_C4" ID="{1749FEAC-7CE5-4C47-928A-943A33936CCE}" ShortID="998899825">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.500941465767593"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.64531251243187"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>ClasGill_C4.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="553011465"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ClasGill_C4" ID="{1749FEAC-7CE5-4C47-928A-943A33936CCE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}" SchemaVersion="89">
+	<Busses>
+		<WorkUnit Name="Default Work Unit" ID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}" PersistMode="Standalone">
+			<ChildrenList>
+				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{FED2637E-22CF-4F1A-8607-F27974482E04}" WorkUnitID="{EA0501B9-EE9E-4B0A-8C35-35C98780739C}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Music" ID="{A05EFDA4-A452-499E-9ADC-98B235ED8052}">
+							<PropertyList>
+								<Property Name="MaxDuckVolume" Type="Real64" Value="-20"/>
+								<Property Name="RecoveryTime" Type="Real64" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="bass" ID="{74500028-D80C-4CD5-969C-92D39B51CF7F}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="keys" ID="{BC1DB33F-D1E9-45DF-B1A7-CF63DC4AC3DF}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="short1" ID="{1FEC4FD4-0BC3-40AD-BEDD-02621EF657DE}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="short2" ID="{960E8CBB-F63D-4961-84EA-A7128F9D4BC0}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="med1" ID="{D994207B-6FE3-4453-8689-457E1E18429C}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="med2" ID="{A4E953E5-2319-440C-A9B8-245CD5317D58}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="long1" ID="{164E6C62-5A05-4A37-8B80-0B1062072E88}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+											<ObjectRef Name="New_Wwise_Delay_01" ID="{E5FA6DE4-760C-4CD2-BDA3-8C77D7CC107B}" WorkUnitID="{A48D4453-9624-47E3-888A-805700848C88}"/>
+										</Reference>
+									</ReferenceList>
+								</Bus>
+								<Bus Name="long2" ID="{F7052D6D-7F5A-46EC-8E9C-000296A24DC6}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+											<ObjectRef Name="New_Wwise_Delay_01" ID="{E5FA6DE4-760C-4CD2-BDA3-8C77D7CC107B}" WorkUnitID="{A48D4453-9624-47E3-888A-805700848C88}"/>
+										</Reference>
+									</ReferenceList>
+								</Bus>
+								<Bus Name="drum" ID="{11434D83-C0C2-40FC-9234-967FDD023DB4}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="players" ID="{CC008FCC-0D3C-4ED8-81DC-4D469EA9D50C}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="dead" ID="{8D2BE976-97C5-42D6-AB51-211CE7BE2DF6}"/>
+										<State Name="" ID="{4A814F87-6754-4F12-8328-1C16C6ABDC64}" ShortID="82132335"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="alive" ID="{13C4E869-8B60-4EDA-8A5B-022C1CD6E022}"/>
+										<State Name="" ID="{D479DFE4-C47B-44F0-B739-45CF0FDA2504}" ShortID="731190893"/>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+						</Bus>
+						<Bus Name="SFX" ID="{2BBD7401-B6A4-4255-9BDD-0361C238F7CC}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="player" ID="{EC553ECB-A5F4-4D93-AC6A-7E778698661F}"/>
+								<Bus Name="rope" ID="{DDE1A104-33F5-41B1-B931-A279FF86FE10}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="steps" ID="{4C50DD6C-3C27-44AA-B4DF-68678FAABACA}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="jump" ID="{8924E22D-8388-4AF0-97F0-986F79B724E0}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+								<Bus Name="lava" ID="{CC452CED-9805-4EAB-B797-BDA44C1D40FD}"/>
+								<Bus Name="lasers" ID="{F6287F23-79A1-4318-BED4-6935D8895145}"/>
+							</ChildrenList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Music" ID="{A05EFDA4-A452-499E-9ADC-98B235ED8052}"/>
+									<DuckingParam>
+										<Volume>-2</Volume>
+										<FadeInTime>0.100000001490116</FadeInTime>
+										<FadeOutTime>0</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
+						</Bus>
+						<Bus Name="altBus" ID="{3BAE65AA-4A91-4040-8579-2AFA0C9A596E}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0"/>
+							</PropertyList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Music" ID="{A05EFDA4-A452-499E-9ADC-98B235ED8052}"/>
+									<DuckingParam>
+										<Volume>-96</Volume>
+										<FadeInTime>0.5</FadeInTime>
+										<FadeOutTime>0.300000011920929</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
+						</Bus>
+					</ChildrenList>
+				</Bus>
+				<Bus Name="Motion Factory Bus" ID="{2AF9B9C6-6EF1-46E9-B5F2-E30C9E602C74}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="Default_Motion_Device" ID="{01AE9C1A-744A-4A4B-859A-D3C040E363ED}" WorkUnitID="{EA0501B9-EE9E-4B0A-8C35-35C98780739C}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
+			</ChildrenList>
+		</WorkUnit>
+	</Busses>
+</WwiseDocument>

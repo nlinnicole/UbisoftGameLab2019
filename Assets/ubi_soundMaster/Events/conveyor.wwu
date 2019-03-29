@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{666BBCC5-A5FA-4E39-BFC4-864F26332F74}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="conveyor" ID="{666BBCC5-A5FA-4E39-BFC4-864F26332F74}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="startConveyor" ID="{E807CE5E-93A9-4537-AEAE-422DCBB762ED}">
+					<ChildrenList>
+						<Action Name="" ID="{D2B9D589-4E0E-4659-9860-E38FAB22D38B}" ShortID="554072271">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="slidingLoop_positionned" ID="{CF26576E-367B-43C8-B4A0-662C9B2D054A}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopConveyor" ID="{35444E07-236E-4932-908F-88A92AFC343F}">
+					<ChildrenList>
+						<Action Name="" ID="{2A97DDAD-B500-4FB2-AB0E-473A1A062540}" ShortID="652170586">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="slidingLoop_positionned" ID="{CF26576E-367B-43C8-B4A0-662C9B2D054A}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

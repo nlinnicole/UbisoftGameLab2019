@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C731DCAF-D365-4F6E-83F1-35CDBF441CD2}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="rope" ID="{C731DCAF-D365-4F6E-83F1-35CDBF441CD2}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="ropeNotBroken" ID="{52CCDCBC-07C0-489B-BD6D-61B6776BE624}">
+					<ChildrenList>
+						<Action Name="" ID="{EA795237-C844-4065-A974-C89BA9BAAF6D}" ShortID="493192937">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="brokenrope" ID="{33E8F479-2DFB-4B00-8DA9-7B91DA20A108}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{2B35C9FA-CF34-465C-8425-428137A30F65}" ShortID="842540216">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="breathfx1" ID="{C1CD1F99-69CA-44C2-8C5C-56AD2F4490DE}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ropeBroken" ID="{EE67F29F-E3CA-4E4D-8567-03B0F36A4543}">
+					<ChildrenList>
+						<Action Name="" ID="{B23BDF9B-5731-44AC-A646-E8F68076DE6A}" ShortID="466447254">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="brokenrope" ID="{33E8F479-2DFB-4B00-8DA9-7B91DA20A108}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{E4184C27-D39C-4D83-9582-89392EB38080}" ShortID="515687229">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="breathfx1" ID="{C1CD1F99-69CA-44C2-8C5C-56AD2F4490DE}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playerDead" ID="{F833F813-13C6-4E18-9E57-4926BB1E8CD7}">
+					<ChildrenList>
+						<Action Name="" ID="{1CAA848D-A29A-4C82-B453-CD952B5B7E7D}" ShortID="603899619">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="35"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="deathTrigger" ID="{59C0F6CE-865C-4C0E-9385-B7CF30778E4A}" WorkUnitID="{B6674968-9429-48A4-A50C-5905F5BE1D69}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

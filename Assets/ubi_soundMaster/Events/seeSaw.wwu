@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3B6084B8-6235-485E-8733-9532F25304B3}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="seeSaw" ID="{3B6084B8-6235-485E-8733-9532F25304B3}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="startRotate" ID="{3873AC70-99F6-4863-92C2-ED99452ABFE0}">
+					<ChildrenList>
+						<Action Name="" ID="{A00B9D6A-3E55-47B2-82A3-62E02297AAA7}" ShortID="154392085">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="seesaw" ID="{4FBCE2A7-2CB7-4F41-B8D3-C3C79FC453CF}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopRotate" ID="{8B0BDB93-7D36-4B87-83AB-D8933CCE7835}">
+					<ChildrenList>
+						<Action Name="" ID="{F7E0D23A-ABE8-47BE-A7EA-5F3384F30224}" ShortID="97935129">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="seesaw" ID="{4FBCE2A7-2CB7-4F41-B8D3-C3C79FC453CF}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

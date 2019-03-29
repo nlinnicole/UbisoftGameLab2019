@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5D195C01-7AD3-40DA-984F-7041AC440461}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="DeathManager" ID="{5D195C01-7AD3-40DA-984F-7041AC440461}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playersDead" ID="{EB48A553-AA33-4FF6-846B-26F4FC467B89}">
+					<ChildrenList>
+						<Action Name="" ID="{CC6F3534-9542-4CD3-BCF2-3A7E59248CF6}" ShortID="425575481">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="35"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="deathTrigger" ID="{59C0F6CE-865C-4C0E-9385-B7CF30778E4A}" WorkUnitID="{B6674968-9429-48A4-A50C-5905F5BE1D69}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

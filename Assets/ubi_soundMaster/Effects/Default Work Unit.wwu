@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A48D4453-9624-47E3-888A-805700848C88}" SchemaVersion="89">
+	<Effects>
+		<WorkUnit Name="Default Work Unit" ID="{A48D4453-9624-47E3-888A-805700848C88}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="New_Wwise_Delay" ID="{14633D53-FA26-4778-BF36-F745202E7A3E}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+					<PropertyList>
+						<Property Name="DelayTime" Type="Real32" Value="0.11"/>
+						<Property Name="Feedback" Type="Real32" Value="37"/>
+						<Property Name="WetDryMix" Type="Real32" Value="24"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Delay_01" ID="{E5FA6DE4-760C-4CD2-BDA3-8C77D7CC107B}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+					<PropertyList>
+						<Property Name="DelayTime" Type="Real32" Value="0.32"/>
+						<Property Name="Feedback" Type="Real32" Value="61"/>
+						<Property Name="WetDryMix" Type="Real32" Value="21.5"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="conveyor" ID="{EA947847-DC8B-4559-B341-294FE3A0D1F4}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand1" Type="Real32" Value="85"/>
+						<Property Name="FrequencyBand2" Type="Real32" Value="2507"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="993"/>
+						<Property Name="GainBand1" Type="Real32" Value="18"/>
+						<Property Name="GainBand2" Type="Real32" Value="-5.5"/>
+						<Property Name="GainBand3" Type="Real32" Value="7.5"/>
+						<Property Name="OutputLevel" Type="Real32" Value="-1"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="dedPitch" ID="{22FAB134-940D-4F9F-908B-41751209972C}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="DelayTime" Type="Real32" Value="30"/>
+						<Property Name="FilterFrequency" Type="Real32" Value="45"/>
+						<Property Name="FilterType" Type="int32" Value="6"/>
+						<Property Name="Input" Type="int32" Value="1"/>
+						<Property Name="Pitch" Type="Real32" Value="-2200"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Delay_02" ID="{83EB7BF1-7E31-43D2-A54F-D88BE75695D5}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+					<PropertyList>
+						<Property Name="Feedback" Type="Real32" Value="70"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="ACIDsPLASH" ID="{E71EB526-62E4-411B-B3B5-1BA1BE17D003}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+					<PropertyList>
+						<Property Name="DelayTime" Type="Real32" Value="0.13"/>
+						<Property Name="Feedback" Type="Real32" Value="63.5"/>
+						<Property Name="WetDryMix" Type="Real32" Value="56.5"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
+	</Effects>
+</WwiseDocument>

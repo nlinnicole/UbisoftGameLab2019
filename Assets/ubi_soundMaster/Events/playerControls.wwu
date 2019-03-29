@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DE84D81D-DF1B-4647-AC81-C06856FDD155}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="playerControls" ID="{DE84D81D-DF1B-4647-AC81-C06856FDD155}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="itemPickup" ID="{5534A3CB-AFD2-4DFD-830A-3BC8594BFD34}">
+					<ChildrenList>
+						<Action Name="" ID="{A2CEF519-3961-471C-A4D9-0CEDCAC755D0}" ShortID="854072328">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="snareSequence" ID="{9275C17A-45B3-4B5A-9404-641B7D79B152}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="landJump" ID="{CD965AEE-C704-4CDA-B806-6D36B286E934}">
+					<ChildrenList>
+						<Action Name="" ID="{F04A0212-9075-4A40-B5C0-579EB363C01B}" ShortID="905159500">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Water_010" ID="{C3B71BC2-C758-44A3-9A74-D50CAF809FF2}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8F858DA7-A431-404A-A8BA-E23725C2B914}" ShortID="366565770">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="stepsOn" ID="{45417FA9-C9DE-4CC0-9F8F-7A2693CAB466}" WorkUnitID="{B7594CAB-215D-483A-B6FA-DA0EF7AEB0E0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="rollStop" ID="{9CE4A751-B134-4693-8F46-B10A9CA33927}">
+					<ChildrenList>
+						<Action Name="" ID="{DBF9A58E-F299-430F-9B55-A2FAF8A7B007}" ShortID="647459819">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TTribe_D#2" ID="{1E51C3BF-2986-438F-BA22-094E44C1FC2F}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="rollStart" ID="{2FAE96D5-AF6D-4759-AC7C-F250460297DA}">
+					<ChildrenList>
+						<Action Name="" ID="{0A3D5DC1-138E-4826-AEA1-EE3E1B10F5D9}" ShortID="389837358">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TTribe_C1" ID="{FF6149CD-019C-486F-9CF1-B4835363E43C}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="startJump" ID="{44B491F0-FB95-4E38-914A-2D83D67E006B}">
+					<ChildrenList>
+						<Action Name="" ID="{B2AF0A0C-DD47-4F62-91E4-A6ADB1DD5B73}" ShortID="379150434">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="randomJump" ID="{F894D84F-04F0-4394-8A3E-5CF573455F31}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{4D081114-4CF4-428E-A875-94FFF68259BF}" ShortID="1040857919">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="noSteps" ID="{30420297-EE32-4484-88B3-5811D8907121}" WorkUnitID="{B7594CAB-215D-483A-B6FA-DA0EF7AEB0E0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopSteps" ID="{AD7D9027-3C0E-4071-8FBF-6381530AC743}">
+					<ChildrenList>
+						<Action Name="" ID="{B4C9E3BD-100E-4DFA-A119-7EEE1CB96FAD}" ShortID="562431169">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{8CDAC01C-8BDE-4D4B-9AD6-A5903D276173}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="0.4"/>
+													<Property Name="Min" Type="Real64" Value="-0.2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="foosteps" ID="{C8360A32-9554-4FE4-9193-30A6EED85A9F}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="startSteps" ID="{FC138D15-D319-4C6F-8BDC-D2E591B17A4A}">
+					<ChildrenList>
+						<Action Name="" ID="{9B6AE157-6FB0-4036-B094-A8F2DAB726E2}" ShortID="606645288">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="foosteps" ID="{C8360A32-9554-4FE4-9193-30A6EED85A9F}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{2211805C-5950-4162-AE13-3FC89D10B676}" ShortID="424489460">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="foosteps" ID="{C8360A32-9554-4FE4-9193-30A6EED85A9F}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="switchLava" ID="{D69ECC17-055E-41C3-BD7D-C77801BE737D}">
+					<ChildrenList>
+						<Action Name="" ID="{089B1643-5307-4790-BB7F-3109BEA5A7B7}" ShortID="432901542">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="movingGroundSounds" ID="{4D1E686B-628D-46C4-A754-9E69AF85D574}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1E172041-02EC-444C-A87C-EE0AF400DECB}" ShortID="30014665">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="movingGroundSounds" ID="{4D1E686B-628D-46C4-A754-9E69AF85D574}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopLava" ID="{9A30F6CF-DEF0-428A-983E-71C862A4C1C1}">
+					<ChildrenList>
+						<Action Name="" ID="{6A11CB1F-4804-41BE-BA80-31F0AB42522B}" ShortID="561414556">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="movingGroundSounds" ID="{4D1E686B-628D-46C4-A754-9E69AF85D574}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopAll" ID="{5FDBE90B-C9CA-47BE-A4A3-7B02BE2A8478}">
+					<ChildrenList>
+						<Action Name="" ID="{A0A56B40-D62D-46F5-9F40-6FF3E68A7D8E}" ShortID="539486132">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gruntP1" ID="{4295D195-E089-476D-A543-4ADF0484AED2}">
+					<ChildrenList>
+						<Action Name="" ID="{650D68C8-6319-4757-A76A-709AE33F5B49}" ShortID="545973080">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="p1Grunts" ID="{BDF77A68-12FA-4537-8910-15F9974AF055}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gruntP2" ID="{AE6E8760-2332-4A10-9EF1-F924F6728261}">
+					<ChildrenList>
+						<Action Name="" ID="{E588A738-8829-4B20-AA99-A1C1A2E9C44A}" ShortID="597248590">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="p2Grunts" ID="{7D5D9DB7-748A-47C5-90E7-C6647942F8A2}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="getGem" ID="{6ADD579B-6955-4014-9F3B-30D2CB20F661}">
+					<ChildrenList>
+						<Action Name="" ID="{89BF0F45-04E7-4879-9D01-0443FAA64F78}" ShortID="609355118">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DM-CHI 02" ID="{C0A078F6-07DB-4723-A01C-8D2AFD38459B}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="splash" ID="{3061EB3A-D033-4845-9993-C1C2E332381F}">
+					<ChildrenList>
+						<Action Name="" ID="{6D2ACA0F-6694-4001-8BCA-FFEE9EA025ED}" ShortID="1070784064">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="drips" ID="{7351F667-F7BB-4170-8CA8-AEC9399A14EF}" WorkUnitID="{94656D9C-4583-4180-B5E0-2CACFAE4E540}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

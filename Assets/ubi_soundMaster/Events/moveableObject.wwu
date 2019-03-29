@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{951B36F2-F393-40A2-9E07-8570DB69FDC8}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="moveableObject" ID="{951B36F2-F393-40A2-9E07-8570DB69FDC8}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="startDrag" ID="{D9805419-4CF1-4543-9327-23D9D5F22B6B}">
+					<ChildrenList>
+						<Action Name="" ID="{CE6476F9-F064-4908-BC65-CC109FF0CB30}" ShortID="950833736">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="slidingLoop" ID="{00209D33-E4F4-4DB0-A0BF-E1B93D645F0D}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopDrag" ID="{45414DEB-2A8C-4FC2-999D-2D5E9919767E}">
+					<ChildrenList>
+						<Action Name="" ID="{DA163ABD-A6E2-4507-BF2F-F251E10266A8}" ShortID="556097124">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="slidingLoop" ID="{00209D33-E4F4-4DB0-A0BF-E1B93D645F0D}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

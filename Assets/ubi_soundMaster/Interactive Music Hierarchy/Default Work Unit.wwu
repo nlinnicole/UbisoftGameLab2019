@@ -1,0 +1,3726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{DA02F336-9490-46ED-BFDD-2367381751CA}" SchemaVersion="89">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{DA02F336-9490-46ED-BFDD-2367381751CA}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSwitchContainer Name="BGM" ID="{9105179F-021F-429D-8EB3-9054848FFB22}" ShortID="649399133">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicPlaylistContainer Name="bgm3" ID="{326EA027-0923-408D-B42B-A9F56EC0A9F5}" ShortID="949772667">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="playlist" ID="{9CC4DB21-FFC3-47E4-890B-0DE538C9588B}" ShortID="363133005">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="322426.888992537"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="225"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="c arp" ID="{1C92CF22-82BE-4228-8DF1-E53C72135516}" ShortID="871422881">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="shortsounds_01" ID="{6DED24E6-7E58-4EF4-88FE-AB2C3F021C17}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{E6D04115-CBCE-485E-B4CD-E2827F62F0F6}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{767522D4-5755-428A-913E-1BF4A04B04AC}">
+													<ClipList>
+														<MusicClipMidi Name="c arp" ID="{FC7F8AAB-9CB1-498B-8A33-C33DE7A0B99A}" ShortID="26204641">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="153583.662923295"/>
+																<Property Name="MidiFileName" Type="string" Value="c arp.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="c bass" ID="{9747755E-D052-4FB9-B8C9-0E95C7A98FDD}" ShortID="911849560">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{93FB173F-8CEE-4102-8092-E7D2F8C7EC40}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{8F2DD935-0084-4CC2-8EFD-2B722EA00098}">
+													<ClipList>
+														<MusicClipMidi Name="c bass" ID="{6DBE7FEA-D3AE-428D-A0DA-0811491B5A9C}" ShortID="722881824">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="153739.542134588"/>
+																<Property Name="MidiFileName" Type="string" Value="c bass.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="c brass" ID="{CE42CA08-C9B8-4A9C-9DBE-E78E14C95481}" ShortID="299384271">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds" ID="{C89095B4-6291-4577-8F55-6C0498819C2B}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{C6090F76-5F32-435F-BA89-5E918A4A56BA}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{FDAB4638-F3DD-4338-8ACF-9BB2D89F2835}">
+													<ClipList>
+														<MusicClipMidi Name="c brass" ID="{195D7B75-21FB-4458-8337-C4E80F754582}" ShortID="264491752">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="152959.251133117"/>
+																<Property Name="MidiFileName" Type="string" Value="c brass.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="c choir" ID="{F9619F7D-A0C0-4710-B43D-54AAAE4132A0}" ShortID="629017292">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{6E7C3B06-AB03-422A-8671-69B4E760F907}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{A21F34EE-717A-480E-B19E-BA757779C195}">
+													<ClipList>
+														<MusicClipMidi Name="c choir" ID="{23138FD0-848C-4F38-A64C-25169F91299B}" ShortID="895711248">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="102356.30719709"/>
+																<Property Name="MidiFileName" Type="string" Value="c choir.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="c cello" ID="{30AADB47-7A80-4C67-832E-FF7A6A3D6806}" ShortID="819504086">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="shortsounds" ID="{605612B4-5745-4088-9806-93A975FF89D4}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{0EA46FE5-4F63-48A6-95A4-A630B869FC37}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{792340D3-B6F1-44F2-AA58-399D1189C053}">
+													<ClipList>
+														<MusicClipMidi Name="c cello" ID="{FE1FCDD9-43EE-4E3F-9DF9-86A5CBD2E28E}" ShortID="478666785">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="102438.754005601"/>
+																<Property Name="MidiFileName" Type="string" Value="c cello.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="c drum" ID="{0A2F77A7-5B49-4281-9A39-6C80BA1190F0}" ShortID="1030918284">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{35725287-BA0D-4F35-B899-B48DF9269384}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{35F82615-9307-4CA8-AD65-40E5E7DA855A}">
+													<ClipList>
+														<MusicClipMidi Name="c drum" ID="{88407404-374A-4DBA-A8A0-FB84514C1EBD}" ShortID="825070840">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="136487.189295303"/>
+																<Property Name="MidiFileName" Type="string" Value="c drum.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="opaC piano" ID="{9BA6487B-1D17-4CEB-B5C3-1C9DC2EF0FDB}" ShortID="464926540">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="keys" ID="{56D1740F-88D6-46FC-ACA2-69AFD8926338}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{E619BFB7-CD7D-439A-B4C7-175D16047CB7}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{5DF526AC-F60D-46F8-9E8D-54FD9A519437}">
+													<ClipList>
+														<MusicClipMidi Name="opaC piano" ID="{81FDD467-35A1-472A-8D0F-2FB3133986E7}" ShortID="505436013">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="119332.652501516"/>
+																<Property Name="MidiFileName" Type="string" Value="opaC piano.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{5225A46E-6406-4574-AC53-83593EC5D404}"/>
+										<MusicCue Name="Exit Cue" ID="{E09FB682-3B7E-4C95-8F31-DC0457EEACF5}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="153990.718554231"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{9EB4796E-3E9C-43B4-AF88-9BBFE9466440}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="16987.7883310719"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{7E1CDCC8-9AC7-40D2-BCEE-1EB185C76566}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="51207.5983717775"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{6147FCCF-C303-4688-B5EA-4BEFF48F3477}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="68059.7014925373"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{FEDE37C6-A39B-4E81-B8D4-6BADCFC01258}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="85074.6268656717"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{11784582-3B37-448D-B75F-E255CDE80479}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="102252.37449118"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{AB17E15D-71FC-47AC-ACC1-C2C7EDDDAEB5}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="118941.655359566"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{0842FC92-52C5-4CC6-A5CD-E5660BA01094}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{1A264907-3E88-4E82-9B51-B56CE87B2B3A}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{5DBB1B4A-C86F-4380-B859-D17D9E30A573}" ShortID="319473600">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{6377059F-A9B0-4900-825C-DB721616BFDD}" ShortID="51205581">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="playlist" ID="{9CC4DB21-FFC3-47E4-890B-0DE538C9588B}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="deathTheme_01" ID="{77C064F1-FB52-4B4D-B246-C0B497E8E3A8}" ShortID="792057350">
+							<PropertyList>
+								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+								<Property Name="Tempo" Type="Real64" Value="167"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="playlist" ID="{70014C2E-5562-4568-BFC9-93557AF7EBB6}" ShortID="1030482625">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="160000"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="arp" ID="{9AA7639D-9917-4698-AB31-446B7C2EBB79}" ShortID="660925153">
+											<PropertyList>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="shortsounds_01" ID="{6DED24E6-7E58-4EF4-88FE-AB2C3F021C17}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{95A28546-6CD2-47B6-B13D-84F88B0E0C5F}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{5D93231C-FFF3-4A3C-8203-4803507F4BFA}">
+													<ClipList>
+														<MusicClipMidi Name="arp" ID="{2FB6A4C3-D04F-4DB4-B97B-0DB187D7E72A}" ShortID="326538159">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="68982.0359281437"/>
+																<Property Name="MidiFileName" Type="string" Value="arp.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="bass" ID="{D7FFDD51-8623-45D5-8D0C-B6BEF3C861FD}" ShortID="939461972">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{4469B0C7-E456-4DCD-BB88-53FF1E7C5D49}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{E3BB1EF1-E2DF-4A89-8A08-0F170288B4FB}">
+													<ClipList>
+														<MusicClipMidi Name="bass" ID="{B4E12769-1967-4936-84E1-A0514F0D5BAE}" ShortID="49588853">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="91976.0479041916"/>
+																<Property Name="MidiFileName" Type="string" Value="bass.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="cello" ID="{99653840-257A-4B65-8B3A-E4AC721255EF}" ShortID="886558436">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{F4A3F992-C5BE-4F2B-9368-FED6F0787FB1}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{94E9B810-E9D9-4BA6-BA8B-35001CA13B65}">
+													<ClipList>
+														<MusicClipMidi Name="cello" ID="{22935E8D-2EEC-4934-AA52-94DA06ABF254}" ShortID="960099035">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="103473.053892216"/>
+																<Property Name="MidiFileName" Type="string" Value="cello.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="choir" ID="{935ED9CD-D26D-4F1D-9108-F9634BD4E688}" ShortID="642310291">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="shortsounds" ID="{605612B4-5745-4088-9806-93A975FF89D4}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{D9BF5BCC-B562-4B63-AF2B-D1975597788C}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{DB9C2D2C-393B-4E85-9F06-321F60866029}">
+													<ClipList>
+														<MusicClipMidi Name="choir" ID="{768CBB9E-9DA6-4C35-B8F0-32FAABA0CE75}" ShortID="126165856">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="91976.0479041916"/>
+																<Property Name="MidiFileName" Type="string" Value="choir.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="drum" ID="{2526E3E3-1386-41B2-9E2C-7A968E6815E0}" ShortID="1023029080">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{685315FC-8F0F-473B-B9AB-C257E243D6D9}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{C011C1F2-ECF7-41E8-B466-C45F0003AEC8}">
+													<ClipList>
+														<MusicClipMidi Name="drum" ID="{369D18C2-CC09-4E9D-B96A-D0FF8EB76483}" ShortID="4886245">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="80479.0419161677"/>
+																<Property Name="MidiFileName" Type="string" Value="drum.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="horns" ID="{7649E73B-1893-4740-B57D-8D726EB0E6EC}" ShortID="863515747">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds" ID="{C89095B4-6291-4577-8F55-6C0498819C2B}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{2499D22B-6BCF-4DAE-B169-F6F387422690}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{EF15E25C-CCE7-4AFA-A180-095C5F8B9A28}">
+													<ClipList>
+														<MusicClipMidi Name="horns" ID="{3D9026F2-F845-4BE6-8DF8-153190786583}" ShortID="712353690">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="91706.5868263473"/>
+																<Property Name="MidiFileName" Type="string" Value="horns.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="bells2" ID="{28F8CA05-A6CC-49A9-8222-C16608EAEB8F}" ShortID="347960459">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="medium sounds_01" ID="{9B4C701D-A457-4B27-B787-165202051B6A}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{7C0CC232-128E-4ED7-8B7F-E4C148232A92}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{B08BC995-7C24-4BE0-AF3A-0536982C4077}">
+													<ClipList>
+														<MusicClipMidi Name="bells2" ID="{F2754272-7D97-456D-A1EE-BD48B5197632}" ShortID="809695805">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="103473.053892216"/>
+																<Property Name="MidiFileName" Type="string" Value="bells2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{83EEBF8F-EAB7-4811-803F-46E28D7E53F5}"/>
+										<MusicCue Name="Exit Cue" ID="{E778CCB6-056B-4F5A-83BD-5E1B35F496F2}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="104005.627891527"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{9AD61176-A537-44B8-A2D8-59D17BF9A254}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="5993.53785943219"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{2AF68BC7-F5A1-44F4-9559-05E1D8A063FB}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="12024.5223281909"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{5CDAA964-F5F4-4F7B-ACB2-E1BB71C43632}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="22983.8966577601"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{17B19A21-8F90-411E-8C4D-5954CBB39A78}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="46001.0791904771"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{3A35C13C-6C2D-4BB7-884E-D418C135B99E}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="68920.4844655082"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{913C63BA-EDBD-4104-8048-A1E1B8199C9D}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="80048.3685370468"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{FEB56AD6-72C0-45BD-B1FA-D42D2901023E}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="91706.5868263473"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{14BDFA3C-8147-4F71-8004-EEF12CD10A66}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{DEF71B3F-6E15-4F05-99B3-2618DC788811}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{87EF11AA-432F-4871-A43C-3BD262AC00BF}" ShortID="869096540">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{70946643-650C-4347-8216-A6CE9B79F26B}" ShortID="952852723">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="playlist" ID="{70014C2E-5562-4568-BFC9-93557AF7EBB6}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="stressTheme_01" ID="{EEAE72E4-29DB-4660-908E-E1E087B735CA}" ShortID="289072509">
+							<PropertyList>
+								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+								<Property Name="Tempo" Type="Real64" Value="167"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="playlist" ID="{69536647-69D9-44D4-BC48-E9989FEE686F}" ShortID="381341721">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="212425.380134281"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="choir2" ID="{F986895D-056E-4640-8D84-2CAA7D099DC6}" ShortID="777269170">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{E1DEA4AA-95C1-48EA-BD19-86893C4F18AC}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{026FEB76-4BE7-4367-B431-860C581D0E8C}">
+													<ClipList>
+														<MusicClipMidi Name="choir2" ID="{44C4A864-F63A-445E-830D-A0B1C4036CC6}" ShortID="921263290">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="114771.706586826"/>
+																<Property Name="MidiFileName" Type="string" Value="choir2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="bass2" ID="{E39FA780-F0BB-46C6-A6F9-017AC27C719F}" ShortID="370908837">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{FC79E0FB-98E9-49FF-899A-973E801229B3}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{55D3E37E-4D88-45F0-88EC-46CF153B6244}">
+													<ClipList>
+														<MusicClipMidi Name="bass2" ID="{2B285C49-453E-44F2-97F2-9EBB49290E04}" ShortID="608375109">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="137155.688622755"/>
+																<Property Name="MidiFileName" Type="string" Value="bass2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="cello2" ID="{B8E75163-20AB-42B5-8B79-C316229DE1C4}" ShortID="913141038">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="medium sounds_01" ID="{9B4C701D-A457-4B27-B787-165202051B6A}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{6F93362B-E20B-4717-A4A5-BBDC6395ACB2}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{A6C8D4E6-27A6-4E5F-84AC-49118B2A96F6}">
+													<ClipList>
+														<MusicClipMidi Name="cello2" ID="{F41E317A-4B84-43D4-ADE6-3AE1122CB9A1}" ShortID="313050362">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="134371.25748503"/>
+																<Property Name="MidiFileName" Type="string" Value="cello2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="piano2" ID="{09E98839-EC95-4886-9641-4CAFD3227828}" ShortID="88560901">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="keys" ID="{56D1740F-88D6-46FC-ACA2-69AFD8926338}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{5EACB086-642A-4586-A59E-14DB8EB93DD5}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{DAD70571-97F5-44B2-9061-04FE89E9F9AF}">
+													<ClipList>
+														<MusicClipMidi Name="piano2" ID="{4C965971-BFF0-499F-AFA3-0771B654D343}" ShortID="414584776">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="125658.682634731"/>
+																<Property Name="MidiFileName" Type="string" Value="piano2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="brass2" ID="{72F01248-44B8-4DAE-BC57-90A937EEDA9B}" ShortID="337233331">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds" ID="{C89095B4-6291-4577-8F55-6C0498819C2B}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{D9DB0EFF-2700-479D-B1F3-CA12B66F4374}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{01C36D2B-44CC-4D4C-A08D-DAB239E938C6}">
+													<ClipList>
+														<MusicClipMidi Name="brass22" ID="{182D2A43-E493-4BA1-8FD0-EBF561A196C8}" ShortID="314715522">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="91257.4850299401"/>
+																<Property Name="MidiFileName" Type="string" Value="brass22.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="drum2" ID="{D32768E1-3AB3-4308-A9B5-247BB8E6B161}" ShortID="378651436">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{9F0515DA-5702-4AE9-8DDC-D94900AB3780}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{4F0396CC-2168-42E3-8021-20A0BBC0BC53}">
+													<ClipList>
+														<MusicClipMidi Name="drum2" ID="{842FEEBE-4063-4803-942F-C75D1C68A103}" ShortID="1038816988">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="137964.071856287"/>
+																<Property Name="MidiFileName" Type="string" Value="drum2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="arp2" ID="{5DD0E5EA-6DFD-42E7-9D96-3AF2C7703205}" ShortID="50190455">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="shortsounds" ID="{605612B4-5745-4088-9806-93A975FF89D4}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{709AF2F0-866D-4519-96B7-1A03C80783F1}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{7F2E38C8-7134-4AA4-8592-7A53BFEABD38}">
+													<ClipList>
+														<MusicClipMidi Name="arp2" ID="{4147C109-5DD6-4556-B628-194DA2638A90}" ShortID="59419471">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="137829.341317365"/>
+																<Property Name="MidiFileName" Type="string" Value="arp2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{D9DE0ECA-8120-4205-B197-AC671989485C}"/>
+										<MusicCue Name="Exit Cue" ID="{9AD55607-6A1D-478E-9B27-B297DF50383C}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="137964.071856287"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{884CEFEF-CA6F-464B-944D-BC1DDE909404}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="11992.2766368264"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{BDDB3901-CDC5-496C-9F3A-5E4548A30BE4}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="22748.8151658768"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{14060DB1-8697-4422-9160-302894BF69EC}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="45020.1860628401"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{51D2AE30-02B9-404E-943D-64CE5C970295}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="57049.9093089931"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{1E0BC952-1DD2-4EAD-BC25-CD8BCFB94848}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="69004.7393364929"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{EFECAEA9-63FC-447C-84D1-1FBFB0494C8E}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="91968.8725059974"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{D8FFA2D1-3122-46A8-BCAE-E1ACD377E47F}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="104007.957404482"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{5A8D1B72-79EB-4BE1-9A28-1BEB7C67A2F6}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="114771.706586826"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{97BA3618-3D7D-49ED-A983-E22D80B281FB}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="125658.682634731"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{AF28F60E-CA9D-48FC-9CE5-D7FBA225C721}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="134218.009478673"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{53276BB2-AE5E-4753-B92A-DD8C6A89D009}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="137251.184834123"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{68A27563-A291-42FD-9FDF-AADB0CA517A4}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{4F839D20-5E03-47CD-8E24-D5611053A30F}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{A6A834DD-FBE6-4EEC-9449-F5D7276CCAD2}" ShortID="359569264">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{EB75D10E-1A0E-4EDB-A024-721B51AE646B}" ShortID="1013524927">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="playlist" ID="{69536647-69D9-44D4-BC48-E9989FEE686F}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<Folder Name="extra beat" ID="{AD08EDED-8604-4273-A2C9-F87858BE7D03}" ShortID="237107811">
+							<ChildrenList>
+								<MusicPlaylistContainer Name="bgmRoom0" ID="{4C8DDDF5-F1C1-4E5D-B2D7-1B59157118E2}" ShortID="42080382">
+									<PropertyList>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="167"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicSegment Name="playlist" ID="{69791620-CF33-4F38-941B-7EA1A0483F7B}" ShortID="869200365">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="160000"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="d bass" ID="{4183E76F-9E6B-4747-851C-705A95EBD568}" ShortID="470771486">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{60D14D48-04A1-49AA-A52C-69DAB58788D3}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{ECBF06B8-E0E8-4B82-BD10-5339B97CEC9C}">
+															<ClipList>
+																<MusicClipMidi Name="d bass" ID="{94DA8F4F-3AFD-433B-960F-CC6FDE78FACC}" ShortID="1038708294">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="114996.25748503"/>
+																		<Property Name="MidiFileName" Type="string" Value="d bass.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="d bells" ID="{5CD3D0BA-FEED-400E-A2CD-BE6A9A9BABE2}" ShortID="100830664">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="shortsounds_01" ID="{6DED24E6-7E58-4EF4-88FE-AB2C3F021C17}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{2DD36266-A1A3-4FDE-8446-2BD0D79DCA92}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{F1756A08-9B39-4B4A-90AA-76714A063862}">
+															<ClipList>
+																<MusicClipMidi Name="d bells" ID="{57AAD855-49D4-4DB0-AA4C-9229307A88DA}" ShortID="876694539">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="91957.3353293414"/>
+																		<Property Name="MidiFileName" Type="string" Value="d bells.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="d cello" ID="{C1AFB56F-07AB-45C1-898E-4C03AE2CE337}" ShortID="820633944">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{11BCEE00-9EF2-48CF-AD9D-751EDE8B4CB0}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{1D2FC294-33D1-4C89-AB6C-F2A53E3937BB}">
+															<ClipList>
+																<MusicClipMidi Name="d cello" ID="{891A6275-BF0B-4E76-B193-367C929F69E2}" ShortID="126234253">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="91957.3353293411"/>
+																		<Property Name="MidiFileName" Type="string" Value="d cello.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="d chorus" ID="{BC8D4C09-D5BA-4633-89EA-6729FD5DB323}" ShortID="739236857">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="keys" ID="{56D1740F-88D6-46FC-ACA2-69AFD8926338}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{D58C925F-3D52-45F4-B859-FB92DBE61374}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{B97E0B9E-4AE1-4591-BF6E-4EE9DC7C32FF}">
+															<ClipList>
+																<MusicClipMidi Name="d chorus" ID="{42A3642C-A3CB-47BD-A9FE-0FA02D126C6E}" ShortID="577684197">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="114842.814371258"/>
+																		<Property Name="MidiFileName" Type="string" Value="d chorus.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="d drum" ID="{3CEC362C-A668-44A4-9A56-F0F0A481EE0B}" ShortID="324267721">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{806554C4-0381-41D8-A7C6-7A5FA9A542A4}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{310CDD3E-4018-410F-8CD3-BFD30ABCCE96}">
+															<ClipList>
+																<MusicClipMidi Name="d drum" ID="{17FB2BB9-C264-49B8-A011-48D051D33A15}" ShortID="126582256">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="114970.059880239"/>
+																		<Property Name="MidiFileName" Type="string" Value="d drum.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="b brass2" ID="{F27BF555-A126-4185-B488-F23BB996318A}" ShortID="181478677">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+														</Reference>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="shortsounds" ID="{605612B4-5745-4088-9806-93A975FF89D4}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{2AD4A184-05D2-483B-BB89-7C40238B97B6}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{EEAE6AD2-0015-4729-AC08-19BCB8546E99}">
+															<ClipList>
+																<MusicClipMidi Name="b brass2" ID="{9BEE1276-BF2E-4E81-8648-29D3B21CEA90}" ShortID="304276778">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="113532.934131737"/>
+																		<Property Name="MidiFileName" Type="string" Value="b brass2.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+											</ChildrenList>
+											<CueList>
+												<MusicCue Name="Entry Cue" ID="{7821F076-492A-4456-99CA-B582D5B3059F}"/>
+												<MusicCue Name="Exit Cue" ID="{14A6630F-84AF-4D6C-87AF-6086545C0F12}">
+													<PropertyList>
+														<Property Name="CueType" Type="int16" Value="1"/>
+														<Property Name="TimeMs" Type="Real64" Value="114996.25748503"/>
+													</PropertyList>
+												</MusicCue>
+											</CueList>
+										</MusicSegment>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{62A77F27-3A63-4F7B-85C8-E897148A4333}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{0C1B3098-F8B1-4F1E-997B-C72E6E21E44A}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<Playlist>
+										<MusicPlaylistItem Name="" ID="{5A145869-6FA7-4FE1-BCBF-E056A33C0608}" ShortID="182619801">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{7B640555-339C-4246-B24F-9C12C92F51AD}" ShortID="851571735">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="playlist" ID="{69791620-CF33-4F38-941B-7EA1A0483F7B}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Playlist>
+								</MusicPlaylistContainer>
+								<MusicPlaylistContainer Name="transi" ID="{382AB8DA-F5CA-4DE0-81C6-5391360F942C}" ShortID="866218681">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicSegment Name="transition1" ID="{0CFA9C9E-77DE-4FD4-B1B1-F0E354D82E40}" ShortID="811005703">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="4094.78672985782"/>
+												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
+												<Property Name="Tempo" Type="Real64" Value="150"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="transi bass" ID="{68544572-AD4C-491A-A560-599C07B5C3CA}" ShortID="612006782">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{712694A7-FB4B-4202-938F-BF4B3DE16B55}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{1F23A6BE-3DFB-4E2D-8A47-F08269193CEC}">
+															<ClipList>
+																<MusicClipMidi Name="transi bass" ID="{7CCB5B23-7EC3-44CD-AF96-55D01D6DE6F2}" ShortID="792055458">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="3100.00000000001"/>
+																		<Property Name="MidiFileName" Type="string" Value="transi bass.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="transi brass" ID="{9DED229D-D6F4-4A9A-B064-83659CB1F37A}" ShortID="428388244">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="medium sounds_01" ID="{9B4C701D-A457-4B27-B787-165202051B6A}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{54C699F1-11B4-4D87-BB7C-D838668AB6E5}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{2B6CE916-C048-4375-B828-31EE6CD7CB72}">
+															<ClipList>
+																<MusicClipMidi Name="transi brass" ID="{5365D320-5572-4B25-AB98-08386A02F4D0}" ShortID="314501046">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="3200"/>
+																		<Property Name="MidiFileName" Type="string" Value="transi brass.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="transi drum" ID="{04437C1F-FDB3-466B-B215-27BBD423257E}" ShortID="936007096">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{0F3DDD73-E64C-49E1-BD42-66454E4303A8}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{3C42DC65-E7EC-49E0-A41D-78B3F792AAF1}">
+															<ClipList>
+																<MusicClipMidi Name="transi drum" ID="{6C7D9322-B07B-4C20-B9A6-B3080EA40376}" ShortID="905425154">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="3200"/>
+																		<Property Name="MidiFileName" Type="string" Value="transi drum.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+											</ChildrenList>
+											<CueList>
+												<MusicCue Name="Entry Cue" ID="{EB3B04AB-FF1D-4516-AD63-0CAAD799A1B7}"/>
+												<MusicCue Name="Exit Cue" ID="{FC852CDD-F6AE-46D2-A453-5A6CDC9FA327}">
+													<PropertyList>
+														<Property Name="CueType" Type="int16" Value="1"/>
+														<Property Name="TimeMs" Type="Real64" Value="3200"/>
+													</PropertyList>
+												</MusicCue>
+											</CueList>
+										</MusicSegment>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{1362BCEA-BF61-4026-8E00-2D1DFEBA2EA1}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{ABCC1BCE-5506-44E3-962C-A6BB80ABF63A}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<Playlist>
+										<MusicPlaylistItem Name="" ID="{9BBFB5D2-9B06-40EB-B49D-B7095603CEFB}" ShortID="1046593851">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{FCA0C334-AC21-4DF7-B9C9-96C8070A4AD9}" ShortID="1048616012">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="transition1" ID="{0CFA9C9E-77DE-4FD4-B1B1-F0E354D82E40}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Playlist>
+								</MusicPlaylistContainer>
+								<MusicPlaylistContainer Name="transi_01" ID="{EC3D8D0D-3842-4A39-907F-EEB1CA3632B8}" ShortID="504032857">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicSegment Name="transition2" ID="{35C0C8C6-A7F6-4BC3-8FFE-A80A1C9C03F2}" ShortID="469192348">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="4094.78672985782"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="trans2 bass" ID="{E268C3A7-62F7-4DB8-A98F-177B0D353FA0}" ShortID="231194512">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="A2" ID="{A1D281A0-3C9A-4DC9-9E2B-1ABE80666640}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{0381CEF3-2D43-45E6-B851-3D450F8C6F69}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{661D7DE9-0A9A-4155-B980-F0C94CCE673D}">
+															<ClipList>
+																<MusicClipMidi Name="trans2 bass" ID="{79102567-7203-48D2-BAEC-85169558DDEF}" ShortID="891496460">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+																		<Property Name="MidiFileName" Type="string" Value="trans2 bass.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="trans2 drum" ID="{493A112B-6A4B-47F3-88F9-951A6CD9F128}" ShortID="852768007">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="Conga_012" ID="{0FA9347C-FC8F-4698-ACFC-836FE6C74FF7}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{E821B54D-5392-4CC7-A75E-2E8AEB651923}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{ABE42E6A-F532-49DC-BF5A-DD04E7F2FF7B}">
+															<ClipList>
+																<MusicClipMidi Name="trans2 drum" ID="{18236AB1-33BD-40CD-BEB9-249A3FC5F06B}" ShortID="711366448">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+																		<Property Name="MidiFileName" Type="string" Value="trans2 drum.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+											</ChildrenList>
+											<CueList>
+												<MusicCue Name="Entry Cue" ID="{0C714275-77D6-490F-AA97-AE84E1F5C76E}"/>
+												<MusicCue Name="Exit Cue" ID="{73EC44F8-F0C4-4CC4-BE6D-EE695530249F}">
+													<PropertyList>
+														<Property Name="CueType" Type="int16" Value="1"/>
+														<Property Name="TimeMs" Type="Real64" Value="1994.6542081265"/>
+													</PropertyList>
+												</MusicCue>
+											</CueList>
+										</MusicSegment>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{85D56AB9-DE00-49EA-8D34-8ACE2BF10F99}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{B4DDB736-6618-4AA1-B116-8330176841F0}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<Playlist>
+										<MusicPlaylistItem Name="" ID="{9CC32C02-2F5E-41C9-A715-98A88264C3F8}" ShortID="174345343">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{D6459E3E-DABD-46D1-896E-6A57BB012E64}" ShortID="563248683">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="transition2" ID="{35C0C8C6-A7F6-4BC3-8FFE-A80A1C9C03F2}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Playlist>
+								</MusicPlaylistContainer>
+								<MusicPlaylistContainer Name="deathStinger" ID="{357C06C3-497E-434A-BDB3-A17D5BD2DB60}" ShortID="255427796">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicSegment Name="bassmidi" ID="{953DBE21-1A65-442E-B4BC-7197CAF2A610}" ShortID="297969592">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="88494.7916666667"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="bassmidi" ID="{6172E117-3BF0-4C92-8D14-B591EEC106C6}" ShortID="336641050">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="A2" ID="{A1D281A0-3C9A-4DC9-9E2B-1ABE80666640}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{CEAC7E89-3610-4601-A714-4BE0F4B51084}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{4851F2F9-3467-4E27-8AEA-3C36BE1BD6C8}">
+															<ClipList>
+																<MusicClipMidi Name="bassmidi" ID="{E06331D4-035C-48AF-83C2-EE1436E26C28}" ShortID="473419289">
+																	<PropertyList>
+																		<Property Name="BeginTrimOffset" Type="Real64" Value="9240.42001338689"/>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="13249.2821939334"/>
+																		<Property Name="MidiFileName" Type="string" Value="bassmidi.mid"/>
+																		<Property Name="PlayAt" Type="Real64" Value="-9240.42001338689"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="conga" ID="{437BF367-2167-4A02-B30A-76BAA68AE3A6}" ShortID="548293225">
+													<PropertyList>
+														<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+														</Reference>
+														<Reference Name="MidiTarget">
+															<ObjectRef Name="Conga_012" ID="{0FA9347C-FC8F-4698-ACFC-836FE6C74FF7}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{D2C051C5-140B-4A7E-8EDC-F1444F7BB1BC}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{58C84E39-4354-414E-BD64-CFECD9A8ADEA}">
+															<ClipList>
+																<MusicClipMidi Name="conga" ID="{663144A8-20D8-4D14-BD13-B3C96B74D841}" ShortID="206378092">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="1625"/>
+																		<Property Name="MidiFileName" Type="string" Value="conga.mid"/>
+																	</PropertyList>
+																</MusicClipMidi>
+																<MusicClipMidi Name="conga" ID="{F5FB8B7D-76A5-404E-9148-C3160F448333}" ShortID="598786028">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="1625"/>
+																		<Property Name="MidiFileName" Type="string" Value="conga.mid"/>
+																		<Property Name="PlayAt" Type="Real64" Value="1625"/>
+																	</PropertyList>
+																</MusicClipMidi>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+											</ChildrenList>
+											<CueList>
+												<MusicCue Name="Entry Cue" ID="{0F1624B9-FC4F-4B2A-BAFA-1944029C14B2}"/>
+												<MusicCue Name="Exit Cue" ID="{12071821-8C6C-4D5E-A537-AA363FC906C9}">
+													<PropertyList>
+														<Property Name="CueType" Type="int16" Value="1"/>
+														<Property Name="TimeMs" Type="Real64" Value="4008.86218054658"/>
+													</PropertyList>
+												</MusicCue>
+											</CueList>
+										</MusicSegment>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{DCFA0E62-FDC7-431F-8D7D-2C98BCA1310F}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{238A0E5F-2678-429E-B539-2A42B3F60275}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<Playlist>
+										<MusicPlaylistItem Name="" ID="{44299EF5-8CC6-45BB-B451-769FBD1BE912}" ShortID="442969166"/>
+									</Playlist>
+								</MusicPlaylistContainer>
+							</ChildrenList>
+						</Folder>
+						<MusicPlaylistContainer Name="bgm2" ID="{6FBA85C1-7D21-4545-96DC-A9A1F9D045B3}" ShortID="1007844648">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="playlist" ID="{43113842-A449-4D8D-82DF-C6510A494994}" ShortID="249680429">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="211553.608222135"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="185"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="b arp" ID="{AC232694-72D3-4B88-83D3-F02EC6B6A616}" ShortID="409822811">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="shortsounds" ID="{605612B4-5745-4088-9806-93A975FF89D4}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{CECDCC1E-2511-4A29-A537-F9E063EF8F7C}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{A88B9F40-8A2D-4101-8396-3B0C5CDA572C}">
+													<ClipList>
+														<MusicClipMidi Name="b arp" ID="{D26815B0-AC1A-42A9-AD7E-CE499478C807}" ShortID="650166375">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="125734.105180534"/>
+																<Property Name="MidiFileName" Type="string" Value="b arp.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="b bass" ID="{798D7315-9F2F-48C8-A9AF-0DAFCD3862BC}" ShortID="269380125">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{B7422441-973F-4ED9-99BA-DAD6FBBB7123}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{EBDC8A0F-E9D9-4107-82A3-0441F3FC712B}">
+													<ClipList>
+														<MusicClipMidi Name="b bass" ID="{CADB0579-FAE4-4157-980E-C703B33A79CE}" ShortID="1027044610">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="123648.648648649"/>
+																<Property Name="MidiFileName" Type="string" Value="b bass.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="b brassy synth" ID="{81F04EED-1971-46DE-922F-6938BE252ED5}" ShortID="1019355256">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds" ID="{C89095B4-6291-4577-8F55-6C0498819C2B}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{D8A8A870-7929-4F41-A576-A62507A31445}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{EEC55F9A-0B06-41B7-ACED-9B938F6F18EC}">
+													<ClipList>
+														<MusicClipMidi Name="b brassy synth" ID="{B896D3DD-A15B-4DB7-92B8-BAC07000F6F1}" ShortID="805610220">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="124574.324324324"/>
+																<Property Name="MidiFileName" Type="string" Value="b brassy synth.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="b chorus" ID="{7580E28D-B66A-4DC5-9E5A-2309D25CCCE0}" ShortID="960736971">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{0A6BC966-7E42-4F23-8DEC-7B8F8A5A536F}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{708F9BE4-11A4-42E1-B57F-16D65AB02E78}">
+													<ClipList>
+														<MusicClipMidi Name="b chorus" ID="{6443EBBA-602B-41FB-AC6D-0715657A7791}" ShortID="959299245">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="122847.972972973"/>
+																<Property Name="MidiFileName" Type="string" Value="b chorus.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="b drum" ID="{D9F91102-EB2C-4B18-AE74-97F4672136EF}" ShortID="380014351">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{9EA4098A-D3ED-405A-9BD0-9D2CD4DB5F70}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{E55D067D-2AF1-472F-92BC-11A3A11CB014}">
+													<ClipList>
+														<MusicClipMidi Name="b drum" ID="{FD087CEE-9E92-490B-8528-533B1050B812}" ShortID="126749412">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="124540.540540541"/>
+																<Property Name="MidiFileName" Type="string" Value="b drum.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="b piano" ID="{8714B55B-FE65-44CD-8C73-5DBF6013B3F5}" ShortID="1041354038">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="keys" ID="{56D1740F-88D6-46FC-ACA2-69AFD8926338}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{3F26F281-48C6-46D3-916A-9C08807FE47E}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{7EEFC4F9-BEA9-49DF-AEAB-31DBC7F794F5}">
+													<ClipList>
+														<MusicClipMidi Name="b piano" ID="{D5CDDEA5-8B20-43FB-BD51-4933F6EC5AAA}" ShortID="681568088">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="124381.756756757"/>
+																<Property Name="MidiFileName" Type="string" Value="b piano.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{B814630A-B225-42D8-A106-1F171ABC72CB}"/>
+										<MusicCue Name="Exit Cue" ID="{C60A5C75-3190-433C-BA23-C92CADA63AA2}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="126005.840760911"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="cue1" ID="{6E8306C4-3D79-4CE1-A09D-B40BA25D1190}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="20756.7567567568"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="cue2" ID="{A00E2CDF-5C80-4C51-A917-5E2108ECF206}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="40948.3643769358"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="cue3" ID="{FA07526C-585C-4859-A606-984A28374B5A}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="62270.2702702703"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="cue4" ID="{D0115EEA-9881-4B4A-95AD-F45BF522DDCA}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="83027.027027027"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="cue6" ID="{879A0D3E-E8F1-47CD-8D17-313905C945C7}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="103783.783783784"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="cue0" ID="{FA8ADD2C-462D-4DFD-AD46-18D87633AD17}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{E0FE365A-778F-499D-9752-5BE77E13B4AA}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{835EAE97-ACF8-43A6-9A5C-433802131306}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{EFFE05FB-3AAE-45D8-8655-04BD0ADE812E}" ShortID="778217870">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{3D017670-ECDE-437A-9787-6168F41E42D2}" ShortID="361559746">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="playlist" ID="{43113842-A449-4D8D-82DF-C6510A494994}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="bgm1" ID="{9D2E487B-F3F1-4475-A01F-F644F893E8E1}" ShortID="409811359">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="playlist" ID="{8EFC0DC6-C0FB-4B1B-ACD1-6924C68332A9}" ShortID="283374664">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="150000"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="160"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="a brassy" ID="{41DDA154-0B97-40F5-8AF4-A8D0CE9659BA}" ShortID="3473177">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{4F6DD766-C817-48C9-8362-06354B3E86AE}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{5122257D-496A-4388-8B44-4FC61EBB3A78}">
+													<ClipList>
+														<MusicClipMidi Name="a brassy" ID="{E1D08295-AB68-4809-A1FE-8DD7C4FCFC5A}" ShortID="430084605">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="119710.9375"/>
+																<Property Name="MidiFileName" Type="string" Value="a brassy.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="a drum" ID="{6DA24124-A127-4180-92A2-625A911E25C0}" ShortID="248001990">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{2B8F204E-A6F5-4272-8059-E6345A4A34A0}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{2FB9C735-F357-47B0-A47F-A533EB9ADE70}">
+													<ClipList>
+														<MusicClipMidi Name="a drum" ID="{86249033-E370-4183-A51C-D387144A0760}" ShortID="681481598">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="131906.25"/>
+																<Property Name="MidiFileName" Type="string" Value="a drum.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="a smooth synth" ID="{383AA08F-F291-45C1-97D7-7698B63B2ECD}" ShortID="159501746">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="medium sounds_01" ID="{9B4C701D-A457-4B27-B787-165202051B6A}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{91AD941E-6F88-4B20-BE2D-F2A8EC2A4427}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{A3C9E79B-3C56-4185-BB12-F66B60BC6F24}">
+													<ClipList>
+														<MusicClipMidi Name="a smooth synth" ID="{C944320F-7488-42D1-BA87-F512152BAEC4}" ShortID="117120571">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="143949.21875"/>
+																<Property Name="MidiFileName" Type="string" Value="a smooth synth.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="a piano" ID="{68208BFA-1CB3-4CD3-9169-A97E1CBBE83D}" ShortID="411707285">
+											<PropertyList>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="keys" ID="{56D1740F-88D6-46FC-ACA2-69AFD8926338}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{2CC1FB13-B01D-4802-8D2E-176CC6375321}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{D7E3AB2E-32D1-4631-8554-C9D31951DFAD}">
+													<ClipList>
+														<MusicClipMidi Name="a piano" ID="{CF4C1EF8-77C2-422E-A8BD-76016A250F18}" ShortID="323228489">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="131683.59375"/>
+																<Property Name="MidiFileName" Type="string" Value="a piano.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="a bass2" ID="{1032BD8F-D31F-4588-8E2D-92BD64313FFB}" ShortID="40926553">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{EFECE6FF-4825-4FC5-862E-C1A1F3153BAF}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{9C6B342D-112B-427C-8EDB-B0B0012344EA}">
+													<ClipList>
+														<MusicClipMidi Name="a bass2" ID="{345E2A83-CE30-409E-A14F-F85C8F72B2B9}" ShortID="206197672">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="144000"/>
+																<Property Name="MidiFileName" Type="string" Value="a bass2.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{3184E224-DB6F-4018-A747-517A05BFB866}"/>
+										<MusicCue Name="Exit Cue" ID="{A1458853-266E-46E7-8245-8B436928BD00}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="144000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{71B523D1-0B86-49A4-8855-1815A48C9972}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="143863.28125"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{43F97651-3854-4386-A91C-A7B633387D12}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="6040.03139717426"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{5F268145-6862-445B-8BF0-8858B8613D6F}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="24000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{4688AD09-4A42-444F-A783-216868E8581D}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="36000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{C6F4E413-FCD1-4F6A-980B-02DA18D428D6}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="48000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{F2D01C4E-A0B0-424D-AED6-2AD4EA5B607E}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="72000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{2C3CB280-2FD1-43CC-9BC4-C04BD1925780}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="96000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{64E48E8F-C8F4-4146-95F2-392193BFC5C1}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="120000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{FF4753BC-D041-4654-A908-61A32B8D0CCA}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="131906.25"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{C46D1BFF-C425-428C-BD0A-F9899343287E}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{E9C2609A-0147-4E0F-9D88-F88867C85AB5}">
+											<PropertyList>
+												<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{7ADA8362-F59D-45D3-8F1B-8D51CC382131}" ShortID="296678854">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{496AEB12-AACA-4FAF-BE68-2805013BC514}" ShortID="770194060">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="playlist" ID="{8EFC0DC6-C0FB-4B1B-ACD1-6924C68332A9}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="lobbyTheme" ID="{878AFC36-5673-44CA-A643-7D8404E2B2D3}" ShortID="330544016">
+							<PropertyList>
+								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+								<Property Name="Tempo" Type="Real64" Value="160"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="playlist" ID="{40A7C6D4-8463-42A9-8463-B84EDD5D295E}" ShortID="273223380">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="212425.380134281"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="theme2 bass" ID="{43C13274-B9F2-4A2E-9C86-5A8D2823D885}" ShortID="763828997">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{BE2DA0FE-5A9F-409E-8202-6BC2812E2097}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{77089F9C-6DE9-44F0-8DF7-FEF4DF4920EC}">
+													<ClipList>
+														<MusicClipMidi Name="theme2 bass" ID="{2FFD55B4-D00A-417D-8D99-8167F36A7637}" ShortID="765949259">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="96000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 bass.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="theme2 bells" ID="{F6D78E9C-8A5A-4521-B21D-220AA6D5B9A8}" ShortID="215239525">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="shortsounds" ID="{605612B4-5745-4088-9806-93A975FF89D4}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{76CC2B49-1D43-4401-8F44-02865CB73C0A}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{DB7B3E82-4273-4B24-82F1-31AECAD08894}">
+													<ClipList>
+														<MusicClipMidi Name="theme2 piano" ID="{F49573F0-4800-4CCB-9A1E-96F1E14E9BB6}" ShortID="150015178">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="96000.0000000001"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="120000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 piano.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="-96000.0000000001"/>
+															</PropertyList>
+														</MusicClipMidi>
+														<MusicClipMidi Name="theme2 piano" ID="{60457C65-4AEF-4407-90C1-5BDD2CBB6087}" ShortID="281967664">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="96000.0000000001"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="120000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 piano.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="-72000.0000000002"/>
+															</PropertyList>
+														</MusicClipMidi>
+														<MusicClipMidi Name="theme2bells2" ID="{1F6F0FD1-8E2A-4500-B649-A9D4E9A38470}" ShortID="669080693">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="24000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="48000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2bells2.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="23999.9999999998"/>
+															</PropertyList>
+														</MusicClipMidi>
+														<MusicClipMidi Name="theme2 piano" ID="{A4D06538-C8A2-4250-B6FA-55DEED72B360}" ShortID="649345864">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="96000.0000000001"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="120000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 piano.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="-24000.0000000001"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="theme2 chorus" ID="{07652F3F-3B0F-4215-A496-AA8A94904421}" ShortID="718743274">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{20CD0E2B-1EE1-4F0D-9147-EB7795C61385}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{82143E80-7999-426C-927A-4775A28FD1E9}">
+													<ClipList>
+														<MusicClipMidi Name="theme2 chorus" ID="{9604991C-007C-4E16-8048-8F93F852776C}" ShortID="780419174">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="24000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="96000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 chorus.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="theme2 drum" ID="{16555A01-F4DA-4632-A139-C160F0646D09}" ShortID="944446986">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{10FBCDF7-8D3B-4441-B982-95C324FC7DC0}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{3EE64FD1-6B02-4F4A-B9CB-FBFAE8745092}">
+													<ClipList>
+														<MusicClipMidi Name="theme2 drum" ID="{B6536E7D-4C7E-45D1-A0D1-D84235978681}" ShortID="760311238">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="48000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="95999.9999999999"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 drum.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="-48000"/>
+															</PropertyList>
+														</MusicClipMidi>
+														<MusicClipMidi Name="theme2 drum" ID="{288ED837-0F48-43AC-A726-822A55032720}" ShortID="708912113">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="48000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="95999.9999999999"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 drum.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="-7.27595761418343E-12"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="theme2 piano" ID="{BCC3BBFB-505D-4709-BE60-1BB16772C2CC}" ShortID="334517348">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="keys" ID="{56D1740F-88D6-46FC-ACA2-69AFD8926338}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{3A28D420-58D2-450C-9E41-4846DB8D1593}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{4360C5B0-C3E8-4D89-803A-8DB6F0F9D394}">
+													<ClipList>
+														<MusicClipMidi Name="theme2 piano" ID="{7B8539D5-DD0A-4788-AD90-31CEE01AE59F}" ShortID="1016268537">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="96000.0000000001"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="120000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 piano.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="-48000.0000000001"/>
+															</PropertyList>
+														</MusicClipMidi>
+														<MusicClipMidi Name="theme2 piano" ID="{D96EB0CE-7DDC-4BE8-864B-5A6E2FF36574}" ShortID="412438223">
+															<PropertyList>
+																<Property Name="BeginTrimOffset" Type="Real64" Value="96000.0000000001"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="120000"/>
+																<Property Name="MidiFileName" Type="string" Value="theme2 piano.mid"/>
+																<Property Name="PlayAt" Type="Real64" Value="-24000.0000000002"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{B8081746-9CD1-43E5-A5A3-A933DD09120D}"/>
+										<MusicCue Name="Exit Cue" ID="{7F375794-A040-4F5A-BA7E-28168EBE829C}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="95999.9999999999"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{7F0E60EF-A556-49D3-9061-5BF92ABB7BD6}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="23999.9999999999"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{AF425DB0-462F-4E11-AD3F-B4D68CBA42BE}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="47999.9999999998"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{EB9A87F2-E335-43F3-A1B0-99BC8725E2C8}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="71999.9999999999"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{9B73AF4B-02E5-472B-A640-01097FB24CED}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{D6EFD6E4-9007-485A-BB16-BFCE660BF7C7}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{C8AD5800-6CDE-4AAB-9979-0DC3885321CD}" ShortID="9212403">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{AF3D8585-A68F-4998-BAB2-FDA7F6EB48FE}" ShortID="453453603">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="playlist" ID="{40A7C6D4-8463-42A9-8463-B84EDD5D295E}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="bsbeat1" ID="{5C27D18A-F652-4926-A254-D0641B63BC10}" ShortID="967771527">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="bsbeat1" ID="{96EC3C4F-B108-4927-9D6A-514B8CE131E6}" ShortID="140224245">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="993614.583333333"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="180"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="opa2 bassb" ID="{2359459B-8CB2-4172-90B0-DB9EE7A4EE58}" ShortID="99163603">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{1408F939-7C51-4DE9-8C64-32488947C5CF}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{BD4A19AB-3F9F-4F91-85FA-A252019D1D05}">
+													<ClipList>
+														<MusicClipMidi Name="opa2 bassb" ID="{63149B29-8C78-4B8B-8A73-85E8ED88527E}" ShortID="243219951">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42666.6666666667"/>
+																<Property Name="MidiFileName" Type="string" Value="opa2 bassb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="opa2 bellsb" ID="{C3ED32AE-B7D5-4822-8205-6A45BEF105AC}" ShortID="1067078381">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="medium sounds" ID="{7783261C-1C5B-4E05-87B6-FFB680A5A065}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{AE17E262-CD3C-4B01-93C4-8A0EA150BC0E}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{90C4737B-90C1-476D-BEDA-965AC08119C7}">
+													<ClipList>
+														<MusicClipMidi Name="opa2 bellsb" ID="{54654D4B-5B40-4AF3-956C-F59569650D48}" ShortID="842135336">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42430.5555555556"/>
+																<Property Name="MidiFileName" Type="string" Value="opa2 bellsb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="opa2 drumb" ID="{68B9B1BE-E317-42A3-99E2-ACB6E017B366}" ShortID="1017407750">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{28D0349A-2C83-4CAA-AAA5-CA80BCB8DCA4}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{B1EA8523-A956-43BC-8C0E-99366268C273}">
+													<ClipList>
+														<MusicClipMidi Name="opa2 drumb" ID="{3620CAC9-A6FA-4664-8DF7-54F027142FA5}" ShortID="587858473">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42416.6666666667"/>
+																<Property Name="MidiFileName" Type="string" Value="opa2 drumb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="opa2 leadb" ID="{C1BA630F-CB8E-47B1-94CE-8751E2F0496E}" ShortID="1055389275">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{CD09C837-4D66-4C27-8E83-9F32C9C17684}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{BB01BC9E-44AD-4700-BE44-770ED45E5E1C}">
+													<ClipList>
+														<MusicClipMidi Name="opa2 leadb" ID="{14304B9F-E967-4A3D-900A-06A42D5A884C}" ShortID="716018744">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42298.6111111111"/>
+																<Property Name="MidiFileName" Type="string" Value="opa2 leadb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="opa2 chordsc" ID="{A58341E9-2611-43FE-8225-A08663EC246F}" ShortID="181949140">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds" ID="{C89095B4-6291-4577-8F55-6C0498819C2B}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{0349E692-F13D-4C84-B7B3-A741600EB12F}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{B23B4B9E-D44A-486F-9A1E-3E54CBE55628}">
+													<ClipList>
+														<MusicClipMidi Name="opa2 chordsc" ID="{828199FF-C2C1-4B61-9B89-FEE4E3C0F187}" ShortID="765718767">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42819.4444444445"/>
+																<Property Name="MidiFileName" Type="string" Value="opa2 chordsc.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{935115AB-7A0C-4724-87FF-51FA67872BA7}"/>
+										<MusicCue Name="Exit Cue" ID="{D23CD949-A7CA-403E-BB9C-BDF1F988DFF6}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="43002.4516725945"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{9BE8158C-0740-457B-9304-BB1E31B5B6C4}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{8E54A29F-583A-43C2-A9E6-56007776E5B1}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{4903FC8E-5520-4CAC-902B-B416D0DD7D47}" ShortID="541752709">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{660DA0CE-F3AF-400B-866B-3CF918A73B1A}" ShortID="978416810">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="bsbeat1" ID="{96EC3C4F-B108-4927-9D6A-514B8CE131E6}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="bsbeat2" ID="{748FE687-0AC6-45EC-BD93-F8FA53DAE5C9}" ShortID="49555568">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="bsbeat2" ID="{5C190815-17E3-49FF-A6E9-664F38156C93}" ShortID="46938256">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="482744.791666667"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="160"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+										</Reference>
+										<Reference Name="MidiTarget">
+											<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="op1 bassb" ID="{A0FF77E7-1C5A-4E99-9A77-FFD87965FE51}" ShortID="978739158">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{FBD4D4F4-1B22-42D5-9BC3-2C4BBECC3CE6}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{26BAB4D8-440B-4FA9-A3D8-8BCCCDB6D067}">
+													<ClipList>
+														<MusicClipMidi Name="op1 bassb" ID="{D29D4E15-0BC7-41C2-B308-ED8AD1D2E590}" ShortID="542667889">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="84000"/>
+																<Property Name="MidiFileName" Type="string" Value="op1 bassb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="op1 bellsb" ID="{47053566-F3B1-4488-B532-1A9A7A50459C}" ShortID="519410110">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds" ID="{C89095B4-6291-4577-8F55-6C0498819C2B}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{60C188F8-ABE1-4DED-8B7E-867665BCE82A}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{3D3DB7DD-8E14-4D46-B643-F421621B6FCB}">
+													<ClipList>
+														<MusicClipMidi Name="op1 bellsb" ID="{B1474337-B33D-410A-9EBB-D399AAE8CE6F}" ShortID="546349455">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="95980.46875"/>
+																<Property Name="MidiFileName" Type="string" Value="op1 bellsb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="op1 drumb" ID="{8FB01359-531B-45F8-90A0-CC476E2EC709}" ShortID="1007034577">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{C9F7EDAA-C523-437F-8B60-9C0057CBFA39}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{7FE40BAE-6928-41E7-B006-E47330A7943A}">
+													<ClipList>
+														<MusicClipMidi Name="op1 drumb" ID="{E95A359D-0D8E-4E66-9074-66C477B71AE7}" ShortID="425699255">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="71343.75"/>
+																<Property Name="MidiFileName" Type="string" Value="op1 drumb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="op1 leadb" ID="{AC78D8E9-E631-4C21-A5F3-176F5EE46507}" ShortID="1015976602">
+											<PropertyList>
+												<Property Name="OverrideMidiTarget" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="MidiTarget">
+													<ObjectRef Name="longSounds_01" ID="{56F9A2BA-12FF-4C9E-AE9A-559F407BAC82}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{7AFE9EA4-6FCC-4EA5-AA8B-8E6C488DB61D}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{02EBB0A3-0238-4087-9B69-D77477D54A05}">
+													<ClipList>
+														<MusicClipMidi Name="op1 leadb" ID="{1480D8C5-C5CD-4407-AB4A-3D1B5125748D}" ShortID="975310797">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="96000"/>
+																<Property Name="MidiFileName" Type="string" Value="op1 leadb.mid"/>
+															</PropertyList>
+														</MusicClipMidi>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{88B65468-B705-4447-A573-DA3E9EB46798}"/>
+										<MusicCue Name="Exit Cue" ID="{0581E6C5-ED84-40BA-AFC9-A76A56BE6A55}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="96000"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{B3B15ADE-9966-4899-81F2-84C00E871BA6}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="12044.1632026265"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{C5ACD788-741F-48F3-B171-590FF76E578E}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="35900.871084752"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{4FE5E0CD-FC3C-4DC7-92DD-CDA0D9333265}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="59062.7233974953"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{E1760E8B-48CE-4320-8A55-9F5EF7F6D9DB}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="70077.4709417777"/>
+											</PropertyList>
+										</MusicCue>
+										<MusicCue Name="" ID="{E4FB986A-B788-4EEF-AE77-C219CD69D158}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="2"/>
+												<Property Name="TimeMs" Type="Real64" Value="83966.0038656041"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{3586BCF6-C743-4726-AA41-1921AD5CA47B}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{E53CA7CF-2C01-4C1F-92CA-E75F08780D13}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{1DDA5D02-7260-411B-8D18-E41D57B27B43}" ShortID="265962057">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{17AF7C29-AC7B-44E9-8CB5-734543314687}" ShortID="477679922">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="bsbeat2" ID="{5C190815-17E3-49FF-A6E9-664F38156C93}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo MusicSyncType="3">
+								<StateGroupRef Name="BGM" ID="{EE726060-E98A-4F1D-8AB2-15E14FF86641}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="bs2" ID="{43F15254-AF2E-4132-B670-641E9EC37FB6}"/>
+								<State Name="" ID="{35DCADF1-EA94-4F25-8A93-CB7FEEE3703A}" ShortID="913317556"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="ded" ID="{6A66768E-62F5-4362-8F1C-66876638244A}"/>
+								<State Name="" ID="{469ABBC6-6C3B-4969-808C-F124DE8C0DD0}" ShortID="658804796"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="bs1" ID="{CDFBDF63-77E2-446C-9EC2-35A3C5D6C4D6}"/>
+								<State Name="" ID="{104C5D60-D294-40F3-BF9D-099F6BC93089}" ShortID="12095530"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="lobby" ID="{1D91F92F-91BD-4A9D-9888-CA062A47D7AC}"/>
+								<State Name="" ID="{9068453F-CEB6-4427-B30F-7F60C71945E7}" ShortID="186424081"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="room2" ID="{B13A4B07-9AEE-4B2B-ABB3-1FC36C678EE9}"/>
+								<State Name="" ID="{4D7FFF10-B371-481D-8BA9-5400187ECB93}" ShortID="324753036"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="stress" ID="{FEC62C97-A9E6-4CC1-9B1B-7220837A4C79}"/>
+								<State Name="" ID="{BF720988-3331-4C49-9C11-5CF61016B3BA}" ShortID="667952397"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="room4" ID="{9D6EA643-3B92-4E53-ACF3-4E14D744943A}"/>
+								<State Name="" ID="{F2413D89-EB8C-49B0-8C74-6382206C6546}" ShortID="859807549"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="room0" ID="{668032FD-B2CD-4FC0-A348-A4DD918314BA}"/>
+								<State Name="" ID="{60C292B5-59B6-4923-8C37-82A54A62393B}" ShortID="383986877"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{9F2C30B1-D7E5-443F-A1EF-8FC39485521E}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{B18B8114-7F5D-4F73-97EC-A8A763F7D905}">
+									<TransitionInfo/>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{AAED29D5-82EA-4552-B07C-5F14AF8B3E65}">
+									<PropertyList>
+										<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+										<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo>
+										<TransitionObjectRef Name="transition1" ID="{0CFA9C9E-77DE-4FD4-B1B1-F0E354D82E40}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}"/>
+									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{2F7FCD48-A3E8-4385-ADCA-AF428497715D}">
+									<PropertyList>
+										<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+										<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+										<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo>
+										<TransitionObjectRef Name="transition1" ID="{0CFA9C9E-77DE-4FD4-B1B1-F0E354D82E40}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}"/>
+									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{B71061A4-4970-4F6B-AFCF-CF66F6F2F234}">
+									<PropertyList>
+										<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+										<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+										<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo>
+										<TransitionObjectRef Name="transition1" ID="{0CFA9C9E-77DE-4FD4-B1B1-F0E354D82E40}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}"/>
+									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{42762F99-628A-4B50-B3CA-716C79AB758C}">
+									<PropertyList>
+										<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+										<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+										<Property Name="PlayTransitionPostExit" Type="bool" Value="False"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo>
+										<TransitionObjectRef Name="transition1" ID="{0CFA9C9E-77DE-4FD4-B1B1-F0E354D82E40}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}"/>
+									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{5D4C1321-CAE7-4B2D-8175-938EC0667546}">
+									<PropertyList>
+										<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+										<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+										<Property Name="PlayTransitionPostExit" Type="bool" Value="False"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo>
+										<TransitionObjectRef Name="transition1" ID="{0CFA9C9E-77DE-4FD4-B1B1-F0E354D82E40}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}"/>
+									</TransitionInfo>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<StingerList>
+						<MusicStinger Name="" ID="{21CF5460-5D4F-421D-9B8B-DF0E5CE2EF61}">
+							<TriggerRef Name="deathTrigger" ID="{59C0F6CE-865C-4C0E-9385-B7CF30778E4A}" WorkUnitID="{B6674968-9429-48A4-A50C-5905F5BE1D69}"/>
+							<SegmentRef Name="bassmidi" ID="{953DBE21-1A65-442E-B4BC-7197CAF2A610}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}"/>
+						</MusicStinger>
+					</StingerList>
+					<ArgumentList>
+						<ArgumentRef Name="BGM" ID="{EE726060-E98A-4F1D-8AB2-15E14FF86641}"/>
+					</ArgumentList>
+					<EntryList>
+						<Entry>
+							<Path>
+								<PathElementRef Name="lobby" ID="{1D91F92F-91BD-4A9D-9888-CA062A47D7AC}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="lobbyTheme" ID="{878AFC36-5673-44CA-A643-7D8404E2B2D3}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="room0" ID="{668032FD-B2CD-4FC0-A348-A4DD918314BA}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="bgm1" ID="{9D2E487B-F3F1-4475-A01F-F644F893E8E1}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="room2" ID="{B13A4B07-9AEE-4B2B-ABB3-1FC36C678EE9}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="bgm2" ID="{6FBA85C1-7D21-4545-96DC-A9A1F9D045B3}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="room4" ID="{9D6EA643-3B92-4E53-ACF3-4E14D744943A}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="bgm3" ID="{326EA027-0923-408D-B42B-A9F56EC0A9F5}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="ded" ID="{6A66768E-62F5-4362-8F1C-66876638244A}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="deathTheme_01" ID="{77C064F1-FB52-4B4D-B246-C0B497E8E3A8}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="stress" ID="{FEC62C97-A9E6-4CC1-9B1B-7220837A4C79}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="stressTheme_01" ID="{EEAE72E4-29DB-4660-908E-E1E087B735CA}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="bs2" ID="{43F15254-AF2E-4132-B670-641E9EC37FB6}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="bsbeat2" ID="{748FE687-0AC6-45EC-BD93-F8FA53DAE5C9}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="bs1" ID="{CDFBDF63-77E2-446C-9EC2-35A3C5D6C4D6}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="bsbeat1" ID="{5C27D18A-F652-4926-A254-D0641B63BC10}" WorkUnitID="{DA02F336-9490-46ED-BFDD-2367381751CA}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+					</EntryList>
+				</MusicSwitchContainer>
+				<Folder Name="midiFiles" ID="{FAF05900-D19E-4F3F-AFAB-53C8D54F3A6E}" ShortID="186252484">
+					<ChildrenList>
+						<MusicSegment Name="clic0" ID="{C07A6F6E-F083-405C-8DDE-88286796166D}" ShortID="539828335">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="MidiTarget">
+									<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="clic0" ID="{0DE0763E-4D2C-4037-9DB0-F0D850709A12}" ShortID="241848770">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{A3E0371A-26F9-4192-A041-0C56D91540CC}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{393CD2B0-1E34-445A-945D-0D70BBD72DDB}">
+											<ClipList>
+												<MusicClipMidi Name="clic0" ID="{7CA7F2ED-AD7F-4BCD-A375-052A97605DE0}" ShortID="994195317">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+														<Property Name="MidiFileName" Type="string" Value="clic0.mid"/>
+													</PropertyList>
+												</MusicClipMidi>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{A033562C-38DA-4EB9-9806-426D94BD66CE}"/>
+								<MusicCue Name="Exit Cue" ID="{EEEB8AF3-3839-4D05-ABD8-4E3316539C51}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="2000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="clic1" ID="{16328BE0-9462-42F3-B221-D7D003F390A6}" ShortID="236074533">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="MidiTarget">
+									<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="clic1" ID="{8937BFAC-2566-44AA-A1F4-ECE7D2EDA5ED}" ShortID="1002249973">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{6D92CEAB-4341-488F-A9BF-D01565450A9C}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{238BCCDE-4ED1-4BED-83F7-7EEEF95E63D7}">
+											<ClipList>
+												<MusicClipMidi Name="clic1" ID="{BF795627-4435-499D-BE95-203F36835AF8}" ShortID="268454494">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="1625"/>
+														<Property Name="MidiFileName" Type="string" Value="clic1.mid"/>
+													</PropertyList>
+												</MusicClipMidi>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{36156A91-359C-4961-9D59-A5BE99600A57}"/>
+								<MusicCue Name="Exit Cue" ID="{446E65E2-E52F-447E-AE71-E5277B69D52E}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="1625"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="clic2" ID="{09A49A97-6DED-486D-83A5-05AACC8214FB}" ShortID="393875359">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="MidiTarget">
+									<ObjectRef Name="perc" ID="{21C40A4D-3E31-4675-AC69-25997458A0FD}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="clic2" ID="{983C739C-BDDE-4DA1-A9A3-DE3D4C685D6A}" ShortID="37011154">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{4DD1FEF4-7FEA-4A2F-A493-05774A1E6C52}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{826605A7-906B-4ABB-80CC-FD1F66560221}">
+											<ClipList>
+												<MusicClipMidi Name="clic2" ID="{105BB691-F826-4A57-B37C-F19395D1A343}" ShortID="1063174732">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+														<Property Name="MidiFileName" Type="string" Value="clic2.mid"/>
+													</PropertyList>
+												</MusicClipMidi>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{713D07BA-1273-4760-8D67-64DF93FF4AFF}"/>
+								<MusicCue Name="Exit Cue" ID="{F62ED3F1-987D-433A-905E-11810ACBA016}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="2000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="fill" ID="{54D3DC54-319B-4C93-98D7-0AFC4F177694}" ShortID="1014940077">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="MidiTarget">
+									<ObjectRef Name="Snare Velo9RH  Vintage" ID="{26E79860-176C-4C6E-8C0B-4FCC0AC79077}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="fill" ID="{24BC799C-6E95-43E9-BF15-BABE8EAF8B8E}" ShortID="1050250748">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{AA0C4430-F9AF-4C4E-88F2-EE17B5CC2CA9}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{80AD7A22-CA9E-4FE6-AA3A-D7B0C346698A}">
+											<ClipList>
+												<MusicClipMidi Name="fill" ID="{89D33637-E36A-4B4B-8D59-95E1F4157DC9}" ShortID="464214458">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="1875"/>
+														<Property Name="MidiFileName" Type="string" Value="fill.mid"/>
+													</PropertyList>
+												</MusicClipMidi>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{5B1DD028-1F56-496E-A066-CBF9D9B31DD5}"/>
+								<MusicCue Name="Exit Cue" ID="{9355168C-97DB-48FC-A4AC-6F0AF6F7C51C}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="1875"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="guit0" ID="{12F1C142-7D8D-4209-B3CB-66D67DFDF547}" ShortID="132358300">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="MidiTarget">
+									<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="guit0" ID="{BD744A8D-6449-4E17-8B95-515A83C6ED94}" ShortID="596944244">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{21F90B78-EC29-40D5-9FD9-947ED5CDC819}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{243D24C3-C9D6-4A3B-A04B-7D9979315CC8}">
+											<ClipList>
+												<MusicClipMidi Name="guit0" ID="{6C4AA3C1-940E-4A61-8BAC-FECB9BCB1211}" ShortID="436831742">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="1625"/>
+														<Property Name="MidiFileName" Type="string" Value="guit0.mid"/>
+													</PropertyList>
+												</MusicClipMidi>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{585BA82D-ADA2-481A-B8A0-0C5D7844C301}"/>
+								<MusicCue Name="Exit Cue" ID="{3FA730A4-846A-4F2A-AC63-5E5F3D343D6C}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="1625"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="guit1" ID="{75553F59-E1DF-48FE-9BB5-C4E0C5A3BB42}" ShortID="886073700">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="MidiTarget">
+									<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="guit1" ID="{32974D05-EA1B-4772-83CA-9E156DE6AD5B}" ShortID="610312139">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{62AC282A-2EC1-4887-8DB9-5D6455CB7233}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{5DB7F776-4A6E-401C-A22A-22EE119C225F}">
+											<ClipList>
+												<MusicClipMidi Name="guit1" ID="{F222472F-D14F-43A7-9EA6-6BC3D0DA822C}" ShortID="614865003">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+														<Property Name="MidiFileName" Type="string" Value="guit1.mid"/>
+													</PropertyList>
+												</MusicClipMidi>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{B73A30AB-E21F-45D3-869E-04441395C357}"/>
+								<MusicCue Name="Exit Cue" ID="{1090A6D5-B0C0-4F1C-8469-1A0E8795E1B3}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="2000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="guit2" ID="{206C0628-615B-431B-90B0-082124BD0F23}" ShortID="579597560">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B577C73-1FD0-4ABB-9FBE-B6AD7B1D54CF}"/>
+								</Reference>
+								<Reference Name="MidiTarget">
+									<ObjectRef Name="bass" ID="{5A0F6BF2-FCD6-4616-BE63-34BE4027BF9C}" WorkUnitID="{DBC5F069-B456-4B81-B79D-D38F72CC4BBB}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="guit2" ID="{806F5D78-AE39-4521-8350-8AE6DBB9688F}" ShortID="397006234">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A8DAA67-E90D-42C4-88C9-A1F1557CC8D5}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{08FBD6AC-1E36-499B-B313-4193E1E14686}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{7DAD23FC-01CC-453B-A3D1-74C8E990EBB9}">
+											<ClipList>
+												<MusicClipMidi Name="guit2" ID="{9FA7EED7-5980-4166-8155-9CA2A604C7E3}" ShortID="186853387">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="2000"/>
+														<Property Name="MidiFileName" Type="string" Value="guit2.mid"/>
+													</PropertyList>
+												</MusicClipMidi>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{C64414F4-B870-492A-9CBD-91D50A45E1A8}"/>
+								<MusicCue Name="Exit Cue" ID="{CE95E96E-590F-42FD-9B84-917B24C08DBB}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="2000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

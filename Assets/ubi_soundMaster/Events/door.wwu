@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5B027972-88DC-4BA3-AE72-1F0A16ECB4B6}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="door" ID="{5B027972-88DC-4BA3-AE72-1F0A16ECB4B6}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="doorOpened" ID="{603369C8-641E-42FF-8A1C-8E63AF466297}">
+					<ChildrenList>
+						<Action Name="" ID="{928027AF-E48C-4362-B404-E211E97D092E}" ShortID="14821735">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="doorslide" ID="{C766E6C4-0E3E-4E2B-947A-9F4B7936BE40}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{12F7DDCB-28EE-43A1-9980-B3B8D4FA23AB}" ShortID="796266719">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ReverbDoor_001" ID="{1B231C54-876E-4564-A35A-94C448A08A28}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{918DC303-0E30-4045-B727-FE4000C16983}" ShortID="193632077">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="emote8" ID="{97BA34E3-3A63-4622-BCAD-97E996189638}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="doorClick" ID="{77A67546-9B9C-4F14-A0BF-8BE403EA87FE}">
+					<ChildrenList>
+						<Action Name="" ID="{8218398D-C5CD-4815-901B-1E51EC9E939B}" ShortID="322815364">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="doorslide" ID="{C766E6C4-0E3E-4E2B-947A-9F4B7936BE40}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{F5BED940-E410-41ED-9D9A-1A08553FC15E}" ShortID="660982067">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="snareSequence" ID="{9275C17A-45B3-4B5A-9404-641B7D79B152}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

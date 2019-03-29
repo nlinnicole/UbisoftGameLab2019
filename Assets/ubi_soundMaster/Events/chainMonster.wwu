@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{408EFAF9-08BB-4E44-AFE3-2231796FC020}" SchemaVersion="89" RootDocumentID="{CF79F362-89D2-4DEB-B401-A345A05A206C}">
+	<Events>
+		<WorkUnit Name="chainMonster" ID="{408EFAF9-08BB-4E44-AFE3-2231796FC020}" OwnerID="{CF79F362-89D2-4DEB-B401-A345A05A206C}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="roar" ID="{B689B8C5-23CC-420F-9412-8C0FC2B4B55F}">
+					<ChildrenList>
+						<Action Name="" ID="{71BCDE32-4867-4CC9-A9C4-8DF291A8A10D}" ShortID="382031398">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="randomRoars" ID="{6943A1FB-4940-4EF3-8FE0-FDD1DA375A43}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="startCharge" ID="{402F6FD9-8B3A-4B2A-B0D4-CB319AD21A26}">
+					<ChildrenList>
+						<Action Name="" ID="{A3726931-CDDF-41A7-B270-862FEA3E748D}" ShortID="444291640">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="weeoo" ID="{98423151-323F-4938-A4AF-2209233AF17D}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{16DA30DE-47C9-40F6-B20A-24FC61CEBACC}" ShortID="521700719">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="tamtam" ID="{72E9BAC6-63C0-4C6E-A138-EAEFD5B68FC4}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopCharge" ID="{FDF1FE36-725D-4618-BDE9-14471EF98FEF}">
+					<ChildrenList>
+						<Action Name="" ID="{22108CE3-BD5D-43F4-9B3F-B58AD2EE8098}" ShortID="949896344">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="weeoo" ID="{98423151-323F-4938-A4AF-2209233AF17D}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{4DE93712-6B66-43CC-BC04-5728A00090DE}" ShortID="814708891">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AT_11" ID="{51E1053D-5837-4303-B7C6-4C1027E50FF8}" WorkUnitID="{08CF9641-DF28-4304-8495-118963396A17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
