@@ -7,10 +7,11 @@ public class RopeJoint : MonoBehaviour
 
     public bool broken = false;
     public bool lineDeleted = false;
+    public bool canBreak = true;
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!transform.parent.GetComponent<RopeGenerator>().isBroken && collision.gameObject.layer == 14)
+        if (!transform.parent.GetComponent<RopeGenerator>().isBroken && collision.gameObject.layer == 14 && canBreak)
         {
             transform.parent.GetComponent<RopeGenerator>().isBroken = true;
             broken = true;

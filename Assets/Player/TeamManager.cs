@@ -12,6 +12,7 @@ public class TeamManager : MonoBehaviour
     public GameObject player1HeadTop;
     Vector3 player1HeadTopPos;
     public GameObject player2HeadTop;
+
     Vector3 player2HeadTopPos;
 
     public int gemCount;
@@ -22,6 +23,8 @@ public class TeamManager : MonoBehaviour
     public Health player2Health;
     public float cooldownBeforeRespawn = 2f;
     public bool respawnInCurrent = true;
+
+    public GameObject cam;
 
 
     private void Start()
@@ -39,39 +42,46 @@ public class TeamManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(rope.isBroken)
+        if (rope.isBroken)
         {
-          if (!player1Health.onOxygen){
-            player1Health.onOxygen = true;
-            player1Health.bar.gameObject.SetActive(true);
-          }
+            //if (!player1Health.onOxygen)
+            //{
+                player1Health.onOxygen = true;
+                //player1Health.bar.gameObject.SetActive(true);
+            //}
 
-          if (!player2Health.onOxygen){
-            player2Health.onOxygen = true;
-            player1Health.bar.gameObject.SetActive(true);
-          }
+            //if (!player2Health.onOxygen)
+            //{
+            //    player2Health.onOxygen = true;
+            //    //player1Health.bar.gameObject.SetActive(true);
+            //}
 
         }
-        
-        if ((!player1Health.alive && !player2Health.alive) || (player1.GetComponent<PlayerController>().isInDeathZone && player2.GetComponent<PlayerController>().isInDeathZone))
+
+        if ((!player1Health.alive || !player2Health.alive) || (player1.GetComponent<PlayerController>().inDeathZone && player2.GetComponent<PlayerController>().inDeathZone))
         {
-          Transform[] children = rope.GetComponentsInChildren<Transform>();
-          foreach(Transform child in children){
-            if (child.name != "Rope")
-              GameObject.Destroy(child.gameObject);
+            Transform[] children = rope.GetComponentsInChildren<Transform>();
+            foreach (Transform child in children)
+            {
+                if (child.name != "Rope")
+                    GameObject.Destroy(child.gameObject);
             }
 
             player1Health.Reset();
             player2Health.Reset();
 
             respawn();
-          }
+        }
 
     }
 
     public void respawn()
     {
-        if(teamNumber == 1)
+
+        player1.GetComponent<PlayerController>().inDeathZone = false;
+        player2.GetComponent<PlayerController>().inDeathZone = false;
+
+        if (teamNumber == 1)
         {
             if(roomGen.team1CurrentRoom != -1)
             {
@@ -109,6 +119,8 @@ public class TeamManager : MonoBehaviour
 
             rope.isBroken = false;
             rope.startedGas = false;
+            cam.GetComponentInParent<CamPlayerFollow>().player1Dead = false;
+            cam.GetComponentInParent<CamPlayerFollow>().player2Dead = false;
         }
         if (teamNumber == 2)
         {
@@ -151,6 +163,13 @@ public class TeamManager : MonoBehaviour
 
             rope.isBroken = false;
             rope.startedGas = false;
+
+            cam.GetComponentInParent<CamPlayerFollow>().player1Dead = false;
+            cam.GetComponentInParent<CamPlayerFollow>().player2Dead = false;
         }
+
+        cam.GetComponent<Animator>().ResetTrigger("isDying");
+
+
     }
 }

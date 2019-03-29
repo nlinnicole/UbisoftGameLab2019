@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviourPunCallbacks
@@ -12,7 +13,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public int playerNumber = 1;
     public Camera playerCamera;
     public GameObject teamManager;
-    public bool isInDeathZone = false;
+    public bool inDeathZone = false;
+    public Image resetImage;
 
     [Header("Movement")]
     public float moveSpeed = 1f;
@@ -97,22 +99,23 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Vector3 joyInput;
 
 
-    //check deathzone
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.layer == 15)
-        {
-            isInDeathZone = true;
-        }
-    }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.layer == 15)
-        {
-            isInDeathZone = false;
-        }
-    }
+    ////check deathzone
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if(collision.gameObject.layer == 15)
+    //    {
+    //        isInDeathZone = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.layer == 15)
+    //    {
+    //        isInDeathZone = false;
+    //    }
+    //}
 
     void Awake()
     {
@@ -129,6 +132,24 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     void FixedUpdate()
     {
+
+        //death zones
+        if(inDeathZone)
+        {
+            if(playerNumber == 1)
+            {
+                rope.ropeJoints[2].GetComponent<RopeJoint>().broken = true;
+                rope.isBroken = true;
+                playerCamera.GetComponentInParent<CamPlayerFollow>().player1Dead = true;
+            }
+            else if (playerNumber == 2)
+            {
+                rope.ropeJoints[rope.ropeJoints.Length-2].GetComponent<RopeJoint>().broken = true;
+                rope.isBroken = true;
+                playerCamera.GetComponentInParent<CamPlayerFollow>().player2Dead = true;
+
+            }
+        }
 
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
@@ -154,10 +175,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
             isGrounded = false;
         }
 
-        if(Input.GetButtonDown("Reset" + playerNumber))
+        if(Input.GetButton("Reset" + playerNumber) && !rope.isBroken && !GetComponent<Health>().onOxygen)
         {
-            teamManager.GetComponent<TeamManager>().respawn();
+            holdReset();
         }
+        
+        if(!Input.GetButton("Reset" + 1) && !Input.GetButton("Reset" + 2))
+        {
+            resetImage.fillAmount -= Time.deltaTime/3;
+        }
+
+
+
 
         if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
         {
@@ -450,8 +479,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
         moveSpeed = speed;
     }
 
-    //AddingTrigger
 
     
+    void holdReset()
+    {
 
+        resetImage.fillAmount += Time.deltaTime/3;
+
+        if(resetImage.fillAmount >= 1)
+        {
+            GetComponent<Health>().onOxygen = true;
+            resetImage.fillAmount = 0;
+        }
+
+
+    }
 }
