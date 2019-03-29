@@ -224,9 +224,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6267590158048030386}
   - component: {fileID: 6267590158048030387}
+  - component: {fileID: 4692557475581770593}
+  - component: {fileID: 7399354406919180261}
+  - component: {fileID: 4110514195819111677}
   m_Layer: 0
   m_Name: RoomGenerator
-  m_TagString: Untagged
+  m_TagString: RoomGenerator
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,3 +297,58 @@ MonoBehaviour:
   - {fileID: 0}
   baseRoom: {fileID: 5037287520386282256, guid: 25b2d2161f47ada4798129458a123106,
     type: 3}
+  finalRoomTeam1: {fileID: 0}
+  finalRoomTeam2: {fileID: 0}
+--- !u!114 &4692557475581770593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267590158048030388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6079059ee06844ebbcc189460c1d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: bgm
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: b2b47923c505d446a519c56038b60ded
+--- !u!114 &7399354406919180261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267590158048030388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de82656cf94c73f4f82c854c67aecc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomCounter: 0
+--- !u!114 &4110514195819111677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267590158048030388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6079059ee06844ebbcc189460c1d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: rope
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 34056ff49bda2c4fa5e0fbc5451c94ad

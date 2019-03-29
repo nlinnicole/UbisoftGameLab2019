@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
     float rollTime = 0;
-    float rollMod = 0;
+    public float rollMod = 0;
 
     [Header("Item")]
     public GameObject heldItem;
