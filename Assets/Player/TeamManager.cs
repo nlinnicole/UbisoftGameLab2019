@@ -73,7 +73,6 @@ public class TeamManager : MonoBehaviour
             respawn();
 
             // trigger sound events
-            AkSoundEngine.PostEvent("RopeNotBroken", GameObject.FindGameObjectWithTag("RoomGenerator"));
             AkSoundEngine.PostEvent("playerDead", GameObject.FindGameObjectWithTag("RoomGenerator"));
         }
 

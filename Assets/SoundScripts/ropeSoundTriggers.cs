@@ -24,15 +24,15 @@ public class ropeSoundTriggers : MonoBehaviour
             ropeReset = false;
         }
 
-        /*
-        if (???)
+        
+        if (!ropeReset && !ropebroken)
         {
             // trigger rope unbroken when players reconnect or respawn
 
-            AkSoundEngine.PostEvent("something", gameObject);
+            AkSoundEngine.PostEvent("RopeNotBroken", gameObject);
 
             ropeReset = true;
         }
-        */
+      
     }
 }
