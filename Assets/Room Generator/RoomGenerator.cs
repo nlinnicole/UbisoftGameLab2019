@@ -42,6 +42,10 @@ public class RoomGenerator : MonoBehaviour
 
     bool[] chosenRooms;
 
+    public GameObject finalRoomTeam1;
+    public GameObject finalRoomTeam2;
+
+
     void Start()
     {
         //if (PhotonNetwork.IsMasterClient)
@@ -130,6 +134,10 @@ public class RoomGenerator : MonoBehaviour
                 team1InFirstRoom = false;
             }
         }
+        else if(team1CurrentRoom > 3)
+        {
+
+        }
         else
         {
             //check which room the players choose
@@ -159,10 +167,24 @@ public class RoomGenerator : MonoBehaviour
     }
 
     public Transform GetCurrentRespawn(int teamNb){
-      if (teamNb == 1){
-        return Team1Rooms[team1CurrentRoom].GetComponent<Room>().respawnPoint.transform;
-      } else {
-        return Team2Rooms[team2CurrentRoom].GetComponent<Room>().respawnPoint.transform;
-      }
+      if (teamNb == 1)
+      {
+        if(team1CurrentRoom > 3)
+            {
+                return finalRoomTeam1.transform;
+            } else
+            {
+                return Team1Rooms[team1CurrentRoom].GetComponent<Room>().respawnPoint.transform;
+            }
+        } else {
+            if(team2CurrentRoom > 3)
+            {
+                return finalRoomTeam2.transform;
+            }
+            else
+            {
+                return Team2Rooms[team2CurrentRoom].GetComponent<Room>().respawnPoint.transform;
+            }
+        }
     }
 }
