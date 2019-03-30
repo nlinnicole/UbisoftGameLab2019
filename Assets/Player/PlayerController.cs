@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [Header("Networking")]
     public static GameObject LocalPlayerInstance;
 
+    public Rigidbody rb;
+
 
     //[Header("Ability")]
     //public Ability ability;
@@ -121,6 +123,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         itemLayerMask = LayerMask.GetMask("Items");
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         if (photonView.IsMine)
         {
             playerCamera.enabled = true;
@@ -133,8 +136,23 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void FixedUpdate()
     {
 
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            Destroy(GetComponent<HingeJoint>());
+            Destroy(rb);
+            //rb.useGravity = false;
+            foreach ( GameObject joint in rope.GetComponent<RopeGenerator>().ropeJoints)
+            {
+                joint.GetComponent<CapsuleCollider>().enabled = false;
+                //joint.GetComponent<Rigidbody>().useGravity = false;
+            }
+
+            return;
+
+        }
+
         //death zones
-        if(inDeathZone)
+        if (inDeathZone)
         {
             if(playerNumber == 1)
             {
@@ -151,11 +169,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
         }
 
-        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
-        {
-            return;
-
-        }
+        
 
         if (jumpCooldownCount > 0)
         {
