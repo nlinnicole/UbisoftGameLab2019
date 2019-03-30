@@ -109,8 +109,8 @@ public class TeamManager : MonoBehaviour
                   player1.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x - 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
                   player2.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x + 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
                 } else {
-                  player1.transform.localPosition = new Vector3(-4, 0, 0);
-                  player2.transform.localPosition = new Vector3(4, 0, 0);
+                  player1.transform.localPosition = new Vector3(-3, 0, 0);
+                  player2.transform.localPosition = new Vector3(3, 0, 0);
                 }
             }
             else
@@ -122,8 +122,8 @@ public class TeamManager : MonoBehaviour
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
                 this.transform.parent.transform.position = roomGen.team1StartRoom.GetComponent<Room>().respawnPoint.transform.position;
-                player1.transform.localPosition = new Vector3(-4, 0, 0);
-                player2.transform.localPosition = new Vector3(4, 0, 0);
+                player1.transform.localPosition = new Vector3(-3, 0, 0);
+                player2.transform.localPosition = new Vector3(3, 0, 0);
             }
             rope.generate();
 
@@ -153,8 +153,8 @@ public class TeamManager : MonoBehaviour
                 } else {
                   this.transform.parent.transform.position = roomGen.Team2Rooms[roomGen.team2CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
 
-                  player1.transform.localPosition = new Vector3(-4, 0, 0);
-                  player2.transform.localPosition = new Vector3(4, 0, 0);
+                  player1.transform.localPosition = new Vector3(-3, 0, 0);
+                  player2.transform.localPosition = new Vector3(3, 0, 0);
                 }
             }
             else
@@ -166,8 +166,8 @@ public class TeamManager : MonoBehaviour
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
                 this.transform.parent.transform.position = roomGen.team2StartRoom.GetComponent<Room>().respawnPoint.transform.position;
-                player1.transform.localPosition = new Vector3(-4, 0, 0);
-                player2.transform.localPosition = new Vector3(4, 0, 0);
+                player1.transform.localPosition = new Vector3(-3, 0, 0);
+                player2.transform.localPosition = new Vector3(3, 0, 0);
             }
             rope.generate();
 
