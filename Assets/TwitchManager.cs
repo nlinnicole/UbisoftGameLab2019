@@ -13,6 +13,7 @@ public class TwitchManager : MonoBehaviour
     bool team2twitchmode = false;
 
     public bool chatmode = false;
+    public bool admode = false;
 
     public int votecounter = 5;
 
@@ -28,6 +29,9 @@ public class TwitchManager : MonoBehaviour
     public GameObject Canvas, Team1Canvas, Team2Canvas;
     
     public Transform[] ChatMessageSpawn;
+    public Transform[] AdSpawns;
+    public GameObject[] AdPrefabs;
+
 
     int spawncounter;
 
@@ -55,7 +59,7 @@ public class TwitchManager : MonoBehaviour
         currentmsg = "";
 
         eventrunning = false;
-        InvokeRepeating("RunningEvent", 20, 60);
+        InvokeRepeating("RunningEvent", 40, 60);
     }
 
     void Update()
@@ -112,10 +116,11 @@ public class TwitchManager : MonoBehaviour
         chatmode = false;
         votecounter = 5;
         eventrunning = true;
+        admode = false;
 
         if(buffindex == 0)
         {
-            currentmsg = "DOUBLE VALUE GEMS";
+            currentmsg = "DOUBLE VALUE GEMS?";
             //Increment the buff here
             buffindex++;
         }else if
@@ -125,9 +130,20 @@ public class TwitchManager : MonoBehaviour
             buffindex++;
         }else if(buffindex == 2)
         {
-            currentmsg = "THIRD MODE";
+            currentmsg = "ADS?";
             buffindex++;
         }
+    }
+
+    void RunAds()
+    {
+        for(int i = 0; i < AdSpawns.Length; i++)
+        {
+            GameObject ad = Instantiate(AdPrefabs[0], AdSpawns[i].position, Quaternion.identity);
+            ad.transform.parent = Canvas.transform;
+        }
+        
+
     }
 
     void ResetEvent()
@@ -139,7 +155,8 @@ public class TwitchManager : MonoBehaviour
             if (buffindex == 1)
             {
                 currentmsg = "Team 1 Know how to invest their gems";
-                buffTextTimer.text = ""; 
+                buffTextTimer.text = "";
+                
             }
             if(buffindex == 2)
             {
@@ -150,7 +167,9 @@ public class TwitchManager : MonoBehaviour
             }
             if (buffindex == 3)
             {
-                chatmode = true;
+                currentmsg = "We'd love to know your opinion on these products!";
+                RunAds();
+                buffindex = 0;
             }
 
         }
@@ -172,7 +191,9 @@ public class TwitchManager : MonoBehaviour
             }
             if (buffindex == 3)
             {
-                
+                currentmsg = "We'd love to know your opinion on these products!";
+                buffindex = 0;
+                RunAds();
             }
 
         }
@@ -180,6 +201,11 @@ public class TwitchManager : MonoBehaviour
         {
             currentmsg = "Looks like no one won, guess neither of you has that many fans eh...";
             chatmode = true;
+            RunAds();
+            if(buffindex == 3)
+            {
+                buffindex = 0;
+            }
         }
 
 

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TypeWriter : MonoBehaviour
 {
-    public Text txt;
 
     public float speed;
 
