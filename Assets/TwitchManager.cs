@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class TwitchManager : MonoBehaviour
 {
+    public int votecounter = 0;
+
+
 
     public GameObject ChatMessage;
     public GameObject Canvas;
@@ -107,4 +110,21 @@ public class TwitchManager : MonoBehaviour
         }
     }
     
+}
+
+public class Buff
+{
+    public string Message { get; set; }
+    public Buff(string message)
+    {
+        Message = Message;
+    }
+}
+
+public class WhipItOut
+{
+    public string Text { get; set; }
+    public int Age { get; set; }
+    
+    // Other properties, methods, events...
 }
