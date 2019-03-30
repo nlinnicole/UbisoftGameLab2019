@@ -190,14 +190,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
 
 
-        if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
-        {
-            jumpCooldownCount = jumpCooldown;
-            jumpCooldownFinished = false;
-            isGrounded = false;
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        //if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
+        //{
+        //    jumpCooldownCount = jumpCooldown;
+        //    jumpCooldownFinished = false;
+        //    isGrounded = false;
+        //    gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //    gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        //}
 
         ////item pickup
         //nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
