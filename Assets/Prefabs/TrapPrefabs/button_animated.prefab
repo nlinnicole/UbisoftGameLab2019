@@ -72,7 +72,8 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 300, y: 300, z: 300}
-  m_Children: []
+  m_Children:
+  - {fileID: 6322570898303241273}
   m_Father: {fileID: 3669893011758241847}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,8 +212,10 @@ GameObject:
   - component: {fileID: 3669893011758241847}
   - component: {fileID: 3669893011751253975}
   - component: {fileID: 7390263051948625188}
-  - component: {fileID: 865826437}
   - component: {fileID: 1220793544238187238}
+  - component: {fileID: 6322570898409504292}
+  - component: {fileID: 1145987230375968737}
+  - component: {fileID: 5496148548228920660}
   m_Layer: 0
   m_Name: button_animated
   m_TagString: Board
@@ -229,7 +232,7 @@ Transform:
   m_GameObject: {fileID: 3669893011758531607}
   m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 19.5, y: 1.16, z: -32.51}
-  m_LocalScale: {x: 0.61142, y: 0.61142, z: -0.61142}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 3669893011758241845}
   - {fileID: 3669893011758241843}
@@ -266,28 +269,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3669893011758531607}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6.37, y: 1, z: 3.66}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &865826437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3669893011758531607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df91931769323d441a102825c16b8667, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  doorSpeed: 10
-  doorDuration: 2
-  doorOpenHeight: 0
-  doorOriginalHeight: -10
 --- !u!114 &1220793544238187238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +290,46 @@ MonoBehaviour:
   colorA: {r: 0, g: 0, b: 0, a: 0}
   colorB: {r: 0, g: 0, b: 0, a: 0}
   speed: 1
+--- !u!54 &6322570898409504292
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669893011758531607}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1145987230375968737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669893011758531607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a527ffc45ee710d47a961b49afad9361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5496148548228920660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669893011758531607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a527ffc45ee710d47a961b49afad9361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4679019878788470671
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,3 +427,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.83, y: 1, z: 2.21}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6322570898303241278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6322570898303241273}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6322570898303241273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322570898303241278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3669893011758241843}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
