@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class TwitchManager : MonoBehaviour
 {
+    bool team1twitchmode = false;
+    bool team2twitchmode = false;
+
     public bool chatmode = false;
 
     public int votecounter = 5;
@@ -22,7 +25,8 @@ public class TwitchManager : MonoBehaviour
 
 
     public GameObject ChatMessage;
-    public GameObject Canvas;
+    public GameObject Canvas, Team1Canvas, Team2Canvas;
+    
     public Transform[] ChatMessageSpawn;
 
     int spawncounter;
@@ -51,7 +55,7 @@ public class TwitchManager : MonoBehaviour
         currentmsg = "";
 
         eventrunning = false;
-        InvokeRepeating("RunningEvent", 4, 30);
+        InvokeRepeating("RunningEvent", 20, 60);
     }
 
     void Update()
@@ -103,6 +107,9 @@ public class TwitchManager : MonoBehaviour
 
     void RunningEvent()
     {
+        team1twitchmode = false;
+        team2twitchmode = false;
+        chatmode = false;
         votecounter = 5;
         eventrunning = true;
 
@@ -116,38 +123,57 @@ public class TwitchManager : MonoBehaviour
         {
             currentmsg = "TWITCH CHAT MODE?";
             buffindex++;
+        }else if(buffindex == 2)
+        {
+            currentmsg = "THIRD MODE";
+            buffindex++;
         }
     }
 
     void ResetEvent()
     {
+        //buff indexes are scuffed
         if(votecounter < 5)
         {
             //Team1
-            if (buffindex == 0)
+            if (buffindex == 1)
             {
                 currentmsg = "Team 1 Know how to invest their gems";
                 buffTextTimer.text = ""; 
             }
-            if(buffindex == 1)
+            if(buffindex == 2)
+            {
+                chatmode = true;
+                currentmsg = "Team 1 get to know how twitch chat feels about them";
+                team1twitchmode = true;
+                
+            }
+            if (buffindex == 3)
             {
                 chatmode = true;
             }
 
-        }else if(votecounter > 5)
+        }
+        else if(votecounter > 5)
         {
             //Team2 Wins
-            if (buffindex == 0)
-            {
-                //Gems worth * 2
-                currentmsg = "Team 1 Know how to invest their gems";
-                buffTextTimer.text = "";
-            }
             if (buffindex == 1)
             {
-                chatmode = true;
+                //Gems worth * 2
+                currentmsg = "Team 2 Know how to invest their gems";
+                buffTextTimer.text = "";
             }
-
+            if (buffindex == 2)
+            {
+                chatmode = true;
+                currentmsg = "Team 2 get to know how twitch chat feels about them";
+                team2twitchmode = true;
+                
+            }
+            if (buffindex == 3)
+            {
+                
+            }
 
         }
         else
@@ -157,7 +183,7 @@ public class TwitchManager : MonoBehaviour
         }
 
 
-        eventtimer = 20;
+        eventtimer = 20f;
         eventrunning = false;
     }
     
@@ -185,14 +211,39 @@ public class TwitchManager : MonoBehaviour
                 ChatMessage.GetComponent<Text>().text = String.Format("{0}: {1}", chatName, message);
                 if (chatmode)
                 {
-                    GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
-                    chatmessage.transform.parent = Canvas.transform;
-                    spawncounter++;
-                    if (spawncounter > 2)
+                    if (team1twitchmode)
                     {
-                        spawncounter = 0;
+                        GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
+                        chatmessage.transform.parent = Team1Canvas.transform;
+                        spawncounter++;
+                        if (spawncounter > 2)
+                        {
+                            spawncounter = 0;
+                        }
+                        chatBox.text = " " + String.Format("{0}: {1}", chatName, message) + chatBox.text;
+                    }else if (team2twitchmode)
+                    {
+                        GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
+                        chatmessage.transform.parent = Team2Canvas.transform;
+                        spawncounter++;
+                        if (spawncounter > 2)
+                        {
+                            spawncounter = 0;
+                        }
+                        chatBox.text = " " + String.Format("{0}: {1}", chatName, message) + chatBox.text;
+                    }else if(!team2twitchmode && !team1twitchmode)
+                    {
+                        GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
+                        chatmessage.transform.parent = Canvas.transform;
+                        spawncounter++;
+                        if (spawncounter > 2)
+                        {
+                            spawncounter = 0;
+                        }
+                        chatBox.text = " " + String.Format("{0}: {1}", chatName, message) + chatBox.text;
                     }
-                    chatBox.text = " " + String.Format("{0}: {1}", chatName, message) + chatBox.text;
+
+                    
                 }
                 
 
@@ -207,11 +258,11 @@ public class TwitchManager : MonoBehaviour
     {
         if (eventrunning)
         {
-            if (ChatInputs.ToLower() == "vote red")
+            if (ChatInputs.ToLower() == "red")
             {
                 votecounter++;
             }
-            if (ChatInputs.ToLower() == "vote blue")
+            if (ChatInputs.ToLower() == "blue")
             {
                 votecounter--;
             }
@@ -230,10 +281,4 @@ public class Buff
     }
 }
 
-public class WhipItOut
-{
-    public string Text { get; set; }
-    public int Age { get; set; }
-    
-    // Other properties, methods, events...
-}
+
