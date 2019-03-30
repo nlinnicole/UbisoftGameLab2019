@@ -133,8 +133,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void FixedUpdate()
     {
 
+
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            return;
+
+        }
+
         //death zones
-        if(inDeathZone)
+        if (inDeathZone)
         {
             if(playerNumber == 1)
             {
@@ -151,11 +158,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
         }
 
-        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
-        {
-            return;
-
-        }
 
         if (jumpCooldownCount > 0)
         {

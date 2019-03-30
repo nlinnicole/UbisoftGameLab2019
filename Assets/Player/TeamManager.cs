@@ -60,6 +60,12 @@ public class TeamManager : MonoBehaviour
 
         if ((!player1Health.alive || !player2Health.alive) || (player1.GetComponent<PlayerController>().inDeathZone && player2.GetComponent<PlayerController>().inDeathZone))
         {
+
+            foreach(Rigidbody rb in player1.GetComponentsInChildren<Rigidbody>())
+            {
+                rb.isKinematic = true;
+            }
+
             Transform[] children = rope.GetComponentsInChildren<Transform>();
             foreach (Transform child in children)
             {
@@ -77,6 +83,10 @@ public class TeamManager : MonoBehaviour
 
     public void respawn()
     {
+
+        player1.GetComponent<GimmeDatRagdoll>().resetRagdoll();
+        player2.GetComponent<GimmeDatRagdoll>().resetRagdoll();
+
 
         player1.GetComponent<PlayerController>().inDeathZone = false;
         player2.GetComponent<PlayerController>().inDeathZone = false;
@@ -167,6 +177,12 @@ public class TeamManager : MonoBehaviour
             cam.GetComponentInParent<CamPlayerFollow>().player1Dead = false;
             cam.GetComponentInParent<CamPlayerFollow>().player2Dead = false;
         }
+
+        foreach (Rigidbody rb in player1.GetComponentsInChildren<Rigidbody>())
+        {
+            rb.isKinematic = false;
+        }
+
 
         cam.GetComponent<Animator>().ResetTrigger("isDying");
 
