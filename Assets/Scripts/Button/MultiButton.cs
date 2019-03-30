@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleButton : MonoBehaviour
+public class MultiButton : MonoBehaviour
 {
+
     private bool pressed = false;
+
     void Start()
     {
         
@@ -15,7 +17,7 @@ public class PuzzleButton : MonoBehaviour
 
     }
 
-    public bool getPress()
+    public bool getPressed()
     {
         return pressed;
     }
