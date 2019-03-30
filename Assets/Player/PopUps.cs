@@ -15,6 +15,8 @@ public class PopUps : MonoBehaviour
     public float swearCountdown = 0;
     bool swearing = false;
 
+    public RopeGenerator rope;
+
     public GameObject text;
     public GameObject bg;
 
@@ -22,7 +24,7 @@ public class PopUps : MonoBehaviour
     {
         currentForce = headJoint.GetComponent<SpringJoint>().currentForce.magnitude;
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y + displayHeight, player.transform.position.z);
-        if (headJoint.GetComponent<SpringJoint>().currentForce.magnitude > forceForSwearing && readyToSwear)
+        if ((headJoint.GetComponent<SpringJoint>().currentForce.magnitude > forceForSwearing || rope.isBroken) && readyToSwear)
         {
             readyToSwear = false;
             swearing = true;
@@ -58,10 +60,6 @@ public class PopUps : MonoBehaviour
             m_Camera.transform.rotation * Vector3.up);
     }
 
-    void swear()
-    {
- 
 
-    }
 
 }
