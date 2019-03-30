@@ -12,7 +12,7 @@ public class PuzzleButton : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public bool getPress()

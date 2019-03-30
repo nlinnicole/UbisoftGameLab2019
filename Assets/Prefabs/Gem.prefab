@@ -4709,6 +4709,7 @@ GameObject:
   - component: {fileID: 7406348537047660384}
   - component: {fileID: 1502488695199028047}
   - component: {fileID: 6084735044648436666}
+  - component: {fileID: 254031102508401651}
   m_Layer: 10
   m_Name: Gem
   m_TagString: Untagged
@@ -4741,7 +4742,7 @@ SphereCollider:
   m_GameObject: {fileID: 6084735044648436665}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.87
   m_Center: {x: 0, y: 0.16, z: 0}
@@ -4761,6 +4762,20 @@ MonoBehaviour:
   diamond: {fileID: 9132074460172978591}
   floatAmount: 0.005
   spinSpeed: 50
+--- !u!136 &254031102508401651
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084735044648436665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.9499707
+  m_Height: 2.9903193
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.16767883, z: -0.0022568703}
 --- !u!1 &7320387509149338836
 GameObject:
   m_ObjectHideFlags: 0
