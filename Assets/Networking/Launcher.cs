@@ -45,8 +45,8 @@ namespace Concordia1.Gamelab
             controlPanel.SetActive(false);
             if (PhotonNetwork.IsConnected)
             {
-                //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
 
             }
             else
@@ -61,8 +61,8 @@ namespace Concordia1.Gamelab
             Debug.Log("Joined Master room");
             if (isConnecting)
             {
-                //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
             }
         }
 
@@ -88,9 +88,10 @@ namespace Concordia1.Gamelab
 
         public override void OnJoinedRoom()
         {
-            Debug.Log("Connected as Client");
             if (PhotonNetwork.IsMasterClient)
             {
+                Debug.Log("Connected as Master");
+
                 sceneCount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
                 string[] scenes = new string[sceneCount];
                 for (int i = 0; i < sceneCount; i++)
@@ -98,7 +99,7 @@ namespace Concordia1.Gamelab
                     scenes[i] = System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i));
                 }
                 int f = Random.Range(1, scenes.Length);
-                PhotonNetwork.LoadLevel(scenes[f]);
+                PhotonNetwork.LoadLevel(scenes[1]);
             }
 
         }
