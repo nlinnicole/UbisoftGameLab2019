@@ -137,10 +137,17 @@ public class TwitchManager : MonoBehaviour
 
     void RunAds()
     {
+        int counter = 0;
         for(int i = 0; i < AdSpawns.Length; i++)
         {
-            GameObject ad = Instantiate(AdPrefabs[0], AdSpawns[i].position, Quaternion.identity);
+            GameObject ad = Instantiate(AdPrefabs[counter], AdSpawns[i].position, Quaternion.identity);
             ad.transform.parent = Canvas.transform;
+            counter++;
+            
+            if(counter > AdPrefabs.Length)
+            {
+                counter = 0;
+            }
         }
         
 
