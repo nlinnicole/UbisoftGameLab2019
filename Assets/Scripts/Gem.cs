@@ -18,6 +18,7 @@ public class Gem : MonoBehaviour
             Destroy(GetComponent<SphereCollider>());
             Destroy(diamond);
             other.gameObject.GetComponent<PlayerController>().teamManager.GetComponent<TeamManager>().gemCount++;
+            AkSoundEngine.PostEvent("getGem", other.gameObject);
             particle.Play();
             Destroy(gameObject, 3);
         }

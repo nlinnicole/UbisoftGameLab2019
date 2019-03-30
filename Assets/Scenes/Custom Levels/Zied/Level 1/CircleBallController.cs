@@ -27,6 +27,8 @@ public class CircleBallController : MonoBehaviour
 
     private float cooldown =1f;
 
+    // sound trigger boolz
+    bool monsterCollided = false;
     bool startAttacking = false;
 
     //bool centered = true;
@@ -48,6 +50,10 @@ public class CircleBallController : MonoBehaviour
 
     public enum State{rest, target, attack, retreat};
     public State myState = State.rest;
+
+
+    // ---------------------- sound bool 
+    bool chargeStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -134,6 +140,12 @@ public class CircleBallController : MonoBehaviour
     {
         transform.position += attackDirection * Time.deltaTime * speed;
 
+        if (!chargeStarted)
+        {
+            chargeStarted = true;
+            AkSoundEngine.PostEvent("startCharge", gameObject);
+        }
+
     }
 
     void returnBallToCenter()
@@ -146,6 +158,14 @@ public class CircleBallController : MonoBehaviour
         } else {
           myState = State.rest;
           fraction = 0;
+
+            if (chargeStarted)
+            {
+                monsterCollided = false;
+                chargeStarted = false;
+                AkSoundEngine.PostEvent("roar", gameObject);
+            }
+            
         }
     }
 
@@ -196,6 +216,16 @@ public class CircleBallController : MonoBehaviour
           Debug.Log("Colliding with rope.");
           PlayersLeftRoom();
         }
+
+
+        // trigger thud sound when monster hits something
+        if (chargeStarted && !monsterCollided)
+        {
+            monsterCollided = true;
+            AkSoundEngine.PostEvent("stopCharge", gameObject);
+            AkSoundEngine.PostEvent("roar", gameObject);
+        }
+    
     }
 
     private void OnTriggerEnter(Collider other)
