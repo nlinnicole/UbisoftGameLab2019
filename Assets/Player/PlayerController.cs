@@ -266,7 +266,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
 
         //roll
-        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
+        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 4)
         {
             if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
             {
