@@ -9,8 +9,15 @@ using UnityEngine.UI;
 
 public class TwitchManager : MonoBehaviour
 {
-    public int votecounter = 0;
+    public int votecounter = 5;
 
+    public string currentmsg = "";
+
+    public bool eventrunning = false;
+
+    public int buffcounter = 0;
+
+    public Slider VoteSlider;
 
 
     public GameObject ChatMessage;
@@ -23,25 +30,58 @@ public class TwitchManager : MonoBehaviour
     private StreamReader reader;
     private StreamWriter writer;
 
+    public int buffindex = 0;
+
     public string username, password, channelName; //Get the password from https://twitchapps.com/tmi
 
-    public Text chatBox;
-    
+    //public Text chatBox;
+    public Text buffTextBox;
+    public Text buffTextTimer;
+
     public int speed;
+    public float eventtimer = 20f;
+
 
     void Start()
     {
+        currentmsg = "";
         Connect();
+        eventrunning = false;
+        InvokeRepeating("RunningEvent", 4, 30);
     }
 
     void Update()
     {
+        buffTextBox.text = currentmsg;
+
+        if (!eventrunning)
+        {
+            buffTextTimer.text = "";
+
+        }else if (eventrunning)
+        {
+            buffTextTimer.text = Math.Round(eventtimer, 0).ToString();
+        }
+        VoteSlider.value = votecounter;
+
         if (!twitchClient.Connected)
         {
             Connect();
         }
 
         ReadChat();
+
+        if (eventrunning)
+        {
+            eventtimer -= Time.deltaTime;
+            if(eventtimer < 0)
+            {
+                ResetEvent();
+                Debug.Log("Event reset");
+            }
+
+        }
+
     }
 
     private void Connect()
@@ -56,6 +96,52 @@ public class TwitchManager : MonoBehaviour
         writer.WriteLine("JOIN #" + channelName);
         writer.Flush();
     }
+
+    void RunningEvent()
+    {
+        votecounter = 5;
+        eventrunning = true;
+
+        if(buffcounter == 0)
+        {
+            currentmsg = "DOUBLE GEMS";
+            //Increment the buff here
+            buffindex = 0;
+        }
+    }
+
+    void ResetEvent()
+    {
+        if(votecounter < 5)
+        {
+            //Team1
+            if (buffindex == 0)
+            {
+                currentmsg = "Team1 has won";
+                buffTextTimer.text = ""; 
+            }
+
+        }else if(votecounter > 5)
+        {
+            //Team2 Wins
+            if (buffindex == 0)
+            {
+                //Gems worth * 2
+                currentmsg = "Team2 has won";
+                buffTextTimer.text = "";
+            }
+
+
+
+        }
+
+
+        eventtimer = 20;
+        eventrunning = false;
+    }
+    
+
+
 
     private void ReadChat()
     {
@@ -76,17 +162,17 @@ public class TwitchManager : MonoBehaviour
                 //print(String.Format("{0}: {1}", chatName, message));
 
                 ChatMessage.GetComponent<Text>().text = String.Format("{0}: {1}", chatName, message);
-                GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
-                chatmessage.transform.parent = Canvas.transform;
-                spawncounter++;
-                if(spawncounter > 2)
-                {
-                    spawncounter= 0;
-                }
+                //GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
+                //chatmessage.transform.parent = Canvas.transform;
+                //spawncounter++;
+                //if(spawncounter > 2)
+               // {
+               //     spawncounter= 0;
+               // }
                 //chatBox.text = " "+ String.Format("{0}: {1}", chatName, message) + chatBox.text;
 
                 //Run the instructions to control the game!
-                //GameInputs(message);
+                GameInputs(message);
             }
         }
     }
@@ -94,20 +180,18 @@ public class TwitchManager : MonoBehaviour
     
     private void GameInputs(string ChatInputs)
     {
-        if (ChatInputs.ToLower() == "vote red")
-        {            
-            Debug.Log("Spawned Skele");
-        }
-
-        if (ChatInputs.ToLower() == "right")
+        if (eventrunning)
         {
-            
+            if (ChatInputs.ToLower() == "vote red")
+            {
+                votecounter++;
+            }
+            if (ChatInputs.ToLower() == "vote blue")
+            {
+                votecounter--;
+            }
         }
-
-        if (ChatInputs.ToLower() == "forward")
-        {
-            
-        }
+        
     }
     
 }
