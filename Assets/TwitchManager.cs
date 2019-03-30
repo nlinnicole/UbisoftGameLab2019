@@ -59,7 +59,7 @@ public class TwitchManager : MonoBehaviour
         currentmsg = "";
 
         eventrunning = false;
-        InvokeRepeating("RunningEvent", 40, 60);
+        InvokeRepeating("RunningEvent", 30, 60);
     }
 
     void Update()
@@ -137,17 +137,11 @@ public class TwitchManager : MonoBehaviour
 
     void RunAds()
     {
-        int counter = 0;
         for(int i = 0; i < AdSpawns.Length; i++)
         {
-            GameObject ad = Instantiate(AdPrefabs[counter], AdSpawns[i].position, Quaternion.identity);
+            GameObject ad = Instantiate(AdPrefabs[i], AdSpawns[i].position, Quaternion.identity);
             ad.transform.parent = Canvas.transform;
-            counter++;
             
-            if(counter > AdPrefabs.Length)
-            {
-                counter = 0;
-            }
         }
         
 
