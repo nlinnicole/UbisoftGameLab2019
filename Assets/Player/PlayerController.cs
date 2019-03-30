@@ -468,7 +468,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
 
         //for anim
-        GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
+        if(isGrounded)
+        {
+            GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
+
+        } else
+        {
+            GetComponent<Animator>().SetFloat("PlayerVelocity", 0f);
+
+        }
 
 
     }
