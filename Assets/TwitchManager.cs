@@ -9,13 +9,14 @@ using UnityEngine.UI;
 
 public class TwitchManager : MonoBehaviour
 {
+    public bool chatmode = false;
+
     public int votecounter = 5;
 
     public string currentmsg = "";
 
     public bool eventrunning = false;
 
-    public int buffcounter = 0;
 
     public Slider VoteSlider;
 
@@ -32,9 +33,11 @@ public class TwitchManager : MonoBehaviour
 
     public int buffindex = 0;
 
+
+
     public string username, password, channelName; //Get the password from https://twitchapps.com/tmi
 
-    //public Text chatBox;
+    public Text chatBox;
     public Text buffTextBox;
     public Text buffTextTimer;
 
@@ -44,8 +47,9 @@ public class TwitchManager : MonoBehaviour
 
     void Start()
     {
-        currentmsg = "";
         Connect();
+        currentmsg = "";
+
         eventrunning = false;
         InvokeRepeating("RunningEvent", 4, 30);
     }
@@ -102,11 +106,16 @@ public class TwitchManager : MonoBehaviour
         votecounter = 5;
         eventrunning = true;
 
-        if(buffcounter == 0)
+        if(buffindex == 0)
         {
-            currentmsg = "DOUBLE GEMS";
+            currentmsg = "DOUBLE VALUE GEMS";
             //Increment the buff here
-            buffindex = 0;
+            buffindex++;
+        }else if
+        (buffindex == 1)
+        {
+            currentmsg = "TWITCH CHAT MODE?";
+            buffindex++;
         }
     }
 
@@ -117,8 +126,12 @@ public class TwitchManager : MonoBehaviour
             //Team1
             if (buffindex == 0)
             {
-                currentmsg = "Team1 has won";
+                currentmsg = "Team 1 Know how to invest their gems";
                 buffTextTimer.text = ""; 
+            }
+            if(buffindex == 1)
+            {
+                chatmode = true;
             }
 
         }else if(votecounter > 5)
@@ -127,12 +140,20 @@ public class TwitchManager : MonoBehaviour
             if (buffindex == 0)
             {
                 //Gems worth * 2
-                currentmsg = "Team2 has won";
+                currentmsg = "Team 1 Know how to invest their gems";
                 buffTextTimer.text = "";
+            }
+            if (buffindex == 1)
+            {
+                chatmode = true;
             }
 
 
-
+        }
+        else
+        {
+            currentmsg = "Looks like no one won, guess neither of you has that many fans eh...";
+            chatmode = true;
         }
 
 
@@ -162,14 +183,18 @@ public class TwitchManager : MonoBehaviour
                 //print(String.Format("{0}: {1}", chatName, message));
 
                 ChatMessage.GetComponent<Text>().text = String.Format("{0}: {1}", chatName, message);
-                //GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
-                //chatmessage.transform.parent = Canvas.transform;
-                //spawncounter++;
-                //if(spawncounter > 2)
-               // {
-               //     spawncounter= 0;
-               // }
-                //chatBox.text = " "+ String.Format("{0}: {1}", chatName, message) + chatBox.text;
+                if (chatmode)
+                {
+                    GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
+                    chatmessage.transform.parent = Canvas.transform;
+                    spawncounter++;
+                    if (spawncounter > 2)
+                    {
+                        spawncounter = 0;
+                    }
+                    chatBox.text = " " + String.Format("{0}: {1}", chatName, message) + chatBox.text;
+                }
+                
 
                 //Run the instructions to control the game!
                 GameInputs(message);
