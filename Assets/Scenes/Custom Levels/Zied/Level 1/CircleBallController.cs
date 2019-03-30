@@ -6,8 +6,7 @@ using UnityEngine.Playables;
 public class CircleBallController : MonoBehaviour
 {
     //If possible, in the future lets add a controller that swaps players from each one.
-    public GameObject players;
-    private int playerCount = 0;
+    public List<GameObject> players;
 
     public Animator RaiseDoor;
 
@@ -54,7 +53,7 @@ public class CircleBallController : MonoBehaviour
     void Start()
     {
         int boardKillCounter = 0;
-        players = GameObject.FindGameObjectWithTag("Player");
+        players = new List<GameObject>();
         rb = gameObject.GetComponent<Rigidbody>();
 
         myAnims = GetComponentInChildren<Animator>();
@@ -88,7 +87,7 @@ public class CircleBallController : MonoBehaviour
         case State.target:
           //Debug.Log("Monster state: finding target");
           if (targetDirection == Quaternion.identity){
-            targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
+            targetDirection = Quaternion.LookRotation(players[0].transform.position - transform.position);
             //Debug.Log("Turning towards target: " + targetDirection);
           }
 
@@ -164,12 +163,12 @@ public class CircleBallController : MonoBehaviour
     }
 
     void PlayersLeftRoom(){
-      Debug.Log("Players one in room");
+      Debug.Log("Players not in room");
+      players.Clear();
+      myState = State.rest;
+      invisibleWall.SetActive(false);
       if (playersInRoom){
         playersInRoom = false;
-        myState = State.rest;
-        invisibleWall.SetActive(false);
-
         myAnims.SetBool("playersInRoom", false);
       }
     }
@@ -194,6 +193,7 @@ public class CircleBallController : MonoBehaviour
         }
 
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Rope")){
+          Debug.Log("Colliding with rope.");
           PlayersLeftRoom();
         }
     }
@@ -210,14 +210,20 @@ public class CircleBallController : MonoBehaviour
             //startAttacking = false;
         // }
 
-        if(other.tag == "Player" && playerCount <= 2)
+        if(other.tag == "Player")
         {
-          Debug.Log(playerCount);
-            playerCount++;
-            if (playerCount == 2){
+            if (players.Count > 0){
+              if (!players.Contains(other.gameObject)){
+                players.Add(other.transform.gameObject);
+              }
+            } else {
+              players.Add(other.transform.gameObject);
+            }
+
+            if (players.Count == 2){
               playersInRoom = true;
               myState = State.target;
-              targetDirection = Quaternion.LookRotation(players.transform.position - transform.position);
+              targetDirection = Quaternion.LookRotation(players[0].transform.position - transform.position);
               invisibleWall.SetActive(true);
 
               myAnims.SetBool("playersInRoom", true);
@@ -228,15 +234,9 @@ public class CircleBallController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-      if(other.tag == "Player" && playerCount >= 0)
-      {
-          playerCount--;
-      }
 
-      if (playerCount <= 0){
-        if (playerCount != 0)
-          playerCount = 0;
 
+      if (players.Count == 0){
         PlayersLeftRoom();
       }
     }

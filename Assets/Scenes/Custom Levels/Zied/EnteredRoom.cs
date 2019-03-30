@@ -21,17 +21,19 @@ public class EnteredRoom : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+      if (other != null) {
         if (other.tag == "Player")
         {
             PlayerCount++;
             if(PlayerCount == 1)
             {
-                monster.GetComponent<CircleBallController>().players = other.gameObject;
-                entrancedoor.SetBool("CloseEntrance", true);
-                Monster.isKinematic = false;
+                //monster.GetComponent<CircleBallController>().players = other.gameObject;
+                //entrancedoor.SetBool("CloseEntrance", true);
+
             }
 
         }
+      }
 
     }
 }
