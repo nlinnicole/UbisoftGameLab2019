@@ -15,6 +15,8 @@ public class Gem : MonoBehaviour
     {
         if (other.gameObject.layer == 11)
         {
+            // trigger sound
+            AkSoundEngine.PostEvent("getGem", GameObject.FindGameObjectWithTag("Player"));
             Destroy(GetComponent<SphereCollider>());
             Destroy(diamond);
             other.gameObject.GetComponent<PlayerController>().teamManager.GetComponent<TeamManager>().gemCount++;

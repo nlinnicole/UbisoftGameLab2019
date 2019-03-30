@@ -23,7 +23,7 @@ namespace AK
         static const AkUniqueID GRUNTP2 = 4194020147U;
         static const AkUniqueID ITEMPICKUP = 1851462748U;
         static const AkUniqueID LANDJUMP = 2269710510U;
-        static const AkUniqueID PLAYERDEAD = 2356585300U;
+        static const AkUniqueID PLAYERSDEAD = 2021871131U;
         static const AkUniqueID ROAR = 2110808665U;
         static const AkUniqueID ROLLSTART = 957627572U;
         static const AkUniqueID ROLLSTOP = 3059993384U;

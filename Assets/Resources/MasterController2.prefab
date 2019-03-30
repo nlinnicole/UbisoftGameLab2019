@@ -2256,6 +2256,9 @@ GameObject:
   - component: {fileID: 10922}
   - component: {fileID: 10264}
   - component: {fileID: 10400}
+  - component: {fileID: 8012008716250798665}
+  - component: {fileID: 2290119213010516893}
+  - component: {fileID: 6121851484848018993}
   m_Layer: 11
   m_Name: Player1
   m_TagString: Player
@@ -2355,6 +2358,7 @@ MonoBehaviour:
   rollMultiplier: 10
   rollDuration: 0.25
   rollCooldown: 1
+  rollMod: 0
   heldItem: {fileID: 0}
   itemPickupDistance: 3
   inventory: {fileID: 0}
@@ -2507,6 +2511,58 @@ CapsuleCollider:
   m_Height: 4.0368233
   m_Direction: 1
   m_Center: {x: 0, y: 1.2255421, z: 0}
+--- !u!114 &8012008716250798665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede25a6a8918eb94884da598995d1c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2290119213010516893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6079059ee06844ebbcc189460c1d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: player
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 75ed4943808e8448a5369690b7c50b88
+--- !u!114 &6121851484848018993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6079059ee06844ebbcc189460c1d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: deathManager
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: fa6637fc8601ba43afa1e26d607e8ae0
 --- !u!1 &566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2908,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3232}
   - component: {fileID: 10920}
+  - component: {fileID: 7772530716446749376}
+  - component: {fileID: 8831661491909583402}
   m_Layer: 21
   m_Name: Rope
   m_TagString: Untagged
@@ -2951,6 +3009,38 @@ MonoBehaviour:
   maxGasForce: 50
   totalDistance: 0
   distanceLimit: 10
+--- !u!114 &7772530716446749376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6079059ee06844ebbcc189460c1d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: player
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 75ed4943808e8448a5369690b7c50b88
+--- !u!114 &8831661491909583402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede25a6a8918eb94884da598995d1c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3260,7 @@ MonoBehaviour:
   rollMultiplier: 10
   rollDuration: 0.25
   rollCooldown: 1
+  rollMod: 0
   heldItem: {fileID: 0}
   itemPickupDistance: 3
   inventory: {fileID: 0}
