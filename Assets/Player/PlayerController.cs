@@ -141,17 +141,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
 
         //death zones
-        if (inDeathZone)
+        if (inDeathZone && !rope.isBroken)
         {
             if(playerNumber == 1)
             {
-                rope.ropeJoints[2].GetComponent<RopeJoint>().broken = true;
+                rope.ropeJoints[5].GetComponent<RopeJoint>().broken = true;
                 rope.isBroken = true;
                 playerCamera.GetComponentInParent<CamPlayerFollow>().player1Dead = true;
             }
             else if (playerNumber == 2)
             {
-                rope.ropeJoints[rope.ropeJoints.Length-2].GetComponent<RopeJoint>().broken = true;
+                rope.ropeJoints[rope.ropeJoints.Length-5].GetComponent<RopeJoint>().broken = true;
                 rope.isBroken = true;
                 playerCamera.GetComponentInParent<CamPlayerFollow>().player2Dead = true;
 
