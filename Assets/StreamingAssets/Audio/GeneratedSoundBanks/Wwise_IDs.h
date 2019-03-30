@@ -14,6 +14,8 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ACTIVATESWITCH = 3168238102U;
+        static const AkUniqueID BLEEP1 = 3823098432U;
+        static const AkUniqueID BLEEP2 = 3823098435U;
         static const AkUniqueID CONTINUOUSSHOT = 2103141236U;
         static const AkUniqueID DOORCLICK = 3771692483U;
         static const AkUniqueID DOOROPENED = 2649542654U;
@@ -24,6 +26,7 @@ namespace AK
         static const AkUniqueID ITEMPICKUP = 1851462748U;
         static const AkUniqueID LANDJUMP = 2269710510U;
         static const AkUniqueID PLAYERSDEAD = 2021871131U;
+        static const AkUniqueID RANDOMBELLS = 3713130874U;
         static const AkUniqueID ROAR = 2110808665U;
         static const AkUniqueID ROLLSTART = 957627572U;
         static const AkUniqueID ROLLSTOP = 3059993384U;
@@ -281,6 +284,7 @@ namespace AK
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID AXE = 765201635U;
         static const AkUniqueID BGM = 412724365U;
+        static const AkUniqueID BLEEPS = 3823098370U;
         static const AkUniqueID CHAINMONSTER = 2878223726U;
         static const AkUniqueID CONTINUOUSSHOOTER = 1126427000U;
         static const AkUniqueID CONVEYOR = 719019138U;
