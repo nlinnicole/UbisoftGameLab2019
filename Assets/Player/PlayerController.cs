@@ -266,7 +266,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
 
         //roll
-        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
+        if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2)
         {
             if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
             {
@@ -443,7 +443,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
         if ( Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.x) + Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.z) > maxSpeed)
         {
-            transform.GetComponent<Rigidbody>().velocity /= maxSpeed;
+            transform.GetComponent<Rigidbody>().velocity = new Vector3(transform.GetComponent<Rigidbody>().velocity.x/maxSpeed, transform.GetComponent<Rigidbody>().velocity.y, transform.GetComponent<Rigidbody>().velocity.z / maxSpeed);
         }
 
         if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 4)
