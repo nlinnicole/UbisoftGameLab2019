@@ -411,27 +411,60 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (isGrounded)
         {
 
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
-                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            //if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+            //    || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            //{
+            //    joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)).normalized);
+            //}
+
+            //movement
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
             {
-                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)).normalized);
+                velocity += CamRight * moveSpeed * 100;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamRight * moveSpeed * 100;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) > 0)
+            {
+                velocity += CamForward * moveSpeed * 100;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamForward * moveSpeed * 100;
+                faceDirection += -CamForward;
             }
 
-
-            velocity += joyInput * moveSpeed * 100;
-            faceDirection += joyInput;
         }
         else
         {
             ////reduced movement when jumping
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
-                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            //movement
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
             {
-                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
+                velocity += CamRight * moveSpeed * 100 / jumpMovementReduction;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamRight * moveSpeed * 100 / jumpMovementReduction;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) > 0)
+            {
+                velocity += CamForward * moveSpeed * 100 / jumpMovementReduction;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamForward * moveSpeed * 100 /jumpMovementReduction;
+                faceDirection += -CamForward;
             }
 
-            velocity += (joyInput * moveSpeed * 100) / jumpMovementReduction;
-            faceDirection += joyInput;
         }
 
         faceDirection.Normalize();
