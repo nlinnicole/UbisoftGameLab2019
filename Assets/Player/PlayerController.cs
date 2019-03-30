@@ -427,7 +427,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
                 || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
             {
-                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)).normalized);
+                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
             }
 
             velocity += (joyInput * moveSpeed * 100) / jumpMovementReduction;
