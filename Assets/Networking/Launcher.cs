@@ -19,6 +19,8 @@ namespace Concordia1.Gamelab
         [SerializeField]
         private GameObject progressLabel;
 
+
+
         void Awake()
         {
             PhotonNetwork.AutomaticallySyncScene = true;
@@ -84,7 +86,7 @@ namespace Concordia1.Gamelab
             Debug.Log("Connected as Client");
             if (PhotonNetwork.IsMasterClient)
             {
-                PhotonNetwork.LoadLevel("hardcode_01");
+                PhotonNetwork.LoadLevel("FinalLevelChange");
             }
 
         }
