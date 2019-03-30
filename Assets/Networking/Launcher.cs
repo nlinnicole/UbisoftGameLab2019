@@ -19,11 +19,16 @@ namespace Concordia1.Gamelab
         [SerializeField]
         private GameObject progressLabel;
 
+        public string[] scenes;
+        int sceneCount;
+        
 
 
-        void Awake()
+
+    void Awake()
         {
             PhotonNetwork.AutomaticallySyncScene = true;
+            
         }
 
         void Start()
@@ -86,7 +91,14 @@ namespace Concordia1.Gamelab
             Debug.Log("Connected as Client");
             if (PhotonNetwork.IsMasterClient)
             {
-                PhotonNetwork.LoadLevel("FinalLevelChange");
+                sceneCount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+                string[] scenes = new string[sceneCount];
+                for (int i = 0; i < sceneCount; i++)
+                {
+                    scenes[i] = System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i));
+                }
+                int f = Random.Range(1, scenes.Length);
+                PhotonNetwork.LoadLevel(scenes[f]);
             }
 
         }
