@@ -795,6 +795,7 @@ GameObject:
   - component: {fileID: 2987}
   - component: {fileID: 8255}
   - component: {fileID: 8655}
+  - component: {fileID: 716721479}
   m_Layer: 9
   m_Name: Bone
   m_TagString: Untagged
@@ -848,6 +849,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.010058585, y: 0.014920211, z: 0.010067993}
   m_Center: {x: -0.00502928, y: 0.0074601057, z: -0.00047410978}
+--- !u!138 &716721479
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574}
+  m_ConnectedBody: {fileID: 8257}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,7 +2456,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 10028}
   - {fileID: 10027}
-  viewIdField: 0
+  viewIdField: 2
   InstantiationId: 2
   isRuntimeInstantiated: 0
 --- !u!114 &10028
@@ -3256,7 +3271,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 10023}
   - {fileID: 10021}
-  viewIdField: 0
+  viewIdField: 1
   InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &10023
