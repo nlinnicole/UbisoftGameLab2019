@@ -18,6 +18,8 @@ public class TwitchManager : MonoBehaviour
     public int votecounter = 5;
 
     public string currentmsg = "";
+    public string option1msg = "";
+    public string option2msg = "";
 
     public bool eventrunning = false;
 
@@ -48,6 +50,8 @@ public class TwitchManager : MonoBehaviour
     public Text chatBox;
     public Text buffTextBox;
     public Text buffTextTimer;
+    public Text option1TextBox;
+    public Text option2TextBox;
 
     public int speed;
     public float eventtimer = 20f;
@@ -59,12 +63,14 @@ public class TwitchManager : MonoBehaviour
         currentmsg = "";
 
         eventrunning = false;
-        InvokeRepeating("RunningEvent", 30, 60);
+        InvokeRepeating("RunningEvent", 2, 30);
     }
 
     void Update()
     {
         buffTextBox.text = currentmsg;
+        option1TextBox.text = option1msg;
+        option2TextBox.text = option2msg;
 
         if (!eventrunning)
         {
@@ -120,17 +126,25 @@ public class TwitchManager : MonoBehaviour
 
         if(buffindex == 0)
         {
-            currentmsg = "DOUBLE VALUE GEMS?";
+            currentmsg = "Vote Now!";
+            option1msg = "Double Gems?";
+            option2msg = "Twitch Chat mode?";
+
             //Increment the buff here
             buffindex++;
         }else if
         (buffindex == 1)
         {
-            currentmsg = "TWITCH CHAT MODE?";
+            option1msg = "Ads?";
+            option2msg = "Twitch Chat mode?";
+            currentmsg = "Vote Now!";
             buffindex++;
+
         }else if(buffindex == 2)
         {
-            currentmsg = "ADS?";
+            option1msg = "Ads?";
+            option2msg = "Double Gems?";
+            currentmsg = "Vote Now!";
             buffindex++;
         }
     }
@@ -155,14 +169,19 @@ public class TwitchManager : MonoBehaviour
             //Team1
             if (buffindex == 1)
             {
-                currentmsg = "Team 1 Know how to invest their gems";
+                currentmsg = "Double Gems for Everyone!";
+                option1msg = "";
+                option2msg = "";
+
                 buffTextTimer.text = "";
+                //Enabled Double Gems NEEDS TO BE ADDED
                 
             }
             if(buffindex == 2)
             {
                 chatmode = true;
-                currentmsg = "Team 1 get to know how twitch chat feels about them";
+                currentmsg = "We'd love to know your opinion on these products!";
+                RunAds();
                 team1twitchmode = true;
                 
             }
@@ -180,19 +199,30 @@ public class TwitchManager : MonoBehaviour
             if (buffindex == 1)
             {
                 //Gems worth * 2
-                currentmsg = "Team 2 Know how to invest their gems";
+                currentmsg = "Twitch Chat Mode Enabled!";
                 buffTextTimer.text = "";
+                option1msg = "";
+                option2msg = "";
+                chatmode = true;
+
             }
             if (buffindex == 2)
             {
                 chatmode = true;
-                currentmsg = "Team 2 get to know how twitch chat feels about them";
-                team2twitchmode = true;
-                
+                currentmsg = "Twitch Chat Mode Enabled!";
+                buffTextTimer.text = "";
+                option1msg = "";
+                option2msg = "";
+                chatmode = true;
+
             }
             if (buffindex == 3)
             {
-                currentmsg = "We'd love to know your opinion on these products!";
+                currentmsg = "Double Gems for Everyone!";
+                //Enabled Double Gems NEEDS TO BE ADDED
+                buffTextTimer.text = "";
+                option1msg = "";
+                option2msg = "";
                 buffindex = 0;
                 RunAds();
             }
@@ -200,9 +230,12 @@ public class TwitchManager : MonoBehaviour
         }
         else
         {
-            currentmsg = "Looks like no one won, guess neither of you has that many fans eh...";
+            currentmsg = "Looks like nothing won.. let's see what twitch chat has to say";
+            option1msg = "";
+            option2msg = "";
             chatmode = true;
-            RunAds();
+            //RunAds();
+
             if(buffindex == 3)
             {
                 buffindex = 0;
@@ -285,11 +318,11 @@ public class TwitchManager : MonoBehaviour
     {
         if (eventrunning)
         {
-            if (ChatInputs.ToLower() == "red")
+            if (ChatInputs.ToLower() == "left")
             {
                 votecounter++;
             }
-            if (ChatInputs.ToLower() == "blue")
+            if (ChatInputs.ToLower() == "right")
             {
                 votecounter--;
             }

@@ -58,7 +58,7 @@ public class TeamManager : MonoBehaviour
 
         }
 
-        if ((!player1Health.alive || !player2Health.alive) || (player1.GetComponent<PlayerController>().inDeathZone && player2.GetComponent<PlayerController>().inDeathZone))
+        if ((!player1Health.alive || !player2Health.alive))
         {
 
             foreach(Rigidbody rb in player1.GetComponentsInChildren<Rigidbody>())
