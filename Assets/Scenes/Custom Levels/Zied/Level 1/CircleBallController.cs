@@ -62,6 +62,10 @@ public class CircleBallController : MonoBehaviour
         if (invisibleWall == null){
           invisibleWall = GameObject.Find("InvisibleWall");
           invisibleWall.SetActive(false);
+        } else {
+          if (invisibleWall.activeSelf){
+            invisibleWall.SetActive(false);
+          }
         }
 
     }
@@ -142,6 +146,7 @@ public class CircleBallController : MonoBehaviour
             gameObject.transform.position = Vector3.Lerp(LastPointHit.position, centerPoint.transform.position, Time.deltaTime * backspeed);
         } else {
           myState = State.rest;
+          fraction = 0;
         }
     }
 
@@ -156,6 +161,17 @@ public class CircleBallController : MonoBehaviour
             }
 
         }
+    }
+
+    void PlayersLeftRoom(){
+      Debug.Log("Players one in room");
+      if (playersInRoom){
+        playersInRoom = false;
+        myState = State.rest;
+        invisibleWall.SetActive(false);
+
+        myAnims.SetBool("playersInRoom", false);
+      }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -176,21 +192,25 @@ public class CircleBallController : MonoBehaviour
             boardKillCounter++;
             Destroy(collision.gameObject);
         }
+
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Rope")){
+          PlayersLeftRoom();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Center")
-        {
-            fraction = 0;
+        // if(other.tag == "Center")
+        // {
+
             //centered = true;
             //ReturnToCenter = false;
 
 
             //startAttacking = false;
-        }
+        // }
 
-        if(other.tag == "Player")
+        if(other.tag == "Player" && playerCount <= 2)
         {
           Debug.Log(playerCount);
             playerCount++;
@@ -204,6 +224,21 @@ public class CircleBallController : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+      if(other.tag == "Player" && playerCount >= 0)
+      {
+          playerCount--;
+      }
+
+      if (playerCount <= 0){
+        if (playerCount != 0)
+          playerCount = 0;
+
+        PlayersLeftRoom();
+      }
     }
 
 }
