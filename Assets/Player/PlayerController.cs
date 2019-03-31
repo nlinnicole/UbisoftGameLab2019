@@ -166,6 +166,22 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         state1 = GamePad.GetState(playerIndex1);
         state2 = GamePad.GetState(playerIndex2);
+
+        if (playerNumber == 1)
+        {
+            if (state1.Buttons.B == ButtonState.Pressed && !rope.isBroken && !GetComponent<Health>().onOxygen)
+            {
+                holdReset();
+            }
+        }
+
+        if (playerNumber == 2)
+        {
+            if (state2.Buttons.B == ButtonState.Pressed && !rope.isBroken && !GetComponent<Health>().onOxygen)
+            {
+                holdReset();
+            }
+        }
     }
 
     void FixedUpdate()
@@ -214,12 +230,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
             isGrounded = false;
         }
 
-        if(Input.GetButton("Reset" + playerNumber) && !rope.isBroken && !GetComponent<Health>().onOxygen)
-        {
-            holdReset();
-        }
-        
-        if(!Input.GetButton("Reset" + 1) && !Input.GetButton("Reset" + 2))
+ 
+
+        //if(Input.GetButton("Reset" + playerNumber) && !rope.isBroken && !GetComponent<Health>().onOxygen)
+        //{
+        //    holdReset();
+        //}
+
+        if (!Input.GetButton("Reset" + 1) && !Input.GetButton("Reset" + 2))
         {
             resetImage.fillAmount -= Time.deltaTime/3;
         }
@@ -228,21 +246,57 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //roll
         if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 2 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 4)
         {
-            if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+            if(playerNumber == 1)
             {
-                isGrounded = false;
-                isRolling = true;
-                rollTime = 0;
+                if (state1.Buttons.A == ButtonState.Pressed && isGrounded && !isRolling)
+                {
+                    isGrounded = false;
+                    isRolling = true;
+                    rollTime = 0;
+                }
             }
+
+            if (playerNumber == 2)
+            {
+                if (state2.Buttons.A ==ButtonState.Pressed && isGrounded && !isRolling)
+                {
+                    isGrounded = false;
+                    isRolling = true;
+                    rollTime = 0;
+                }
+            }
+
+            //if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+            //{
+            //    isGrounded = false;
+            //    isRolling = true;
+            //    rollTime = 0;
+            //}
         }
         else
         {
-            if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+            if(playerNumber == 1)
             {
-                GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
+                if (state1.Buttons.A == ButtonState.Pressed && isGrounded && !isRolling)
+                {
+                    GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
+                }
             }
+
+            if (playerNumber == 2)
+            {
+                if (state2.Buttons.A == ButtonState.Pressed && isGrounded && !isRolling)
+                {
+                    GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
+                }
+            }
+
+            //if (Input.GetButtonDown("Run" + playerNumber) && isGrounded && !isRolling)
+            //{
+            //    GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
+            //}
         }
-        
+
 
 
         if (isRolling && rollTime < rollDuration)
@@ -538,7 +592,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         resetImage.fillAmount += Time.deltaTime/3;
 
-        if(resetImage.fillAmount >= 1)
+        if (resetImage.fillAmount >= 1)
         {
             GetComponent<Health>().onOxygen = true;
             resetImage.fillAmount = 0;
