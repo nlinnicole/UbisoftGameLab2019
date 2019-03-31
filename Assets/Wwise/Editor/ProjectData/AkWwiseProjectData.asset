@@ -32,8 +32,8 @@ MonoBehaviour:
     List: []
   BankWwu:
   - Guid: '{33A1C1D4-0C0D-4C0C-A04F-6424902D3B91}'
-    m_lastTimePart2: -1999194822
-    m_lastTimePsrt1: 1864894632
+    m_lastTimePart2: -1999194776
+    m_lastTimePsrt1: 710847978
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -108,6 +108,15 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: door
+        ObjectType: 7
+    - Guid: fd919c8182d68542ba7718b178676057
+      ID: -1422769523
+      Name: launcher
+      Path: Default Work Unit\launcher
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: launcher
         ObjectType: 7
     - Guid: 6553b18e3301ac40ab8ee34dca50e94e
       ID: -2040355285
@@ -471,8 +480,8 @@ MonoBehaviour:
       maxDuration: 0
       minDuration: 0
   - Guid: '{CF79F362-89D2-4DEB-B401-A345A05A206C}'
-    m_lastTimePart2: -1999194822
-    m_lastTimePsrt1: 1863154340
+    m_lastTimePart2: -1999194777
+    m_lastTimePsrt1: 260034918
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List: []
@@ -506,6 +515,54 @@ MonoBehaviour:
       - ElementName: door
         ObjectType: 12
       - ElementName: doorOpened
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  - Guid: '{12873CC7-B989-440E-B18B-7C6A543A4E67}'
+    m_lastTimePart2: -1999194776
+    m_lastTimePsrt1: -1421916991
+    ParentPhysicalPath: Events\Default Work Unit.wwu
+    PhysicalPath: Events\launcher.wwu
+    List:
+    - Guid: 5dbadaa566e0b74e86d602934d991e24
+      ID: -261405077
+      Name: bleep
+      Path: Default Work Unit\launcher\bleep
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: launcher
+        ObjectType: 12
+      - ElementName: bleep
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: e406318a7cfc7b41b4b86e85efbc39b1
+      ID: -1817028741
+      Name: startLauncher
+      Path: Default Work Unit\launcher\startLauncher
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: launcher
+        ObjectType: 12
+      - ElementName: startLauncher
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 48a2d9f118f65346888b4797533aa9dc
+      ID: 1384635317
+      Name: stopLauncher
+      Path: Default Work Unit\launcher\stopLauncher
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: launcher
+        ObjectType: 12
+      - ElementName: stopLauncher
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -916,8 +973,6 @@ MonoBehaviour:
       minDuration: 0
   ExpandedItems:
   - /ubi_soundMaster
-  - /ubi_soundMaster/Banks
-  - /ubi_soundMaster/Banks/Default Work Unit
   RtpcWwu:
   - Guid: '{5533D4E7-4093-48DB-B350-03EDA3562F2D}'
     m_lastTimePart2: -1999196786
