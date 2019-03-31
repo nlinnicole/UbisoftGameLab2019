@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ContactCue : MonoBehaviour
 {
-    PuzzleSpace puzzleSpace;
     public Renderer[] renderers;
     public Color colorA;
     public Color colorB;
@@ -19,7 +18,6 @@ public class ContactCue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        puzzleSpace = GetComponent<PuzzleSpace>();
         renderers = GetComponentsInChildren<Renderer>();
 
         colorA = renderers[0].materials[0].color;
@@ -33,7 +31,7 @@ public class ContactCue : MonoBehaviour
     void Update()
     {
         //When the box matches the button, lerp the colors to indicate success.
-        if (puzzleSpace.getMatch()){
+        if (GetComponent<MultiButton>().getPressed()){        
           if (interpolation < 1f){
             colorA = Color.Lerp(constA, constB, interpolation );
             colorB = Color.Lerp(constB, constA, interpolation);
