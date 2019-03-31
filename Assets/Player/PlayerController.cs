@@ -464,13 +464,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.y*-1)); //apply velocity to rigidbody
 
-
-            transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.y*-1) * rollMod * 1000); //roll velocity to rigidbody
+            //roll velocity to rigidbody
         }
 
 
         //for anim
-        if(isGrounded)
+        if (isGrounded)
         {
             GetComponent<Animator>().SetFloat("PlayerVelocity", GetComponent<Rigidbody>().velocity.magnitude);
 
