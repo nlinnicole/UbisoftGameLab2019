@@ -88,8 +88,7 @@ public class TeamManager : MonoBehaviour
         player2.GetComponent<GimmeDatRagdoll>().resetRagdoll();
 
 
-        player1.GetComponent<PlayerController>().inDeathZone = false;
-        player2.GetComponent<PlayerController>().inDeathZone = false;
+
 
         if (teamNumber == 1)
         {
@@ -103,15 +102,6 @@ public class TeamManager : MonoBehaviour
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
                 this.transform.parent.transform.position = roomGen.Team1Rooms[roomGen.team1CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
 
-                if (respawnInCurrent){
-                  currentRespawnArea = roomGen.GetCurrentRespawn(teamNumber);
-
-                  player1.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x - 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
-                  player2.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x + 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
-                } else {
-                  player1.transform.localPosition = new Vector3(-3, 0, 0);
-                  player2.transform.localPosition = new Vector3(3, 0, 0);
-                }
             }
             else
             {
@@ -145,17 +135,6 @@ public class TeamManager : MonoBehaviour
                 this.transform.parent.transform.position = roomGen.Team2Rooms[roomGen.team2CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
 
 
-                if (respawnInCurrent){
-                  currentRespawnArea = roomGen.GetCurrentRespawn(teamNumber);
-
-                  player1.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x - 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
-                  player2.transform.localPosition = new Vector3(currentRespawnArea.localPosition.x + 4, currentRespawnArea.localPosition.y, currentRespawnArea.localPosition.z);
-                } else {
-                  this.transform.parent.transform.position = roomGen.Team2Rooms[roomGen.team2CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
-
-                  player1.transform.localPosition = new Vector3(-3, 0, 0);
-                  player2.transform.localPosition = new Vector3(3, 0, 0);
-                }
             }
             else
             {
@@ -186,6 +165,8 @@ public class TeamManager : MonoBehaviour
 
         cam.GetComponent<Animator>().ResetTrigger("isDying");
 
+        player1.GetComponent<PlayerController>().inDeathZone = false;
+        player2.GetComponent<PlayerController>().inDeathZone = false;
 
     }
 }
