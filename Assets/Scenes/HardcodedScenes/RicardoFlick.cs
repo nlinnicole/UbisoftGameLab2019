@@ -10,8 +10,5 @@ public class RicardoFlick : MonoBehaviour
     private void Awake()
     {
 
-        Minimap = GameObject.FindGameObjectWithTag("Minimap");
-        Minimap.GetComponent<WhichRoomAreYouIn>().StartFindingDistance = true;
-        Minimap.GetComponent<WhichRoomAreYouIn>().StartDistances();
     }
 }
