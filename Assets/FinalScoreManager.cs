@@ -9,8 +9,6 @@ public class FinalScoreManager : MonoBehaviour
 
     public Text WinnerText;
     public Text ImportantText;
-    public Text Team1Text;
-    public Text Team2Text;
     public Transform GemCanvas;
 
     public bool showscores = true;
@@ -22,20 +20,14 @@ public class FinalScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Team1Text.gameObject.SetActive(false);
-        Team2Text.gameObject.SetActive(false);
-        Invoke("CallScore", 13);
+        StartCoroutine(ShowScores());
 
     }
 
-    
-
     // Update is called once per frame
-    void CallScore()
+    void Update()
     {
-        Team1Text.gameObject.SetActive(true);
-        Team2Text.gameObject.SetActive(true);
-        StartCoroutine(ShowScores());
+        
     }
 
     IEnumerator ShowScores()
@@ -57,16 +49,21 @@ public class FinalScoreManager : MonoBehaviour
         if(Team1Gems > Team2Gems)
         {
             WinnerText.gameObject.SetActive(true);
+            ImportantText.gameObject.SetActive(true);
             WinnerText.text = "TEAM 1 WINS!";
 
         }else if (Team1Gems < Team2Gems)
         {
             WinnerText.gameObject.SetActive(true);
+
+            ImportantText.gameObject.SetActive(true);
             WinnerText.text = "TEAM 2 WINS!";
         }
         else
         {
             WinnerText.gameObject.SetActive(true);
+
+            ImportantText.gameObject.SetActive(true);
             WinnerText.text = "WELL, IT'S A TIE. MIGHT AS WELL TRY AGAIN?";
         }
 
