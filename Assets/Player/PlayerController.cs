@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using UnityEngine.UI;
+using XInputDotNetPure; // Required in C#
+
 
 
 public class PlayerController : MonoBehaviourPunCallbacks
@@ -98,24 +100,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private Vector3 joyInput;
 
+    bool playerIndexSet = false;
+    PlayerIndex playerIndex1;
+    PlayerIndex playerIndex2;
+    GamePadState state1;
+    GamePadState state2;
+    GamePadState prevState;
 
-
-    ////check deathzone
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if(collision.gameObject.layer == 15)
-    //    {
-    //        isInDeathZone = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject.layer == 15)
-    //    {
-    //        isInDeathZone = false;
-    //    }
-    //}
 
     void Awake()
     {
@@ -129,6 +120,53 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     }
 
+    private void Start()
+    {
+        if (!playerIndexSet || !prevState.IsConnected)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testState = GamePad.GetState(testPlayerIndex);
+                if (testState.IsConnected)
+                {
+                    playerIndex1 = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
+
+        playerIndexSet = false;
+
+        if (!playerIndexSet || !prevState.IsConnected)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testState = GamePad.GetState(testPlayerIndex);
+                if (testState.IsConnected && testPlayerIndex != playerIndex1)
+                {
+                    playerIndex1 = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
+
+        state1 = GamePad.GetState(playerIndex1);
+        state2 = GamePad.GetState(playerIndex2);
+
+    }
+
+    private void Update()
+    {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            return;
+        }
+
+        state1 = GamePad.GetState(playerIndex1);
+        state2 = GamePad.GetState(playerIndex2);
+    }
 
     void FixedUpdate()
     {
@@ -137,7 +175,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
-
         }
 
         //death zones
@@ -186,83 +223,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             resetImage.fillAmount -= Time.deltaTime/3;
         }
-
-
-
-
-        //if (Input.GetButtonDown("Jump" + playerNumber) && isGrounded && jumpCooldownFinished)
-        //{
-        //    jumpCooldownCount = jumpCooldown;
-        //    jumpCooldownFinished = false;
-        //    isGrounded = false;
-        //    gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        //    gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        //}
-
-        ////item pickup
-        //nearbyItems = new Collider[Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask).Length];
-        //nearbyItems = Physics.OverlapSphere(transform.position, itemPickupDistance / 2, itemLayerMask);
-        //if (nearbyItems.Length > 0)
-        //{
-
-        //    if (nearbyItems.Length > 0 && heldItem != null)
-        //    {
-        //        if (nearbyItems[0].GetComponent<Item>().swapCountDown <= 0 && playerSwapCountdown <= 0)
-        //        {
-        //            swapText.gameObject.SetActive(true);
-        //            if (Input.GetButtonDown("Fire" + playerNumber))
-        //            {
-        //                playerSwapCountdown = playerSwapDelay;
-
-        //                //old item
-        //                heldItem.layer = 10;
-        //                heldItem.transform.parent = null;
-        //                heldItem.GetComponent<Item>().swapCountDown = swapCooldown;
-        //                heldItem.GetComponent<Rigidbody>().isKinematic = false;
-        //                heldItem.GetComponent<Rigidbody>().useGravity = true;
-
-
-        //                //new item
-        //                heldItem = nearbyItems[0].gameObject;
-        //                heldItem.transform.position = inventory.transform.position;
-        //                heldItem.transform.parent = inventory.transform;
-        //                heldItem.layer = 0;
-        //                heldItem.GetComponent<Rigidbody>().isKinematic = true;
-        //                heldItem.GetComponent<Rigidbody>().useGravity = false;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            swapText.gameObject.SetActive(false);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        swapText.gameObject.SetActive(false);
-        //    }
-
-
-
-        //    if (heldItem == null)
-        //    {
-        //        heldItem = nearbyItems[0].gameObject;
-        //        heldItem.transform.position = inventory.transform.position;
-        //        heldItem.transform.parent = inventory.transform;
-        //        heldItem.layer = 0;
-        //        heldItem.GetComponent<Rigidbody>().isKinematic = true;
-        //        heldItem.GetComponent<Rigidbody>().useGravity = false;
-        //    }
-
-
-
-        //}
-        //else
-        //{
-        //    //swapText.gameObject.SetActive(false);
-        //}
-
-        //playerSwapCountdown -= Time.deltaTime;
-
 
 
         //roll
@@ -410,59 +370,109 @@ public class PlayerController : MonoBehaviourPunCallbacks
         joyInput = Vector3.zero;
         if (isGrounded)
         {
+            if(playerNumber == 1)
+            {
+                //movement
+                if (state1.ThumbSticks.Left.X > 0)
+                {
+                    velocity += CamRight * moveSpeed * 100;
+                    faceDirection += CamRight;
+                }
+                if (state1.ThumbSticks.Left.X < 0)
+                {
+                    velocity -= CamRight * moveSpeed * 100;
+                    faceDirection += -CamRight;
+                }
+                if (state1.ThumbSticks.Left.Y > 0)
+                {
+                    velocity += CamForward * moveSpeed * 100;
+                    faceDirection += CamForward;
+                }
+                if (state1.ThumbSticks.Left.Y < 0)
+                {
+                    velocity -= CamForward * moveSpeed * 100;
+                    faceDirection += -CamForward;
+                }
+            }
 
-            //if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
-            //    || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
-            //{
-            //    joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)).normalized);
-            //}
+            if (playerNumber == 2)
+            {
+                //movement
+                if (state2.ThumbSticks.Left.X > 0)
+                {
+                    velocity += CamRight * moveSpeed * 100;
+                    faceDirection += CamRight;
+                }
+                if (state2.ThumbSticks.Left.X < 0)
+                {
+                    velocity -= CamRight * moveSpeed * 100;
+                    faceDirection += -CamRight;
+                }
+                if (state2.ThumbSticks.Left.Y > 0)
+                {
+                    velocity += CamForward * moveSpeed * 100;
+                    faceDirection += CamForward;
+                }
+                if (state2.ThumbSticks.Left.Y < 0)
+                {
+                    velocity -= CamForward * moveSpeed * 100;
+                    faceDirection += -CamForward;
+                }
+            }
 
-            //movement
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
-            {
-                velocity += CamRight * moveSpeed * 100;
-                faceDirection += CamRight;
-            }
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) < 0)
-            {
-                velocity -= CamRight * moveSpeed * 100;
-                faceDirection += -CamRight;
-            }
-            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) > 0)
-            {
-                velocity += CamForward * moveSpeed * 100;
-                faceDirection += CamForward;
-            }
-            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) < 0)
-            {
-                velocity -= CamForward * moveSpeed * 100;
-                faceDirection += -CamForward;
-            }
 
         }
         else
         {
             ////reduced movement when jumping
-            //movement
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
+            if (playerNumber == 1)
             {
-                velocity += CamRight * moveSpeed * 100 / jumpMovementReduction;
-                faceDirection += CamRight;
+                //movement
+                if (state1.ThumbSticks.Left.X > 0)
+                {
+                    velocity += CamRight * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += CamRight;
+                }
+                if (state1.ThumbSticks.Left.X < 0)
+                {
+                    velocity -= CamRight * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += -CamRight;
+                }
+                if (state1.ThumbSticks.Left.Y > 0)
+                {
+                    velocity += CamForward * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += CamForward;
+                }
+                if (state1.ThumbSticks.Left.Y < 0)
+                {
+                    velocity -= CamForward * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += -CamForward;
+                }
             }
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) < 0)
+
+            if (playerNumber == 2)
             {
-                velocity -= CamRight * moveSpeed * 100 / jumpMovementReduction;
-                faceDirection += -CamRight;
-            }
-            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) > 0)
-            {
-                velocity += CamForward * moveSpeed * 100 / jumpMovementReduction;
-                faceDirection += CamForward;
-            }
-            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) < 0)
-            {
-                velocity -= CamForward * moveSpeed * 100 /jumpMovementReduction;
-                faceDirection += -CamForward;
+                //movement
+                if (state2.ThumbSticks.Left.X > 0)
+                {
+                    velocity += CamRight * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += CamRight;
+                }
+                if (state2.ThumbSticks.Left.X < 0)
+                {
+                    velocity -= CamRight * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += -CamRight;
+                }
+                if (state2.ThumbSticks.Left.Y > 0)
+                {
+                    velocity += CamForward * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += CamForward;
+                }
+                if (state2.ThumbSticks.Left.Y < 0)
+                {
+                    velocity -= CamForward * moveSpeed * 100 / jumpMovementReduction;
+                    faceDirection += -CamForward;
+                }
             }
 
         }
