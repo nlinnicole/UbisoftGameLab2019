@@ -303,11 +303,18 @@ public class BGMchanges : MonoBehaviour
     {
         // ------------- trigger next room bgm ---------------//
 
-        if (roomCounter < 3)
+        if (roomCounter == 0)
         {
-            AkSoundEngine.PostEvent("startBGM" + roomCounter, gameObject);
+            AkSoundEngine.PostEvent("startBGM0", gameObject);
         }
-
+        else if (roomCounter == 1)
+        {
+            AkSoundEngine.PostEvent("startBGM1", gameObject);
+        }
+        else if (roomCounter == 2)
+        {
+            AkSoundEngine.PostEvent("startBGM2", gameObject);
+        }
         else if (roomCounter == 3)
         {
             AkSoundEngine.PostEvent("startBSTrack2", gameObject);
