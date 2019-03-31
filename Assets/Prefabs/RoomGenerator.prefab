@@ -224,6 +224,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6267590158048030386}
   - component: {fileID: 6267590158048030387}
+  - component: {fileID: 3940908151844422347}
+  - component: {fileID: 875336327224767086}
   m_Layer: 0
   m_Name: RoomGenerator
   m_TagString: Untagged
@@ -294,3 +296,43 @@ MonoBehaviour:
   - {fileID: 0}
   baseRoom: {fileID: 5037287520386282256, guid: 25b2d2161f47ada4798129458a123106,
     type: 3}
+  finalRoomTeam1: {fileID: 0}
+  finalRoomTeam2: {fileID: 0}
+--- !u!114 &3940908151844422347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267590158048030388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10a19d99061c7443b3f63dbe320bd74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomCounter: 0
+--- !u!114 &875336327224767086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267590158048030388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25f212cf60d22844ab0fda240a9b056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e1f26bcbb34ce3541bae2e75a5490717,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 

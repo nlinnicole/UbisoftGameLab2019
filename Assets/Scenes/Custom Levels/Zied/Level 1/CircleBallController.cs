@@ -42,6 +42,10 @@ public class CircleBallController : MonoBehaviour
 
     public GameObject invisibleWall;
 
+    // sound trigger boolz
+    bool monsterCollided = false;
+    bool chargeStarted = false;
+
 
     // Time when the movement started.
 
@@ -134,6 +138,12 @@ public class CircleBallController : MonoBehaviour
     {
         transform.position += attackDirection * Time.deltaTime * speed;
 
+        if (!chargeStarted)
+        {
+            chargeStarted = true;
+            AkSoundEngine.PostEvent("startCharge", gameObject);
+        }
+
     }
 
     void returnBallToCenter()
@@ -146,6 +156,13 @@ public class CircleBallController : MonoBehaviour
         } else {
           myState = State.rest;
           fraction = 0;
+
+            if (chargeStarted)
+            {
+                monsterCollided = false;
+                chargeStarted = false;
+                AkSoundEngine.PostEvent("roar", gameObject);
+            }
         }
     }
 
@@ -195,6 +212,14 @@ public class CircleBallController : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Rope")){
           Debug.Log("Colliding with rope.");
           PlayersLeftRoom();
+        }
+
+        // trigger thud sound when monster hits something
+        if (chargeStarted && !monsterCollided)
+        {
+            monsterCollided = true;
+            AkSoundEngine.PostEvent("stopCharge", gameObject);
+            AkSoundEngine.PostEvent("roar", gameObject);
         }
     }
 

@@ -26,8 +26,12 @@ public class MultiButton : MonoBehaviour
     {
         if(other.gameObject.tag == "DiceTrigger")
         {
-            pressed = true;
-        }
+            if (!pressed)
+            {
+                GameObject.FindWithTag("RoomGenerator").GetComponent<BGMchanges>().SetRandomVoiceState();
+                AkSoundEngine.PostEvent("doorClick", gameObject);
+            }
+            pressed = true;        }
     }
 
     public void OnTriggerExit(Collider other)

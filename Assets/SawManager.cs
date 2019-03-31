@@ -7,7 +7,7 @@ public class SawManager : MonoBehaviour
     public float timer = 0f;
 
     public float sawspeed = 2f;
-
+    bool swing = false;
 
 
     // Start is called before the first frame update
@@ -21,13 +21,23 @@ public class SawManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > 1.5f)
+        if (timer > 1.5f)
         {
-            gameObject.transform.Translate(new Vector3(-1,0,0) * Time.deltaTime * sawspeed);
+            gameObject.transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * sawspeed);
+            if (!swing)
+            {
+                swing = true;
+                AkSoundEngine.PostEvent("StartSwingingAxe", gameObject);
+            }
         }
         else
         {
             gameObject.transform.Translate(new Vector3(0, 0, -1f) * Time.deltaTime);
+            if (!swing)
+            {
+                swing = false;
+                AkSoundEngine.PostEvent("StartSwingingAxe", gameObject);
+            }
         }
     }
 
