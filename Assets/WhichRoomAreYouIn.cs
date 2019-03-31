@@ -7,52 +7,52 @@ public class WhichRoomAreYouIn : MonoBehaviour
 {
     public int teamnumber;
 
-    public float percentdone;
+    public float percentdoneteam1, percentdoneteam2;
 
-    public Slider ProgressBar;
+    public Slider Team1ProgressBar;
+    public Slider Team2ProgressBar;
 
     public float initialdistance;
 
-    public GameObject MyTeamPos, Team2Position;
+    public GameObject Team1Position, Team2Position;
 
     public GameObject FinalPosition;
 
-    public float MyTeamProgress;
+    public float Team1Progress;
     public float Team2Progress;
 
-    private void Start()
+    public bool StartFindingDistance;
+
+    public void StartDistances()
     {
-
-
-        if(teamnumber == 1)
+        if (StartFindingDistance)
         {
-            //Team2Position = GameObject.FindGameObjectWithTag("Team2Pos");
-        }else if(teamnumber == 2)
-        {
-            //Team2Position = GameObject.FindGameObjectWithTag("Team1Pos");
+            Team1Position = GameObject.FindGameObjectWithTag("Team1Pos");
+
+            Team2Position = GameObject.FindGameObjectWithTag("Team2Pos");
+
+            initialdistance = Math.Abs(FinalPosition.transform.position.z - Team1Position.transform.position.z);
         }
-
-        FinalPosition = GameObject.FindGameObjectWithTag("FinalPoint");
-
-        initialdistance = Math.Abs(FinalPosition.transform.position.z - MyTeamPos.transform.position.z);
-
-        ProgressBar.value = percentdone;
-
     }
 
 
     void FindDistance()
     {
-        MyTeamProgress = Math.Abs(FinalPosition.transform.position.z - MyTeamPos.transform.position.z);
-
-        percentdone = Math.Abs(MyTeamProgress - initialdistance) / initialdistance;
-        //Team2Progress = Math.Abs(FinalPosition.transform.position.z - Team2Position.transform.position.z);
+        Team1Progress = Math.Abs(FinalPosition.transform.position.z - Team1Position.transform.position.z);
+        Team2Progress = Math.Abs(FinalPosition.transform.position.z - Team2Position.transform.position.z);
+        percentdoneteam1 = Math.Abs(Team1Progress - initialdistance) / initialdistance;
+        percentdoneteam2 = Math.Abs(Team2Progress - initialdistance) / initialdistance;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        FindDistance();
-        ProgressBar.value = percentdone;
+        if (StartFindingDistance)
+        {
+            FindDistance();
+            Team1ProgressBar.value = percentdoneteam1;
+            Team2ProgressBar.value = percentdoneteam2;
+        }
+        
     }
 
 }
