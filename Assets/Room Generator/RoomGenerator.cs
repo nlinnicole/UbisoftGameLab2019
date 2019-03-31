@@ -173,7 +173,7 @@ public class RoomGenerator : MonoBehaviour
     public Transform GetCurrentRespawn(int teamNb){
       if (teamNb == 1)
       {
-            if(team1CurrentRoom >= 3)
+            if(team1CurrentRoom > 2)
             {
                 return finalRoomTeam1.transform;
             } else
@@ -182,9 +182,8 @@ public class RoomGenerator : MonoBehaviour
             }
         } else {
             
-            if(team2CurrentRoom >= 3)
+            if(team2CurrentRoom > 2)
             {
-                print("it sent the right thing");
                 return finalRoomTeam2.transform;
             }
             else
