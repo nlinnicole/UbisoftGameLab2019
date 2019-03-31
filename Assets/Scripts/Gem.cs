@@ -26,7 +26,6 @@ public class Gem : MonoBehaviour
 
     private void Update()
     {
-        transform.position += new Vector3(0, Mathf.Cos(Time.time) * floatAmount, 0);
         transform.Rotate(new Vector3(0, Time.deltaTime * spinSpeed, 0));
     }
 }
