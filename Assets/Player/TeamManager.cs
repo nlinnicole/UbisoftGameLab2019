@@ -88,8 +88,7 @@ public class TeamManager : MonoBehaviour
         player2.GetComponent<GimmeDatRagdoll>().resetRagdoll();
 
 
-        player1.GetComponent<PlayerController>().inDeathZone = false;
-        player2.GetComponent<PlayerController>().inDeathZone = false;
+
 
         if (teamNumber == 1)
         {
@@ -186,6 +185,8 @@ public class TeamManager : MonoBehaviour
 
         cam.GetComponent<Animator>().ResetTrigger("isDying");
 
+        player1.GetComponent<PlayerController>().inDeathZone = false;
+        player2.GetComponent<PlayerController>().inDeathZone = false;
 
     }
 }

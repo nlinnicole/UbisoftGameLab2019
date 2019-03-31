@@ -141,17 +141,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
 
         //death zones
-        if (inDeathZone)
+        if (inDeathZone && !rope.isBroken)
         {
             if(playerNumber == 1)
             {
-                rope.ropeJoints[2].GetComponent<RopeJoint>().broken = true;
+                rope.ropeJoints[5].GetComponent<RopeJoint>().broken = true;
                 rope.isBroken = true;
                 playerCamera.GetComponentInParent<CamPlayerFollow>().player1Dead = true;
             }
             else if (playerNumber == 2)
             {
-                rope.ropeJoints[rope.ropeJoints.Length-2].GetComponent<RopeJoint>().broken = true;
+                rope.ropeJoints[rope.ropeJoints.Length-5].GetComponent<RopeJoint>().broken = true;
                 rope.isBroken = true;
                 playerCamera.GetComponentInParent<CamPlayerFollow>().player2Dead = true;
 
@@ -411,27 +411,60 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (isGrounded)
         {
 
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
-                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            //if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
+            //    || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            //{
+            //    joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)).normalized);
+            //}
+
+            //movement
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
             {
-                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)).normalized);
+                velocity += CamRight * moveSpeed * 100;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamRight * moveSpeed * 100;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) > 0)
+            {
+                velocity += CamForward * moveSpeed * 100;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamForward * moveSpeed * 100;
+                faceDirection += -CamForward;
             }
 
-
-            velocity += joyInput * moveSpeed * 100;
-            faceDirection += joyInput;
         }
         else
         {
             ////reduced movement when jumping
-            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) != 0
-                || Input.GetAxisRaw("VerticalJoy" + playerNumber) != 0)
+            //movement
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) > 0)
             {
-                joyInput = Camera.main.transform.TransformDirection(new Vector3(Input.GetAxisRaw("HorizontalJoy" + playerNumber), 0, Input.GetAxisRaw("VerticalJoy" + playerNumber)));
+                velocity += CamRight * moveSpeed * 100 / jumpMovementReduction;
+                faceDirection += CamRight;
+            }
+            if (Input.GetAxisRaw("HorizontalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamRight * moveSpeed * 100 / jumpMovementReduction;
+                faceDirection += -CamRight;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) > 0)
+            {
+                velocity += CamForward * moveSpeed * 100 / jumpMovementReduction;
+                faceDirection += CamForward;
+            }
+            if (Input.GetAxisRaw("VerticalJoy" + playerNumber) < 0)
+            {
+                velocity -= CamForward * moveSpeed * 100 /jumpMovementReduction;
+                faceDirection += -CamForward;
             }
 
-            velocity += (joyInput * moveSpeed * 100) / jumpMovementReduction;
-            faceDirection += joyInput;
         }
 
         faceDirection.Normalize();

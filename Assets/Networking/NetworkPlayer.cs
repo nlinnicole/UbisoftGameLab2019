@@ -6,7 +6,7 @@ using Photon.Pun;
 public class NetworkPlayer : MonoBehaviourPunCallbacks
 {
 
-    //public RopeGenerator rope;
+    public RopeGenerator rope;
 
     // Start is called before the first frame update
     void Awake()
@@ -30,11 +30,11 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
             Destroy(this.gameObject.transform.GetChild(7).gameObject.transform.GetChild(5).gameObject);
             Destroy(this.gameObject.transform.GetChild(8).gameObject);
 
-            /*foreach (GameObject joint in rope.GetComponent<RopeGenerator>().ropeJoints)
+            foreach (GameObject joint in rope.GetComponent<RopeGenerator>().ropeJoints)
             {
                 joint.GetComponent<CapsuleCollider>().enabled = false;
                 //joint.GetComponent<Rigidbody>().useGravity = false;
-            }*/
+            }
 
 
         }

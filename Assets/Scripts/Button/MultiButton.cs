@@ -24,7 +24,10 @@ public class MultiButton : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        pressed = true;
+        if(other.gameObject.tag == "DiceTrigger")
+        {
+            pressed = true;
+        }
     }
 
     public void OnTriggerExit(Collider other)
