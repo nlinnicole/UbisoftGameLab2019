@@ -9,7 +9,7 @@ namespace Concordia1.Gamelab
 {
     public class Launcher : MonoBehaviourPunCallbacks
     {
-   
+
         [SerializeField]
         private byte maxPlayersPerRoom = 2;
         bool isConnecting;
@@ -45,8 +45,8 @@ namespace Concordia1.Gamelab
             controlPanel.SetActive(false);
             if (PhotonNetwork.IsConnected)
             {
-                //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
 
             }
             else
@@ -61,8 +61,8 @@ namespace Concordia1.Gamelab
             Debug.Log("Joined Master room");
             if (isConnecting)
             {
-                //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
             }
         }
 
@@ -86,6 +86,7 @@ namespace Concordia1.Gamelab
             base.OnCreateRoomFailed(returnCode, message);
         }
 
+
         public override void OnJoinedRoom()
         {
             Debug.Log("Connected as Client");
@@ -98,7 +99,7 @@ namespace Concordia1.Gamelab
                     scenes[i] = System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i));
                 }
                 int f = Random.Range(1, scenes.Length);
-                PhotonNetwork.LoadLevel(scenes[f]);
+                PhotonNetwork.LoadLevel(scenes[1]);
             }
 
         }
