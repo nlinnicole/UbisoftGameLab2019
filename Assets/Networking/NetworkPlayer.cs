@@ -30,13 +30,21 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
             Destroy(this.gameObject.transform.GetChild(7).gameObject.transform.GetChild(5).gameObject);
             Destroy(this.gameObject.transform.GetChild(8).gameObject);
 
-            foreach (GameObject joint in rope.GetComponent<RopeGenerator>().ropeJoints)
-            {
-                joint.GetComponent<CapsuleCollider>().enabled = false;
-                //joint.GetComponent<Rigidbody>().useGravity = false;
-            }
 
+            StartCoroutine(Wait());
 
         }
     }
+
+
+        private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        foreach (GameObject joint in rope.GetComponent<RopeGenerator>().ropeJoints)
+        {
+            joint.GetComponent<CapsuleCollider>().enabled = false;
+            //joint.GetComponent<Rigidbody>().useGravity = false;
+        }
+    }
 }
+
