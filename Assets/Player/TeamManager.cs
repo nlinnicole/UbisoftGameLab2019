@@ -111,7 +111,7 @@ public class TeamManager : MonoBehaviour
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
-                this.transform.parent.transform.position = roomGen.Team1Rooms[roomGen.team1CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
+                this.transform.parent.transform.position = roomGen.team1StartRoom.GetComponent<Room>().respawnPoint.transform.position;
 
                 player1.transform.localPosition = new Vector3(-3, 0, 0);
                 player2.transform.localPosition = new Vector3(3, 0, 0);
@@ -145,7 +145,7 @@ public class TeamManager : MonoBehaviour
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
                 player2HeadTop.transform.localPosition = player2HeadTopPos;
-                this.transform.parent.transform.position = roomGen.Team1Rooms[roomGen.team1CurrentRoom].GetComponent<Room>().respawnPoint.transform.position;
+                this.transform.parent.transform.position = roomGen.team2StartRoom.GetComponent<Room>().respawnPoint.transform.position;
                 player1.transform.localPosition = new Vector3(-3, 0, 0);
                 player2.transform.localPosition = new Vector3(3, 0, 0);
             }
