@@ -70,14 +70,14 @@ public class RopeGenerator : MonoBehaviour
         }
 
 
-        totalDistance = 0;
-        for(int i = 0; i < ropeJoints.Length; i++)
-        {
-            if(i < ropeJoints.Length -1)
-            {
-                totalDistance += Vector3.Distance(ropeJoints[i].transform.position, ropeJoints[i + 1].transform.position);
-            }
-        }
+        //totalDistance = 0;
+        //for(int i = 0; i < ropeJoints.Length; i++)
+        //{
+        //    if(i < ropeJoints.Length -1)
+        //    {
+        //        totalDistance += Vector3.Distance(ropeJoints[i].transform.position, ropeJoints[i + 1].transform.position);
+        //    }
+        //}
 
     }
 
