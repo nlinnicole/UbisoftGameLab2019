@@ -25,6 +25,7 @@ public class FinalScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Debug.Log("Awake");
         GemManager = GameObject.FindGameObjectWithTag("GemManager");
         Team1Gems = GemManager.GetComponent<GemManager>().Team1Gems;
         Team2Gems = GemManager.GetComponent<GemManager>().Team2Gems;
@@ -46,7 +47,10 @@ public class FinalScoreManager : MonoBehaviour
 
     IEnumerator ShowScores()
     {
-        for(int i = 0; i < Team1Gems; i++)
+        Team1Text.gameObject.SetActive(true);
+        Team2Text.gameObject.SetActive(true);
+
+        for (int i = 0; i < Team1Gems; i++)
         {
             GameObject Gem = Instantiate(GemImagePrefab, GemSpawnPointsTeam1[i].transform.position, Quaternion.identity);
             Gem.transform.SetParent(GemCanvas);
@@ -60,21 +64,15 @@ public class FinalScoreManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
+
         if(Team1Gems > Team2Gems)
         {
-            WinnerText.gameObject.SetActive(true);
-            WinnerText.text = "TEAM 1 WINS!";
+            WinnerText.text = "Team  Wins!";
 
-        }else if (Team1Gems < Team2Gems)
-        {
-            WinnerText.gameObject.SetActive(true);
-            WinnerText.text = "TEAM 2 WINS!";
         }
         else
         {
-            WinnerText.gameObject.SetActive(true);
-            WinnerText.text = "WELL, IT'S A TIE. MIGHT AS WELL TRY AGAIN?";
+            WinnerText.text = "Team 2 Wins!";
         }
-
     }
 }
