@@ -23,7 +23,7 @@ public class FinalScoreManager : MonoBehaviour
     public Transform[] GemSpawnPointsTeam2;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GemManager = GameObject.FindGameObjectWithTag("GemManager");
         Team1Gems = GemManager.GetComponent<GemManager>().Team1Gems;

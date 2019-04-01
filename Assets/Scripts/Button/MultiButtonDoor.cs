@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+
+
 
 /*
  *  Players need to press all buttons in order to activate an event
  */
-public class MultiButtonDoor : MonoBehaviour
+public class MultiButtonDoor : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private GameObject door1;
@@ -33,6 +36,8 @@ public class MultiButtonDoor : MonoBehaviour
 
     private bool setTimer = true;
 
+    public bool yes = false;
+
     [SerializeField]
     private Canvas canvas;
 
@@ -45,8 +50,9 @@ public class MultiButtonDoor : MonoBehaviour
 
     void Update()
     {
+        checkReady();
 
-        if (checkReady())
+        if (yes)
         {
             if (setTimer)
             {
@@ -74,16 +80,23 @@ public class MultiButtonDoor : MonoBehaviour
     }
 
     //return true if all buttons are pressed
-    public bool checkReady()
+    public void checkReady()
     {
         for (int i = 0; i < buttonList.Count; i++)
         {
             if (!buttonList[i].GetComponent<MultiButton>().getPressed())
             {
-               
-                return false;
+                return;
             }
         }
-        return true;
+        photonView.RPC("SetTrig", RpcTarget.All);
     }
+
+    [PunRPC]
+    void SetTrig()
+    {
+        yes = true;
+    }
+
+
 }
