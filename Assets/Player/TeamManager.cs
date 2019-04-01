@@ -94,8 +94,8 @@ public class TeamManager : MonoBehaviour
         {
             if(roomGen.team1CurrentRoom != -1)
             {
-                player1.transform.parent = transform.parent;
-                player2.transform.parent = transform.parent;
+                //player1.transform.parent = transform.parent;
+                //player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
@@ -105,8 +105,8 @@ public class TeamManager : MonoBehaviour
             }
             else
             {
-                player1.transform.parent = transform.parent;
-                player2.transform.parent = transform.parent;
+                //player1.transform.parent = transform.parent;
+                //player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
@@ -127,8 +127,8 @@ public class TeamManager : MonoBehaviour
         {
             if(roomGen.team2CurrentRoom != -1)
             {
-                player1.transform.parent = transform.parent;
-                player2.transform.parent = transform.parent;
+                //player1.transform.parent = transform.parent;
+                //player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;
@@ -139,8 +139,8 @@ public class TeamManager : MonoBehaviour
             }
             else
             {
-                player1.transform.parent = transform.parent;
-                player2.transform.parent = transform.parent;
+                //player1.transform.parent = transform.parent;
+                //player2.transform.parent = transform.parent;
                 player1.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 player1HeadTop.transform.localPosition = player1HeadTopPos;

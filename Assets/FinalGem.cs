@@ -18,11 +18,11 @@ public class FinalGem : MonoBehaviour
         {
             if (GemManager.GetComponent<GemManager>().Team1Gems > GemManager.GetComponent<GemManager>().Team2Gems)
             {
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene("WinningTeam2");
             }
             else
             {
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene("WinningTeam1");
             }
         }
         
