@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float rollMultiplier = 1;
     public float rollDuration = 1;
     public float rollCooldown = 0.5f;
-    float rollTime = 0;
-    float rollMod = 0;
+    public float rollTime = 0;
+    public float rollMod = 0;
 
     [Header("Item")]
     public GameObject heldItem;
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 GamePadState testState = GamePad.GetState(testPlayerIndex);
                 if (testState.IsConnected && testPlayerIndex != playerIndex1)
                 {
-                    playerIndex1 = testPlayerIndex;
+                    playerIndex2 = testPlayerIndex;
                     playerIndexSet = true;
                 }
             }
@@ -555,8 +555,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
             transform.GetComponent<Rigidbody>().AddForce(new Vector3(velocity.x, 0, velocity.z)); //apply velocity to rigidbody
 
+            //if(isRolling && rollTime < rollDuration)
+            //{
+                transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
 
-            transform.GetComponent<Rigidbody>().AddForce(new Vector3(faceDirection.x, 0, faceDirection.z) * rollMod * 1000); //roll velocity to rigidbody
+            //} 
 
         }
         else if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 1)
