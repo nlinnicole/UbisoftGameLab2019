@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if(playerNumber == 1)
             {
-                if (state1.Buttons.A == ButtonState.Pressed && isGrounded && !isRolling)
+                if ((state1.Buttons.A == ButtonState.Pressed && isGrounded && !isRolling) || (Input.GetButtonDown("Run1")))
                 {
                     isGrounded = false;
                     isRolling = true;
@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
             if (playerNumber == 2)
             {
-                if (state2.Buttons.A ==ButtonState.Pressed && isGrounded && !isRolling)
+                if ((state2.Buttons.A ==ButtonState.Pressed && isGrounded && !isRolling) || (Input.GetButtonDown("Run2")))
                 {
                     isGrounded = false;
                     isRolling = true;
