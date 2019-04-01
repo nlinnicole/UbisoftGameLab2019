@@ -26,9 +26,9 @@ public class GemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Team1Gems = Team1.GetComponent<NetworkPlayer>().Gemzzzzzz;
+        //Team1Gems = Team1.GetComponent<NetworkPlayer>().Gemzzzzzz;
 
-        Team2Gems = Team2.GetComponent<NetworkPlayer>().Gemzzzzzz;
+        //Team2Gems = Team2.GetComponent<NetworkPlayer>().Gemzzzzzz;
 
     }
 }
