@@ -7,6 +7,7 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
 {
 
     public RopeGenerator rope;
+    public int Gemzzzzzz = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -36,8 +37,19 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
         }
     }
 
+    public void addGemz()
+    {
+        photonView.RPC("SetGemz", RpcTarget.All);
+    }
 
-        private IEnumerator Wait()
+    [PunRPC]
+    void SetGemz()
+    {
+        Gemzzzzzz++;
+    }
+
+
+    private IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
         foreach (GameObject joint in rope.GetComponent<RopeGenerator>().ropeJoints)
