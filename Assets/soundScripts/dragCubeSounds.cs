@@ -21,7 +21,7 @@ public class dragCubeSounds : MonoBehaviour
     {
         float thisXPos = Mathf.Abs(gameObject.GetComponent<Transform>().position.x);
         float thisYPos = Mathf.Abs(gameObject.GetComponent<Transform>().position.z);
-        if ((Mathf.Abs(thisXPos - lastXPos) >= 0.05 || Mathf.Abs(thisYPos - lastYPos) >= 0.05))
+        if ((Mathf.Abs(thisXPos - lastXPos) >= 0.08 || Mathf.Abs(thisYPos - lastYPos) >= 0.08))
         {
 
 
@@ -34,9 +34,8 @@ public class dragCubeSounds : MonoBehaviour
             }
 
         }
-        else if ((Mathf.Abs(thisXPos - lastXPos) < 0.001 || Mathf.Abs(thisYPos - lastYPos) < 0.001) && dragStarted)
+        else if ((Mathf.Abs(thisXPos - lastXPos) < 0.02 || Mathf.Abs(thisYPos - lastYPos) < 0.02) && dragStarted)
         {
-            Debug.Log("HI!");
             AkSoundEngine.PostEvent("stopDrag", gameObject);
             dragStarted = false;
             lastXPos = thisXPos;

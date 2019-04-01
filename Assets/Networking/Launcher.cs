@@ -35,6 +35,9 @@ namespace Concordia1.Gamelab
         {
             progressLabel.SetActive(false);
             controlPanel.SetActive(true);
+
+            // start launcher music
+            AkSoundEngine.PostEvent("startLauncher", gameObject);
         }
 
         public void Connect()
@@ -101,7 +104,7 @@ namespace Concordia1.Gamelab
                 int f = Random.Range(1, scenes.Length);
                 PhotonNetwork.LoadLevel(scenes[1]);
             }
-
+            AkSoundEngine.PostEvent("stopLauncher", gameObject);
         }
 
     }
