@@ -99,7 +99,7 @@ namespace Concordia1.Gamelab
                     scenes[i] = System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i));
                 }
                 int f = Random.Range(1, scenes.Length);
-                PhotonNetwork.LoadLevel(scenes[1]);
+                PhotonNetwork.LoadLevel(scenes[f]);
             }
 
         }

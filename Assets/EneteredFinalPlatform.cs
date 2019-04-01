@@ -88,10 +88,15 @@ public class EneteredFinalPlatform : MonoBehaviour
 
     private void Update()
     {
-        if(player.GetComponent<PlayerController>().rope.isBroken)
+
+        if(player != null)
         {
-            this.transform.position = startPos;
+            if (player.GetComponent<PlayerController>().rope.isBroken)
+            {
+                this.transform.position = startPos;
+            }
         }
+
 
 
         if (reachedend)
