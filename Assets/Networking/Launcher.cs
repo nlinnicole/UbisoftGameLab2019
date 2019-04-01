@@ -72,11 +72,11 @@ namespace Concordia1.Gamelab
             progressLabel.SetActive(false);
             controlPanel.SetActive(true);
             Debug.LogWarningFormat("Disconnected");
-        }
+        } 
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
-            Debug.Log("COnnection Failed");
+            Debug.Log("Connection Failed");
             PhotonNetwork.CreateRoom(null, new RoomOptions{ MaxPlayers = maxPlayersPerRoom }, null, null);
         }
 
