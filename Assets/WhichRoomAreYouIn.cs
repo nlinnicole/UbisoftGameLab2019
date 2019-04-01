@@ -49,11 +49,14 @@ public class WhichRoomAreYouIn : MonoBehaviour
         if(TeamNumber == 1)
         {
             Team1ProgressBar.value = percentdoneteam1;
-
+            Team2ProgressBar.value = GameObject.FindGameObjectWithTag("Team1").GetComponent<NetworkPlayer>().percentdistanceaway;
+           
+            
         }
         else if(TeamNumber == 2)
         {
             Team2ProgressBar.value = percentdoneteam1;
+            Team1ProgressBar.value = GameObject.FindGameObjectWithTag("Team2").GetComponent<NetworkPlayer>().percentdistanceaway;
 
         }
         else

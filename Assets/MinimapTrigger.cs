@@ -12,7 +12,7 @@ public class MinimapTrigger : MonoBehaviour
         if(other.tag == "Player")
         {
             Player = GameObject.FindGameObjectWithTag("Minimap");
-            Player.GetComponent<WhichRoomAreYouIn>().TeamNumber = 1;
+            Player.GetComponent<WhichRoomAreYouIn>().TeamNumber = teamnumber;
             Player.GetComponent<WhichRoomAreYouIn>().Team1Position = other.gameObject;
             Player.GetComponent<WhichRoomAreYouIn>().StartFindingDistance = true;
             Player.GetComponent<WhichRoomAreYouIn>().enabled = true;
