@@ -11,9 +11,12 @@ public class FinalScoreManager : MonoBehaviour
     public Text ImportantText;
     public Text Team1Text;
     public Text Team2Text;
+
     public Transform GemCanvas;
 
     public bool showscores = true;
+
+    public GameObject GemManager;
 
     public GameObject GemImagePrefab;
     public Transform[] GemSpawnPointsTeam1;
@@ -22,10 +25,13 @@ public class FinalScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GemManager = GameObject.FindGameObjectWithTag("GemManager");
+        Team1Gems = GemManager.GetComponent<GemManager>().Team1Gems;
+        Team2Gems = GemManager.GetComponent<GemManager>().Team2Gems;
+
         Team1Text.gameObject.SetActive(false);
         Team2Text.gameObject.SetActive(false);
         Invoke("CallScore", 13);
-
     }
 
     
