@@ -14,6 +14,8 @@ public class Countdown : MonoBehaviour
     [SerializeField]
     private Image go;
 
+    public GameObject timer;
+
     void Start()
     {
         StartCoroutine(Three());
@@ -60,5 +62,6 @@ public class Countdown : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         go.enabled = false;
+        timer.GetComponent<Timer>().StartTiming = true;
     }
 }
