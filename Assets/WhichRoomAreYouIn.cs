@@ -7,7 +7,7 @@ public class WhichRoomAreYouIn : MonoBehaviour
 {
     public float percentdoneteam1;
     public Slider Team1ProgressBar;
-
+    public Slider Team2ProgressBar;
     public float initialdistance;
 
     public GameObject Team1Position;
@@ -15,6 +15,8 @@ public class WhichRoomAreYouIn : MonoBehaviour
     public GameObject FinalPosition;
 
     public float Team1Progress;
+
+    public int TeamNumber;
 
     public bool StartFindingDistance = false;
 
@@ -35,12 +37,32 @@ public class WhichRoomAreYouIn : MonoBehaviour
         Team1Progress = Mathf.Abs((FinalPosition.transform.position.z - Team1Position.transform.position.z) - initialdistance);
         percentdoneteam1 = Team1Progress / initialdistance;
 
+        Team1Position.GetComponentInParent<NetworkPlayer>().SetDistanceAway(percentdoneteam1);
+
     }
+
+
 
     private void Update()
     {
         FindDistance();
-        Team1ProgressBar.value = percentdoneteam1;
+        if(TeamNumber == 1)
+        {
+            Team1ProgressBar.value = percentdoneteam1;
+            Team2ProgressBar.value = GameObject.FindGameObjectWithTag("Team1").GetComponent<NetworkPlayer>().percentdistanceaway;
+           
+            
+        }
+        else if(TeamNumber == 2)
+        {
+            Team2ProgressBar.value = percentdoneteam1;
+            Team1ProgressBar.value = GameObject.FindGameObjectWithTag("Team2").GetComponent<NetworkPlayer>().percentdistanceaway;
+
+        }
+        else
+        {
+            print("team not set");
+        }
     }
 
 }
