@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float moveSpeed = 1f;
     public float maxSpeed = 5;
     public float sprintMultiplier;
-    [Range(1, 2)]
-    public float deceleration = 1f; //lower means slower deceleration
+    [Range(1, 5)]
+    public float deceleration = 5f; //lower means slower deceleration
     [Range(0.001f, 0.3f)]
     public float rotationSpeed; //how fast the model turns. higher is faster
 
@@ -255,7 +255,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if(playerNumber == 1)
             {
-                if (state1.Buttons.A == ButtonState.Pressed && isGrounded && !isRolling)
+                if ((state1.Buttons.A == ButtonState.Pressed && isGrounded && !isRolling) || (Input.GetButtonDown("Run1")))
                 {
                     isGrounded = false;
                     isRolling = true;
@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
             if (playerNumber == 2)
             {
-                if (state2.Buttons.A ==ButtonState.Pressed && isGrounded && !isRolling)
+                if ((state2.Buttons.A ==ButtonState.Pressed && isGrounded && !isRolling) || (Input.GetButtonDown("Run2")))
                 {
                     isGrounded = false;
                     isRolling = true;
@@ -547,7 +547,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //velocity = Vector3.ClampMagnitude(velocity, 1 * moveSpeed) * sprintMod * rollMod; //clamping instead of normalizing
         if ( Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.x) + Mathf.Abs(transform.GetComponent<Rigidbody>().velocity.z) > maxSpeed)
         {
-            transform.GetComponent<Rigidbody>().velocity = new Vector3(transform.GetComponent<Rigidbody>().velocity.x/maxSpeed, transform.GetComponent<Rigidbody>().velocity.y, transform.GetComponent<Rigidbody>().velocity.z / maxSpeed);
+            transform.GetComponent<Rigidbody>().velocity = new Vector3(transform.GetComponent<Rigidbody>().velocity.x/(maxSpeed* deceleration), transform.GetComponent<Rigidbody>().velocity.y, transform.GetComponent<Rigidbody>().velocity.z / (maxSpeed*deceleration));
         }
 
         if(CamParent.GetComponent<CamPlayerFollow>().viewangle == 0 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 3 || CamParent.GetComponent<CamPlayerFollow>().viewangle == 4)
