@@ -7,7 +7,8 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
 {
 
     public RopeGenerator rope;
-
+    public int Gemzzzzzz = 0;
+    public float percentdistanceaway = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,8 +37,29 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
         }
     }
 
+    public void addGemz()
+    {
+        photonView.RPC("SetGemz", RpcTarget.All);
+    }
 
-        private IEnumerator Wait()
+    [PunRPC]
+    void SetGemz()
+    {
+        Gemzzzzzz++;
+    }
+
+    public void SetDistanceAway(float distance)
+    {
+        photonView.RPC("SetDistance", RpcTarget.All, distance);
+    }
+
+    [PunRPC]
+    void SetDistance(float distance)
+    {
+        percentdistanceaway = distance;
+    }
+
+    private IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
         foreach (GameObject joint in rope.GetComponent<RopeGenerator>().ropeJoints)
@@ -46,5 +68,7 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
             //joint.GetComponent<Rigidbody>().useGravity = false;
         }
     }
+
+
 }
 

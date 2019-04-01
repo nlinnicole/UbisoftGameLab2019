@@ -182,6 +182,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 holdReset();
             }
         }
+
+        if(Input.GetKey(KeyCode.R) && !rope.isBroken && !GetComponent<Health>().onOxygen)
+        {
+            holdReset();
+        }
+
+        if (state2.Buttons.B != ButtonState.Pressed && state1.Buttons.B != ButtonState.Pressed && !Input.GetKey(KeyCode.R))
+        {
+            resetImage.fillAmount -= Time.deltaTime / 3;
+        }
     }
 
     void FixedUpdate()
@@ -237,10 +247,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //    holdReset();
         //}
 
-        if (!Input.GetButton("Reset" + 1) && !Input.GetButton("Reset" + 2))
-        {
-            resetImage.fillAmount -= Time.deltaTime/3;
-        }
+ 
 
 
         //roll
