@@ -11,7 +11,8 @@ namespace Concordia1.Gamelab
     public class GameManager : MonoBehaviourPunCallbacks
     {
 
-        public GameObject startPos;
+        public GameObject startPos1;
+        public GameObject startPos2;
         bool ready = false;
         public GameObject playerPrefab;
         public GameObject playerPrefab2;
@@ -39,9 +40,9 @@ namespace Concordia1.Gamelab
             if (playerPrefab != null)
             {
                 if (PhotonNetwork.IsMasterClient)
-                    PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(22f, 5f, 10f), Quaternion.identity, 0);
+                    PhotonNetwork.Instantiate(this.playerPrefab.name, startPos1.transform.position, Quaternion.identity, 0);
                 else
-                    PhotonNetwork.Instantiate(this.playerPrefab2.name, new Vector3(-22f, 5f, 10f), Quaternion.identity, 0);
+                    PhotonNetwork.Instantiate(this.playerPrefab2.name, startPos2.transform.position, Quaternion.identity, 0);
             }
 
         }
