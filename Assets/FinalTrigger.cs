@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FinalTrigger : MonoBehaviour
 {
+    [SerializeField]
+    private Canvas canvas;
 
     GameObject Player;
 
@@ -14,7 +16,7 @@ public class FinalTrigger : MonoBehaviour
             other.GetComponent<EneteredFinalPlatform>().reachedend = true;
             other.GetComponentInChildren<MoveLeft>().reachedend = true;
             other.GetComponentInChildren<MoveRight>().reachedend = true;
-
+            canvas.GetComponent<EndCount>().enabled = true;
 
         }
         

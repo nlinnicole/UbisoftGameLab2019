@@ -43,6 +43,9 @@ public class TwitchManager : MonoBehaviour
 
     public int buffindex = 0;
 
+    public Animator Option1;
+    public Animator Option2;
+
 
 
     public string username, password, channelName; //Get the password from https://twitchapps.com/tmi
@@ -117,6 +120,10 @@ public class TwitchManager : MonoBehaviour
 
     void RunningEvent()
     {
+        Option1.SetBool("Option1", false);
+        Option2.SetBool("Option2", false);
+
+
         team1twitchmode = false;
         team2twitchmode = false;
         chatmode = false;
@@ -127,23 +134,23 @@ public class TwitchManager : MonoBehaviour
         if(buffindex == 0)
         {
             currentmsg = "Vote Now!";
-            option1msg = "Double Gems?";
-            option2msg = "Twitch Chat mode?";
+            option1msg = "Double Gems";
+            option2msg = "Twitch Chat Mode";
 
             //Increment the buff here
             buffindex++;
         }else if
         (buffindex == 1)
         {
-            option1msg = "Ads?";
-            option2msg = "Twitch Chat mode?";
+            option1msg = "Advertisements";
+            option2msg = "Twitch Chat Mode";
             currentmsg = "Vote Now!";
             buffindex++;
 
         }else if(buffindex == 2)
         {
-            option1msg = "Ads?";
-            option2msg = "Double Gems?";
+            option1msg = "Advertisements";
+            option2msg = "Double Gems";
             currentmsg = "Vote Now!";
             buffindex++;
         }
@@ -170,23 +177,28 @@ public class TwitchManager : MonoBehaviour
             if (buffindex == 1)
             {
                 currentmsg = "Double Gems for Everyone!";
-                option1msg = "";
                 option2msg = "";
-
+                Option2.SetBool("Option2", true);
                 buffTextTimer.text = "";
                 //Enabled Double Gems NEEDS TO BE ADDED
                 
             }
             if(buffindex == 2)
             {
+                currentmsg = "Double Gems for Everyone!";
+                option2msg = "";
+                Option2.SetBool("Option2", true);
+                buffTextTimer.text = "";
                 chatmode = true;
-                currentmsg = "We'd love to know your opinion on these products!";
                 RunAds();
                 team1twitchmode = true;
                 
             }
             if (buffindex == 3)
             {
+                currentmsg = "Double Gems for Everyone!";
+                option2msg = "";
+                Option2.SetBool("Option2", true);
                 currentmsg = "We'd love to know your opinion on these products!";
                 RunAds();
                 buffindex = 0;
@@ -201,28 +213,25 @@ public class TwitchManager : MonoBehaviour
                 //Gems worth * 2
                 currentmsg = "Twitch Chat Mode Enabled!";
                 buffTextTimer.text = "";
+                Option1.SetBool("Option1", true);
                 option1msg = "";
-                option2msg = "";
                 chatmode = true;
 
             }
             if (buffindex == 2)
             {
                 chatmode = true;
-                currentmsg = "Twitch Chat Mode Enabled!";
                 buffTextTimer.text = "";
+                Option1.SetBool("Option1", true);
                 option1msg = "";
-                option2msg = "";
                 chatmode = true;
 
             }
             if (buffindex == 3)
             {
-                currentmsg = "Double Gems for Everyone!";
-                //Enabled Double Gems NEEDS TO BE ADDED
                 buffTextTimer.text = "";
+                Option1.SetBool("Option1", true);
                 option1msg = "";
-                option2msg = "";
                 buffindex = 0;
                 RunAds();
             }
@@ -276,7 +285,7 @@ public class TwitchManager : MonoBehaviour
                         GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
                         chatmessage.transform.parent = Team1Canvas.transform;
                         spawncounter++;
-                        if (spawncounter > 2)
+                        if (spawncounter > 10)
                         {
                             spawncounter = 0;
                         }
@@ -286,7 +295,7 @@ public class TwitchManager : MonoBehaviour
                         GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
                         chatmessage.transform.parent = Team2Canvas.transform;
                         spawncounter++;
-                        if (spawncounter > 2)
+                        if (spawncounter > 10)
                         {
                             spawncounter = 0;
                         }
@@ -296,7 +305,7 @@ public class TwitchManager : MonoBehaviour
                         GameObject chatmessage = Instantiate(ChatMessage, ChatMessageSpawn[spawncounter].position, Quaternion.identity);
                         chatmessage.transform.parent = Canvas.transform;
                         spawncounter++;
-                        if (spawncounter > 2)
+                        if (spawncounter > 10)
                         {
                             spawncounter = 0;
                         }
@@ -318,11 +327,11 @@ public class TwitchManager : MonoBehaviour
     {
         if (eventrunning)
         {
-            if (ChatInputs.ToLower() == "left")
+            if (ChatInputs.ToLower() == "1")
             {
                 votecounter++;
             }
-            if (ChatInputs.ToLower() == "right")
+            if (ChatInputs.ToLower() == "2")
             {
                 votecounter--;
             }

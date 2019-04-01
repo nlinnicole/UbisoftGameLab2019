@@ -21,9 +21,15 @@ public class EneteredFinalPlatform : MonoBehaviour
     public float platformspeed = 1;
     public float acceleration = 0;
     public float factor = 0.01f;
+
+    public GameObject player;
+
+    Vector3 startPos;
+
     private void Start()
     {
         counter = 0;
+        startPos = this.transform.position;
         
     }
 
@@ -31,6 +37,7 @@ public class EneteredFinalPlatform : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            player = other.gameObject;
             counter++;
         }
 
@@ -81,6 +88,16 @@ public class EneteredFinalPlatform : MonoBehaviour
 
     private void Update()
     {
+
+        if(player != null)
+        {
+            if (player.GetComponent<PlayerController>().rope.isBroken)
+            {
+                this.transform.position = startPos;
+            }
+        }
+
+
 
         if (reachedend)
         {

@@ -9,7 +9,7 @@ namespace Concordia1.Gamelab
 {
     public class Launcher : MonoBehaviourPunCallbacks
     {
-   
+
         [SerializeField]
         private byte maxPlayersPerRoom = 2;
         bool isConnecting;
@@ -45,8 +45,8 @@ namespace Concordia1.Gamelab
             controlPanel.SetActive(false);
             if (PhotonNetwork.IsConnected)
             {
-                //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
 
             }
             else
@@ -61,8 +61,8 @@ namespace Concordia1.Gamelab
             Debug.Log("Joined Master room");
             if (isConnecting)
             {
-                //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
+                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null, null);
             }
         }
 
@@ -85,6 +85,7 @@ namespace Concordia1.Gamelab
             Debug.Log("Room gen failed " + returnCode + "  " + message);
             base.OnCreateRoomFailed(returnCode, message);
         }
+
 
         public override void OnJoinedRoom()
         {
