@@ -21,7 +21,7 @@ public class Gem : MonoBehaviour
 
             Destroy(GetComponent<SphereCollider>());
             Destroy(diamond);
-            other.gameObject.GetComponent<PlayerController>().GetComponentInParent<NetworkPlayer>().addGemz();
+       //     other.gameObject.GetComponent<PlayerController>().GetComponentInParent<NetworkPlayer>().addGemz();
             particle.Play();
             Destroy(gameObject, 3);
         }

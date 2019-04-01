@@ -11,6 +11,7 @@ public class HeadDetect : MonoBehaviour
         if(other.gameObject.layer == 15)
         {
             player.inDeathZone = true;
+            AkSoundEngine.PostEvent("splash", GameObject.FindGameObjectWithTag("Player"));
         }
     }
 }

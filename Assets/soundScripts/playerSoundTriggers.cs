@@ -21,6 +21,7 @@ public class playerSoundTriggers : MonoBehaviour
 
     void Start()
     {
+            playerNumber = gameObject.GetComponent<PlayerController>().playerNumber;
     }
 
     // Update is called once per frame
@@ -29,7 +30,13 @@ public class playerSoundTriggers : MonoBehaviour
 
         // -------------- ROLL ----------------------------
         currentlyRolling = gameObject.GetComponent<PlayerController>().isRolling;
-        rollMod = gameObject.GetComponent<PlayerController>().rollMod;
+        if(playerNumber==1){
+           rollMod = gameObject.GetComponent<PlayerController>().rollMod;
+        }
+        else  if(playerNumber==2){
+           rollMod = gameObject.GetComponent<PlayerController>().rollMod2;
+        }
+     
 
         if (currentlyRolling && !rollStarted)
         {
@@ -67,7 +74,7 @@ public class playerSoundTriggers : MonoBehaviour
 
 
         // -------------- STEPS ----------------------------
-        playerNumber = gameObject.GetComponent<PlayerController>().playerNumber;
+
 
         //movement
         if (

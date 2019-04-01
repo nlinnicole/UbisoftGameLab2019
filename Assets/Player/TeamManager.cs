@@ -77,6 +77,10 @@ public class TeamManager : MonoBehaviour
             player2Health.Reset();
 
             respawn();
+
+            // trigger respawn event
+            GameObject.FindWithTag("RoomGenerator").GetComponent<BGMchanges>().SetRandomVoiceState();
+            AkSoundEngine.PostEvent("playersDead", player1);
         }
 
     }

@@ -30,6 +30,9 @@ public class PopUps : MonoBehaviour
             swearing = true;
             swearCountdown = 10;
             swearTime = 0;
+
+            // post the appropriate grunt
+            AkSoundEngine.PostEvent("gruntP" + player.GetComponent<PlayerController>().playerNumber, player);
         }
 
         if(swearing)
