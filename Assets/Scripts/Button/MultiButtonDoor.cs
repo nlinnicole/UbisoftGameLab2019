@@ -33,6 +33,9 @@ public class MultiButtonDoor : MonoBehaviour
 
     private bool setTimer = true;
 
+    [SerializeField]
+    private Canvas canvas;
+
     void Start()
     {
         door1OpenHeight = (door1.GetComponent<Collider>().bounds.size.y) * 2;
@@ -48,6 +51,7 @@ public class MultiButtonDoor : MonoBehaviour
             if (setTimer)
             {
                 timeCounter = Time.time;
+                canvas.GetComponent<Countdown>().enabled = true;
                 setTimer = false;
             }
 

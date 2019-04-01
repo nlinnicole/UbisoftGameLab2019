@@ -134,7 +134,7 @@ public class RoomGenerator : MonoBehaviour
                 team1InFirstRoom = false;
             }
         }
-        else if(team1CurrentRoom > 3)
+        else if(team1CurrentRoom >= 3)
         {
 
         }
@@ -156,6 +156,10 @@ public class RoomGenerator : MonoBehaviour
                 team2CurrentRoom++;
             }
         }
+        else if (team2CurrentRoom >= 3)
+        {
+
+        }
         else
         {
             //check which room the players choose
@@ -169,7 +173,7 @@ public class RoomGenerator : MonoBehaviour
     public Transform GetCurrentRespawn(int teamNb){
       if (teamNb == 1)
       {
-        if(team1CurrentRoom > 3)
+            if(team1CurrentRoom > 3)
             {
                 return finalRoomTeam1.transform;
             } else
@@ -177,6 +181,7 @@ public class RoomGenerator : MonoBehaviour
                 return Team1Rooms[team1CurrentRoom].GetComponent<Room>().respawnPoint.transform;
             }
         } else {
+            
             if(team2CurrentRoom > 3)
             {
                 return finalRoomTeam2.transform;
