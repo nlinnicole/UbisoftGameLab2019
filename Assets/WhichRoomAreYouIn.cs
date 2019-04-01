@@ -5,54 +5,42 @@ using UnityEngine;
 using UnityEngine.UI;
 public class WhichRoomAreYouIn : MonoBehaviour
 {
-    public int teamnumber;
-
-    public float percentdone;
-
-    public Slider ProgressBar;
+    public float percentdoneteam1;
+    public Slider Team1ProgressBar;
 
     public float initialdistance;
 
-    public GameObject MyTeamPos, Team2Position;
+    public GameObject Team1Position;
 
     public GameObject FinalPosition;
 
-    public float MyTeamProgress;
-    public float Team2Progress;
+    public float Team1Progress;
 
-    private void Start()
+    public bool StartFindingDistance = false;
+
+    public void Awake()
     {
-
-
-        if(teamnumber == 1)
-        {
-            //Team2Position = GameObject.FindGameObjectWithTag("Team2Pos");
-        }else if(teamnumber == 2)
-        {
-            //Team2Position = GameObject.FindGameObjectWithTag("Team1Pos");
-        }
-
-        FinalPosition = GameObject.FindGameObjectWithTag("FinalPoint");
-
-        initialdistance = Math.Abs(FinalPosition.transform.position.z - MyTeamPos.transform.position.z);
-
-        ProgressBar.value = percentdone;
 
     }
 
 
     void FindDistance()
     {
-        MyTeamProgress = Math.Abs(FinalPosition.transform.position.z - MyTeamPos.transform.position.z);
+        if (StartFindingDistance)
+        {
+            initialdistance = Math.Abs(FinalPosition.transform.position.z - Team1Position.transform.position.z);
+            StartFindingDistance = false;
+        }
 
-        percentdone = Math.Abs(MyTeamProgress - initialdistance) / initialdistance;
-        //Team2Progress = Math.Abs(FinalPosition.transform.position.z - Team2Position.transform.position.z);
+        Team1Progress = Mathf.Abs((FinalPosition.transform.position.z - Team1Position.transform.position.z) - initialdistance);
+        percentdoneteam1 = Team1Progress / initialdistance;
+
     }
 
     private void Update()
     {
         FindDistance();
-        ProgressBar.value = percentdone;
+        Team1ProgressBar.value = percentdoneteam1;
     }
 
 }

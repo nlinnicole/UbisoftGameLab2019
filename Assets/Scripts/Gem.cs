@@ -21,7 +21,7 @@ public class Gem : MonoBehaviour
 
             Destroy(GetComponent<SphereCollider>());
             Destroy(diamond);
-            //other.gameObject.GetComponent<PlayerController>().teamManager.GetComponent<TeamManager>().gemCount++;
+            other.gameObject.GetComponent<PlayerController>().GetComponentInParent<NetworkPlayer>().addGemz();
             particle.Play();
             Destroy(gameObject, 3);
         }
@@ -30,7 +30,6 @@ public class Gem : MonoBehaviour
 
     private void Update()
     {
-        transform.position += new Vector3(0, Mathf.Cos(Time.time) * floatAmount, 0);
         transform.Rotate(new Vector3(0, Time.deltaTime * spinSpeed, 0));
     }
 }
